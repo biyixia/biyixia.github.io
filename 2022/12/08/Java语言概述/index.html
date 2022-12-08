@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2022/12 |  biyixia</title>
+      <title>Java语言概述 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,131 +56,198 @@
       
     <main class="content on">
       <section class="outer">
+  <article
+  id="post-Java语言概述"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Java语言概述
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time datetime="2022-12-08T11:19:36.508Z" itemprop="datePublished">2022-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+  </div>
   
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
-            </a>
-        </li>
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
-                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
-            </a>
-        </li>
-    
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">444</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+<span id="more"></span>
+
+<h1 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h1><h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
+<h2 id="面向对象（封装、继承、多态）"><a href="#面向对象（封装、继承、多态）" class="headerlink" title="面向对象（封装、继承、多态）"></a>面向对象（封装、继承、多态）</h2><h2 id="健壮"><a href="#健壮" class="headerlink" title="健壮"></a>健壮</h2><p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>Java支持<strong>多条线程并发进行</strong></p>
+<h2 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h2><p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
+<h1 id="Java技术体系平台"><a href="#Java技术体系平台" class="headerlink" title="Java技术体系平台"></a>Java技术体系平台</h1><h2 id="JavaSE"><a href="#JavaSE" class="headerlink" title="JavaSE"></a>JavaSE</h2><p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
+<h2 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h2><p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
+<h2 id="JavaME"><a href="#JavaME" class="headerlink" title="JavaME"></a>JavaME</h2><p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
+<h2 id="三者之间的关系"><a href="#三者之间的关系" class="headerlink" title="三者之间的关系"></a>三者之间的关系</h2><p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
+<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
+
+<h1 id="JVM、JRE、JDK三者关系"><a href="#JVM、JRE、JDK三者关系" class="headerlink" title="JVM、JRE、JDK三者关系"></a>JVM、JRE、JDK三者关系</h1><h2 id="JVM（Java-Virtual-Machine）"><a href="#JVM（Java-Virtual-Machine）" class="headerlink" title="JVM（Java Virtual Machine）"></a>JVM（Java Virtual Machine）</h2><p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
+<p>JVM如何实现Java跨平台运行？</p>
+<ul>
+<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
+<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
 </ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">2022/12</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  <time datetime="2022-12-08T12:09:05.524Z" itemprop="datePublished">12/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"
-    >JDK的安装及环境变量的配置</a> 
-</h2>
- 
+<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" class="archive-article-date">
-  <time datetime="2022-12-08T11:19:36.508Z" itemprop="datePublished">12/08</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"
-    >Java语言概述</a> 
-</h2>
+<h2 id="JRE（Java-Runtime-Environment）"><a href="#JRE（Java-Runtime-Environment）" class="headerlink" title="JRE（Java Runtime Environment）"></a>JRE（Java Runtime Environment）</h2><p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
+<h2 id="JDK（Java-Development-Kit）"><a href="#JDK（Java-Development-Kit）" class="headerlink" title="JDK（Java Development Kit）"></a>JDK（Java Development Kit）</h2><p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
+<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
  
-
-    </header>
-    
-    
-  </div>
-</article>
+      <!-- reward -->
       
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  <time datetime="2022-12-07T12:35:19.913Z" itemprop="datePublished">12/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
-    >DOS常用命令</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  <time datetime="2022-12-07T02:51:42.989Z" itemprop="datePublished">12/07</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/"
-    >Markdown 入门使用</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
   </div>
-  
-  
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JDK的安装及环境变量的配置
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">DOS常用命令</div>
+      </a>
+    
+  </nav>
 
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -329,6 +396,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

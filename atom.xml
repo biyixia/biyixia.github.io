@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-08T09:03:18.254Z</updated>
+  <updated>2022-12-08T13:11:45.217Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JDK的安装及环境变量的配置</title>
+    <link href="http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <published>2022-12-08T12:09:05.524Z</published>
+    <updated>2022-12-08T13:11:45.217Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;JDK是Java开发的重要工具，安装JDK是学好Java的第一步&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java语言概述</title>
+    <link href="http://example.com/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"/>
+    <id>http://example.com/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-12-08T11:19:36.508Z</published>
+    <updated>2022-12-08T13:13:14.645Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;Java 是一种&lt;strong&gt;高级的、面向对象的、健壮的、多线程的、可跨平台的&lt;/strong&gt;程序设计语言&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>DOS常用命令</title>
