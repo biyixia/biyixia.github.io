@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>DOS常用命令</title>
+    <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="DOS常用命令"><a href="#DOS常用命令" class="headerlink" title="DOS常用命令"></a>DOS常用命令</h1><h2 id="DOS命令的基础使用："><a href="#DOS命令的基础使用：" class="headerlink" title="DOS命令的基础使用："></a>DOS命令的基础使用：</h2><span id="more"></span>
+
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a><code>dir</code></h3><ul>
+<li>查看当前目录，其中dir指directory</li>
+</ul>
+<h3 id="mkdir-md"><a href="#mkdir-md" class="headerlink" title="mkdir(md)"></a><code>mkdir</code>(md)</h3><ul>
+<li>创建文件夹</li>
+</ul>
+<h3 id="rmdir-rd"><a href="#rmdir-rd" class="headerlink" title="rmdir(rd)"></a><code>rmdir</code>(rd)</h3><ul>
+<li>删除文件夹，若要删除非空的文件夹，需要<code>-s</code>来强行删除该文件夹下的所有子文件夹与文件，再加上<code>-q</code>则无需确认（安静模式）</li>
+</ul>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a><code>cd</code></h3><ul>
+<li><p>可以跳转至当前目录的所有子孙目录，但无法进行跨盘符跳转；若要进行跨盘符跳转，则使用“盘符”+“:”，例如<code>c:</code>,<code>d:</code>,<code>e:</code></p>
+</li>
+<li><p>特别地，<code>cd .\</code>表示当前目录<code>cd ..</code> 表示返回上一级目录,<code>cd \</code> 表示返回根目录</p>
+</li>
+</ul>
+<h3 id="echo-回声"><a href="#echo-回声" class="headerlink" title="echo(回声)"></a><code>echo</code>(回声)</h3><ul>
+<li><code>echo 123</code>只使用echo + 字符串，则表示打印该字符串</li>
+<li><code>echo 123 &gt; d:\hello.txt </code>加上大于号，表示将打印的字符串重定向到指定位置，此时对同一个文件多次echo将会覆盖上次写的内容</li>
+<li><code>echo 123 &gt;&gt; d:\hello.txt</code> 两个大于号可对上次写下的内容进行叠加</li>
+</ul>
+<h3 id="del"><a href="#del" class="headerlink" title="del"></a><code>del</code></h3><ul>
+<li>删除文件</li>
+<li><code>del *.txt</code> 通配符删除，意为将当前目录下所有后缀为txt的文·件删除</li>
+</ul>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a><code>type</code></h3><ul>
+<li>仅能查看文本文件内容</li>
+</ul>
+<h3 id="cls"><a href="#cls" class="headerlink" title="cls"></a><code>cls</code></h3><ul>
+<li>clean sreen 清空屏幕</li>
+</ul>
+<h3 id="tree"><a href="#tree" class="headerlink" title="tree"></a><code>tree</code></h3><ul>
+<li>以树形显示该目录下的所有文件夹</li>
+<li>加上<code>-f</code> 可同时显示该目录下的所有文件</li>
+</ul>
+<h2 id="绝对路径与相对路径："><a href="#绝对路径与相对路径：" class="headerlink" title="绝对路径与相对路径："></a>绝对路径与相对路径：</h2><ul>
+<li><p>绝对路径：从盘符开始的路径</p>
+</li>
+<li><p>相对路径：从当前目录开始的路径</p>
+</li>
+</ul>
+<h2 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h2><ul>
+<li><p><code>ping</code> 检查是否可以和其他主机通信</p>
+<p><code>-t</code> 不间断发送数据包</p>
+</li>
+<li><p><code>ipconfig</code> 查看网卡信息</p>
+<p><code>/all</code> 查看详细的网卡信息</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Markdown 入门使用</title>
+    <url>/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><span id="more"></span>
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题1</span></span><br><span class="line"><span class="section">## 标题2</span></span><br><span class="line"><span class="section">### 标题3</span></span><br><span class="line"><span class="section">#### 标题4</span></span><br><span class="line"><span class="section">##### 标题5</span></span><br><span class="line"><span class="section">###### 标题6</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6></blockquote>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">把大象放进冰箱：</span><br><span class="line"><span class="bullet">1.</span> 打开冰箱</span><br><span class="line"><span class="bullet">2.</span> 把大象放进冰箱</span><br><span class="line"><span class="bullet">3.</span> 关上冰箱</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>把大象放进冰箱:</p>
+<ol>
+<li>打开冰箱</li>
+<li>把大象放进冰箱</li>
+<li>关上冰箱</li>
+</ol>
+</blockquote>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">无序列表：</span><br><span class="line"><span class="bullet">-</span> 所爱扥就</span><br><span class="line"><span class="bullet">-</span> 撒欧丹发腮</span><br><span class="line"><span class="bullet">-</span> 哦啊赛季反扒</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>无序列表：</p>
+<ul>
+<li>所爱扥就</li>
+<li>撒欧丹发腮</li>
+<li>哦啊赛季反扒</li>
+</ul>
+</blockquote>
+<h2 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">明天要做的事：	</span><br><span class="line"><span class="bullet">-</span> [ ] 吃饭	//每个字符之间由空格隔开	</span><br><span class="line"><span class="bullet">-</span> [ ] 睡觉</span><br><span class="line"><span class="bullet">-</span> [ ] 打豆豆</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>明天要做的事：</p>
+<ul>
+<li><input disabled type="checkbox"> 吃饭</li>
+<li><input disabled type="checkbox"> 睡觉</li>
+<li><input disabled type="checkbox"> 打豆豆</li>
+</ul>
+</blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">``` c      //选择语言</span></span><br><span class="line"><span class="code">int main()&#123;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt;<span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="数学公式："><a href="#数学公式：" class="headerlink" title="数学公式："></a>数学公式：</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\frac&#123;\partial f&#125;&#123;\partial x&#125; = 2\sqrt&#123;a&#125;x</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
+</blockquote>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|姓名|年龄|成绩|</span><br><span class="line">|:--|--:|:-----:| </span><br><span class="line"><span class="code">			//冒号靠左为左对齐，靠右为右对齐，两边都有冒号为居中对齐</span></span><br><span class="line"><span class="code">|张三|18|90|</span></span><br><span class="line"><span class="code">|李四|20|89|</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="right">年龄</th>
+<th align="center">成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">张三</td>
+<td align="right">18</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="left">李四</td>
+<td align="right">20</td>
+<td align="center">89</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一条注释[^注释]</span><br><span class="line">[<span class="symbol">^注释</span>]:<span class="link">这是注释的注释。</span></span><br><span class="line"> ---</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是一条注释[^注释]<br>[^注释]:这是注释的注释。</p>
+<hr>
+</blockquote>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">www.baidu.com &quot;一个搜索引擎&quot;</span>)</span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">id</span>]</span><br><span class="line">[<span class="symbol">id</span>]:<span class="link">www.baidu.com &quot;一个搜索引擎&quot;</span></span><br><span class="line"></span><br><span class="line">请参考[<span class="string">标题1</span>](<span class="link">#标题：</span>)</span><br><span class="line"></span><br><span class="line">URL：</span><br><span class="line">http://www.baidu.com</span><br><span class="line"></span><br><span class="line">![<span class="string">百度</span>](<span class="link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="baidu.com" title="一个搜索引擎">百度</a><br><a href="www.baidu.com" title="一个搜索引擎">百度</a></p>
+<p>请参考<a href="#%E6%A0%87%E9%A2%98%EF%BC%9A">标题1</a></p>
+<p>URL：<br><a href="http://www.baidu.com/">http://www.baidu.com</a></p>
+<p><img src="https://pic.imgdb.cn/item/63914551b1fccdcd36559921.png%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%22" alt="百度"></p>
+</blockquote>
+<h2 id="字体变化"><a href="#字体变化" class="headerlink" title="字体变化"></a>字体变化</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="strong">**加粗**</span></span><br><span class="line"><span class="code">`行内代码printf()`</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">:smile:</span><br><span class="line">$\theta=x^2$</span><br><span class="line">H~2~O,x^2^</span><br><span class="line">==这是一段高亮文字==</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>斜体</em><br><strong>加粗</strong><br><code>行内代码printf()</code><br><u>下划线</u><br>:smile:<br>$\theta&#x3D;x^2$<br>H<del>2</del>O,x^2^<br>&#x3D;&#x3D;这是一段高亮文字&#x3D;&#x3D;</p>
+</blockquote>
+<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+]]></content>
+  </entry>
+</search>
