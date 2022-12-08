@@ -3,14 +3,14 @@
   <entry>
     <title>DOS常用命令</title>
     <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="DOS常用命令"><a href="#DOS常用命令" class="headerlink" title="DOS常用命令"></a>DOS常用命令</h1><h2 id="DOS命令的基础使用："><a href="#DOS命令的基础使用：" class="headerlink" title="DOS命令的基础使用："></a>DOS命令的基础使用：</h2><span id="more"></span>
-
-<h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a><code>dir</code></h3><ul>
+    <content><![CDATA[<h2 id="DOS命令的基础使用："><a href="#DOS命令的基础使用：" class="headerlink" title="DOS命令的基础使用："></a>DOS命令的基础使用：</h2><h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a><code>dir</code></h3><ul>
 <li>查看当前目录，其中dir指directory</li>
 </ul>
 <h3 id="mkdir-md"><a href="#mkdir-md" class="headerlink" title="mkdir(md)"></a><code>mkdir</code>(md)</h3><ul>
 <li>创建文件夹</li>
 </ul>
+<span id="more"></span>
+
 <h3 id="rmdir-rd"><a href="#rmdir-rd" class="headerlink" title="rmdir(rd)"></a><code>rmdir</code>(rd)</h3><ul>
 <li>删除文件夹，若要删除非空的文件夹，需要<code>-s</code>来强行删除该文件夹下的所有子文件夹与文件，再加上<code>-q</code>则无需确认（安静模式）</li>
 </ul>
@@ -59,9 +59,9 @@
     <title>Markdown 入门使用</title>
     <url>/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><span id="more"></span>
+<span id="more"></span>
 
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题1</span></span><br><span class="line"><span class="section">## 标题2</span></span><br><span class="line"><span class="section">### 标题3</span></span><br><span class="line"><span class="section">#### 标题4</span></span><br><span class="line"><span class="section">##### 标题5</span></span><br><span class="line"><span class="section">###### 标题6</span></span><br></pre></td></tr></table></figure>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题1</span></span><br><span class="line"><span class="section">## 标题2</span></span><br><span class="line"><span class="section">### 标题3</span></span><br><span class="line"><span class="section">#### 标题4</span></span><br><span class="line"><span class="section">##### 标题5</span></span><br><span class="line"><span class="section">###### 标题6</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6></blockquote>
