@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-08T06:02:05.557Z</updated>
+  <updated>2022-12-08T09:03:18.254Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>http://example.com/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2022-12-07T12:35:19.913Z</published>
-    <updated>2022-12-08T06:02:05.557Z</updated>
+    <updated>2022-12-08T09:03:18.254Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;DOS命令的基础使用：&quot;&gt;&lt;a href=&quot;#DOS命令的基础使用：&quot; class=&quot;headerlink&quot; title=&quot;DOS命令的基础使用：&quot;&gt;&lt;/a&gt;DOS命令的基础使用：&lt;/h2&gt;&lt;h3 id=&quot;dir&quot;&gt;&lt;a href=&quot;#dir&quot; class=&quot;headerlink&quot; title=&quot;dir&quot;&gt;&lt;/a&gt;&lt;code&gt;dir&lt;/code&gt;&lt;/h3&gt;&lt;ul&gt;
@@ -33,6 +33,10 @@
     
     
     
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+    <category term="Dos" scheme="http://example.com/tags/Dos/"/>
     
   </entry>
   
@@ -41,12 +45,14 @@
     <link href="http://example.com/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/"/>
     <id>http://example.com/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</id>
     <published>2022-12-07T02:51:42.989Z</published>
-    <updated>2022-12-08T06:01:30.472Z</updated>
+    <updated>2022-12-08T09:06:31.511Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。&lt;/p&gt;</summary>
     
     
+    
+    <category term="Markdown" scheme="http://example.com/categories/Markdown/"/>
     
     
   </entry>
