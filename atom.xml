@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-09T00:48:20.739Z</updated>
+  <updated>2022-12-09T12:36:51.713Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,109 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>标识符</title>
+    <link href="http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
+    <id>http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
+    <published>2022-12-09T11:49:37.315Z</published>
+    <updated>2022-12-09T12:36:51.713Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java文档注释</title>
+    <link href="http://example.com/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/"/>
+    <id>http://example.com/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</id>
+    <published>2022-12-09T11:40:20.095Z</published>
+    <updated>2022-12-09T11:50:52.353Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;于编程者而言，书写注释是编程路上必须具有的良好习惯&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>常用文本编辑快捷键</title>
+    <link href="http://example.com/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://example.com/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2022-12-09T11:26:25.849Z</published>
+    <updated>2022-12-09T11:35:53.107Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;快捷键&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;使用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;ctrl+c&lt;/td&gt;
+&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java加载及执行原理</title>
+    <link href="http://example.com/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/"/>
+    <id>http://example.com/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</id>
+    <published>2022-12-09T10:35:42.688Z</published>
+    <updated>2022-12-09T11:27:18.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;Java程序执行原理&quot;&gt;&lt;a href=&quot;#Java程序执行原理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JDK的安装及环境变量的配置</title>
     <link href="http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
     <id>http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
     <published>2022-12-08T12:09:05.524Z</published>
-    <updated>2022-12-09T00:48:20.739Z</updated>
+    <updated>2022-12-09T11:39:45.187Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;JDK是Java开发的重要工具，安装JDK是学好Java的第一步&lt;/p&gt;</summary>

@@ -73,7 +73,7 @@
 <img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
 
 <p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
-<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom:50%;">
+<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
 
 <p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
@@ -82,25 +82,29 @@
 <li><p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
 </li>
 </ul>
-<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom:50%;">
+<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
 
 <h1 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h1><h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
-<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom:50%;">
+<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
 
 <h2 id="JAVA-HOME"><a href="#JAVA-HOME" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h2><p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
-<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom:50%;">
+<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
 
-<h2 id="CLASSHOME"><a href="#CLASSHOME" class="headerlink" title="CLASSHOME"></a>CLASSHOME</h2><p>同理添加一个名为CLASSPATH的变量，变量值为<code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
+<h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
+<img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
+
+<h2 id="CLASSPATH"><a href="#CLASSPATH" class="headerlink" title="CLASSPATH"></a>CLASSPATH</h2><p>同理添加一个名为CLASSPATH的变量，变量值为</p>
+<p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
 <p>这里需注意：</p>
 <ul>
 <li>CLASSPATH变量中的字符必须是英文字符</li>
 <li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
 </ul>
-<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom:50%;">
+<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
 
 <p>随后一路确定，即配置完成</p>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
-<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 67%;">
+<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
 
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="为什么要配置环境变量"><a href="#为什么要配置环境变量" class="headerlink" title="为什么要配置环境变量?"></a>为什么要配置环境变量?</h2><h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
 <p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
@@ -108,38 +112,71 @@
 <h3 id="JAVA-HOME-1"><a href="#JAVA-HOME-1" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h3><p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
 <p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
 <p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
+<h3 id="CLASSPATH（一般不需配置）"><a href="#CLASSPATH（一般不需配置）" class="headerlink" title="CLASSPATH（一般不需配置）"></a>CLASSPATH（一般不需配置）</h3><p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
+<p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
+<p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
+<ul>
+<li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
+<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
+
+<p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
+
+<p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
 ]]></content>
       <categories>
         <category>第一阶段</category>
       </categories>
   </entry>
   <entry>
-    <title>Java语言概述</title>
-    <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+    <title>Java加载及执行原理</title>
+    <url>/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="Java程序执行原理"><a href="#Java程序执行原理" class="headerlink" title="Java程序执行原理"></a>Java程序执行原理</h1><p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
+<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
+<h1 id="源文件、类、字节码文件"><a href="#源文件、类、字节码文件" class="headerlink" title="源文件、类、字节码文件"></a>源文件、类、字节码文件</h1><ul>
+<li>源文件中可包含一个或多个类</li>
+<li>源文件中至多有一个类被public修饰，当源文件中有public修饰类，原文件名必须与public修饰类名一致，当源文件中没有public修饰类，则源文件名与类名没有关系</li>
+<li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
+<li>执行过程中，只需要指定字节码文件运行</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java文档注释</title>
+    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ul>
+<li><p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li><p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li><p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
 <span id="more"></span>
 
-<h1 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h1><h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
-<h2 id="面向对象（封装、继承、多态）"><a href="#面向对象（封装、继承、多态）" class="headerlink" title="面向对象（封装、继承、多态）"></a>面向对象（封装、继承、多态）</h2><h2 id="健壮"><a href="#健壮" class="headerlink" title="健壮"></a>健壮</h2><p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>Java支持<strong>多条线程并发进行</strong></p>
-<h2 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h2><p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
-<h1 id="Java技术体系平台"><a href="#Java技术体系平台" class="headerlink" title="Java技术体系平台"></a>Java技术体系平台</h1><h2 id="JavaSE"><a href="#JavaSE" class="headerlink" title="JavaSE"></a>JavaSE</h2><p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
-<h2 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h2><p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
-<h2 id="JavaME"><a href="#JavaME" class="headerlink" title="JavaME"></a>JavaME</h2><p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
-<h2 id="三者之间的关系"><a href="#三者之间的关系" class="headerlink" title="三者之间的关系"></a>三者之间的关系</h2><p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
-<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
-
-<h1 id="JVM、JRE、JDK三者关系"><a href="#JVM、JRE、JDK三者关系" class="headerlink" title="JVM、JRE、JDK三者关系"></a>JVM、JRE、JDK三者关系</h1><h2 id="JVM（Java-Virtual-Machine）"><a href="#JVM（Java-Virtual-Machine）" class="headerlink" title="JVM（Java Virtual Machine）"></a>JVM（Java Virtual Machine）</h2><p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
-<p>JVM如何实现Java跨平台运行？</p>
 <ul>
-<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
-<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
+<li>单行注释	&#x2F;注释文字&#x2F;</li>
+<li>多行注释    &#x2F;<em>注释文字</em>&#x2F;     多行注释中不能有多行注释嵌套</li>
 </ul>
-<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
+<h1 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="JRE（Java-Runtime-Environment）"><a href="#JRE（Java-Runtime-Environment）" class="headerlink" title="JRE（Java Runtime Environment）"></a>JRE（Java Runtime Environment）</h2><p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
-<h2 id="JDK（Java-Development-Kit）"><a href="#JDK（Java-Development-Kit）" class="headerlink" title="JDK（Java Development Kit）"></a>JDK（Java Development Kit）</h2><p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
-<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p> 操作方式 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -241,6 +278,210 @@
 ]]></content>
       <categories>
         <category>Markdown</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java语言概述</title>
+    <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+<span id="more"></span>
+
+<h1 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h1><h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
+<h2 id="面向对象（封装、继承、多态）"><a href="#面向对象（封装、继承、多态）" class="headerlink" title="面向对象（封装、继承、多态）"></a>面向对象（封装、继承、多态）</h2><h2 id="健壮"><a href="#健壮" class="headerlink" title="健壮"></a>健壮</h2><p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>Java支持<strong>多条线程并发进行</strong></p>
+<h2 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h2><p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
+<h1 id="Java技术体系平台"><a href="#Java技术体系平台" class="headerlink" title="Java技术体系平台"></a>Java技术体系平台</h1><h2 id="JavaSE"><a href="#JavaSE" class="headerlink" title="JavaSE"></a>JavaSE</h2><p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
+<h2 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h2><p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
+<h2 id="JavaME"><a href="#JavaME" class="headerlink" title="JavaME"></a>JavaME</h2><p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
+<h2 id="三者之间的关系"><a href="#三者之间的关系" class="headerlink" title="三者之间的关系"></a>三者之间的关系</h2><p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
+<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
+
+<h1 id="JVM、JRE、JDK三者关系"><a href="#JVM、JRE、JDK三者关系" class="headerlink" title="JVM、JRE、JDK三者关系"></a>JVM、JRE、JDK三者关系</h1><h2 id="JVM（Java-Virtual-Machine）"><a href="#JVM（Java-Virtual-Machine）" class="headerlink" title="JVM（Java Virtual Machine）"></a>JVM（Java Virtual Machine）</h2><p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
+<p>JVM如何实现Java跨平台运行？</p>
+<ul>
+<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
+<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
+
+<h2 id="JRE（Java-Runtime-Environment）"><a href="#JRE（Java-Runtime-Environment）" class="headerlink" title="JRE（Java Runtime Environment）"></a>JRE（Java Runtime Environment）</h2><p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
+<h2 id="JDK（Java-Development-Kit）"><a href="#JDK（Java-Development-Kit）" class="headerlink" title="JDK（Java Development Kit）"></a>JDK（Java Development Kit）</h2><p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
+<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用文本编辑快捷键</title>
+    <url>/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ctrl+c</td>
+<td align="center">复制</td>
+</tr>
+<tr>
+<td align="center">ctrl+v</td>
+<td align="center">粘贴</td>
+</tr>
+<tr>
+<td align="center">ctrl+x</td>
+<td align="center">剪切</td>
+</tr>
+<tr>
+<td align="center">ctrl+s</td>
+<td align="center">保存</td>
+</tr>
+<tr>
+<td align="center">ctrl+z</td>
+<td align="center">撤销</td>
+</tr>
+<tr>
+<td align="center">ctrl+y</td>
+<td align="center">重做</td>
+</tr>
+<tr>
+<td align="center">ctrl+a</td>
+<td align="center">全选</td>
+</tr>
+<tr>
+<td align="center">ctrl + f</td>
+<td align="center">查找</td>
+</tr>
+<tr>
+<td align="center">home 键</td>
+<td align="center">光标回到行首</td>
+</tr>
+<tr>
+<td align="center">end 键</td>
+<td align="center">光标回到行尾</td>
+</tr>
+<tr>
+<td align="center">ctrl + home 键</td>
+<td align="center">光标回到文章开始</td>
+</tr>
+<tr>
+<td align="center">ctrl + end 键</td>
+<td align="center">光标回到文章末尾</td>
+</tr>
+<tr>
+<td align="center">shift + home 或 end 键</td>
+<td align="center">选中一行</td>
+</tr>
+<tr>
+<td align="center">ctrl + shift +右箭头或左箭头</td>
+<td align="center">选中一个单词</td>
+</tr>
+<tr>
+<td align="center">鼠标双击</td>
+<td align="center">选中一个单词</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>标识符</title>
+    <url>/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
+<span id="more"></span>
+
+<p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
+<h1 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h1><ol>
+<li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
+<li>标识符不能以数字开头</li>
+<li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
+<li>标识符中不能包含空格，不能是HelloWord</li>
+</ol>
+<p>区分源文件命名：<a href="../Java%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
+<h1 id="标识符命名规范"><a href="#标识符命名规范" class="headerlink" title="标识符命名规范"></a>标识符命名规范</h1><table>
+<thead>
+<tr>
+<th align="center">标识符</th>
+<th align="center">命名规范</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">包名</td>
+<td align="center">全部英文字母小写</td>
+</tr>
+<tr>
+<td align="center">类名、接口名</td>
+<td align="center">每个英文单词首字母大写</td>
+</tr>
+<tr>
+<td align="center">变量名、方法名</td>
+<td align="center">首个英文单词首字母小写，之后每个单词首字母大写</td>
+</tr>
+<tr>
+<td align="center">常量名</td>
+<td align="center">全部英文字母大写，单词之间由分隔符隔开</td>
+</tr>
+</tbody></table>
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><table>
+<thead>
+<tr>
+<th align="left">作用</th>
+<th align="left">关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">用于定义数据类型的关键字</td>
+<td align="left">class interface enum byte short int long float double char boolean void</td>
+</tr>
+<tr>
+<td align="left">用于定义流程控制的关键字</td>
+<td align="left">if else switch case default while do for break continue return</td>
+</tr>
+<tr>
+<td align="left">用于定义访问权限修饰符的关键字</td>
+<td align="left">private protected public</td>
+</tr>
+<tr>
+<td align="left">用于定义类，函数，变量修饰符的关键字</td>
+<td align="left">abstract final static synchronized</td>
+</tr>
+<tr>
+<td align="left">用于定义类与类之间关系的关键字</td>
+<td align="left">extends implements</td>
+</tr>
+<tr>
+<td align="left">用于定义建立实例及引用实例，判断实例的关键字</td>
+<td align="left">new this super instanceof</td>
+</tr>
+<tr>
+<td align="left">用于异常处理的关键字</td>
+<td align="left">try catch finally throw throws</td>
+</tr>
+<tr>
+<td align="left">用于包的关键字</td>
+<td align="left">package import</td>
+</tr>
+<tr>
+<td align="left">其他修饰符关键字</td>
+<td align="left">native strictfp transient volatile assert</td>
+</tr>
+<tr>
+<td align="left">用于定义数据类型值的字面值</td>
+<td align="left">true false null</td>
+</tr>
+</tbody></table>
+<h1 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h1><p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
+<p>goto，const</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="问题：一个java源文件可以有名称相同，大小写不同的两个类吗"><a href="#问题：一个java源文件可以有名称相同，大小写不同的两个类吗" class="headerlink" title="问题：一个java源文件可以有名称相同，大小写不同的两个类吗?"></a>问题：一个java源文件可以有名称相同，大小写不同的两个类吗?</h2><p>Java源文件可以有名称相同，大小写不同的两个类；</p>
+<p>因为Java标识符严格区分大小写</p>
+<p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
       </categories>
   </entry>
 </search>
