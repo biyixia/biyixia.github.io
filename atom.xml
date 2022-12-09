@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-09T12:36:51.713Z</updated>
+  <updated>2022-12-09T13:07:56.785Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>变量</title>
+    <link href="http://example.com/2022/12/09/%E5%8F%98%E9%87%8F/"/>
+    <id>http://example.com/2022/12/09/%E5%8F%98%E9%87%8F/</id>
+    <published>2022-12-09T12:51:53.924Z</published>
+    <updated>2022-12-09T13:07:56.785Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>标识符</title>
     <link href="http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
     <id>http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
     <published>2022-12-09T11:49:37.315Z</published>
-    <updated>2022-12-09T12:36:51.713Z</updated>
+    <updated>2022-12-09T13:24:48.953Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。&lt;/p&gt;</summary>

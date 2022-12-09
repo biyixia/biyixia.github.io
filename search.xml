@@ -155,34 +155,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Java文档注释</title>
-    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ul>
-<li><p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
-</li>
-<li><p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
-</li>
-<li><p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
-</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>单行注释	&#x2F;注释文字&#x2F;</li>
-<li>多行注释    &#x2F;<em>注释文字</em>&#x2F;     多行注释中不能有多行注释嵌套</li>
-</ul>
-<h1 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p> 操作方式 </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java语言概述</title>
     <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
@@ -392,6 +364,64 @@
       </categories>
   </entry>
   <entry>
+    <title>Java文档注释</title>
+    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ul>
+<li><p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li><p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li><p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>单行注释	&#x2F;注释文字&#x2F;</li>
+<li>多行注释    &#x2F;<em>注释文字</em>&#x2F;     多行注释中不能有多行注释嵌套</li>
+</ul>
+<h1 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p> 操作方式 </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>变量</title>
+    <url>/2022/12/09/%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
+<span id="more"></span>
+
+<h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>字面量即数据</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h2><h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>int var; </p>
+<h3 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h3><p>var &#x3D; 10; </p>
+<h3 id="声明和赋值变量"><a href="#声明和赋值变量" class="headerlink" title="声明和赋值变量"></a>声明和赋值变量</h3><p>int var &#x3D; 10; </p>
+<ul>
+<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c&#x3D;100</li>
+<li>局部变量声明后必须赋值才能使用</li>
+</ul>
+<h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
+<p>作用域内只能有一个同名变量</p>
+<h2 id="变量分类"><a href="#变量分类" class="headerlink" title="变量分类"></a>变量分类</h2><p>变量可按照声明位置、数据类型分类</p>
+<h3 id="按声明位置"><a href="#按声明位置" class="headerlink" title="按声明位置"></a>按声明位置</h3><ul>
+<li>在方法体外，类体内声明的变量称为成员变量。 </li>
+<li>在方法体内部声明的变量称为局部变量。</li>
+<li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
+</ul>
+<h3 id="按数据类型"><a href="#按数据类型" class="headerlink" title="按数据类型"></a>按数据类型</h3><p>变量的类型必须与数据的类型一致</p>
+<img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
+
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>标识符</title>
     <url>/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
     <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
@@ -404,7 +434,7 @@
 <li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
 <li>标识符中不能包含空格，不能是HelloWord</li>
 </ol>
-<p>区分源文件命名：<a href="../Java%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
+<p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
 <h1 id="标识符命名规范"><a href="#标识符命名规范" class="headerlink" title="标识符命名规范"></a>标识符命名规范</h1><table>
 <thead>
 <tr>
@@ -479,9 +509,11 @@
 </tbody></table>
 <h1 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h1><p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
 <p>goto，const</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="问题：一个java源文件可以有名称相同，大小写不同的两个类吗"><a href="#问题：一个java源文件可以有名称相同，大小写不同的两个类吗" class="headerlink" title="问题：一个java源文件可以有名称相同，大小写不同的两个类吗?"></a>问题：一个java源文件可以有名称相同，大小写不同的两个类吗?</h2><p>Java源文件可以有名称相同，大小写不同的两个类；</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="一个java源文件可以有名称相同，大小写不同的两个类吗"><a href="#一个java源文件可以有名称相同，大小写不同的两个类吗" class="headerlink" title="一个java源文件可以有名称相同，大小写不同的两个类吗?"></a>一个java源文件可以有名称相同，大小写不同的两个类吗?</h2><p>Java源文件可以有名称相同，大小写不同的两个类；</p>
 <p>因为Java标识符严格区分大小写</p>
 <p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
+<h2 id="java可不可以使用中文命名"><a href="#java可不可以使用中文命名" class="headerlink" title="java可不可以使用中文命名?"></a>java可不可以使用中文命名?</h2><p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
+<h2 id="java源文件可以不可以数字开头"><a href="#java源文件可以不可以数字开头" class="headerlink" title="java源文件可以不可以数字开头?"></a>java源文件可以不可以数字开头?</h2><p>可以 java源文件不用遵循命名规则（public的类不行）</p>
 ]]></content>
       <categories>
         <category>第一阶段</category>
