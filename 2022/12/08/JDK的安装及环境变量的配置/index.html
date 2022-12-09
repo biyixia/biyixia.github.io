@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">356</span>
+            <span class="post-count">659</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -125,7 +125,7 @@
 
 <p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
+<li><p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
 </li>
 <li><p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
 </li>
@@ -148,7 +148,15 @@
 
 <p>随后一路确定，即配置完成</p>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
-<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 67%;"> 
+<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 67%;">
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="为什么要配置环境变量"><a href="#为什么要配置环境变量" class="headerlink" title="为什么要配置环境变量?"></a>为什么要配置环境变量?</h2><h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
+<p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
+<p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
+<h3 id="JAVA-HOME-1"><a href="#JAVA-HOME-1" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h3><p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
+<p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
+<p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
