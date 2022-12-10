@@ -3,53 +3,70 @@
   <entry>
     <title>DOS常用命令</title>
     <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="DOS命令的基础使用："><a href="#DOS命令的基础使用：" class="headerlink" title="DOS命令的基础使用："></a>DOS命令的基础使用：</h2><h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a><code>dir</code></h3><ul>
+    <content><![CDATA[<h2 id="DOS命令的基础使用：">DOS命令的基础使用：</h2>
+<h3 id="dir"><code>dir</code></h3>
+<ul>
 <li>查看当前目录，其中dir指directory</li>
 </ul>
-<h3 id="mkdir-md"><a href="#mkdir-md" class="headerlink" title="mkdir(md)"></a><code>mkdir</code>(md)</h3><ul>
+<h3 id="mkdir-md"><code>mkdir</code>(md)</h3>
+<ul>
 <li>创建文件夹</li>
 </ul>
 <span id="more"></span>
-
-<h3 id="rmdir-rd"><a href="#rmdir-rd" class="headerlink" title="rmdir(rd)"></a><code>rmdir</code>(rd)</h3><ul>
+<h3 id="rmdir-rd"><code>rmdir</code>(rd)</h3>
+<ul>
 <li>删除文件夹，若要删除非空的文件夹，需要<code>-s</code>来强行删除该文件夹下的所有子文件夹与文件，再加上<code>-q</code>则无需确认（安静模式）</li>
 </ul>
-<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a><code>cd</code></h3><ul>
-<li><p>可以跳转至当前目录的所有子孙目录，但无法进行跨盘符跳转；若要进行跨盘符跳转，则使用“盘符”+“:”，例如<code>c:</code>,<code>d:</code>,<code>e:</code></p>
+<h3 id="cd"><code>cd</code></h3>
+<ul>
+<li>
+<p>可以跳转至当前目录的所有子孙目录，但无法进行跨盘符跳转；若要进行跨盘符跳转，则使用“盘符”+“:”，例如<code>c:</code>,<code>d:</code>,<code>e:</code></p>
 </li>
-<li><p>特别地，<code>cd .\</code>表示当前目录<code>cd ..</code> 表示返回上一级目录,<code>cd \</code> 表示返回根目录</p>
+<li>
+<p>特别地，<code>cd .\</code>表示当前目录<code>cd ..</code> 表示返回上一级目录,<code>cd \</code> 表示返回根目录</p>
 </li>
 </ul>
-<h3 id="echo-回声"><a href="#echo-回声" class="headerlink" title="echo(回声)"></a><code>echo</code>(回声)</h3><ul>
+<h3 id="echo-回声"><code>echo</code>(回声)</h3>
+<ul>
 <li><code>echo 123</code>只使用echo + 字符串，则表示打印该字符串</li>
 <li><code>echo 123 &gt; d:\hello.txt </code>加上大于号，表示将打印的字符串重定向到指定位置，此时对同一个文件多次echo将会覆盖上次写的内容</li>
 <li><code>echo 123 &gt;&gt; d:\hello.txt</code> 两个大于号可对上次写下的内容进行叠加</li>
 </ul>
-<h3 id="del"><a href="#del" class="headerlink" title="del"></a><code>del</code></h3><ul>
+<h3 id="del"><code>del</code></h3>
+<ul>
 <li>删除文件</li>
 <li><code>del *.txt</code> 通配符删除，意为将当前目录下所有后缀为txt的文·件删除</li>
 </ul>
-<h3 id="type"><a href="#type" class="headerlink" title="type"></a><code>type</code></h3><ul>
+<h3 id="type"><code>type</code></h3>
+<ul>
 <li>仅能查看文本文件内容</li>
 </ul>
-<h3 id="cls"><a href="#cls" class="headerlink" title="cls"></a><code>cls</code></h3><ul>
+<h3 id="cls"><code>cls</code></h3>
+<ul>
 <li>clean sreen 清空屏幕</li>
 </ul>
-<h3 id="tree"><a href="#tree" class="headerlink" title="tree"></a><code>tree</code></h3><ul>
+<h3 id="tree"><code>tree</code></h3>
+<ul>
 <li>以树形显示该目录下的所有文件夹</li>
 <li>加上<code>-f</code> 可同时显示该目录下的所有文件</li>
 </ul>
-<h2 id="绝对路径与相对路径："><a href="#绝对路径与相对路径：" class="headerlink" title="绝对路径与相对路径："></a>绝对路径与相对路径：</h2><ul>
-<li><p>绝对路径：从盘符开始的路径</p>
+<h2 id="绝对路径与相对路径：">绝对路径与相对路径：</h2>
+<ul>
+<li>
+<p>绝对路径：从盘符开始的路径</p>
 </li>
-<li><p>相对路径：从当前目录开始的路径</p>
+<li>
+<p>相对路径：从当前目录开始的路径</p>
 </li>
 </ul>
-<h2 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h2><ul>
-<li><p><code>ping</code> 检查是否可以和其他主机通信</p>
+<h2 id="网络命令">网络命令</h2>
+<ul>
+<li>
+<p><code>ping</code> 检查是否可以和其他主机通信</p>
 <p><code>-t</code> 不间断发送数据包</p>
 </li>
-<li><p><code>ipconfig</code> 查看网卡信息</p>
+<li>
+<p><code>ipconfig</code> 查看网卡信息</p>
 <p><code>/all</code> 查看详细的网卡信息</p>
 </li>
 </ul>
@@ -64,36 +81,40 @@
   <entry>
     <title>JDK的安装及环境变量的配置</title>
     <url>/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
+    <content><![CDATA[<h1>引言</h1>
+<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
 <span id="more"></span>
-
-<h1 id="JDK-的安装"><a href="#JDK-的安装" class="headerlink" title="JDK 的安装"></a>JDK 的安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>首先通过甲骨文官方下载JDK所需的安装包</p>
+<h1>JDK 的安装</h1>
+<h2 id="下载">下载</h2>
+<p>首先通过甲骨文官方下载JDK所需的安装包</p>
 <p><a href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
 <p>选择需要的JDK版本，通常使用的是JDK8</p>
 <img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
-
 <p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
 <img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
-
 <p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
 </li>
-<li><p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
+<li>
+<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
 </li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
-
-<h1 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h1><h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
+<h1>环境变量的配置</h1>
+<h2 id="查看环境变量">查看环境变量</h2>
+<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
 <img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
-
-<h2 id="JAVA-HOME"><a href="#JAVA-HOME" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h2><p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
+<h2 id="JAVA-HOME">JAVA_HOME</h2>
+<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
 <img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
-
-<h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
+<h2 id="Path">Path</h2>
+<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
 <img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
-
-<h2 id="CLASSPATH"><a href="#CLASSPATH" class="headerlink" title="CLASSPATH"></a>CLASSPATH</h2><p>同理添加一个名为CLASSPATH的变量，变量值为</p>
+<h2 id="CLASSPATH">CLASSPATH</h2>
+<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
 <p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
 <p>这里需注意：</p>
 <ul>
@@ -101,35 +122,35 @@
 <li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
-
 <p>随后一路确定，即配置完成</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
+<h1>测试</h1>
+<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
 <img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="为什么要配置环境变量"><a href="#为什么要配置环境变量" class="headerlink" title="为什么要配置环境变量?"></a>为什么要配置环境变量?</h2><h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
+<h1>总结</h1>
+<h2 id="为什么要配置环境变量">为什么要配置环境变量?</h2>
+<h3 id="path">path</h3>
+<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
 <p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
 <p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
-<h3 id="JAVA-HOME-1"><a href="#JAVA-HOME-1" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h3><p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
+<h3 id="JAVA-HOME-2">JAVA_HOME</h3>
+<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
 <p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
 <p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
-<h3 id="CLASSPATH（一般不需配置）"><a href="#CLASSPATH（一般不需配置）" class="headerlink" title="CLASSPATH（一般不需配置）"></a>CLASSPATH（一般不需配置）</h3><p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<h3 id="CLASSPATH（一般不需配置）">CLASSPATH（一般不需配置）</h3>
+<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
 <p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
 <p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
 <p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
 <ul>
 <li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">test1</span>&#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;11111111&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">test2</span> &#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args&#123;</span><br><span class="hljs-params">		System.out.println(<span class="hljs-string">&quot;222222222&quot;</span>)</span>;<br>     	test1.show();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
-<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">javac -classpath &quot;另一个类所处目录路径&quot; test2.java<br></code></pre></td></tr></table></figure>
 <p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">java -classpath .;&quot;另一个类所处目录路径&quot; test2<br></code></pre></td></tr></table></figure>
 <p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
 ]]></content>
       <categories>
@@ -139,11 +160,12 @@
   <entry>
     <title>Java加载及执行原理</title>
     <url>/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="Java程序执行原理"><a href="#Java程序执行原理" class="headerlink" title="Java程序执行原理"></a>Java程序执行原理</h1><p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
+    <content><![CDATA[<h1>Java程序执行原理</h1>
+<p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
 <span id="more"></span>
-
 <p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
-<h1 id="源文件、类、字节码文件"><a href="#源文件、类、字节码文件" class="headerlink" title="源文件、类、字节码文件"></a>源文件、类、字节码文件</h1><ul>
+<h1>源文件、类、字节码文件</h1>
+<ul>
 <li>源文件中可包含一个或多个类</li>
 <li>源文件中至多有一个类被public修饰，当源文件中有public修饰类，原文件名必须与public修饰类名一致，当源文件中没有public修饰类，则源文件名与类名没有关系</li>
 <li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
@@ -155,31 +177,74 @@
       </categories>
   </entry>
   <entry>
+    <title>Java文档注释</title>
+    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1>引言</h1>
+<ul>
+<li>
+<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li>
+<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li>
+<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>单行注释	/注释文字/</li>
+<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
+</ul>
+<h1>文档注释</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"><span class="hljs-doctag">@author</span>	指定java程序的作者</span><br><span class="hljs-comment"><span class="hljs-doctag">@version</span> 指定源文件的版本</span><br><span class="hljs-comment"><span class="hljs-doctag">@since</span> 自从哪个版本号开始就存在了</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p>操作方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">javadoc –d mydoc –author –version FileName.java<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java语言概述</title>
     <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+    <content><![CDATA[<h1>介绍</h1>
+<p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
 <span id="more"></span>
-
-<h1 id="Java语言的特点"><a href="#Java语言的特点" class="headerlink" title="Java语言的特点"></a>Java语言的特点</h1><h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
-<h2 id="面向对象（封装、继承、多态）"><a href="#面向对象（封装、继承、多态）" class="headerlink" title="面向对象（封装、继承、多态）"></a>面向对象（封装、继承、多态）</h2><h2 id="健壮"><a href="#健壮" class="headerlink" title="健壮"></a>健壮</h2><p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>Java支持<strong>多条线程并发进行</strong></p>
-<h2 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h2><p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
-<h1 id="Java技术体系平台"><a href="#Java技术体系平台" class="headerlink" title="Java技术体系平台"></a>Java技术体系平台</h1><h2 id="JavaSE"><a href="#JavaSE" class="headerlink" title="JavaSE"></a>JavaSE</h2><p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
-<h2 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h2><p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
-<h2 id="JavaME"><a href="#JavaME" class="headerlink" title="JavaME"></a>JavaME</h2><p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
-<h2 id="三者之间的关系"><a href="#三者之间的关系" class="headerlink" title="三者之间的关系"></a>三者之间的关系</h2><p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
+<h1>Java语言的特点</h1>
+<h2 id="简单">简单</h2>
+<p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
+<h2 id="面向对象（封装、继承、多态）">面向对象（封装、继承、多态）</h2>
+<h2 id="健壮">健壮</h2>
+<p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
+<h2 id="多线程">多线程</h2>
+<p>Java支持<strong>多条线程并发进行</strong></p>
+<h2 id="跨平台">跨平台</h2>
+<p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
+<h1>Java技术体系平台</h1>
+<h2 id="JavaSE">JavaSE</h2>
+<p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
+<h2 id="JavaEE">JavaEE</h2>
+<p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
+<h2 id="JavaME">JavaME</h2>
+<p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
+<h2 id="三者之间的关系">三者之间的关系</h2>
+<p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
 <img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
-
-<h1 id="JVM、JRE、JDK三者关系"><a href="#JVM、JRE、JDK三者关系" class="headerlink" title="JVM、JRE、JDK三者关系"></a>JVM、JRE、JDK三者关系</h1><h2 id="JVM（Java-Virtual-Machine）"><a href="#JVM（Java-Virtual-Machine）" class="headerlink" title="JVM（Java Virtual Machine）"></a>JVM（Java Virtual Machine）</h2><p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
+<h1>JVM、JRE、JDK三者关系</h1>
+<h2 id="JVM（Java-Virtual-Machine）">JVM（Java Virtual Machine）</h2>
+<p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
 <p>JVM如何实现Java跨平台运行？</p>
 <ul>
 <li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
 <li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
-
-<h2 id="JRE（Java-Runtime-Environment）"><a href="#JRE（Java-Runtime-Environment）" class="headerlink" title="JRE（Java Runtime Environment）"></a>JRE（Java Runtime Environment）</h2><p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
-<h2 id="JDK（Java-Development-Kit）"><a href="#JDK（Java-Development-Kit）" class="headerlink" title="JDK（Java Development Kit）"></a>JDK（Java Development Kit）</h2><p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
+<h2 id="JRE（Java-Runtime-Environment）">JRE（Java Runtime Environment）</h2>
+<p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
+<h2 id="JDK（Java-Development-Kit）">JDK（Java Development Kit）</h2>
+<p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
 <img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
 ]]></content>
       <categories>
@@ -189,15 +254,22 @@
   <entry>
     <title>Markdown 入门使用</title>
     <url>/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
+    <content><![CDATA[<h2 id="介绍">介绍</h2>
+<p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
 <span id="more"></span>
-
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题1</span></span><br><span class="line"><span class="section">## 标题2</span></span><br><span class="line"><span class="section">### 标题3</span></span><br><span class="line"><span class="section">#### 标题4</span></span><br><span class="line"><span class="section">##### 标题5</span></span><br><span class="line"><span class="section">###### 标题6</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="标题">标题</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 标题1</span><br><span class="hljs-section">## 标题2</span><br><span class="hljs-section">### 标题3</span><br><span class="hljs-section">#### 标题4</span><br><span class="hljs-section">##### 标题5</span><br><span class="hljs-section">###### 标题6</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6></blockquote>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">把大象放进冰箱：</span><br><span class="line"><span class="bullet">1.</span> 打开冰箱</span><br><span class="line"><span class="bullet">2.</span> 把大象放进冰箱</span><br><span class="line"><span class="bullet">3.</span> 关上冰箱</span><br></pre></td></tr></table></figure>
-
+<h1>标题1</h1>
+<h2 id="标题2">标题2</h2>
+<h3 id="标题3">标题3</h3>
+<h4 id="标题4">标题4</h4>
+<h5 id="标题5">标题5</h5>
+<h6 id="标题6">标题6</h6>
+</blockquote>
+<h2 id="列表">列表</h2>
+<h3 id="有序列表">有序列表</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">把大象放进冰箱：<br><span class="hljs-bullet">1.</span> 打开冰箱<br><span class="hljs-bullet">2.</span> 把大象放进冰箱<br><span class="hljs-bullet">3.</span> 关上冰箱<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>把大象放进冰箱:</p>
 <ol>
@@ -206,8 +278,8 @@
 <li>关上冰箱</li>
 </ol>
 </blockquote>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">无序列表：</span><br><span class="line"><span class="bullet">-</span> 所爱扥就</span><br><span class="line"><span class="bullet">-</span> 撒欧丹发腮</span><br><span class="line"><span class="bullet">-</span> 哦啊赛季反扒</span><br></pre></td></tr></table></figure>
-
+<h3 id="无序列表">无序列表</h3>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">无序列表：<br><span class="hljs-bullet">-</span> 所爱扥就<br><span class="hljs-bullet">-</span> 撒欧丹发腮<br><span class="hljs-bullet">-</span> 哦啊赛季反扒<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>无序列表：</p>
 <ul>
@@ -216,69 +288,90 @@
 <li>哦啊赛季反扒</li>
 </ul>
 </blockquote>
-<h2 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">明天要做的事：	</span><br><span class="line"><span class="bullet">-</span> [ ] 吃饭	//每个字符之间由空格隔开	</span><br><span class="line"><span class="bullet">-</span> [ ] 睡觉</span><br><span class="line"><span class="bullet">-</span> [ ] 打豆豆</span><br></pre></td></tr></table></figure>
-
+<h2 id="任务列表">任务列表</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">明天要做的事：	<br><span class="hljs-bullet">-</span> [ ] 吃饭	//每个字符之间由空格隔开	<br><span class="hljs-bullet">-</span> [ ] 睡觉<br><span class="hljs-bullet">-</span> [ ] 打豆豆<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>明天要做的事：</p>
 <ul>
-<li><input disabled type="checkbox"> 吃饭</li>
-<li><input disabled type="checkbox"> 睡觉</li>
-<li><input disabled type="checkbox"> 打豆豆</li>
+<li>[ ] 吃饭</li>
+<li>[ ] 睡觉</li>
+<li>[ ] 打豆豆</li>
 </ul>
 </blockquote>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">``` c      //选择语言</span></span><br><span class="line"><span class="code">int main()&#123;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="代码块">代码块</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">``` c      //选择语言</span><br><span class="hljs-code">int main()&#123;</span><br><span class="hljs-code">&#125;</span><br></code></pre></td></tr></table></figure>
 <blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt;<span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c">&gt;<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>&gt;&#125;<br></code></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="数学公式："><a href="#数学公式：" class="headerlink" title="数学公式："></a>数学公式：</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\frac&#123;\partial f&#125;&#123;\partial x&#125; = 2\sqrt&#123;a&#125;x</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<h2 id="数学公式：">数学公式：</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">$$<br>\frac&#123;\partial f&#125;&#123;\partial x&#125; = 2\sqrt&#123;a&#125;x<br>$$<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>$$<br>\frac{\partial f}{\partial x} &#x3D; 2\sqrt{a}x<br>$$</p>
+<p>$$<br>
+\frac{\partial f}{\partial x} = 2\sqrt{a}x<br>
+$$</p>
 </blockquote>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|姓名|年龄|成绩|</span><br><span class="line">|:--|--:|:-----:| </span><br><span class="line"><span class="code">			//冒号靠左为左对齐，靠右为右对齐，两边都有冒号为居中对齐</span></span><br><span class="line"><span class="code">|张三|18|90|</span></span><br><span class="line"><span class="code">|李四|20|89|</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="表格">表格</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">|姓名|年龄|成绩|<br>|:--|--:|:-----:| <br><span class="hljs-code">			//冒号靠左为左对齐，靠右为右对齐，两边都有冒号为居中对齐</span><br><span class="hljs-code">|张三|18|90|</span><br><span class="hljs-code">|李四|20|89|</span><br></code></pre></td></tr></table></figure>
 <blockquote>
 <table>
 <thead>
 <tr>
-<th align="left">姓名</th>
-<th align="right">年龄</th>
-<th align="center">成绩</th>
+<th style="text-align:left">姓名</th>
+<th style="text-align:right">年龄</th>
+<th style="text-align:center">成绩</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">张三</td>
-<td align="right">18</td>
-<td align="center">90</td>
+<tbody>
+<tr>
+<td style="text-align:left">张三</td>
+<td style="text-align:right">18</td>
+<td style="text-align:center">90</td>
 </tr>
 <tr>
-<td align="left">李四</td>
-<td align="right">20</td>
-<td align="center">89</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:right">20</td>
+<td style="text-align:center">89</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </blockquote>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一条注释[^注释]</span><br><span class="line">[<span class="symbol">^注释</span>]:<span class="link">这是注释的注释。</span></span><br><span class="line"> ---</span><br></pre></td></tr></table></figure>
-
+<h2 id="脚注">脚注</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">这是一条注释[^注释]<br>[<span class="hljs-symbol">^注释</span>]:<span class="hljs-link">这是注释的注释。</span><br> ---<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>这是一条注释[^注释]<br>[^注释]:这是注释的注释。</p>
+<p>这是一条注释<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <hr>
 </blockquote>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">www.baidu.com &quot;一个搜索引擎&quot;</span>)</span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">id</span>]</span><br><span class="line">[<span class="symbol">id</span>]:<span class="link">www.baidu.com &quot;一个搜索引擎&quot;</span></span><br><span class="line"></span><br><span class="line">请参考[<span class="string">标题1</span>](<span class="link">#标题：</span>)</span><br><span class="line"></span><br><span class="line">URL：</span><br><span class="line">http://www.baidu.com</span><br><span class="line"></span><br><span class="line">![<span class="string">百度</span>](<span class="link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)</span><br></pre></td></tr></table></figure>
-
+<h2 id="超链接">超链接</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">百度</span>](<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span>)<br>[<span class="hljs-string">百度</span>][<span class="hljs-symbol">id</span>]<br>[<span class="hljs-symbol">id</span>]:<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span><br><br>请参考[<span class="hljs-string">标题1</span>](<span class="hljs-link">#标题：</span>)<br><br>URL：<br>http://www.baidu.com<br><br>![<span class="hljs-string">百度</span>](<span class="hljs-link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="baidu.com" title="一个搜索引擎">百度</a><br><a href="www.baidu.com" title="一个搜索引擎">百度</a></p>
+<p><a href="baidu.com" title="一个搜索引擎">百度</a><br>
+<a href="www.baidu.com" title="一个搜索引擎">百度</a></p>
 <p>请参考<a href="#%E6%A0%87%E9%A2%98%EF%BC%9A">标题1</a></p>
-<p>URL：<br><a href="http://www.baidu.com/">http://www.baidu.com</a></p>
+<p>URL：<br>
+<a href="http://www.baidu.com">http://www.baidu.com</a></p>
 <p><img src="https://pic.imgdb.cn/item/63914551b1fccdcd36559921.png%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%22" alt="百度"></p>
 </blockquote>
-<h2 id="字体变化"><a href="#字体变化" class="headerlink" title="字体变化"></a>字体变化</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="strong">**加粗**</span></span><br><span class="line"><span class="code">`行内代码printf()`</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">:smile:</span><br><span class="line">$\theta=x^2$</span><br><span class="line">H~2~O,x^2^</span><br><span class="line">==这是一段高亮文字==</span><br></pre></td></tr></table></figure>
-
+<h2 id="字体变化">字体变化</h2>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-emphasis">*斜体*</span><br><span class="hljs-strong">**加粗**</span><br><span class="hljs-code">`行内代码printf()`</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span></span>下划线<span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span></span><br>:smile:<br>$\theta=x^2$<br>H~2~O,x^2^<br>==这是一段高亮文字==<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p><em>斜体</em><br><strong>加粗</strong><br><code>行内代码printf()</code><br><u>下划线</u><br>:smile:<br>$\theta&#x3D;x^2$<br>H<del>2</del>O,x^2^<br>&#x3D;&#x3D;这是一段高亮文字&#x3D;&#x3D;</p>
+<p><em>斜体</em><br>
+<strong>加粗</strong><br>
+<code>行内代码printf()</code><br>
+<u>下划线</u><br>
+😄<br>
+$\theta=x^2$<br>
+H<sub>2</sub>O,x<sup>2</sup><br>
+==这是一段高亮文字==</p>
 </blockquote>
-<h2 id="参考视频"><a href="#参考视频" class="headerlink" title="参考视频"></a>参考视频</h2><iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h2 id="参考视频">参考视频</h2>
+<iframe src="//player.bilibili.com/player.html?aid=327623069&bvid=BV1JA411h7Gw&cid=171385214&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>这是注释的注释。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
       <categories>
         <category>Markdown</category>
@@ -287,105 +380,79 @@
   <entry>
     <title>常用文本编辑快捷键</title>
     <url>/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：</p>
+    <content><![CDATA[<h1>引言</h1>
+<p>掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：</p>
 <span id="more"></span>
-
 <table>
 <thead>
 <tr>
-<th align="center">快捷键</th>
-<th align="center">使用</th>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">使用</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">ctrl+c</td>
-<td align="center">复制</td>
+<tbody>
+<tr>
+<td style="text-align:center">ctrl+c</td>
+<td style="text-align:center">复制</td>
 </tr>
 <tr>
-<td align="center">ctrl+v</td>
-<td align="center">粘贴</td>
+<td style="text-align:center">ctrl+v</td>
+<td style="text-align:center">粘贴</td>
 </tr>
 <tr>
-<td align="center">ctrl+x</td>
-<td align="center">剪切</td>
+<td style="text-align:center">ctrl+x</td>
+<td style="text-align:center">剪切</td>
 </tr>
 <tr>
-<td align="center">ctrl+s</td>
-<td align="center">保存</td>
+<td style="text-align:center">ctrl+s</td>
+<td style="text-align:center">保存</td>
 </tr>
 <tr>
-<td align="center">ctrl+z</td>
-<td align="center">撤销</td>
+<td style="text-align:center">ctrl+z</td>
+<td style="text-align:center">撤销</td>
 </tr>
 <tr>
-<td align="center">ctrl+y</td>
-<td align="center">重做</td>
+<td style="text-align:center">ctrl+y</td>
+<td style="text-align:center">重做</td>
 </tr>
 <tr>
-<td align="center">ctrl+a</td>
-<td align="center">全选</td>
+<td style="text-align:center">ctrl+a</td>
+<td style="text-align:center">全选</td>
 </tr>
 <tr>
-<td align="center">ctrl + f</td>
-<td align="center">查找</td>
+<td style="text-align:center">ctrl + f</td>
+<td style="text-align:center">查找</td>
 </tr>
 <tr>
-<td align="center">home 键</td>
-<td align="center">光标回到行首</td>
+<td style="text-align:center">home 键</td>
+<td style="text-align:center">光标回到行首</td>
 </tr>
 <tr>
-<td align="center">end 键</td>
-<td align="center">光标回到行尾</td>
+<td style="text-align:center">end 键</td>
+<td style="text-align:center">光标回到行尾</td>
 </tr>
 <tr>
-<td align="center">ctrl + home 键</td>
-<td align="center">光标回到文章开始</td>
+<td style="text-align:center">ctrl + home 键</td>
+<td style="text-align:center">光标回到文章开始</td>
 </tr>
 <tr>
-<td align="center">ctrl + end 键</td>
-<td align="center">光标回到文章末尾</td>
+<td style="text-align:center">ctrl + end 键</td>
+<td style="text-align:center">光标回到文章末尾</td>
 </tr>
 <tr>
-<td align="center">shift + home 或 end 键</td>
-<td align="center">选中一行</td>
+<td style="text-align:center">shift + home 或 end 键</td>
+<td style="text-align:center">选中一行</td>
 </tr>
 <tr>
-<td align="center">ctrl + shift +右箭头或左箭头</td>
-<td align="center">选中一个单词</td>
+<td style="text-align:center">ctrl + shift +右箭头或左箭头</td>
+<td style="text-align:center">选中一个单词</td>
 </tr>
 <tr>
-<td align="center">鼠标双击</td>
-<td align="center">选中一个单词</td>
+<td style="text-align:center">鼠标双击</td>
+<td style="text-align:center">选中一个单词</td>
 </tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java文档注释</title>
-    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><ul>
-<li><p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
-</li>
-<li><p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
-</li>
-<li><p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
-</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>单行注释	&#x2F;注释文字&#x2F;</li>
-<li>多行注释    &#x2F;<em>注释文字</em>&#x2F;     多行注释中不能有多行注释嵌套</li>
-</ul>
-<h1 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p> 操作方式 </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -394,28 +461,188 @@
   <entry>
     <title>变量</title>
     <url>/2022/12/09/%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
+    <content><![CDATA[<h1>引言</h1>
+<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
 <span id="more"></span>
-
-<h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>字面量即数据</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h2><h3 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h3><p>int var; </p>
-<h3 id="变量的赋值"><a href="#变量的赋值" class="headerlink" title="变量的赋值"></a>变量的赋值</h3><p>var &#x3D; 10; </p>
-<h3 id="声明和赋值变量"><a href="#声明和赋值变量" class="headerlink" title="声明和赋值变量"></a>声明和赋值变量</h3><p>int var &#x3D; 10; </p>
+<h1>数据</h1>
+<p>字面量即数据</p>
+<h2 id="数据类型">数据类型</h2>
+<h1>变量</h1>
+<h2 id="变量使用">变量使用</h2>
+<h3 id="声明变量">声明变量</h3>
+<p>int var;</p>
+<h3 id="变量的赋值">变量的赋值</h3>
+<p>var = 10;</p>
+<h3 id="声明和赋值变量">声明和赋值变量</h3>
+<p>int var = 10; （数据类型，存储范围）</p>
 <ul>
-<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c&#x3D;100</li>
+<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c=100</li>
 <li>局部变量声明后必须赋值才能使用</li>
 </ul>
-<h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
+<h3 id="变量的作用域（局部变量）">变量的作用域（局部变量）</h3>
+<p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
 <p>作用域内只能有一个同名变量</p>
-<h2 id="变量分类"><a href="#变量分类" class="headerlink" title="变量分类"></a>变量分类</h2><p>变量可按照声明位置、数据类型分类</p>
-<h3 id="按声明位置"><a href="#按声明位置" class="headerlink" title="按声明位置"></a>按声明位置</h3><ul>
-<li>在方法体外，类体内声明的变量称为成员变量。 </li>
+<h2 id="变量分类">变量分类</h2>
+<p>变量可按照声明位置、数据类型分类</p>
+<h3 id="按声明位置">按声明位置</h3>
+<ul>
+<li>在方法体外，类体内声明的变量称为成员变量。</li>
 <li>在方法体内部声明的变量称为局部变量。</li>
 <li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
 </ul>
-<h3 id="按数据类型"><a href="#按数据类型" class="headerlink" title="按数据类型"></a>按数据类型</h3><p>变量的类型必须与数据的类型一致</p>
+<h3 id="按数据类型">按数据类型</h3>
+<p>变量的类型必须与数据的类型一致</p>
 <img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
-
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数据类型</title>
+    <url>/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1>引言</h1>
+<p>赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。</p>
+<span id="more"></span>
+<h1>基本数据类型</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">占用字节</th>
+<th style="text-align:center">表数范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">-128~127(-2<sup>7</sup> ~2<sup>7</sup> -1 )</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">-32768~32767(-2<sup>15</sup> ~ 2<sup>15</sup>-1 )</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">约21亿(-2<sup>31</sup> ~ 2<sup>31</sup> -1)</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-2<sup>63</sup> ~ 2<sup>63</sup> -1</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">范围大于long(-3.403E38 ~ 3.403E38)</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">-1.798E308 ~ 1.798E308</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">true,false</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0~65535</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>byte类型占用1个字节（B）即8位（bit），一共可以表示2的八次方个数即256个，其中首位为符号位，因此可以表示最大最小的数分别为：0111 1111(127)、1111 1111(-127)，从-127到127只有255个数，其中还有1000 0000（-0）表示成-128</li>
+<li>int类型占用4个字节</li>
+<li>浮点类型不能精确表示数据</li>
+<li>浮点类型表数范围大于long类型，3.404*10<sup>38</sup>&gt;8<sup>38</sup>&gt;2<sup>114</sup>&gt;2<sup>63</sup>-1</li>
+<li>boolean类型数据不能参与运算，不过Java虚拟机中没有任何供boolean值专用的字节码指令，Java语言表达所操作的boolean值，在编译之后都 使用java虚拟机中的int数据类型来代替：true用1表示，false用0表示。</li>
+</ul>
+<h1>字符型</h1>
+<p>字符型数据通常有三种表示：</p>
+<ul>
+<li>单引号括起的单个字符 ‘a’</li>
+<li>转义字符： \</li>
+<li>直接使用Unicode编码’\u000a’</li>
+</ul>
+<p>Java中存在一些无法直接表示的特殊字符，如：换行(\n),	Unicode编码(\u4e2d)</p>
+<p>使用转义字符来表示这些特殊的字符,那么如何输出“\”本身呢？</p>
+<p>“\”本身由“\\”表示,同理“\\”由“\\\\”表示，“\u”由“\\u”表示，将“\\”看作一个整体</p>
+<p>如果出现“\\\”多出一个转义字符无法形成新的整体，则会报错</p>
+<h1>数据类型的转换</h1>
+<ul>
+<li>自动转换：表数范围小的数据类型变量转换成表述范围大的数据类型变量（小水杯的水倒入大水桶，水不会溢出）</li>
+<li>强制转换：表数范围大的数据类型变量转换成表述范围小的数据类型变量（小水杯中的水可能无法装下大水桶中的水，即发生数据溢出）</li>
+</ul>
+<h2 id="字面量的类型">字面量的类型</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-number">1000</span>; <span class="hljs-comment">//int类型</span><br><span class="hljs-number">3300L</span>; <span class="hljs-comment">//long类型</span><br><span class="hljs-number">123.56f</span>;<span class="hljs-comment">//float类型</span><br><span class="hljs-number">3.14</span>;<span class="hljs-comment">//double类型</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>整数
+<ol>
+<li>默认为int类型</li>
+<li>L结尾为long类型，建议大写，小写不好区分</li>
+</ol>
+</li>
+<li>小数
+<ol>
+<li>默认为double类型</li>
+<li>F或f结尾为float类型</li>
+</ol>
+</li>
+</ul>
+<h2 id="常数赋值">常数赋值</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs Java"><span class="hljs-type">float</span> <span class="hljs-variable">f1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">long</span> <span class="hljs-variable">l1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i2</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;	<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>不难看出，当表数范围大的类型赋值给表数范围小的类型，将会产生错误</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">ii</span> <span class="hljs-operator">=</span> Integer.MAX_VALUE;<span class="hljs-comment">//2147483647</span><br><span class="hljs-type">int</span> <span class="hljs-variable">ss</span> <span class="hljs-operator">=</span> <span class="hljs-number">2147483648</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> <span class="hljs-number">2147483648</span>;	<span class="hljs-comment">//报错</span><br><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> Long.MAX_VALUE;<span class="hljs-comment">//9223372036854775807</span><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> <span class="hljs-number">9223372036854775808L</span>;<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>字面量的值超过了字面量数据类型的表数范围也会报错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; 	<br><span class="hljs-type">short</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">56</span>;<br></code></pre></td></tr></table></figure>
+<p>byte、short、char有特殊之处，此时虽然是范围大的类型赋值给范围小的类型，但</p>
+<ul>
+<li>当字面量类型为常数且整数类型时，若字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
+</ul>
+<p>换种方式，将整数类型的变量赋值给byte、short、char，即使在它们的表数范围内，也会报错</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs Java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> i;   <span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<p>这是因为在编译过程中，如果赋值的是常数，系统能直接判断是否在表数范围内，而变量在程序执行过程中可能发生变化，无法直接判断变量中的值是否在表数范围内，从而报错</p>
+<h2 id="多种类型变量混合运算">多种类型变量混合运算</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs Java"><span class="hljs-type">byte</span> <span class="hljs-variable">x1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">short</span> <span class="hljs-variable">x2</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">x3</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">long</span> <span class="hljs-variable">x4</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br><span class="hljs-type">float</span> <span class="hljs-variable">x5</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0f</span>;<br><span class="hljs-type">double</span> <span class="hljs-variable">x6</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x3 + x4 + x5 + x6;<br></code></pre></td></tr></table></figure>
+<p>将x1、x2、x3、x4、x5、x6相加，系统会将所有数据类型转换成表数范围最大的类型，因此需要用double类型的sum接收</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs Java"><span class="hljs-type">float</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x3 + x4 + x5;<br></code></pre></td></tr></table></figure>
+<p>同理上述相加可用<strong>double以及float</strong>类型的sum接收</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">x7</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x7;<br></code></pre></td></tr></table></figure>
+<p>byte、short、charr之间不会相互转换，他们三者在计算时首先转换为int类型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>*x3;<br></code></pre></td></tr></table></figure>
+<p>乘除法同样符合</p>
+<h3 id="难点">难点</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-type">short</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>s = s + <span class="hljs-number">1</span>;			<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<p>s = s + 1 ，不能将右侧的s直接代换成1，因为变量s可能在程序执行过程中发生变化，可以拆解成两步：</p>
+<ol>
+<li><code>short result = s + 1;</code></li>
+<li><code>short s = result;</code></li>
+</ol>
+<p>第一步中，系统会将所有数据类型转换成表数范围最大的类型即int，int型变量无法直接赋值给short类型，因此报错</p>
+<h1>总结</h1>
+<h2 id="常数赋值（等号右边没有变量）">常数赋值（等号右边没有变量）</h2>
+<ol>
+<li>先观察字面量类型，观察是否超过字面量类型表数范围</li>
+<li>字面量为常数且int类型时，被赋值变量类型为byte、short、char，字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
+<li>表数范围小的类型可以赋值给表数范围大的类型，反之报错</li>
+</ol>
+<h2 id="多种类型变量混合运算-2">多种类型变量混合运算</h2>
+<ol>
+<li>byte、short、char三者在计算时首先转换为int类型</li>
+<li>观察等号右边的最大表数范围的数据类型是否小于左边变量类型的表数范围</li>
+<li>乘除法同样符合上述规则</li>
+</ol>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -424,96 +651,108 @@
   <entry>
     <title>标识符</title>
     <url>/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
-    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
+    <content><![CDATA[<h1>引言</h1>
+<p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
 <span id="more"></span>
-
 <p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
-<h1 id="标识符规则"><a href="#标识符规则" class="headerlink" title="标识符规则"></a>标识符规则</h1><ol>
+<h1>标识符规则</h1>
+<ol>
 <li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
 <li>标识符不能以数字开头</li>
 <li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
 <li>标识符中不能包含空格，不能是HelloWord</li>
 </ol>
 <p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
-<h1 id="标识符命名规范"><a href="#标识符命名规范" class="headerlink" title="标识符命名规范"></a>标识符命名规范</h1><table>
+<h1>标识符命名规范</h1>
+<table>
 <thead>
 <tr>
-<th align="center">标识符</th>
-<th align="center">命名规范</th>
+<th style="text-align:center">标识符</th>
+<th style="text-align:center">命名规范</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">包名</td>
-<td align="center">全部英文字母小写</td>
+<tbody>
+<tr>
+<td style="text-align:center">包名</td>
+<td style="text-align:center">全部英文字母小写</td>
 </tr>
 <tr>
-<td align="center">类名、接口名</td>
-<td align="center">每个英文单词首字母大写</td>
+<td style="text-align:center">类名、接口名</td>
+<td style="text-align:center">每个英文单词首字母大写</td>
 </tr>
 <tr>
-<td align="center">变量名、方法名</td>
-<td align="center">首个英文单词首字母小写，之后每个单词首字母大写</td>
+<td style="text-align:center">变量名、方法名</td>
+<td style="text-align:center">首个英文单词首字母小写，之后每个单词首字母大写</td>
 </tr>
 <tr>
-<td align="center">常量名</td>
-<td align="center">全部英文字母大写，单词之间由分隔符隔开</td>
+<td style="text-align:center">常量名</td>
+<td style="text-align:center">全部英文字母大写，单词之间由分隔符隔开</td>
 </tr>
-</tbody></table>
-<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><table>
+</tbody>
+</table>
+<h1>关键字</h1>
+<table>
 <thead>
 <tr>
-<th align="left">作用</th>
-<th align="left">关键字</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">关键字</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">用于定义数据类型的关键字</td>
-<td align="left">class interface enum byte short int long float double char boolean void</td>
+<tbody>
+<tr>
+<td style="text-align:left">用于定义数据类型的关键字</td>
+<td style="text-align:left">class interface enum byte short int long float double char boolean void</td>
 </tr>
 <tr>
-<td align="left">用于定义流程控制的关键字</td>
-<td align="left">if else switch case default while do for break continue return</td>
+<td style="text-align:left">用于定义流程控制的关键字</td>
+<td style="text-align:left">if else switch case default while do for break continue return</td>
 </tr>
 <tr>
-<td align="left">用于定义访问权限修饰符的关键字</td>
-<td align="left">private protected public</td>
+<td style="text-align:left">用于定义访问权限修饰符的关键字</td>
+<td style="text-align:left">private protected public</td>
 </tr>
 <tr>
-<td align="left">用于定义类，函数，变量修饰符的关键字</td>
-<td align="left">abstract final static synchronized</td>
+<td style="text-align:left">用于定义类，函数，变量修饰符的关键字</td>
+<td style="text-align:left">abstract final static synchronized</td>
 </tr>
 <tr>
-<td align="left">用于定义类与类之间关系的关键字</td>
-<td align="left">extends implements</td>
+<td style="text-align:left">用于定义类与类之间关系的关键字</td>
+<td style="text-align:left">extends implements</td>
 </tr>
 <tr>
-<td align="left">用于定义建立实例及引用实例，判断实例的关键字</td>
-<td align="left">new this super instanceof</td>
+<td style="text-align:left">用于定义建立实例及引用实例，判断实例的关键字</td>
+<td style="text-align:left">new this super instanceof</td>
 </tr>
 <tr>
-<td align="left">用于异常处理的关键字</td>
-<td align="left">try catch finally throw throws</td>
+<td style="text-align:left">用于异常处理的关键字</td>
+<td style="text-align:left">try catch finally throw throws</td>
 </tr>
 <tr>
-<td align="left">用于包的关键字</td>
-<td align="left">package import</td>
+<td style="text-align:left">用于包的关键字</td>
+<td style="text-align:left">package import</td>
 </tr>
 <tr>
-<td align="left">其他修饰符关键字</td>
-<td align="left">native strictfp transient volatile assert</td>
+<td style="text-align:left">其他修饰符关键字</td>
+<td style="text-align:left">native strictfp transient volatile assert</td>
 </tr>
 <tr>
-<td align="left">用于定义数据类型值的字面值</td>
-<td align="left">true false null</td>
+<td style="text-align:left">用于定义数据类型值的字面值</td>
+<td style="text-align:left">true false null</td>
 </tr>
-</tbody></table>
-<h1 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h1><p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
+</tbody>
+</table>
+<h1>保留字</h1>
+<p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
 <p>goto，const</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="一个java源文件可以有名称相同，大小写不同的两个类吗"><a href="#一个java源文件可以有名称相同，大小写不同的两个类吗" class="headerlink" title="一个java源文件可以有名称相同，大小写不同的两个类吗?"></a>一个java源文件可以有名称相同，大小写不同的两个类吗?</h2><p>Java源文件可以有名称相同，大小写不同的两个类；</p>
+<h1>总结</h1>
+<h2 id="一个java源文件可以有名称相同，大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</h2>
+<p>Java源文件可以有名称相同，大小写不同的两个类；</p>
 <p>因为Java标识符严格区分大小写</p>
 <p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
-<h2 id="java可不可以使用中文命名"><a href="#java可不可以使用中文命名" class="headerlink" title="java可不可以使用中文命名?"></a>java可不可以使用中文命名?</h2><p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
-<h2 id="java源文件可以不可以数字开头"><a href="#java源文件可以不可以数字开头" class="headerlink" title="java源文件可以不可以数字开头?"></a>java源文件可以不可以数字开头?</h2><p>可以 java源文件不用遵循命名规则（public的类不行）</p>
+<h2 id="java可不可以使用中文命名">java可不可以使用中文命名?</h2>
+<p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
+<h2 id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</h2>
+<p>可以 java源文件不用遵循命名规则（public的类不行）</p>
 ]]></content>
       <categories>
         <category>第一阶段</category>

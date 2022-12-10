@@ -112,36 +112,40 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
+  <h1>引言</h1>
+<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
 <span id="more"></span>
-
-<h1 id="JDK-的安装"><a href="#JDK-的安装" class="headerlink" title="JDK 的安装"></a>JDK 的安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>首先通过甲骨文官方下载JDK所需的安装包</p>
+<h1>JDK 的安装</h1>
+<h2 id="下载">下载</h2>
+<p>首先通过甲骨文官方下载JDK所需的安装包</p>
 <p><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
 <p>选择需要的JDK版本，通常使用的是JDK8</p>
 <img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
-
 <p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
 <img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
-
 <p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
 </li>
-<li><p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
+<li>
+<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
 </li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
-
-<h1 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h1><h2 id="查看环境变量"><a href="#查看环境变量" class="headerlink" title="查看环境变量"></a>查看环境变量</h2><p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
+<h1>环境变量的配置</h1>
+<h2 id="查看环境变量">查看环境变量</h2>
+<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
 <img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
-
-<h2 id="JAVA-HOME"><a href="#JAVA-HOME" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h2><p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
+<h2 id="JAVA-HOME">JAVA_HOME</h2>
+<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
 <img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
-
-<h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
+<h2 id="Path">Path</h2>
+<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
 <img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
-
-<h2 id="CLASSPATH"><a href="#CLASSPATH" class="headerlink" title="CLASSPATH"></a>CLASSPATH</h2><p>同理添加一个名为CLASSPATH的变量，变量值为</p>
+<h2 id="CLASSPATH">CLASSPATH</h2>
+<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
 <p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
 <p>这里需注意：</p>
 <ul>
@@ -149,35 +153,35 @@
 <li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
-
 <p>随后一路确定，即配置完成</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
+<h1>测试</h1>
+<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
 <img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="为什么要配置环境变量"><a href="#为什么要配置环境变量" class="headerlink" title="为什么要配置环境变量?"></a>为什么要配置环境变量?</h2><h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
+<h1>总结</h1>
+<h2 id="为什么要配置环境变量">为什么要配置环境变量?</h2>
+<h3 id="path">path</h3>
+<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
 <p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
 <p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
-<h3 id="JAVA-HOME-1"><a href="#JAVA-HOME-1" class="headerlink" title="JAVA_HOME"></a>JAVA_HOME</h3><p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
+<h3 id="JAVA-HOME-2">JAVA_HOME</h3>
+<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
 <p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
 <p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
-<h3 id="CLASSPATH（一般不需配置）"><a href="#CLASSPATH（一般不需配置）" class="headerlink" title="CLASSPATH（一般不需配置）"></a>CLASSPATH（一般不需配置）</h3><p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<h3 id="CLASSPATH（一般不需配置）">CLASSPATH（一般不需配置）</h3>
+<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
 <p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
 <p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
 <p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
 <ul>
 <li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">test1</span>&#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;11111111&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">test2</span> &#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args&#123;</span><br><span class="hljs-params">		System.out.println(<span class="hljs-string">&quot;222222222&quot;</span>)</span>;<br>     	test1.show();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
-<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">javac -classpath &quot;另一个类所处目录路径&quot; test2.java<br></code></pre></td></tr></table></figure>
 <p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">java -classpath .;&quot;另一个类所处目录路径&quot; test2<br></code></pre></td></tr></table></figure>
 <p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
  
       <!-- reward -->
