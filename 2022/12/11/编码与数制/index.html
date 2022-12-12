@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>数据类型 |  biyixia</title>
+      <title>编码与数制 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-数据类型"
+  id="post-编码与数制"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据类型
+  编码与数制
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
-  <time datetime="2022-12-10T01:21:48.429Z" itemprop="datePublished">2022-12-10</time>
+      <a href="/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/" class="article-date">
+  <time datetime="2022-12-11T13:07:17.205Z" itemprop="datePublished">2022-12-11</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E5%8E%9F%E7%90%86/">计算机组成与原理</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.4k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -113,147 +113,100 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1>引言</h1>
-<p>赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。</p>
+<p>1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？</p>
 <span id="more"></span>
-<h1>基本数据类型</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">占用字节</th>
-<th style="text-align:center">表数范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">-128~127(-2<sup>7</sup> ~2<sup>7</sup> -1 )</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">-32768~32767(-2<sup>15</sup> ~ 2<sup>15</sup>-1 )</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">约21亿(-2<sup>31</sup> ~ 2<sup>31</sup> -1)</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-2<sup>63</sup> ~ 2<sup>63</sup> -1</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">范围大于long(-3.403E38 ~ 3.403E38)</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-1.798E308 ~ 1.798E308</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">true,false</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">0~65535</td>
-</tr>
-</tbody>
-</table>
+<p>罗马人从使用手指计数到在羊皮上画出Ⅰ、Ⅱ、Ⅲ来代替手指的字符，他们定义出了能够表示不同个数的符号，并随后引出了X(十)、C(百)、(M)千等等符号。随着要表示的数量越来越多，他们不得不引出更多的符号。</p>
+<p>印度人发明了如今成为国际通用的阿拉伯数字，与罗马人的计数方式相比，阿拉伯数字不需要不断引出新的符号，而是用数字的位置来表示，高位在左，低位在右，传入欧洲后，加上逢十进一，演变成如今人们使用的数字计数，即十进制计数法（D)。</p>
+<h1>进位计数法</h1>
+<h2 id="r进制计数法">r进制计数法</h2>
+<p>r进制计数法是从十进制计数法中抽象出来的概念，r可以表示任何整数，逢r进一</p>
+<p>相比于传统计数方法，r进制计数法</p>
 <ul>
-<li>byte类型占用1个字节（B）即8位（bit），一共可以表示2的八次方个数即256个，其中首位为符号位，因此可以表示最大最小的数分别为：0111 1111(127)、1111 1111(-127)，从-127到127只有255个数，其中还有1000 0000（-0）表示成-128</li>
-<li>int类型占用4个字节</li>
-<li>浮点类型不能精确表示数据</li>
-<li>浮点类型表数范围大于long类型，3.404*10<sup>38</sup>&gt;8<sup>38</sup>&gt;2<sup>114</sup>&gt;2<sup>63</sup>-1</li>
-<li>boolean类型数据不能参与运算，不过Java虚拟机中没有任何供boolean值专用的字节码指令，Java语言表达所操作的boolean值，在编译之后都 使用java虚拟机中的int数据类型来代替：true用1表示，false用0表示。</li>
-</ul>
-<h1>字符型</h1>
-<p>字符型数据通常有三种表示：</p>
-<ul>
-<li>单引号括起的单个字符 ‘a’</li>
-<li>转义字符： \</li>
-<li>直接使用Unicode编码’\u000a’</li>
-</ul>
-<p>Java中存在一些无法直接表示的特殊字符，如：换行(\n),	Unicode编码(\u4e2d)</p>
-<p>使用转义字符来表示这些特殊的字符,那么如何输出“\”本身呢？</p>
-<p>“\”本身由“\\”表示,同理“\\”由“\\\\”表示，“\u”由“\\u”表示，将“\\”看作一个整体</p>
-<p>如果出现“\\\”多出一个转义字符无法形成新的整体，则会报错</p>
-<h1>数据类型的转换</h1>
-<ul>
-<li>自动转换：表数范围小的数据类型变量转换成表述范围大的数据类型变量（小水杯的水倒入大水桶，水不会溢出）</li>
-<li>强制转换：表数范围大的数据类型变量转换成表述范围小的数据类型变量（小水杯中的水可能无法装下大水桶中的水，即发生数据溢出）</li>
-</ul>
-<h2 id="字面量的类型">字面量的类型</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">1000</span>; <span class="hljs-comment">//int类型</span><br><span class="hljs-number">3300L</span>; <span class="hljs-comment">//long类型</span><br><span class="hljs-number">123.56f</span>;<span class="hljs-comment">//float类型</span><br><span class="hljs-number">3.14</span>;<span class="hljs-comment">//double类型</span><br></code></pre></td></tr></table></figure>
-<ul>
-<li>整数
-<ol>
-<li>默认为int类型</li>
-<li>L结尾为long类型，建议大写，小写不好区分</li>
-</ol>
+<li>
+<p>利用了数字位置的信息</p>
+<p>每个数位表示不同的常数，第0位表示r<sup>0</sup>,第1位表示r<sup>1</sup>……</p>
+<p>（从0开始）第i位表示r<sup>i</sup>，r<sup>i</sup>就是第i位的<strong>位权</strong></p>
 </li>
-<li>小数
-<ol>
-<li>默认为double类型</li>
-<li>F或f结尾为float类型</li>
-</ol>
+<li>
+<p>每个数位使用r种不同数码</p>
+<p>r就是<strong>基数</strong></p>
+<p>真实的数字 = 累加 （每个数位的数字	乘以	该位的位权）</p>
+<blockquote>
+<p>K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
+</blockquote>
 </li>
 </ul>
-<h2 id="常数赋值">常数赋值</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">float</span> <span class="hljs-variable">f1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">long</span> <span class="hljs-variable">l1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i2</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;	<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<h2 id="二进制计数法">二进制计数法</h2>
+<p>在计算机中使用高电平和低电平两种稳定状态的电子器件，因而使用二进制来表示计算机中的数据</p>
+<p>在日常生活中带正负号的数，我们通常称为 <strong>真值</strong></p>
+<p>将数据<strong>符号数字化</strong>后并能够存储到计算机中的数称为 <strong>机器数</strong>。</p>
+<p>二进制中的1、0对应了逻辑中的真、假，为逻辑运算提供便利条件</p>
+<p>常用的还有<strong>八进制计数法（O）、十六进制计数法（H）</strong></p>
+<h1>不同进制间的转换</h1>
+<p>为了深入了解不同进制表示的数据，还需分析不同进制间的转换</p>
+<h2 id="任意进制-十进制">任意进制 -&gt; 十进制</h2>
+<h3 id="按权展开相加法">按权展开相加法</h3>
+<p>累加 （每个数位的数字	乘以	该位的位权）</p>
+<h2 id="二进制-八进制-、十六进制">二进制 -&gt; 八进制 、十六进制</h2>
 <ul>
-<li>不难看出，当表数范围大的类型赋值给表数范围小的类型，将会产生错误</li>
+<li>二进制的3个数位最多能表示8个数字</li>
+<li>二进制的4个数位最多能表示16个数字</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">ii</span> <span class="hljs-operator">=</span> Integer.MAX_VALUE;<span class="hljs-comment">//2147483647</span><br><span class="hljs-type">int</span> <span class="hljs-variable">ss</span> <span class="hljs-operator">=</span> <span class="hljs-number">2147483648</span>;	<span class="hljs-comment">//报错</span><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> <span class="hljs-number">2147483648</span>;	<span class="hljs-comment">//报错</span><br><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> Long.MAX_VALUE;<span class="hljs-comment">//9223372036854775807</span><br><span class="hljs-type">long</span> <span class="hljs-variable">ll</span> <span class="hljs-operator">=</span> <span class="hljs-number">9223372036854775808L</span>;<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
+<p>二进制 -&gt; 八进制 ：</p>
+<ol>
+<li>小数点左边：3位1组-&gt;最左边补0凑3位</li>
+<li>小数点右边：3位1组-&gt;最右边补0凑3位</li>
+<li>每组转化成八进制数</li>
+</ol>
+<p>二进制 -&gt; 十六进制：</p>
+<ol>
+<li>小数点左边：4位1组-&gt;最左边补0凑4位</li>
+<li>小数点右边：4位1组-&gt;最右边补0凑4位</li>
+<li>每组转化成十六进制数</li>
+</ol>
+<h2 id="八进制-、十六进制-二进制">八进制 、十六进制 -&gt; 二进制</h2>
+<p>八进制 -&gt; 二进制 ：1位 -&gt; 3位二进制数</p>
+<p>十六进制 -&gt; 二进制：1位 -&gt; 4位二进制数</p>
+<p>最后去掉最高位最小位的0</p>
+<h2 id="八进制-十六进制">八进制 -&gt; 十六进制</h2>
+<p>以二进制为桥梁  八进制-&gt;二进制-&gt;十六进制</p>
+<h2 id="十进制-二进制">十进制 -&gt; 二进制</h2>
+<h3 id="基数乘除法">基数乘除法</h3>
+<p>进位计数法有效利用了数码的位置信息，如何借助数字位置信息实现进制转换呢？</p>
+<blockquote>
+<p>对于一个r进制数：K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
+</blockquote>
+<p>乘以基数r</p>
+<blockquote>
+<p>r*(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)</p>
+<p>=r*(K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)</p>
+<p>=K<sub>n</sub>*r<sup>n+1</sup>+K<sub>n-1</sub>*r<sup>n</sup>+…+K<sub>2</sub>*r<sup>3</sup>+K<sub>1</sub>*r<sup>2</sup>+K<sub>0</sub>*r<sup>1</sup>+K<sub>-1</sub>*r<sup>0</sup>+K<sub>-2</sub>*r<sup>-1</sup>+…+K<sub>-m</sub>*r<sup>-m+1</sup>+0*r<sup>m</sup></p>
+<p>=K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>0</p>
+</blockquote>
+<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生左移，并在最右边一位补0</p>
+<p>除以基数r</p>
+<blockquote>
+<p>(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)\r</p>
+<p>= (K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)\r</p>
+<p>=0*r<sup>n</sup>+K<sub>n</sub>*r<sup>n-1</sup>+K<sub>n-1</sub>*r<sup>n</sup>-2+…+K<sub>2</sub>*r<sup>1</sup>+K<sub>1</sub>*r<sup>0</sup>+K<sub>0</sub>*r<sup>-1</sup>+K<sub>-1</sub>*r<sup>-2</sup>+K<sub>-2</sub>*r<sup>-3</sup>+…+K<sub>-m</sub>*r<sup>-m-1</sup></p>
+<p>=0K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+</blockquote>
+<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生右移，并在最左边一位补0</p>
+<p>对于整数：除基取余法</p>
+<p>将真值除以基数，相当于右移了数字，小数点右边的为余数，先除得的余数为低位，即二进制的最低位</p>
+<p>继续将商除以基数，继续右移，直到商为0，后除得的余数为高位</p>
+<p><strong>除基取余，先余为低，后余为高，商0结束</strong></p>
+<p>对于小数：乘基取整法</p>
+<p>将真值乘以基数，相当于左移了数字，小数点左边的为高位</p>
 <ul>
-<li>字面量的值超过了字面量数据类型的表数范围也会报错</li>
+<li>若乘积大于1，则取整为1，乘积减去1后继续乘以基数</li>
+<li>乘积小于1，则取整为0，乘积继续乘以基数</li>
+<li>直到乘积等于1停止</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span> + <span class="hljs-number">2</span>; 	<br><span class="hljs-type">short</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">56</span>;<br></code></pre></td></tr></table></figure>
-<p>byte、short、char有特殊之处，此时虽然是范围大的类型赋值给范围小的类型，但</p>
-<ul>
-<li>当字面量类型为常数且整数类型时，若字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
-</ul>
-<p>换种方式，将整数类型的变量赋值给byte、short、char，即使在它们的表数范围内，也会报错</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">byte</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> i;   <span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
-<p>这是因为在编译过程中，如果赋值的是常数，系统能直接判断是否在表数范围内，而变量在程序执行过程中可能发生变化，无法直接判断变量中的值是否在表数范围内，从而报错</p>
-<h2 id="多种类型变量混合运算">多种类型变量混合运算</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">byte</span> <span class="hljs-variable">x1</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">short</span> <span class="hljs-variable">x2</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">x3</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">long</span> <span class="hljs-variable">x4</span> <span class="hljs-operator">=</span> <span class="hljs-number">1L</span>;<br><span class="hljs-type">float</span> <span class="hljs-variable">x5</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0f</span>;<br><span class="hljs-type">double</span> <span class="hljs-variable">x6</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>;<br></code></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x3 + x4 + x5 + x6;<br></code></pre></td></tr></table></figure>
-<p>将x1、x2、x3、x4、x5、x6相加，系统会将所有数据类型转换成表数范围最大的类型，因此需要用double类型的sum接收</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">float</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x3 + x4 + x5;<br></code></pre></td></tr></table></figure>
-<p>同理上述相加可用<strong>double以及float</strong>类型的sum接收</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">x7</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> x1 + x2 + x7;<br></code></pre></td></tr></table></figure>
-<p>byte、short、charr之间不会相互转换，他们三者在计算时首先转换为int类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">double</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">1.0</span>*x3;<br></code></pre></td></tr></table></figure>
-<p>乘除法同样符合</p>
-<h3 id="难点">难点</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">short</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>s = s + <span class="hljs-number">1</span>;			<span class="hljs-comment">//报错</span><br></code></pre></td></tr></table></figure>
-<p>s = s + 1 ，不能将右侧的s直接代换成1，因为变量s可能在程序执行过程中发生变化，可以拆解成两步：</p>
-<ol>
-<li><code>short result = s + 1;</code></li>
-<li><code>short s = result;</code></li>
-</ol>
-<p>第一步中，系统会将所有数据类型转换成表数范围最大的类型即int，int型变量无法直接赋值给short类型，因此报错</p>
-<h1>总结</h1>
-<h2 id="常数赋值（等号右边没有变量）">常数赋值（等号右边没有变量）</h2>
-<ol>
-<li>先观察字面量类型，观察是否超过字面量类型表数范围</li>
-<li>字面量为常数且int类型时，被赋值变量类型为byte、short、char，字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
-<li>表数范围小的类型可以赋值给表数范围大的类型，反之报错</li>
-</ol>
-<h2 id="多种类型变量混合运算-2">多种类型变量混合运算</h2>
-<ol>
-<li>byte、short、char三者在计算时首先转换为int类型</li>
-<li>观察等号右边的最大表数范围的数据类型是否小于左边变量类型的表数范围</li>
-<li>乘除法同样符合上述规则</li>
-</ol>
+<p>注意：不是每个小数都能用二进制表示</p>
+<h3 id="拼凑法">拼凑法</h3>
  
       <!-- reward -->
       
@@ -324,7 +277,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -335,19 +288,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            编码与数制
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/12/09/%E5%8F%98%E9%87%8F/" class="article-nav-link">
+      <a href="/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">变量</div>
+        <div class="article-nav-title">数据类型</div>
       </a>
     
   </nav>
