@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.1k</span>
+            <span class="post-count">3.7k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">12 min</span>
+            <span class="post-count">14 min</span>
         </span>
     </span>
 </div>
@@ -328,7 +328,7 @@
 </table>
 <ul>
 <li>x - a与x + b同余</li>
-<li>根据<a href="###%E5%90%8C%E4%BD%99">同余的性质</a>，(x+ b) - (x-a) = r*Z，化简得 b = r*Z - a	（Z为整数、r为模）</li>
+<li>根据<a href="#%E5%90%8C%E4%BD%99">同余的性质</a>，(x+ b) - (x-a) = r*Z，化简得 b = r*Z - a	（Z为整数、r为模）</li>
 </ul>
 <p>为了方便计算，可以只找离模最近的数，取Z = 1，即 b = r - a</p>
 <p>也就是说，减法中减去a与加上 <strong>r - a</strong>等价，但r - a中仍存在减法，</p>
@@ -364,9 +364,9 @@
 <li>若两数的符号不同，则需比较两数的数值大小，然后将数值较大的数减去数值较小的数，并将数值较大的数的符号作为最后结果的符号。</li>
 </ul>
 <h3 id="补码">补码</h3>
-<p>回顾<a href="###%E6%80%9D%E8%80%83">无符号整数的减法运算</a>，x减去a 可以等价成 x 加上取反后的a加1</p>
+<p>回顾<a href="#%E6%80%9D%E8%80%83">无符号整数的减法运算</a>，x减去a 可以等价成 x 加上取反后的a加1</p>
 <h4 id="补码引言">补码引言</h4>
-<p>4位2进制的模为2<sup>4</sup></p>
+<p>无符号4位2进制的模为2<sup>4</sup></p>
 <blockquote>
 <ol>
 <li>被减数-减数 = 0：1 - 1 = 0001 + 1111 = 1)0000B = 0D</li>
@@ -382,12 +382,13 @@
 <p>我们继续整合符号位，当符号位中0表示负号，1表示正号时，符号位参与运算后为1</p>
 <ul>
 <li>对于被减数 - 减数 &gt;= 0，溢出位参与符号位的运算恰好使得结果的符号为正</li>
-<li>对于被减数 - 减数&lt; 0，符号位不变表示结果小于0</li>
+<li>对于被减数 - 减数&lt; 0，符号位不变表示结果小于0，恰好表示了 -(~a + 1)中的负号</li>
+<li>对于减数，将x - a = x+ b 看作 x -a = x + [-a]<sub>新的形式</sub>，- a = [-a]<sub>新的形式</sub></li>
 </ul>
 <h4 id="小结">小结</h4>
 <p>加上符号位的减法运算，我们可以总结出：</p>
 <ol>
-<li>减法变加法，减数作 取反加1 的变换，此处减数可以看成负数</li>
+<li>减法变加法，减数看成负数，数值位为按位取反后加1，符号位为1</li>
 <li>符号位应为数值位高一位，参与加法运算</li>
 <li>结果如果符号位为0则不变，如果符号为1，符号位不变，作 取反加1 的变换</li>
 </ol>
@@ -404,18 +405,96 @@
 <h4 id="补码的加法">补码的加法</h4>
 <p>最低位开始，按位相加，并往高位进位（符号位参与运算）</p>
 <h4 id="补码的减法">补码的减法</h4>
-<p>被减数的补码加上减数的负数的补码，与无符号减法运算一致</p>
+<p>减法变加法，减数看成负数，被减数的补码加上减数的负数的补码，，减数符号位为1不变，数值位为按位取反后加1</p>
+<p>有符号5位2进制的模为2<sup>5</sup>，第5位为符号位</p>
 <blockquote>
 <p><strong>[a]<sub>补</sub> - [b]<sub>补</sub> = [a]<sub>补</sub> + [-b]<sub>补</sub></strong></p>
 </blockquote>
 <ol>
-<li>被减数-减数 = 0	[1]<sub>补</sub> - [1]<sub>补</sub> = [1]<sub>补</sub> + [-1]<sub>补</sub> = [0001 + 1111]<sub>补</sub> = [0000]<sub>补</sub> = 0D</li>
-<li>被减数-减数 &gt; 0	[2]<sub>补</sub> - [1]<sub>补</sub> = [2]<sub>补</sub> + [-1]<sub>补</sub> = [0010 + 1111]<sub>补</sub> = [0001]<sub>补</sub> = 1D</li>
-<li>被减数-减数 &lt; 0	[1]<sub>补</sub> - [2]<sub>补</sub> = [1]<sub>补</sub> + [-2]<sub>补</sub> = [0001 + 1110]<sub>补</sub> = [1111]<sub>补</sub>= -1D</li>
+<li>被减数-减数 = 0	[1]<sub>补</sub> - [1]<sub>补</sub> = [1]<sub>补</sub> + [-1]<sub>补</sub> = [<u>0</u>0001 + <u>1</u>1111]<sub>补</sub> = [<u>0</u>0000]<sub>补</sub> = 0D</li>
+<li>被减数-减数 &gt; 0	[2]<sub>补</sub> - [1]<sub>补</sub> = [2]<sub>补</sub> + [-1]<sub>补</sub> = [<u>0</u>0010 + <u>1</u>1111]<sub>补</sub> = [<u>0</u>0001]<sub>补</sub> = 1D</li>
+<li>被减数-减数 &lt; 0	[1]<sub>补</sub> - [2]<sub>补</sub> = [1]<sub>补</sub> + [-2]<sub>补</sub> = [<u>0</u>0001 + <u>1</u>1110]<sub>补</sub> = [<u>1</u>1111]<sub>补</sub>= -1D</li>
 </ol>
 <p>结果还是补码，计算机内，所有带符号整数的加减法都先转换为补码</p>
-<p>对于被减数 - 减数 &lt; 0，a - r = a - (a + ~a + 1) = -(~a + 1)，数值位才等于实际值</p>
-<p>至此，使用补码能满足所有加减法的运算</p>
+<h4 id="补码-原码">补码&lt;-&gt;原码</h4>
+<ol>
+<li>
+<p>在补码减法运算中，[a]<sub>补</sub> - [b]<sub>补</sub> = [a]<sub>补</sub> + [-b]<sub>补</sub>；根据原码、补码定义，[b]<sub>补</sub> = [b]<sub>原</sub>，-[b]<sub>原</sub> = [-b]<sub>原</sub>，</p>
+<blockquote>
+<p>[a]<sub>原</sub> + [-b]<sub>原</sub> = [a]<sub>原</sub> - [b]<sub>原</sub> =  [a]<sub>补</sub> - [b]<sub>补</sub> = [a]<sub>补</sub> + [-b]<sub>补</sub></p>
+</blockquote>
+</li>
+</ol>
+<p>也就是 [-b]<sub>原</sub>到 [-b]<sub>补</sub>的转换，[-b]<sub>原</sub>的符号位为1不变，数值位按位取反后加1</p>
+<ol start="2">
+<li>而被减数-减数 &lt; 0，结果为补码，要转换成原码，符号位为1不变，还需将数值位按位取反后加1</li>
+</ol>
+<p>总结：补码与原码之间的转换相同，正数不变，负数符号位为1不变，数值位按位取反后加1</p>
+<h3 id="反码">反码</h3>
+<p>在使用补码作减法运算中，对于正数用不到按位取反的操作，而多次将负数的数值位按位取反再加一，将数值位按位取反也定义成新的形式，这个新的形式就是反码</p>
+<h4 id="定义-2">定义</h4>
+<ul>
+<li>反码的最高位为符号位，符号位为1为负数，符号位为0则为负数</li>
+<li>正数的反码与原码相同，负数的反码符号位为1不变，数值位按位取反</li>
+</ul>
+<p>8位的反码表示范围为：</p>
+<blockquote>
+<p>​	1000 0000 ~ 0111 1111</p>
+<p>= -127 ~ 127</p>
+</blockquote>
+<h4 id="反码-补码">反码 -&gt; 补码</h4>
+<p>[X]<sub>补</sub> = [X]<sub>反</sub> + 1</p>
+<h3 id="移码">移码</h3>
+<p>移码的符号位用“1”表示正数，用“0”表示负数，数值部分与补码相同。</p>
+<p>常用于表示浮点数的阶码</p>
+<h1>总结</h1>
+<table>
+<thead>
+<tr>
+<th>n + 1 bit</th>
+<th>无符号整数</th>
+<th>原码</th>
+<th>反码</th>
+<th>补码</th>
+<th>移码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表示范围</td>
+<td>0 ~ 2<sup>n+1</sup>-1</td>
+<td>-(2<sup>n</sup>-1) ~ 2<sup>n</sup>-1</td>
+<td>-(2<sup>n</sup>-1) ~ 2<sup>n</sup>-1</td>
+<td>-(2<sup>n</sup>) ~ 2<sup>n</sup>-1</td>
+<td>-(2<sup>n</sup>) ~ 2<sup>n</sup>-1</td>
+</tr>
+<tr>
+<td>最大值</td>
+<td>11…11=2<sup>n+1</sup>-1</td>
+<td>0,11…11 = 2<sup>n</sup>-1</td>
+<td>0,11…11 = 2<sup>n</sup>-1</td>
+<td>0,11…11=2<sup>n</sup>-1</td>
+<td>1,11…11=2<sup>n</sup>-1</td>
+</tr>
+<tr>
+<td>最小值</td>
+<td>00…00 = 0</td>
+<td>1,11…11 = -(2<sup>n</sup>-1)</td>
+<td>1,00…00 = -(2<sup>n</sup>-1)</td>
+<td>1,00…00=-(2<sup>n</sup>)</td>
+<td>0,00…00=-(2<sup>n</sup>)</td>
+</tr>
+<tr>
+<td>0的表示</td>
+<td>00…00</td>
+<td>[+0]<sub>原</sub>=0,00…00,[-0]<sub>原</sub>=1,00…00</td>
+<td>[+0]<sub>反</sub>=0,00…00[-0]<sub>反</sub>=1,11…11</td>
+<td>[0]<sub>补</sub>=0,00…00</td>
+<td>[0]<sub>移</sub>=1,00…00</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/63993b6ab1fccdcd36b1b146.png" alt="相互转换"></p>
  
       <!-- reward -->
       

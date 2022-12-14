@@ -168,7 +168,7 @@
 <p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
 <p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
 <h3 id="CLASSPATH（一般不需配置）">CLASSPATH（一般不需配置）</h3>
-<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../../09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
 <p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
 <p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
 <p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
