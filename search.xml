@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DOS常用命令</title>
-    <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="DOS命令的基础使用：">DOS命令的基础使用：</h2>
-<h3 id="dir"><code>dir</code></h3>
-<ul>
-<li>查看当前目录，其中dir指directory</li>
-</ul>
-<h3 id="mkdir-md"><code>mkdir</code>(md)</h3>
-<ul>
-<li>创建文件夹</li>
-</ul>
-<span id="more"></span>
-<h3 id="rmdir-rd"><code>rmdir</code>(rd)</h3>
-<ul>
-<li>删除文件夹，若要删除非空的文件夹，需要<code>-s</code>来强行删除该文件夹下的所有子文件夹与文件，再加上<code>-q</code>则无需确认（安静模式）</li>
-</ul>
-<h3 id="cd"><code>cd</code></h3>
-<ul>
-<li>
-<p>可以跳转至当前目录的所有子孙目录，但无法进行跨盘符跳转；若要进行跨盘符跳转，则使用“盘符”+“:”，例如<code>c:</code>,<code>d:</code>,<code>e:</code></p>
-</li>
-<li>
-<p>特别地，<code>cd .\</code>表示当前目录<code>cd ..</code> 表示返回上一级目录,<code>cd \</code> 表示返回根目录</p>
-</li>
-</ul>
-<h3 id="echo-回声"><code>echo</code>(回声)</h3>
-<ul>
-<li><code>echo 123</code>只使用echo + 字符串，则表示打印该字符串</li>
-<li><code>echo 123 &gt; d:\hello.txt </code>加上大于号，表示将打印的字符串重定向到指定位置，此时对同一个文件多次echo将会覆盖上次写的内容</li>
-<li><code>echo 123 &gt;&gt; d:\hello.txt</code> 两个大于号可对上次写下的内容进行叠加</li>
-</ul>
-<h3 id="del"><code>del</code></h3>
-<ul>
-<li>删除文件</li>
-<li><code>del *.txt</code> 通配符删除，意为将当前目录下所有后缀为txt的文·件删除</li>
-</ul>
-<h3 id="type"><code>type</code></h3>
-<ul>
-<li>仅能查看文本文件内容</li>
-</ul>
-<h3 id="cls"><code>cls</code></h3>
-<ul>
-<li>clean sreen 清空屏幕</li>
-</ul>
-<h3 id="tree"><code>tree</code></h3>
-<ul>
-<li>以树形显示该目录下的所有文件夹</li>
-<li>加上<code>-f</code> 可同时显示该目录下的所有文件</li>
-</ul>
-<h2 id="绝对路径与相对路径：">绝对路径与相对路径：</h2>
-<ul>
-<li>
-<p>绝对路径：从盘符开始的路径</p>
-</li>
-<li>
-<p>相对路径：从当前目录开始的路径</p>
-</li>
-</ul>
-<h2 id="网络命令">网络命令</h2>
-<ul>
-<li>
-<p><code>ping</code> 检查是否可以和其他主机通信</p>
-<p><code>-t</code> 不间断发送数据包</p>
-</li>
-<li>
-<p><code>ipconfig</code> 查看网卡信息</p>
-<p><code>/all</code> 查看详细的网卡信息</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-      <tags>
-        <tag>Dos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JDK的安装及环境变量的配置</title>
     <url>/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1>引言</h1>
@@ -158,6 +80,84 @@
       </categories>
   </entry>
   <entry>
+    <title>DOS常用命令</title>
+    <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="DOS命令的基础使用：">DOS命令的基础使用：</h2>
+<h3 id="dir"><code>dir</code></h3>
+<ul>
+<li>查看当前目录，其中dir指directory</li>
+</ul>
+<h3 id="mkdir-md"><code>mkdir</code>(md)</h3>
+<ul>
+<li>创建文件夹</li>
+</ul>
+<span id="more"></span>
+<h3 id="rmdir-rd"><code>rmdir</code>(rd)</h3>
+<ul>
+<li>删除文件夹，若要删除非空的文件夹，需要<code>-s</code>来强行删除该文件夹下的所有子文件夹与文件，再加上<code>-q</code>则无需确认（安静模式）</li>
+</ul>
+<h3 id="cd"><code>cd</code></h3>
+<ul>
+<li>
+<p>可以跳转至当前目录的所有子孙目录，但无法进行跨盘符跳转；若要进行跨盘符跳转，则使用“盘符”+“:”，例如<code>c:</code>,<code>d:</code>,<code>e:</code></p>
+</li>
+<li>
+<p>特别地，<code>cd .\</code>表示当前目录<code>cd ..</code> 表示返回上一级目录,<code>cd \</code> 表示返回根目录</p>
+</li>
+</ul>
+<h3 id="echo-回声"><code>echo</code>(回声)</h3>
+<ul>
+<li><code>echo 123</code>只使用echo + 字符串，则表示打印该字符串</li>
+<li><code>echo 123 &gt; d:\hello.txt </code>加上大于号，表示将打印的字符串重定向到指定位置，此时对同一个文件多次echo将会覆盖上次写的内容</li>
+<li><code>echo 123 &gt;&gt; d:\hello.txt</code> 两个大于号可对上次写下的内容进行叠加</li>
+</ul>
+<h3 id="del"><code>del</code></h3>
+<ul>
+<li>删除文件</li>
+<li><code>del *.txt</code> 通配符删除，意为将当前目录下所有后缀为txt的文·件删除</li>
+</ul>
+<h3 id="type"><code>type</code></h3>
+<ul>
+<li>仅能查看文本文件内容</li>
+</ul>
+<h3 id="cls"><code>cls</code></h3>
+<ul>
+<li>clean sreen 清空屏幕</li>
+</ul>
+<h3 id="tree"><code>tree</code></h3>
+<ul>
+<li>以树形显示该目录下的所有文件夹</li>
+<li>加上<code>-f</code> 可同时显示该目录下的所有文件</li>
+</ul>
+<h2 id="绝对路径与相对路径：">绝对路径与相对路径：</h2>
+<ul>
+<li>
+<p>绝对路径：从盘符开始的路径</p>
+</li>
+<li>
+<p>相对路径：从当前目录开始的路径</p>
+</li>
+</ul>
+<h2 id="网络命令">网络命令</h2>
+<ul>
+<li>
+<p><code>ping</code> 检查是否可以和其他主机通信</p>
+<p><code>-t</code> 不间断发送数据包</p>
+</li>
+<li>
+<p><code>ipconfig</code> 查看网卡信息</p>
+<p><code>/all</code> 查看详细的网卡信息</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+      <tags>
+        <tag>Dos</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java加载及执行原理</title>
     <url>/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1>Java程序执行原理</h1>
@@ -171,6 +171,81 @@
 <li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
 <li>执行过程中，只需要指定字节码文件运行</li>
 </ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java语言概述</title>
+    <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1>介绍</h1>
+<p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+<span id="more"></span>
+<h1>Java语言的特点</h1>
+<h2 id="简单">简单</h2>
+<p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
+<h2 id="面向对象（封装、继承、多态）">面向对象（封装、继承、多态）</h2>
+<h2 id="健壮">健壮</h2>
+<p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
+<h2 id="多线程">多线程</h2>
+<p>Java支持<strong>多条线程并发进行</strong></p>
+<h2 id="跨平台">跨平台</h2>
+<p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
+<h1>Java技术体系平台</h1>
+<h2 id="JavaSE">JavaSE</h2>
+<p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
+<h2 id="JavaEE">JavaEE</h2>
+<p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
+<h2 id="JavaME">JavaME</h2>
+<p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
+<h2 id="三者之间的关系">三者之间的关系</h2>
+<p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
+<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
+<h1>JVM、JRE、JDK三者关系</h1>
+<h2 id="JVM（Java-Virtual-Machine）">JVM（Java Virtual Machine）</h2>
+<p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
+<p>JVM如何实现Java跨平台运行？</p>
+<ul>
+<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
+<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
+<h2 id="JRE（Java-Runtime-Environment）">JRE（Java Runtime Environment）</h2>
+<p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
+<h2 id="JDK（Java-Development-Kit）">JDK（Java Development Kit）</h2>
+<p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
+<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java文档注释</title>
+    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1>引言</h1>
+<ul>
+<li>
+<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li>
+<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li>
+<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>单行注释	/注释文字/</li>
+<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
+</ul>
+<h1>文档注释</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"><span class="hljs-doctag">@author</span>	指定java程序的作者</span><br><span class="hljs-comment"><span class="hljs-doctag">@version</span> 指定源文件的版本</span><br><span class="hljs-comment"><span class="hljs-doctag">@since</span> 自从哪个版本号开始就存在了</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p>操作方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">javadoc –d mydoc –author –version FileName.java<br></code></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -267,11 +342,11 @@ $$</p>
 <hr>
 </blockquote>
 <h2 id="超链接">超链接</h2>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">百度</span>](<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span>)<br>[<span class="hljs-string">百度</span>][<span class="hljs-symbol">id</span>]<br>[<span class="hljs-symbol">id</span>]:<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span><br><br>请参考[<span class="hljs-string">标题1</span>](<span class="hljs-link">#标题：</span>)<br><br>URL：<br>http://www.baidu.com<br><br>![<span class="hljs-string">百度</span>](<span class="hljs-link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">百度</span>](<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span>)<br>[<span class="hljs-string">百度</span>][<span class="hljs-symbol">id</span>]<br>[<span class="hljs-symbol">id</span>]:<span class="hljs-link">www.baidu.com &quot;一个搜索引擎&quot;</span><br><br>请参考[<span class="hljs-string">标题1</span>](<span class="hljs-link">#标题</span>)<br><br>URL：<br>http://www.baidu.com<br><br>![<span class="hljs-string">百度</span>](<span class="hljs-link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="baidu.com" title="一个搜索引擎">百度</a><br>
 <a href="www.baidu.com" title="一个搜索引擎">百度</a></p>
-<p>请参考<a href="#%E6%A0%87%E9%A2%98%EF%BC%9A">标题1</a></p>
+<p>请参考<a href="#%E6%A0%87%E9%A2%98">标题1</a></p>
 <p>URL：<br>
 <a href="http://www.baidu.com">http://www.baidu.com</a></p>
 <p><img src="https://pic.imgdb.cn/item/63914551b1fccdcd36559921.png%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%22" alt="百度"></p>
@@ -303,30 +378,40 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>Java文档注释</title>
-    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <title>变量</title>
+    <url>/2022/12/09/%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h1>引言</h1>
-<ul>
-<li>
-<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
-</li>
-<li>
-<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
-</li>
-<li>
-<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
-</li>
-</ul>
+<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
 <span id="more"></span>
+<h1>数据</h1>
+<p>字面量即数据</p>
+<h2 id="数据类型">数据类型</h2>
+<h1>变量</h1>
+<h2 id="变量使用">变量使用</h2>
+<h3 id="声明变量">声明变量</h3>
+<p>int var;</p>
+<h3 id="变量的赋值">变量的赋值</h3>
+<p>var = 10;</p>
+<h3 id="声明和赋值变量">声明和赋值变量</h3>
+<p>int var = 10; （数据类型，存储范围）</p>
 <ul>
-<li>单行注释	/注释文字/</li>
-<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
+<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c=100</li>
+<li>局部变量声明后必须赋值才能使用</li>
 </ul>
-<h1>文档注释</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"><span class="hljs-doctag">@author</span>	指定java程序的作者</span><br><span class="hljs-comment"><span class="hljs-doctag">@version</span> 指定源文件的版本</span><br><span class="hljs-comment"><span class="hljs-doctag">@since</span> 自从哪个版本号开始就存在了</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p>操作方式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">javadoc –d mydoc –author –version FileName.java<br></code></pre></td></tr></table></figure>
+<h3 id="变量的作用域（局部变量）">变量的作用域（局部变量）</h3>
+<p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
+<p>作用域内只能有一个同名变量</p>
+<h2 id="变量分类">变量分类</h2>
+<p>变量可按照声明位置、数据类型分类</p>
+<h3 id="按声明位置">按声明位置</h3>
+<ul>
+<li>在方法体外，类体内声明的变量称为成员变量。</li>
+<li>在方法体内部声明的变量称为局部变量。</li>
+<li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
+</ul>
+<h3 id="按数据类型">按数据类型</h3>
+<p>变量的类型必须与数据的类型一致</p>
+<img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -408,91 +493,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 </tr>
 </tbody>
 </table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java语言概述</title>
-    <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1>介绍</h1>
-<p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
-<span id="more"></span>
-<h1>Java语言的特点</h1>
-<h2 id="简单">简单</h2>
-<p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
-<h2 id="面向对象（封装、继承、多态）">面向对象（封装、继承、多态）</h2>
-<h2 id="健壮">健壮</h2>
-<p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
-<h2 id="多线程">多线程</h2>
-<p>Java支持<strong>多条线程并发进行</strong></p>
-<h2 id="跨平台">跨平台</h2>
-<p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
-<h1>Java技术体系平台</h1>
-<h2 id="JavaSE">JavaSE</h2>
-<p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
-<h2 id="JavaEE">JavaEE</h2>
-<p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
-<h2 id="JavaME">JavaME</h2>
-<p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
-<h2 id="三者之间的关系">三者之间的关系</h2>
-<p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
-<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
-<h1>JVM、JRE、JDK三者关系</h1>
-<h2 id="JVM（Java-Virtual-Machine）">JVM（Java Virtual Machine）</h2>
-<p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
-<p>JVM如何实现Java跨平台运行？</p>
-<ul>
-<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
-<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
-<h2 id="JRE（Java-Runtime-Environment）">JRE（Java Runtime Environment）</h2>
-<p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
-<h2 id="JDK（Java-Development-Kit）">JDK（Java Development Kit）</h2>
-<p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
-<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>变量</title>
-    <url>/2022/12/09/%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1>引言</h1>
-<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
-<span id="more"></span>
-<h1>数据</h1>
-<p>字面量即数据</p>
-<h2 id="数据类型">数据类型</h2>
-<h1>变量</h1>
-<h2 id="变量使用">变量使用</h2>
-<h3 id="声明变量">声明变量</h3>
-<p>int var;</p>
-<h3 id="变量的赋值">变量的赋值</h3>
-<p>var = 10;</p>
-<h3 id="声明和赋值变量">声明和赋值变量</h3>
-<p>int var = 10; （数据类型，存储范围）</p>
-<ul>
-<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c=100</li>
-<li>局部变量声明后必须赋值才能使用</li>
-</ul>
-<h3 id="变量的作用域（局部变量）">变量的作用域（局部变量）</h3>
-<p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
-<p>作用域内只能有一个同名变量</p>
-<h2 id="变量分类">变量分类</h2>
-<p>变量可按照声明位置、数据类型分类</p>
-<h3 id="按声明位置">按声明位置</h3>
-<ul>
-<li>在方法体外，类体内声明的变量称为成员变量。</li>
-<li>在方法体内部声明的变量称为局部变量。</li>
-<li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
-</ul>
-<h3 id="按数据类型">按数据类型</h3>
-<p>变量的类型必须与数据的类型一致</p>
-<img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -649,316 +649,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>编码与数制</title>
-    <url>/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</url>
-    <content><![CDATA[<h1>引言</h1>
-<p>1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？</p>
-<span id="more"></span>
-<p>罗马人从使用手指计数到在羊皮上画出Ⅰ、Ⅱ、Ⅲ来代替手指的字符，他们定义出了能够表示不同个数的符号，并随后引出了X(十)、C(百)、(M)千等等符号。随着要表示的数量越来越多，他们不得不引出更多的符号。</p>
-<p>印度人发明了如今成为国际通用的阿拉伯数字，与罗马人的计数方式相比，阿拉伯数字不需要不断引出新的符号，而是用数字的位置来表示，高位在左，低位在右，传入欧洲后，加上逢十进一，演变成如今人们使用的数字计数，即十进制计数法（D)。</p>
-<h1>进位计数法</h1>
-<h2 id="r进制计数法">r进制计数法</h2>
-<p>r进制计数法是从十进制计数法中抽象出来的概念，r可以表示任何整数，逢r进一</p>
-<p>相比于传统计数方法，r进制计数法</p>
-<ul>
-<li>
-<p>利用了数字位置的信息</p>
-<p>每个数位表示不同的常数，第0位表示r<sup>0</sup>,第1位表示r<sup>1</sup>……</p>
-<p>（从0开始）第i位表示r<sup>i</sup>，r<sup>i</sup>就是第i位的<strong>位权</strong></p>
-</li>
-<li>
-<p>每个数位使用r种不同数码</p>
-<p>r就是<strong>基数</strong></p>
-<p>真实的数字 = 累加 （每个数位的数字	乘以	该位的位权）</p>
-<blockquote>
-<p>K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
-<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="二进制计数法">二进制计数法</h2>
-<p>在计算机中使用高电平和低电平两种稳定状态的电子器件，因而使用二进制来表示计算机中的数据</p>
-<p>二进制中的1、0对应了逻辑中的真、假，为逻辑运算提供便利条件</p>
-<p>常用的还有<strong>八进制计数法（O）、十六进制计数法（H）</strong></p>
-<h1>不同进制间的转换</h1>
-<p>为了深入了解不同进制表示的数据，还需分析不同进制间的转换</p>
-<h2 id="任意进制-十进制">任意进制 -&gt; 十进制</h2>
-<h3 id="按权展开相加法">按权展开相加法</h3>
-<p>累加 （每个数位的数字	乘以	该位的位权）</p>
-<h2 id="二进制-八进制-、十六进制">二进制 -&gt; 八进制 、十六进制</h2>
-<ul>
-<li>二进制的3个数位最多能表示8个数字</li>
-<li>二进制的4个数位最多能表示16个数字</li>
-</ul>
-<p>二进制 -&gt; 八进制 ：</p>
-<ol>
-<li>小数点左边：3位1组-&gt;最左边补0凑3位</li>
-<li>小数点右边：3位1组-&gt;最右边补0凑3位</li>
-<li>每组转化成八进制数</li>
-</ol>
-<p>二进制 -&gt; 十六进制：</p>
-<ol>
-<li>小数点左边：4位1组-&gt;最左边补0凑4位</li>
-<li>小数点右边：4位1组-&gt;最右边补0凑4位</li>
-<li>每组转化成十六进制数</li>
-</ol>
-<h2 id="八进制-、十六进制-二进制">八进制 、十六进制 -&gt; 二进制</h2>
-<p>八进制 -&gt; 二进制 ：1位 -&gt; 3位二进制数</p>
-<p>十六进制 -&gt; 二进制：1位 -&gt; 4位二进制数</p>
-<p>最后去掉最高位最小位的0</p>
-<h2 id="八进制-十六进制">八进制 -&gt; 十六进制</h2>
-<p>以二进制为桥梁  八进制-&gt;二进制-&gt;十六进制</p>
-<h2 id="十进制-二进制">十进制 -&gt; 二进制</h2>
-<h3 id="基数乘除法">基数乘除法</h3>
-<p>进位计数法有效利用了数码的位置信息，如何借助数字位置信息实现进制转换呢？</p>
-<blockquote>
-<p>对于一个r进制数：K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
-<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
-</blockquote>
-<p>乘以基数r</p>
-<blockquote>
-<p>r*(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)</p>
-<p>=r*(K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)</p>
-<p>=K<sub>n</sub>*r<sup>n+1</sup>+K<sub>n-1</sub>*r<sup>n</sup>+…+K<sub>2</sub>*r<sup>3</sup>+K<sub>1</sub>*r<sup>2</sup>+K<sub>0</sub>*r<sup>1</sup>+K<sub>-1</sub>*r<sup>0</sup>+K<sub>-2</sub>*r<sup>-1</sup>+…+K<sub>-m</sub>*r<sup>-m+1</sup>+0*r<sup>m</sup></p>
-<p>=K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>0</p>
-</blockquote>
-<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生左移，并在最右边一位补0</p>
-<p>除以基数r</p>
-<blockquote>
-<p>(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)\r</p>
-<p>= (K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)\r</p>
-<p>=0*r<sup>n</sup>+K<sub>n</sub>*r<sup>n-1</sup>+K<sub>n-1</sub>*r<sup>n</sup>-2+…+K<sub>2</sub>*r<sup>1</sup>+K<sub>1</sub>*r<sup>0</sup>+K<sub>0</sub>*r<sup>-1</sup>+K<sub>-1</sub>*r<sup>-2</sup>+K<sub>-2</sub>*r<sup>-3</sup>+…+K<sub>-m</sub>*r<sup>-m-1</sup></p>
-<p>=0K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
-</blockquote>
-<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生右移，并在最左边一位补0</p>
-<h4 id="对于整数：除基取余法">对于整数：除基取余法</h4>
-<p>将数字除以基数，相当于右移了数字，小数点右边的为余数，先除得的余数为低位，即二进制的最低位</p>
-<p>继续将商除以基数，继续右移，直到商为0，后除得的余数为高位</p>
-<p><strong>除基取余，先余为低，后余为高，商0结束</strong></p>
-<h4 id="对于小数：乘基取整法">对于小数：乘基取整法</h4>
-<p>将数字乘以基数，相当于左移了数字，小数点左边的为高位</p>
-<p>此时乘积的结构为： 高位数码（整数部分） + 剩余数  (**.**K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)*r =  K<sub>-1</sub> <strong>.</strong> K<sub>-2</sub>…K<sub>-m</sub></p>
-<p>乘积减去高位数码得到剩余数，再将剩余数继续乘基数，重复以上步骤，直到高位数码为0</p>
-<p><strong>乘基取整，先整为高，后整为低，整0结束</strong></p>
-<p>注意：不是每个小数都能用二进制表示</p>
-<h3 id="拼凑法">拼凑法</h3>
-<p>在十进制转换为二进制中，大小适中的数字，可以通过位权凑出数字</p>
-<table>
-<thead>
-<tr>
-<th>2<sup>-4</sup></th>
-<th>2<sup>-3</sup></th>
-<th>2<sup>-2</sup></th>
-<th>2<sup>-1</sup></th>
-<th>2<sup>0</sup></th>
-<th>2<sup>1</sup></th>
-<th>2<sup>2</sup></th>
-<th>2<sup>3</sup></th>
-<th>2<sup>4</sup></th>
-<th>2<sup>5</sup></th>
-<th>2<sup>6</sup></th>
-<th>2<sup>7</sup></th>
-<th>2<sup>8</sup></th>
-<th>2<sup>9</sup></th>
-<th>2<sup>10</sup></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.0625</td>
-<td>0.125</td>
-<td>0.25</td>
-<td>0.5</td>
-<td>1</td>
-<td>2</td>
-<td>4</td>
-<td>8</td>
-<td>16</td>
-<td>32</td>
-<td>64</td>
-<td>128</td>
-<td>256</td>
-<td>512</td>
-<td>1024</td>
-</tr>
-</tbody>
-</table>
-<p>75.325D = 64 + 8 + 2 + 1 + 0.25 + 0.125 = 2<sup>6</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup> + 2<sup>-2</sup> + 2<sup>-3</sup> = 1001011.011B</p>
-<p>在了解了计算机的进位计数法及不同进制的转换后，便可以学习如何将生活中的数存入计算机</p>
-<h1>整数的表示</h1>
-<p>在日常生活中带正负号的数，我们通常称为 <strong>真值</strong></p>
-<p>将数据<strong>符号数字化</strong>后并能够存储到计算机中的数称为 <strong>机器数</strong>。</p>
-<p>先看简化的无符号整数（以下都是二进制计数）</p>
-<h2 id="无符号整数">无符号整数</h2>
-<p>K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub></p>
-<ul>
-<li>没有符号位，默认为正号</li>
-<li>最大值为：2<sup>n+1</sup>-1，最小值为0</li>
-</ul>
-<h3 id="加法运算">加法运算</h3>
-<blockquote>
-<p>1+1 = 0001 + 0001 = 0010B = 2D</p>
-</blockquote>
-<h3 id="减法运算">减法运算</h3>
-<p>减法只考虑正数减正数：</p>
-<ol>
-<li>正数减负数、负数减正数本质上是加法，</li>
-<li>负数减负数其实也就是正数减正数</li>
-</ol>
-<blockquote>
-<p>2-1 = 0010 - 0001 = 0001 =1D</p>
-</blockquote>
-<p>实际上，早期的计算机中设有关于减法的相关电路，复杂的电路伴随着高昂的成本，因此如今的计算机逻辑运算单元中，只有加法器进行加法的运算，减法的运算也是通过加法器实现。那么如何通过加法运算实现减法呢？</p>
-<h3 id="钟表时针">钟表时针</h3>
-<p>类似于钟表的时针：如果说现在时针现在停在10点钟，那么什么时候时针会停在8点钟呢？</p>
-<p>时针倒拨2小时，或是正拨10小时，超过12小时后，时针将走第二圈，并最终停在8点钟</p>
-<blockquote>
-<p>10 - 2 = 8，10 + 10 = 20 = 12 + 8</p>
-<p>即 (10 - 2) mod 12 = 8</p>
-<p>​	(10 + 10) mod 12 = 8</p>
-</blockquote>
-<ul>
-<li>
-<p>mod就是<strong>取模运算</strong>，它们除以整数12，并计算最后的余数</p>
-</li>
-<li>
-<p>8和20对于模12<strong>同余</strong>(有着相同的余数)，它们将共同停在余数8点钟</p>
-</li>
-</ul>
-<h3 id="取模运算">取模运算</h3>
-<p>对整数a、b，取模运算就是a除以b，并计算余数（模余），记作</p>
-<blockquote>
-<p>a Mod b = a - [a/b]*b，[a/b]为向下取整</p>
-</blockquote>
-<p>如：20 Mod 12 = 20 - [20/12]*12 = 20 - 1*12 = 8</p>
-<h3 id="同余">同余</h3>
-<p>两个整数a，b，若它们除以整数m所得的余数相等，则称a，b对于模m同余,记作</p>
-<blockquote>
-<p>a Mod r =  b Mod r =&gt; a ≡ b (mod m)</p>
-<p>性质：<strong>a、b满足a-b为r的整数倍</strong></p>
-</blockquote>
-<h3 id="思考">思考</h3>
-<p>与钟表时针相比，计算机计数也有相似的地方：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">钟表时针</th>
-<th style="text-align:center">计算机计数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">钟表时针取值只有[0-11]，超过12后会从0重新开始</td>
-<td style="text-align:center">计算机作二进制表示的数位有限，超过一定数值也会重新开始计数</td>
-</tr>
-<tr>
-<td style="text-align:center">将时针倒拨可以通过正拨等价实现</td>
-<td style="text-align:center">计算机减法也可以使用加法等价实现</td>
-</tr>
-<tr>
-<td style="text-align:center">(10-2) mod 12 = (10+10) mod 12</td>
-<td style="text-align:center">(x - a) Mod r = (x + b) Mod r</td>
-</tr>
-<tr>
-<td style="text-align:center">(10-2) ≡ (10+10) (mod 12)</td>
-<td style="text-align:center">(x-a) ≡ (x+ b) (mod r)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>x - a与x + b同余</li>
-<li>根据<a href="#####%E5%90%8C%E4%BD%99">同余的性质</a>，(x+ b) - (x-a) = r*Z，化简得 b = r*Z - a	（Z为整数、r为模）</li>
-</ul>
-<p>为了方便计算，可以只找离模最近的数，取Z = 1，即 b = r - a</p>
-<p>也就是说，减法中减去a与加上 <strong>r - a</strong>等价，但r - a中仍存在减法，</p>
-<p>这时需要利用计算机中的取反操作：</p>
-<blockquote>
-<p><strong>r  = a + ~a +1</strong>	（~为取反符号）</p>
-</blockquote>
-<p>二进制中任何一个数与它取反后的数相加，都会得到每个位为1的数，此时加上1就能得到该位下的模</p>
-<blockquote>
-<p>b = r - a = ~a +1</p>
-</blockquote>
-<p>x减去a 可以等价成 x 加上取反后的a加1，即</p>
-<blockquote>
-<p><strong>x - a = x + b =  x + ~a + 1</strong></p>
-</blockquote>
-<p>至此，减法运算可以仅通过加法、取反来实现</p>
-<h2 id="带符号整数">带符号整数</h2>
-<h3 id="原码">原码</h3>
-<p>接着引入符号位的概念，最高位为符号位，正数为0，负数为1</p>
-<p>符号位与真值的绝对值构成了原码</p>
-<blockquote>
-<p>[1]<sub>原</sub> = 0001	[-1]<sub>原</sub> = 1001</p>
-</blockquote>
-<p>8位的原码表示范围为：</p>
-<blockquote>
-<p>​	1111 1111 ~ 0111 1111</p>
-<p>= -127 ~ 127</p>
-</blockquote>
-<h4 id="原码的运算">原码的运算</h4>
-<ul>
-<li>原码中的符号位仅用来表示数的正、负，不参加运算，只有数值部分参与运算</li>
-<li>原码运算时，先比较两个数的符号，若两个数的符号相同，则将两个数的相加，最后加上符号</li>
-<li>若两数的符号不同，则需比较两数的数值大小，然后将数值较大的数减去数值较小的数，并将数值较大的数的符号作为最后结果的符号。</li>
-</ul>
-<h3 id="补码">补码</h3>
-<p>回顾<a href="####%E6%80%9D%E8%80%83">无符号整数的减法运算</a>，x减去a 可以等价成 x 加上取反后的a加1</p>
-<h4 id="补码引言">补码引言</h4>
-<p>4位2进制的模为2<sup>4</sup></p>
-<blockquote>
-<ol>
-<li>被减数-减数 = 0：1 - 1 = 0001 + 1111 = 1)0000B = 0D</li>
-<li>被减数-减数 &gt; 0：2 - 1 = 0010 + 1111 = 1)0001B = 1D</li>
-<li>被减数-减数 &lt; 0：1 - 2 = 0001 + 1110 = 1111B = 15D(16 - 1)</li>
-</ol>
-</blockquote>
-<p>结果都比原来多了2<sup>4</sup>,都多加了一个模</p>
-<ol>
-<li>对于被减数 - 减数 &gt;= 0，忽视溢出位，数值位等于实际值</li>
-<li>对于被减数 - 减数 &lt; 0，还需减去一个模，a - r = a - (a + ~a + 1) = -(~a + 1)，数值位才等于实际值</li>
-</ol>
-<p>我们继续整合符号位，当符号位中0表示负号，1表示正号时，符号位参与运算后为1</p>
-<ul>
-<li>对于被减数 - 减数 &gt;= 0，溢出位参与符号位的运算恰好使得结果的符号为正</li>
-<li>对于被减数 - 减数&lt; 0，符号位不变表示结果小于0</li>
-</ul>
-<h4 id="小结">小结</h4>
-<p>加上符号位的减法运算，我们可以总结出：</p>
-<ol>
-<li>减法变加法，减数作 取反加1 的变换，此处减数可以看成负数</li>
-<li>符号位应为数值位高一位，参与加法运算</li>
-<li>结果如果符号位为0则不变，如果符号为1，符号位不变，作 取反加1 的变换</li>
-</ol>
-<p>至此，补码的定义逐渐清晰起来</p>
-<h4 id="定义">定义</h4>
-<ul>
-<li>补码的符号位为数值位高一位，0表示负，1表示正</li>
-<li>正数的补码与原码一致，负数的补码符号位不变，数值位作 取反加1</li>
-</ul>
-<p>8位的补码表示范围为：</p>
-<p>​	1111 1111 ~ 0111 1111，补码没有-0的结果，补码中的1000 0000表示-128</p>
-<p>(-1) + (-127) = [1000 0001]<sub>原</sub> + [1111 1111]<sub>原</sub> = [1111 1111]<sub>补</sub> + [1000 0001]<sub>补</sub> = [1000 0000]<sub>补</sub> = -128D</p>
-<p>表示范围：-128 ~ 127</p>
-<h4 id="补码的加法">补码的加法</h4>
-<p>最低位开始，按位相加，并往高位进位（符号位参与运算）</p>
-<h4 id="补码的减法">补码的减法</h4>
-<p>被减数的补码加上减数的负数的补码，与无符号减法运算一致</p>
-<p>[a]<sub>补</sub> - [b]<sub>补</sub> = [a]<sub>补</sub> + [-b]<sub>补</sub></p>
-<ol>
-<li>被减数-减数 = 0	[1]<sub>补</sub> - [1]<sub>补</sub> = [1]<sub>补</sub> + [-1]<sub>补</sub> = [0001 + 1111]<sub>补</sub> = [0000]<sub>补</sub> = 0D</li>
-<li>被减数-减数 &gt; 0	[2]<sub>补</sub> - [1]<sub>补</sub> = [2]<sub>补</sub> + [-1]<sub>补</sub> = [0010 + 1111]<sub>补</sub> = [0001]<sub>补</sub> = 1D</li>
-<li>被减数-减数 &lt; 0	[1]<sub>补</sub> - [2]<sub>补</sub> = [1]<sub>补</sub> + [-2]<sub>补</sub> = [0001 + 1110]<sub>补</sub> = [1111]<sub>补</sub>= -1D</li>
-</ol>
-<p>结果还是补码，计算机内，所有带符号整数的加减法都先转换为补码</p>
-<p>对于被减数 - 减数 &lt; 0，a - r = a - (a + ~a + 1) = -(~a + 1)，数值位才等于实际值</p>
-<p>至此，使用补码能满足所有加减法的运算</p>
-]]></content>
-      <categories>
-        <category>计算机组成与原理</category>
-      </categories>
-  </entry>
-  <entry>
     <title>标识符</title>
     <url>/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
     <content><![CDATA[<h1>引言</h1>
@@ -1066,6 +756,318 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 ]]></content>
       <categories>
         <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>编码与数制</title>
+    <url>/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</url>
+    <content><![CDATA[<h1>引言</h1>
+<p>1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？</p>
+<span id="more"></span>
+<p>罗马人从使用手指计数到在羊皮上画出Ⅰ、Ⅱ、Ⅲ来代替手指的字符，他们定义出了能够表示不同个数的符号，并随后引出了X(十)、C(百)、(M)千等等符号。随着要表示的数量越来越多，他们不得不引出更多的符号。</p>
+<p>印度人发明了如今成为国际通用的阿拉伯数字，与罗马人的计数方式相比，阿拉伯数字不需要不断引出新的符号，而是用数字的位置来表示，高位在左，低位在右，传入欧洲后，加上逢十进一，演变成如今人们使用的数字计数，即十进制计数法（D)。</p>
+<h1>进位计数法</h1>
+<h2 id="r进制计数法">r进制计数法</h2>
+<p>r进制计数法是从十进制计数法中抽象出来的概念，r可以表示任何整数，逢r进一</p>
+<p>相比于传统计数方法，r进制计数法</p>
+<ul>
+<li>
+<p>利用了数字位置的信息</p>
+<p>每个数位表示不同的常数，第0位表示r<sup>0</sup>,第1位表示r<sup>1</sup>……</p>
+<p>（从0开始）第i位表示r<sup>i</sup>，r<sup>i</sup>就是第i位的<strong>位权</strong></p>
+</li>
+<li>
+<p>每个数位使用r种不同数码</p>
+<p>r就是<strong>基数</strong></p>
+<p>真实的数字 = 累加 （每个数位的数字	乘以	该位的位权）</p>
+<blockquote>
+<p>K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="二进制计数法">二进制计数法</h2>
+<p>在计算机中使用高电平和低电平两种稳定状态的电子器件，因而使用二进制来表示计算机中的数据</p>
+<p>二进制中的1、0对应了逻辑中的真、假，为逻辑运算提供便利条件</p>
+<p>常用的还有<strong>八进制计数法（O）、十六进制计数法（H）</strong></p>
+<h1>不同进制间的转换</h1>
+<p>为了深入了解不同进制表示的数据，还需分析不同进制间的转换</p>
+<h2 id="任意进制-十进制">任意进制 -&gt; 十进制</h2>
+<h3 id="按权展开相加法">按权展开相加法</h3>
+<p>累加 （每个数位的数字	乘以	该位的位权）</p>
+<h2 id="二进制-八进制-、十六进制">二进制 -&gt; 八进制 、十六进制</h2>
+<ul>
+<li>二进制的3个数位最多能表示8个数字</li>
+<li>二进制的4个数位最多能表示16个数字</li>
+</ul>
+<p>二进制 -&gt; 八进制 ：</p>
+<ol>
+<li>小数点左边：3位1组-&gt;最左边补0凑3位</li>
+<li>小数点右边：3位1组-&gt;最右边补0凑3位</li>
+<li>每组转化成八进制数</li>
+</ol>
+<p>二进制 -&gt; 十六进制：</p>
+<ol>
+<li>小数点左边：4位1组-&gt;最左边补0凑4位</li>
+<li>小数点右边：4位1组-&gt;最右边补0凑4位</li>
+<li>每组转化成十六进制数</li>
+</ol>
+<h2 id="八进制-、十六进制-二进制">八进制 、十六进制 -&gt; 二进制</h2>
+<p>八进制 -&gt; 二进制 ：1位 -&gt; 3位二进制数</p>
+<p>十六进制 -&gt; 二进制：1位 -&gt; 4位二进制数</p>
+<p>最后去掉最高位最小位的0</p>
+<h2 id="八进制-十六进制">八进制 -&gt; 十六进制</h2>
+<p>以二进制为桥梁  八进制-&gt;二进制-&gt;十六进制</p>
+<h2 id="十进制-二进制">十进制 -&gt; 二进制</h2>
+<h3 id="基数乘除法">基数乘除法</h3>
+<p>进位计数法有效利用了数码的位置信息，如何借助数字位置信息实现进制转换呢？</p>
+<blockquote>
+<p>对于一个r进制数：K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>= K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup></p>
+</blockquote>
+<p>乘以基数r</p>
+<blockquote>
+<p>r*(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)</p>
+<p>=r*(K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)</p>
+<p>=K<sub>n</sub>*r<sup>n+1</sup>+K<sub>n-1</sub>*r<sup>n</sup>+…+K<sub>2</sub>*r<sup>3</sup>+K<sub>1</sub>*r<sup>2</sup>+K<sub>0</sub>*r<sup>1</sup>+K<sub>-1</sub>*r<sup>0</sup>+K<sub>-2</sub>*r<sup>-1</sup>+…+K<sub>-m</sub>*r<sup>-m+1</sup>+0*r<sup>m</sup></p>
+<p>=K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>0</p>
+</blockquote>
+<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生左移，并在最右边一位补0</p>
+<p>除以基数r</p>
+<blockquote>
+<p>(K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)\r</p>
+<p>= (K<sub>n</sub>*r<sup>n</sup>+K<sub>n-1</sub>*r<sup>n-1</sup>+…+K<sub>2</sub>*r<sup>2</sup>+K<sub>1</sub>*r<sup>1</sup>+K<sub>0</sub>*r<sup>0</sup>+K<sub>-1</sub>*r<sup>-1</sup>+K<sub>-2</sub>*r<sup>-2</sup>+…+K<sub>-m</sub>*r<sup>-m</sup>)\r</p>
+<p>=0*r<sup>n</sup>+K<sub>n</sub>*r<sup>n-1</sup>+K<sub>n-1</sub>*r<sup>n</sup>-2+…+K<sub>2</sub>*r<sup>1</sup>+K<sub>1</sub>*r<sup>0</sup>+K<sub>0</sub>*r<sup>-1</sup>+K<sub>-1</sub>*r<sup>-2</sup>+K<sub>-2</sub>*r<sup>-3</sup>+…+K<sub>-m</sub>*r<sup>-m-1</sup></p>
+<p>=0K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub></p>
+</blockquote>
+<p>相比于K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub>K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>，各个数位的数码同时发生右移，并在最左边一位补0</p>
+<h4 id="对于整数：除基取余法">对于整数：除基取余法</h4>
+<p>将数字除以基数，相当于右移了数字，小数点右边的为余数，先除得的余数为低位，即二进制的最低位</p>
+<p>继续将商除以基数，继续右移，直到商为0，后除得的余数为高位</p>
+<p><strong>除基取余，先余为低，后余为高，商0结束</strong></p>
+<h4 id="对于小数：乘基取整法">对于小数：乘基取整法</h4>
+<p>将数字乘以基数，相当于左移了数字，小数点左边的为高位</p>
+<p>此时乘积的结构为： 高位数码（整数部分） + 剩余数  (**.**K<sub>-1</sub>K<sub>-2</sub>…K<sub>-m</sub>)*r =  K<sub>-1</sub> <strong>.</strong> K<sub>-2</sub>…K<sub>-m</sub></p>
+<p>乘积减去高位数码得到剩余数，再将剩余数继续乘基数，重复以上步骤，直到高位数码为0</p>
+<p><strong>乘基取整，先整为高，后整为低，整0结束</strong></p>
+<p>注意：不是每个小数都能用二进制表示</p>
+<h3 id="拼凑法">拼凑法</h3>
+<p>在十进制转换为二进制中，大小适中的数字，可以通过位权凑出数字</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">2<sup>-4</sup></th>
+<th style="text-align:left">2<sup>-3</sup></th>
+<th style="text-align:left">2<sup>-2</sup></th>
+<th style="text-align:left">2<sup>-1</sup></th>
+<th style="text-align:left">2<sup>0</sup></th>
+<th style="text-align:left">2<sup>1</sup></th>
+<th style="text-align:left">2<sup>2</sup></th>
+<th style="text-align:left">2<sup>3</sup></th>
+<th style="text-align:left">2<sup>4</sup></th>
+<th style="text-align:left">2<sup>5</sup></th>
+<th style="text-align:left">2<sup>6</sup></th>
+<th style="text-align:left">2<sup>7</sup></th>
+<th style="text-align:left">2<sup>8</sup></th>
+<th style="text-align:left">2<sup>9</sup></th>
+<th style="text-align:left">2<sup>10</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0.0625</td>
+<td style="text-align:left">0.125</td>
+<td style="text-align:left">0.25</td>
+<td style="text-align:left">0.5</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">32</td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">128</td>
+<td style="text-align:left">256</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">1024</td>
+</tr>
+</tbody>
+</table>
+<p>75.325D = 64 + 8 + 2 + 1 + 0.25 + 0.125 = 2<sup>6</sup> + 2<sup>3</sup> + 2<sup>1</sup> + 2<sup>0</sup> + 2<sup>-2</sup> + 2<sup>-3</sup> = 1001011.011B</p>
+<p>在了解了计算机的进位计数法及不同进制的转换后，便可以学习如何将生活中的数存入计算机</p>
+<h1>整数的表示</h1>
+<p>在日常生活中带正负号的数，我们通常称为 <strong>真值</strong></p>
+<p>将数据<strong>符号数字化</strong>后并能够存储到计算机中的数称为 <strong>机器数</strong>。</p>
+<p>先看简化的无符号整数（以下都是二进制计数）</p>
+<h2 id="无符号整数">无符号整数</h2>
+<p>K<sub>n</sub>K<sub>n-1</sub>…K<sub>2</sub>K<sub>1</sub>K<sub>0</sub></p>
+<ul>
+<li>没有符号位，默认为正号</li>
+<li>最大值为：2<sup>n+1</sup>-1，最小值为0</li>
+</ul>
+<h3 id="加法运算">加法运算</h3>
+<blockquote>
+<p>1+1 = 0001 + 0001 = 0010B = 2D</p>
+</blockquote>
+<h3 id="减法运算">减法运算</h3>
+<p>减法只考虑正数减正数：</p>
+<ol>
+<li>正数减负数、负数减正数本质上是加法，</li>
+<li>负数减负数其实也就是正数减正数</li>
+</ol>
+<blockquote>
+<p>2-1 = 0010 - 0001 = 0001 =1D</p>
+</blockquote>
+<p>实际上，早期的计算机中设有关于减法的相关电路，复杂的电路伴随着高昂的成本，因此如今的计算机逻辑运算单元中，只有加法器进行加法的运算，减法的运算也是通过加法器实现。那么如何通过加法运算实现减法呢？</p>
+<h3 id="钟表时针">钟表时针</h3>
+<p>类似于钟表的时针：如果说现在时针现在停在10点钟，那么什么时候时针会停在8点钟呢？</p>
+<p>时针倒拨2小时，或是正拨10小时，超过12小时后，时针将走第二圈，并最终停在8点钟</p>
+<blockquote>
+<p>10 - 2 = 8，10 + 10 = 20 = 12 + 8</p>
+<p>即 (10 - 2) mod 12 = 8</p>
+<p>​	(10 + 10) mod 12 = 8</p>
+</blockquote>
+<ul>
+<li>
+<p>mod就是<strong>取模运算</strong>，它们除以整数12，并计算最后的余数</p>
+</li>
+<li>
+<p>8和20对于模12<strong>同余</strong>(有着相同的余数)，它们将共同停在余数8点钟</p>
+</li>
+</ul>
+<h3 id="取模运算">取模运算</h3>
+<p>对整数a、b，取模运算就是a除以b，并计算余数（模余），记作</p>
+<blockquote>
+<p>a Mod b = a - [a/b]*b，[a/b]为向下取整</p>
+</blockquote>
+<p>如：20 Mod 12 = 20 - [20/12]*12 = 20 - 1*12 = 8</p>
+<h3 id="同余">同余</h3>
+<p>两个整数a，b，若它们除以整数m所得的余数相等，则称a，b对于模m同余,记作</p>
+<blockquote>
+<p>a Mod r =  b Mod r =&gt; a ≡ b (mod m)</p>
+<p>性质：<strong>a、b满足a-b为r的整数倍</strong></p>
+</blockquote>
+<h3 id="思考">思考</h3>
+<p>与钟表时针相比，计算机计数也有相似的地方：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">钟表时针</th>
+<th style="text-align:left">计算机计数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">钟表时针取值只有[0-11]，超过12后会从0重新开始</td>
+<td style="text-align:left">计算机作二进制表示的数位有限，超过一定数值也会重新开始计数</td>
+</tr>
+<tr>
+<td style="text-align:left">将时针倒拨可以通过正拨等价实现</td>
+<td style="text-align:left">计算机减法也可以使用加法等价实现</td>
+</tr>
+<tr>
+<td style="text-align:left">(10-2) mod 12 = (10+10) mod 12</td>
+<td style="text-align:left">(x - a) Mod r = (x + b) Mod r</td>
+</tr>
+<tr>
+<td style="text-align:left">(10-2) ≡ (10+10) (mod 12)</td>
+<td style="text-align:left">(x-a) ≡ (x+ b) (mod r)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>x - a与x + b同余</li>
+<li>根据<a href="###%E5%90%8C%E4%BD%99">同余的性质</a>，(x+ b) - (x-a) = r*Z，化简得 b = r*Z - a	（Z为整数、r为模）</li>
+</ul>
+<p>为了方便计算，可以只找离模最近的数，取Z = 1，即 b = r - a</p>
+<p>也就是说，减法中减去a与加上 <strong>r - a</strong>等价，但r - a中仍存在减法，</p>
+<p>这时需要利用计算机中的取反操作：</p>
+<blockquote>
+<p><strong>r  = a + ~a +1</strong>	（~为取反符号）</p>
+</blockquote>
+<p>二进制中任何一个数与它取反后的数相加，都会得到每个位为1的数，此时加上1就能得到该位下的模</p>
+<blockquote>
+<p>b = r - a = ~a +1</p>
+</blockquote>
+<p>x减去a 可以等价成 x 加上取反后的a加1，即</p>
+<blockquote>
+<p><strong>x - a = x + b =  x + ~a + 1</strong></p>
+</blockquote>
+<p>至此，减法运算可以仅通过加法、取反来实现</p>
+<h2 id="带符号整数">带符号整数</h2>
+<h3 id="原码">原码</h3>
+<p>接着引入符号位的概念，最高位为符号位，正数为0，负数为1</p>
+<p>符号位与真值的绝对值构成了原码</p>
+<blockquote>
+<p>[1]<sub>原</sub> = 0001	[-1]<sub>原</sub> = 1001</p>
+</blockquote>
+<p>8位的原码表示范围为：</p>
+<blockquote>
+<p>​	1111 1111 ~ 0111 1111</p>
+<p>= -127 ~ 127</p>
+</blockquote>
+<h4 id="原码的运算">原码的运算</h4>
+<ul>
+<li>原码中的符号位仅用来表示数的正、负，不参加运算，只有数值部分参与运算</li>
+<li>原码运算时，先比较两个数的符号，若两个数的符号相同，则将两个数的相加，最后加上符号</li>
+<li>若两数的符号不同，则需比较两数的数值大小，然后将数值较大的数减去数值较小的数，并将数值较大的数的符号作为最后结果的符号。</li>
+</ul>
+<h3 id="补码">补码</h3>
+<p>回顾<a href="#%E5%BC%95%E8%A8%80">无符号整数的减法运算</a>，x减去a 可以等价成 x 加上取反后的a加1</p>
+<h4 id="补码引言">补码引言</h4>
+<p>4位2进制的模为2<sup>4</sup></p>
+<blockquote>
+<ol>
+<li>被减数-减数 = 0：1 - 1 = 0001 + 1111 = 1)0000B = 0D</li>
+<li>被减数-减数 &gt; 0：2 - 1 = 0010 + 1111 = 1)0001B = 1D</li>
+<li>被减数-减数 &lt; 0：1 - 2 = 0001 + 1110 = 1111B = 15D(16 - 1)</li>
+</ol>
+</blockquote>
+<p>结果都比原来多了2<sup>4</sup>,都多加了一个模</p>
+<ol>
+<li>对于被减数 - 减数 &gt;= 0，忽视溢出位，数值位等于实际值</li>
+<li>对于被减数 - 减数 &lt; 0，还需减去一个模，a - r = a - (a + ~a + 1) = -(~a + 1)，数值位才等于实际值</li>
+</ol>
+<p>我们继续整合符号位，当符号位中0表示负号，1表示正号时，符号位参与运算后为1</p>
+<ul>
+<li>对于被减数 - 减数 &gt;= 0，溢出位参与符号位的运算恰好使得结果的符号为正</li>
+<li>对于被减数 - 减数&lt; 0，符号位不变表示结果小于0</li>
+</ul>
+<h4 id="小结">小结</h4>
+<p>加上符号位的减法运算，我们可以总结出：</p>
+<ol>
+<li>减法变加法，减数作 取反加1 的变换，此处减数可以看成负数</li>
+<li>符号位应为数值位高一位，参与加法运算</li>
+<li>结果如果符号位为0则不变，如果符号为1，符号位不变，作 取反加1 的变换</li>
+</ol>
+<p>至此，补码的定义逐渐清晰起来</p>
+<h4 id="定义">定义</h4>
+<ul>
+<li>补码的符号位为数值位高一位，0表示负，1表示正</li>
+<li>正数的补码与原码一致，负数的补码符号位不变，数值位作 取反加1</li>
+</ul>
+<p>8位的补码表示范围为：</p>
+<p>​	1111 1111 ~ 0111 1111，补码没有-0的结果，补码中的1000 0000表示-128</p>
+<p>(-1) + (-127) = [1000 0001]<sub>原</sub> + [1111 1111]<sub>原</sub> = [1111 1111]<sub>补</sub> + [1000 0001]<sub>补</sub> = [1000 0000]<sub>补</sub> = -128D</p>
+<p>表示范围：-128 ~ 127</p>
+<h4 id="补码的加法">补码的加法</h4>
+<p>最低位开始，按位相加，并往高位进位（符号位参与运算）</p>
+<h4 id="补码的减法">补码的减法</h4>
+<p>被减数的补码加上减数的负数的补码，与无符号减法运算一致</p>
+<blockquote>
+<p><strong>[a]<sub>补</sub> - [b]<sub>补</sub> = [a]<sub>补</sub> + [-b]<sub>补</sub></strong></p>
+</blockquote>
+<ol>
+<li>被减数-减数 = 0	[1]<sub>补</sub> - [1]<sub>补</sub> = [1]<sub>补</sub> + [-1]<sub>补</sub> = [0001 + 1111]<sub>补</sub> = [0000]<sub>补</sub> = 0D</li>
+<li>被减数-减数 &gt; 0	[2]<sub>补</sub> - [1]<sub>补</sub> = [2]<sub>补</sub> + [-1]<sub>补</sub> = [0010 + 1111]<sub>补</sub> = [0001]<sub>补</sub> = 1D</li>
+<li>被减数-减数 &lt; 0	[1]<sub>补</sub> - [2]<sub>补</sub> = [1]<sub>补</sub> + [-2]<sub>补</sub> = [0001 + 1110]<sub>补</sub> = [1111]<sub>补</sub>= -1D</li>
+</ol>
+<p>结果还是补码，计算机内，所有带符号整数的加减法都先转换为补码</p>
+<p>对于被减数 - 减数 &lt; 0，a - r = a - (a + ~a + 1) = -(~a + 1)，数值位才等于实际值</p>
+<p>至此，使用补码能满足所有加减法的运算</p>
+]]></content>
+      <categories>
+        <category>计算机组成与原理</category>
       </categories>
   </entry>
   <entry>
