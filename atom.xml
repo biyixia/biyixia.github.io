@@ -18,8 +18,8 @@
   
   <entry>
     <title>运算符</title>
-    <link href="http://example.com/2022/12/12/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>http://example.com/2022/12/12/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
+    <link href="http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
     <published>2022-12-12T12:20:26.198Z</published>
     <updated>2022-12-13T01:46:00.430Z</updated>
     
@@ -35,8 +35,8 @@
   
   <entry>
     <title>编码与数制</title>
-    <link href="http://example.com/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"/>
-    <id>http://example.com/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</id>
+    <link href="http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"/>
+    <id>http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</id>
     <published>2022-12-11T13:07:17.205Z</published>
     <updated>2022-12-14T03:06:11.998Z</updated>
     
@@ -53,8 +53,8 @@
   
   <entry>
     <title>数据类型</title>
-    <link href="http://example.com/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://example.com/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <link href="http://example.com/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://example.com/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
     <published>2022-12-10T01:21:48.429Z</published>
     <updated>2022-12-12T00:55:12.503Z</updated>
     
@@ -71,8 +71,8 @@
   
   <entry>
     <title>变量</title>
-    <link href="http://example.com/2022/12/09/%E5%8F%98%E9%87%8F/"/>
-    <id>http://example.com/2022/12/09/%E5%8F%98%E9%87%8F/</id>
+    <link href="http://example.com/post/%E5%8F%98%E9%87%8F/"/>
+    <id>http://example.com/post/%E5%8F%98%E9%87%8F/</id>
     <published>2022-12-09T12:51:53.924Z</published>
     <updated>2022-12-10T01:21:18.186Z</updated>
     
@@ -89,8 +89,8 @@
   
   <entry>
     <title>标识符</title>
-    <link href="http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
-    <id>http://example.com/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
+    <link href="http://example.com/post/%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
+    <id>http://example.com/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
     <published>2022-12-09T11:49:37.315Z</published>
     <updated>2022-12-09T13:24:48.953Z</updated>
     
@@ -107,8 +107,8 @@
   
   <entry>
     <title>Java文档注释</title>
-    <link href="http://example.com/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/"/>
-    <id>http://example.com/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</id>
+    <link href="http://example.com/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/"/>
+    <id>http://example.com/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</id>
     <published>2022-12-09T11:40:20.095Z</published>
     <updated>2022-12-09T11:50:52.353Z</updated>
     
@@ -135,8 +135,8 @@
   
   <entry>
     <title>常用文本编辑快捷键</title>
-    <link href="http://example.com/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://example.com/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <link href="http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
     <published>2022-12-09T11:26:25.849Z</published>
     <updated>2022-12-09T12:48:07.303Z</updated>
     
@@ -153,8 +153,8 @@
   
   <entry>
     <title>Java加载及执行原理</title>
-    <link href="http://example.com/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/"/>
-    <id>http://example.com/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</id>
+    <link href="http://example.com/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/"/>
+    <id>http://example.com/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</id>
     <published>2022-12-09T10:35:42.688Z</published>
     <updated>2022-12-09T12:46:42.321Z</updated>
     
@@ -171,8 +171,8 @@
   
   <entry>
     <title>JDK的安装及环境变量的配置</title>
-    <link href="http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
+    <link href="http://example.com/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
     <published>2022-12-08T12:09:05.524Z</published>
     <updated>2022-12-14T01:04:36.392Z</updated>
     
@@ -189,8 +189,8 @@
   
   <entry>
     <title>Java语言概述</title>
-    <link href="http://example.com/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"/>
-    <id>http://example.com/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</id>
+    <link href="http://example.com/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"/>
+    <id>http://example.com/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</id>
     <published>2022-12-08T11:19:36.508Z</published>
     <updated>2022-12-08T13:13:14.645Z</updated>
     
@@ -207,8 +207,8 @@
   
   <entry>
     <title>DOS常用命令</title>
-    <link href="http://example.com/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://example.com/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <link href="http://example.com/post/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://example.com/post/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2022-12-07T12:35:19.913Z</published>
     <updated>2022-12-08T09:03:18.254Z</updated>
     
@@ -234,8 +234,8 @@
   
   <entry>
     <title>Markdown 入门使用</title>
-    <link href="http://example.com/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/"/>
-    <id>http://example.com/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</id>
+    <link href="http://example.com/post/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/post/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</id>
     <published>2022-12-07T02:51:42.989Z</published>
     <updated>2022-12-14T00:38:44.554Z</updated>
     

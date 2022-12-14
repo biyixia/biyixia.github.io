@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>DOS常用命令</title>
-    <url>/2022/12/07/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/post/DOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="DOS命令的基础使用：">DOS命令的基础使用：</h2>
 <h3 id="dir"><code>dir</code></h3>
 <ul>
@@ -79,27 +79,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Java加载及执行原理</title>
-    <url>/2022/12/09/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1>Java程序执行原理</h1>
-<p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
-<span id="more"></span>
-<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
-<h1>源文件、类、字节码文件</h1>
-<ul>
-<li>源文件中可包含一个或多个类</li>
-<li>源文件中至多有一个类被public修饰，当源文件中有public修饰类，原文件名必须与public修饰类名一致，当源文件中没有public修饰类，则源文件名与类名没有关系</li>
-<li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
-<li>执行过程中，只需要指定字节码文件运行</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JDK的安装及环境变量的配置</title>
-    <url>/2022/12/08/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1>引言</h1>
 <p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
 <span id="more"></span>
@@ -177,8 +158,27 @@
       </categories>
   </entry>
   <entry>
+    <title>Java加载及执行原理</title>
+    <url>/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1>Java程序执行原理</h1>
+<p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
+<span id="more"></span>
+<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
+<h1>源文件、类、字节码文件</h1>
+<ul>
+<li>源文件中可包含一个或多个类</li>
+<li>源文件中至多有一个类被public修饰，当源文件中有public修饰类，原文件名必须与public修饰类名一致，当源文件中没有public修饰类，则源文件名与类名没有关系</li>
+<li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
+<li>执行过程中，只需要指定字节码文件运行</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java文档注释</title>
-    <url>/2022/12/09/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <url>/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
     <content><![CDATA[<h1>引言</h1>
 <ul>
 <li>
@@ -208,7 +208,7 @@
   </entry>
   <entry>
     <title>Java语言概述</title>
-    <url>/2022/12/08/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
+    <url>/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<h1>介绍</h1>
 <p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
 <span id="more"></span>
@@ -253,7 +253,7 @@
   </entry>
   <entry>
     <title>Markdown 入门使用</title>
-    <url>/2022/12/07/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
+    <url>/post/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="介绍">介绍</h2>
 <p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
 <span id="more"></span>
@@ -379,7 +379,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
   </entry>
   <entry>
     <title>变量</title>
-    <url>/2022/12/09/%E5%8F%98%E9%87%8F/</url>
+    <url>/post/%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h1>引言</h1>
 <p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
 <span id="more"></span>
@@ -419,7 +419,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
   </entry>
   <entry>
     <title>常用文本编辑快捷键</title>
-    <url>/2022/12/09/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <url>/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<h1>引言</h1>
 <p>掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：</p>
 <span id="more"></span>
@@ -499,8 +499,118 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>标识符</title>
+    <url>/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
+    <content><![CDATA[<h1>引言</h1>
+<p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
+<span id="more"></span>
+<p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
+<h1>标识符规则</h1>
+<ol>
+<li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
+<li>标识符不能以数字开头</li>
+<li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
+<li>标识符中不能包含空格，不能是HelloWord</li>
+</ol>
+<p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
+<h1>标识符命名规范</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标识符</th>
+<th style="text-align:center">命名规范</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">包名</td>
+<td style="text-align:center">全部英文字母小写</td>
+</tr>
+<tr>
+<td style="text-align:center">类名、接口名</td>
+<td style="text-align:center">每个英文单词首字母大写</td>
+</tr>
+<tr>
+<td style="text-align:center">变量名、方法名</td>
+<td style="text-align:center">首个英文单词首字母小写，之后每个单词首字母大写</td>
+</tr>
+<tr>
+<td style="text-align:center">常量名</td>
+<td style="text-align:center">全部英文字母大写，单词之间由分隔符隔开</td>
+</tr>
+</tbody>
+</table>
+<h1>关键字</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">用于定义数据类型的关键字</td>
+<td style="text-align:left">class interface enum byte short int long float double char boolean void</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义流程控制的关键字</td>
+<td style="text-align:left">if else switch case default while do for break continue return</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义访问权限修饰符的关键字</td>
+<td style="text-align:left">private protected public</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义类，函数，变量修饰符的关键字</td>
+<td style="text-align:left">abstract final static synchronized</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义类与类之间关系的关键字</td>
+<td style="text-align:left">extends implements</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义建立实例及引用实例，判断实例的关键字</td>
+<td style="text-align:left">new this super instanceof</td>
+</tr>
+<tr>
+<td style="text-align:left">用于异常处理的关键字</td>
+<td style="text-align:left">try catch finally throw throws</td>
+</tr>
+<tr>
+<td style="text-align:left">用于包的关键字</td>
+<td style="text-align:left">package import</td>
+</tr>
+<tr>
+<td style="text-align:left">其他修饰符关键字</td>
+<td style="text-align:left">native strictfp transient volatile assert</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义数据类型值的字面值</td>
+<td style="text-align:left">true false null</td>
+</tr>
+</tbody>
+</table>
+<h1>保留字</h1>
+<p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
+<p>goto，const</p>
+<h1>总结</h1>
+<h2 id="一个java源文件可以有名称相同，大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</h2>
+<p>Java源文件可以有名称相同，大小写不同的两个类；</p>
+<p>因为Java标识符严格区分大小写</p>
+<p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
+<h2 id="java可不可以使用中文命名">java可不可以使用中文命名?</h2>
+<p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
+<h2 id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</h2>
+<p>可以 java源文件不用遵循命名规则（public的类不行）</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>数据类型</title>
-    <url>/2022/12/10/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <url>/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1>引言</h1>
 <p>赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。</p>
 <span id="more"></span>
@@ -649,118 +759,8 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>标识符</title>
-    <url>/2022/12/09/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
-    <content><![CDATA[<h1>引言</h1>
-<p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
-<span id="more"></span>
-<p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
-<h1>标识符规则</h1>
-<ol>
-<li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
-<li>标识符不能以数字开头</li>
-<li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
-<li>标识符中不能包含空格，不能是HelloWord</li>
-</ol>
-<p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
-<h1>标识符命名规范</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标识符</th>
-<th style="text-align:center">命名规范</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">包名</td>
-<td style="text-align:center">全部英文字母小写</td>
-</tr>
-<tr>
-<td style="text-align:center">类名、接口名</td>
-<td style="text-align:center">每个英文单词首字母大写</td>
-</tr>
-<tr>
-<td style="text-align:center">变量名、方法名</td>
-<td style="text-align:center">首个英文单词首字母小写，之后每个单词首字母大写</td>
-</tr>
-<tr>
-<td style="text-align:center">常量名</td>
-<td style="text-align:center">全部英文字母大写，单词之间由分隔符隔开</td>
-</tr>
-</tbody>
-</table>
-<h1>关键字</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">作用</th>
-<th style="text-align:left">关键字</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">用于定义数据类型的关键字</td>
-<td style="text-align:left">class interface enum byte short int long float double char boolean void</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义流程控制的关键字</td>
-<td style="text-align:left">if else switch case default while do for break continue return</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义访问权限修饰符的关键字</td>
-<td style="text-align:left">private protected public</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义类，函数，变量修饰符的关键字</td>
-<td style="text-align:left">abstract final static synchronized</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义类与类之间关系的关键字</td>
-<td style="text-align:left">extends implements</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义建立实例及引用实例，判断实例的关键字</td>
-<td style="text-align:left">new this super instanceof</td>
-</tr>
-<tr>
-<td style="text-align:left">用于异常处理的关键字</td>
-<td style="text-align:left">try catch finally throw throws</td>
-</tr>
-<tr>
-<td style="text-align:left">用于包的关键字</td>
-<td style="text-align:left">package import</td>
-</tr>
-<tr>
-<td style="text-align:left">其他修饰符关键字</td>
-<td style="text-align:left">native strictfp transient volatile assert</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义数据类型值的字面值</td>
-<td style="text-align:left">true false null</td>
-</tr>
-</tbody>
-</table>
-<h1>保留字</h1>
-<p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
-<p>goto，const</p>
-<h1>总结</h1>
-<h2 id="一个java源文件可以有名称相同，大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</h2>
-<p>Java源文件可以有名称相同，大小写不同的两个类；</p>
-<p>因为Java标识符严格区分大小写</p>
-<p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
-<h2 id="java可不可以使用中文命名">java可不可以使用中文命名?</h2>
-<p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
-<h2 id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</h2>
-<p>可以 java源文件不用遵循命名规则（public的类不行）</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>编码与数制</title>
-    <url>/2022/12/11/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</url>
+    <url>/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</url>
     <content><![CDATA[<h1>引言</h1>
 <p>1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？</p>
 <span id="more"></span>
@@ -1151,7 +1151,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
   </entry>
   <entry>
     <title>运算符</title>
-    <url>/2022/12/12/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h1>引言</h1>
 <span id="more"></span>
 <h1>算数运算符</h1>
