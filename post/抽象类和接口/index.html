@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>IDEA常用快捷键 |  biyixia</title>
+      <title>抽象类和接口 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-IDEA常用快捷键"
+  id="post-抽象类和接口"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  IDEA常用快捷键
+  抽象类和接口
 </h1>
  
 
@@ -76,8 +76,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-date">
-  <time datetime="2022-12-14T03:32:16.345Z" itemprop="datePublished">2022-12-14</time>
+      <a href="/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/" class="article-date">
+  <time datetime="2022-12-27T09:00:50.059Z" itemprop="datePublished">2022-12-27</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">361</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -97,163 +97,179 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <table>
+  <p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。</p>
+<p>抽象类是为了把<strong>相同的但不确定</strong>的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。</p>
+<p>当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。</p>
+<p>然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。</p>
+<p>接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&quot;是不是&quot;的关系，而接口实现则是 &quot;能不能&quot;的关系。</p>
+<span id="more"></span>
+<h1>abstract</h1>
+<h2 id="抽象类">抽象类</h2>
+<p>abstract修饰的类称为抽象类，命名规范:xxxxAbstract  Abstractxxxx  xxxxBase</p>
+<ul>
+<li>抽象类不能被实例化，抽象类就是用来继承并实现的，但是有构造器</li>
+<li>抽象类中可以有抽象方法，供继承类重写，若继承类还是抽象类，可以不重写抽象方法</li>
+<li>最多只能继承一个抽象类（单继承）</li>
+</ul>
+<h2 id="抽象方法">抽象方法</h2>
+<p>abstract修饰的方法称为抽象方法</p>
+<ul>
+<li>抽象方法没有方法体，抽象方法就是供子类重写的（抽象子类不需要重写）</li>
+<li>含有抽象方法的类一定是抽象类或接口</li>
+</ul>
+<table>
 <thead>
 <tr>
-<th>功能</th>
-<th>快捷键</th>
-<th>功能</th>
-<th>快捷键</th>
+<th></th>
+<th>类</th>
+<th>方法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>执行运行</td>
-<td>Shift + F10</td>
-<td>万能解错/生成返回值</td>
-<td>Alt + Enter</td>
+<td>final</td>
+<td>不能被继承</td>
+<td>不能被重写</td>
 </tr>
 <tr>
-<td>提示补全</td>
-<td>Ctrl +空格(改成 Alt+/)</td>
-<td>返回上次查看代码的位置</td>
-<td>Ctrl + Alt + 左右箭头</td>
+<td>abstract</td>
+<td>供子类继承实现</td>
+<td>供继承类重写</td>
 </tr>
 <tr>
-<td>单行注释</td>
-<td>Ctrl + /</td>
-<td>查看继承关系</td>
-<td>Ctrl + H</td>
+<td>static</td>
+<td></td>
+<td>需要方法体随类加载而加载</td>
 </tr>
 <tr>
-<td>多行注释</td>
-<td>Ctrl + Shift + /</td>
-<td>格式化代码</td>
-<td><strong>Ctrl + Alt + L</strong></td>
-</tr>
-<tr>
-<td>向下复制一行</td>
-<td>Ctrl + D</td>
-<td>提示方法参数类型</td>
-<td>Ctrl + P</td>
-</tr>
-<tr>
-<td>删除一行或多行</td>
-<td>Ctrl + Y</td>
-<td>复制</td>
-<td>Ctrl + C</td>
-</tr>
-<tr>
-<td>向上/下移动一行</td>
-<td><strong>Alt+Shift+上或下箭头</strong></td>
-<td>撤销</td>
-<td>Ctrl + Z</td>
-</tr>
-<tr>
-<td>向下开始新的一行</td>
-<td>Shift + Enter</td>
-<td>剪切</td>
-<td>Ctrl + X</td>
-</tr>
-<tr>
-<td>向上开始新的一行</td>
-<td>Ctrl + Alt + Enter</td>
-<td>粘贴</td>
-<td>Ctrl + V</td>
-</tr>
-<tr>
-<td>查看源码</td>
-<td>Ctrl + 鼠标左键</td>
-<td>保存</td>
-<td>Ctrl + S</td>
-</tr>
-<tr>
-<td>搜索类</td>
-<td>Ctrl + N</td>
-<td>全选</td>
-<td>Ctrl + A</td>
-</tr>
-<tr>
-<td>整体向后移动</td>
-<td>Tab</td>
-<td>全局查找</td>
-<td>Ctrl + Shift+R</td>
-</tr>
-<tr>
-<td>整体向前移动</td>
-<td>Shift + Tab</td>
-<td>查找任何东西</td>
-<td>Shift+Shift</td>
-</tr>
-<tr>
-<td>查看类的结构</td>
-<td>Ctrl + F12</td>
-<td>查看类的继承结构图</td>
-<td>Ctrl + Alt + U</td>
-</tr>
-<tr>
-<td>重构方法变量名</td>
-<td>Shift + F6</td>
-<td>抽取方法</td>
-<td>Ctrl + Alt + M</td>
-</tr>
-<tr>
-<td>大小写转换</td>
-<td>Ctrl +Shift + U</td>
-<td>最近修改的文件</td>
-<td>Ctrl + E</td>
-</tr>
-<tr>
-<td>生成get/set/toString</td>
-<td>Alt + Insert</td>
-<td>选择粘贴内容</td>
-<td>Ctrl + Shift + V</td>
-</tr>
-<tr>
-<td>查看文档说明</td>
-<td>Ctrl + Q</td>
-<td>优化导入的类</td>
-<td>Ctrl + Alt + O</td>
-</tr>
-<tr>
-<td>收起/展开所有方法</td>
-<td>Ctrl + Shift + “+/-”</td>
-<td>寻找方法被调用的地方</td>
-<td>Alt + Alt + F7</td>
-</tr>
-<tr>
-<td>生成surround with</td>
-<td>Ctrl + Alt+T</td>
-<td>跳到文件尾部</td>
-<td>Ctrl + End</td>
-</tr>
-<tr>
-<td>查找</td>
-<td>Ctrl + F</td>
-<td>跳到文件头部</td>
-<td>Ctrl + Home</td>
-</tr>
-<tr>
-<td>查找替换</td>
-<td>Ctrl + R</td>
-<td>实现/重写方法</td>
-<td>Ctrl + O/</td>
+<td>private</td>
+<td></td>
+<td>对子类不可见</td>
 </tr>
 </tbody>
 </table>
+<p>因此，final不能修饰抽象类和抽象方法</p>
+<p>static、private不能修饰抽象方法</p>
+<h2 id="匿名抽象类">匿名抽象类</h2>
+<p>如果抽象类没有实现类，仍然要获取抽象类的实例对象时</p>
+<pre><code class="language-java">abstract class Person&#123;
+    abstract void think();
+    abstrect void eat();
+&#125;
+---------------------------------------------------------------------------------
+Person person = new Person()&#123;
+    abstract void think()&#123;
+        System.out.println(&quot;think&quot;);
+    &#125;
+    abstract void eat()&#123;
+        System.out.println(&quot;eat&quot;);
+    &#125;
+&#125;;
+
+</code></pre>
+<p>直接构造抽象类对象，需要在<strong>构造函数后面的花括号实现抽象方法</strong>。</p>
+<h2 id="模板方法设计模式-TemplateMethod">模板方法设计模式(TemplateMethod)</h2>
+<p>当功能内部一部分实现步骤是固定、通用的，一部分实现是不确定的。这时可以把不确定的、易变部分暴露出去， 让子类去实现。 由此定义出功能算法的骨架，子类不改变算法的结构，且无需重复固定的代码，只需要重定义算法的某些特定步骤。</p>
+<p>银行的营业厅办理业务需要 以下步骤：</p>
+<ol>
+<li>取号 2.办业务 3.评价。</li>
+</ol>
+<p>三个步骤中取号和评价都是 <strong>固定的流程</strong>，每个人要做的 事儿都是一样的。但是办业 务这个步骤根据每个人要办 的事情不同所以需要有<strong>不同的实现</strong>。我们可以将整个办业务这件事儿封装成一个抽象类：取号和评价为模板方法，而办业务为供子类重写的抽象方法。</p>
+<h1>接口</h1>
+<p>interface，特殊的、轻量级的抽象类，接口名称和类名一样 符合标识符的规则和规范(首字母大写)</p>
+<h2 id="接口实现">接口实现</h2>
+<p>接口不能被实例化，供实现类使用，没有构造器</p>
+<p>如果一个类实现了接口，则需要实现接口中所有方法，抽象类则不用</p>
+<h3 id="JDK8前">JDK8前</h3>
+<p>接口中包含	公共的静态常量、公共的抽象方法</p>
+<h3 id="JDK8后">JDK8后</h3>
+<h2 id="接口和类">接口和类</h2>
+<p>一个类可以实现多个接口</p>
+<p>一个接口可以继承多个接口</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象级别</td>
+<td>抽象类不能被实例化，供继承并实现</td>
+<td>接口不能被实例化，供实现类使用，接口抽象级别高于抽象类</td>
+</tr>
+<tr>
+<td>构造器</td>
+<td>有构造器</td>
+<td>没有构造器</td>
+</tr>
+<tr>
+<td>继承</td>
+<td>实现类最多继承一个抽象类</td>
+<td>类可实现多个接口，接口可继承多个接口</td>
+</tr>
+<tr>
+<td>成员</td>
+<td>除了含有抽象方法，其余和普通类相差不大</td>
+<td>只能是公共的静态常量、公共的抽象方法、（静态方法、默认方法为JDK8后）</td>
+</tr>
+<tr>
+<td></td>
+<td>继承类必须实现抽象方法，或本身为抽象类</td>
+<td>实现类必须实现抽象方法，或本身为抽象类</td>
+</tr>
+<tr>
+<td>没有实现类时</td>
+<td>匿名抽象类</td>
+<td>匿名实现类对象</td>
+</tr>
+<tr>
+<td>设计模式</td>
+<td>模板方法</td>
+<td>简单工厂、工厂方法、代理模式</td>
+</tr>
+<tr>
+<td></td>
+<td>作为模板</td>
+<td>作为标准或某种特性</td>
+</tr>
+</tbody>
+</table>
+<p>抽象类、接口都通过对象的多态性产生实例化对象，但由于抽象类单继承的局限，接口使用更为广泛</p>
+<h2 id="匿名实现类对象">匿名实现类对象</h2>
+<p>如果接口没有实现类，仍要得到接口的实现时</p>
+<pre><code class="language-java">interface Person&#123;
+    void think();
+    void eat();
+&#125;
+---------------------------------------------------------------------------------
+Person person = new Person()&#123;
+    public void think()&#123;
+        System.out.println(&quot;think&quot;);
+    &#125;
+    public void eat() &#123;
+        System.out.println(&quot;eat&quot;);
+    &#125;
+&#125;;
+
+</code></pre>
  
       <!-- reward -->
       
@@ -324,7 +340,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -335,19 +351,10 @@
    
   <nav class="article-nav">
     
-      <a href="/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            常用模板
-          
-        </div>
-      </a>
     
-    
-      <a href="/post/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-nav-link">
+      <a href="/post/Object%E7%B1%BB/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">运算符</div>
+        <div class="article-nav-title">Object类</div>
       </a>
     
   </nav>
