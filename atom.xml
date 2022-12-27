@@ -94,11 +94,7 @@
       
         
         
-    <summary type="html">&lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;if(b = false)&amp;#123;
-    System.out.println(&amp;quot;a &amp;quot;);
-&amp;#125;
-else if(b)&amp;#123;
-   </summary>
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     

@@ -191,11 +191,7 @@
 <li>强制转换：表数范围大的数据类型变量转换成表述范围小的数据类型变量（小水杯中的水可能无法装下大水桶中的水，即发生数据溢出）</li>
 </ul>
 <h2 id="字面量的类型">字面量的类型</h2>
-<pre><code class="language-java">1000; //int类型
-3300L; //long类型
-123.56f;//float类型
-3.14;//double类型
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000</span>; <span class="comment">//int类型</span></span><br><span class="line"><span class="number">3300L</span>; <span class="comment">//long类型</span></span><br><span class="line"><span class="number">123.56f</span>;<span class="comment">//float类型</span></span><br><span class="line"><span class="number">3.14</span>;<span class="comment">//double类型</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>整数
 <ol>
@@ -211,73 +207,34 @@
 </li>
 </ul>
 <h2 id="常数赋值">常数赋值</h2>
-<pre><code class="language-Java">float f1 = 1.0;	//报错
-long l1 = 1.0;	//报错
-int i1 = 1.0;	//报错
-int i2 = 1L;	//报错
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">long</span> <span class="variable">l1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">1L</span>;	<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>不难看出，当表数范围大的类型赋值给表数范围小的类型，将会产生错误</li>
 </ul>
-<pre><code class="language-java">int ii = Integer.MAX_VALUE;//2147483647
-int ss = 2147483648;	//报错
-long ll = 2147483648;	//报错
-
-long ll = Long.MAX_VALUE;//9223372036854775807
-long ll = 9223372036854775808L;//报错
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> Integer.MAX_VALUE;<span class="comment">//2147483647</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ss</span> <span class="operator">=</span> <span class="number">2147483648</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">long</span> <span class="variable">ll</span> <span class="operator">=</span> <span class="number">2147483648</span>;	<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="variable">ll</span> <span class="operator">=</span> Long.MAX_VALUE;<span class="comment">//9223372036854775807</span></span><br><span class="line"><span class="type">long</span> <span class="variable">ll</span> <span class="operator">=</span> <span class="number">9223372036854775808L</span>;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>字面量的值超过了字面量数据类型的表数范围也会报错</li>
 </ul>
-<pre><code class="language-java">byte b = 1;
-byte s1 = 1 + 2; 	
-short s = 30;
-char c = 56;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">byte</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="number">1</span> + <span class="number">2</span>; 	</span><br><span class="line"><span class="type">short</span> <span class="variable">s</span> <span class="operator">=</span> <span class="number">30</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">56</span>;</span><br></pre></td></tr></table></figure>
 <p>byte、short、char有特殊之处，此时虽然是范围大的类型赋值给范围小的类型，但</p>
 <ul>
 <li>当字面量类型为常数且整数类型时，若字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
 </ul>
 <p>换种方式，将整数类型的变量赋值给byte、short、char，即使在它们的表数范围内，也会报错</p>
-<pre><code class="language-Java">int i = 1;
-byte b = i;   //报错
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> i;   <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <p>这是因为在编译过程中，如果赋值的是常数，系统能直接判断是否在表数范围内，而变量在程序执行过程中可能发生变化，无法直接判断变量中的值是否在表数范围内，从而报错</p>
 <h2 id="多种类型变量混合运算">多种类型变量混合运算</h2>
-<pre><code class="language-Java">byte x1 = 1;
-short x2 = 1;
-int x3 = 1;
-long x4 = 1L;
-float x5 = 1.0f;
-double x6 = 1.0;
-</code></pre>
-<pre><code class="language-java">double sum = x1 + x2 + x3 + x4 + x5 + x6;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">x1</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">short</span> <span class="variable">x2</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">x3</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">long</span> <span class="variable">x4</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line"><span class="type">float</span> <span class="variable">x5</span> <span class="operator">=</span> <span class="number">1.0f</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">x6</span> <span class="operator">=</span> <span class="number">1.0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + x3 + x4 + x5 + x6;</span><br></pre></td></tr></table></figure>
 <p>将x1、x2、x3、x4、x5、x6相加，系统会将所有数据类型转换成表数范围最大的类型，因此需要用double类型的sum接收</p>
-<pre><code class="language-Java">float sum = x1 + x2 + x3 + x4 + x5;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + x3 + x4 + x5;</span><br></pre></td></tr></table></figure>
 <p>同理上述相加可用<strong>double以及float</strong>类型的sum接收</p>
-<pre><code class="language-java">char x7 = 1;
-int sum = x1 + x2 + x7;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> <span class="variable">x7</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + x7;</span><br></pre></td></tr></table></figure>
 <p>byte、short、charr之间不会相互转换，他们三者在计算时首先转换为int类型</p>
-<pre><code class="language-java">double result = 1.0*x3;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">1.0</span>*x3;</span><br></pre></td></tr></table></figure>
 <p>乘除法同样符合</p>
 <h3 id="难点">难点</h3>
-<pre><code class="language-java">    short s = 1;
-    s = s + 1;			//报错
-/*
-    byte b = 3;
-    b = b + 1;
-
-    short s = 3;
-    s = s + 1;
-
-    char c = 3;
-    c = c + 1;
-*/
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    <span class="type">short</span> <span class="variable">s</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    s = s + <span class="number">1</span>;			<span class="comment">//报错</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    byte b = 3;</span></span><br><span class="line"><span class="comment">    b = b + 1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    short s = 3;</span></span><br><span class="line"><span class="comment">    s = s + 1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    char c = 3;</span></span><br><span class="line"><span class="comment">    c = c + 1;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>s = s + 1 ，不能将右侧的s直接代换成1，因为变量s可能在程序执行过程中发生变化，可以拆解成两步：</p>
 <ol>
 <li><code>short result = s + 1;</code></li>
@@ -789,6 +746,7 @@ int sum = x1 + x2 + x7;
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     

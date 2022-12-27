@@ -171,58 +171,9 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-JAVA">Class Order&#123;
-    int orderId = 3;
-    &#123;
-    	orderId = 4;
-    &#125;
-&#125;
-class Order&#123;
-    &#123;
-    	orderId = 4;
-    &#125;
-    int orderId = 3;
-&#125;//同级别顺序执行
-</code></pre>
-<pre><code class="language-java">class Father
-&#123;
-    static &#123;
-        System.out.print(&quot;A&quot;);
-    &#125;
-    &#123; 
-        System.out.print(&quot;B&quot;);
-    &#125;
-    public Father() &#123;
-        System.out.print(&quot;C&quot;);
-    &#125;
-&#125;
-public class Son extends Father &#123;
-    static &#123;
-        System.out.print(&quot;D&quot;);
-    &#125;
-    &#123;
-        System.out.print(&quot;E&quot;);
-    &#125;
-    public Son() &#123;
-        System.out.print(&quot;F&quot;);
-    &#125;
-    public static void main(String[] args) &#123;
-        // 由父及子 静态先行
-        System.out.print(&quot;G&quot;);
-        System.out.println(&quot;************************&quot;);
-        new Son();      //BCEF
-        System.out.println(&quot;************************&quot;);
-        new Son();      //BCEF
-        System.out.println(&quot;************************&quot;);
-        new Father();   //BC
-    &#125;
-&#125;
-</code></pre>
-<pre><code class="language-java">ADG************************
-BCEF************************
-BCEF************************
-BC
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Class Order&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;<span class="comment">//同级别顺序执行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Father</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123; </span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 由父及子 静态先行</span></span><br><span class="line">        System.out.print(<span class="string">&quot;G&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Father</span>();   <span class="comment">//BC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADG************************</span><br><span class="line">BCEF************************</span><br><span class="line">BCEF************************</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
 <h1>final</h1>
 <ol>
 <li>使用final修饰的类不能被继承</li>
@@ -244,27 +195,10 @@ BC
 </ol>
 <h2 id="懒汉模式">懒汉模式</h2>
 <p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
-<pre><code class="language-java">class Singleton&#123;
-    private static Singleton s = null;
-    private Singleton()&#123;&#125;
-    public static Singleton getInstence()&#123;
-        if(s == null)&#123;
-            s = new Singleton();
-        &#125;
-        return s;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="饿汉模式">饿汉模式</h2>
 <p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
-<pre><code class="language-java">class Singleton&#123;
-    private static final Singleton s = new Singleton();
-    private Singleton()&#123;&#125;
-    public static Singleton getInstance()&#123;
-        return s;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -757,6 +691,7 @@ BC
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     

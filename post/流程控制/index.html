@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">231</span>
+            <span class="post-count">232</span>
         </span>
     </span>
 
@@ -110,67 +110,8 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <pre><code class="language-java">if(b = false)&#123;
-    System.out.println(&quot;a &quot;);
-&#125;
-else if(b)&#123;
-    System.out.println(&quot;b&quot;);
-&#125;
-else if(!b)&#123;
-    System.out.println(&quot;c&quot;)
-&#125;
-</code></pre>
-<pre><code class="language-java">/*
-        从键盘分别输入年、月、日，判断这一天是当年的第几天
-        注：判断一年是否是闰年的标准：
-        1）可以被4整除，但不可被100整除、或
-        2）可以被400整除
-*/
-Scanner scanner = new Scanner(System.in);
-System.out.println(&quot;请输入年份：&quot;);
-int year = scanner.nextInt();
-System.out.println(&quot;请输入月份：&quot;);
-int month = scanner.nextInt();
-System.out.println(&quot;请输入几号：&quot;);
-int date = scanner.nextInt();
-int month2 = 28;
-if (year % 4 == 0 &amp;&amp; year %100 != 0 ||year % 400 == 0)&#123;
-    month2 = 29;
-&#125;
-int day = 0;
-switch (month)&#123;
-    case 12:
-        day += 31;
-    case 11:
-        day += 30;
-    case 10:
-        day += 31;
-    case 9:
-        day += 30;
-    case 8:
-        day += 31;
-    case 7:
-        day += 31;
-    case 6:
-        day += 30;
-    case 5:
-        day += 31;
-    case 4:
-        day += 30;
-    case 3:
-        day += 31;
-    case 2:
-        day += month2;
-    case 1:
-        day += date;
-        break;
-    default:
-        System.out.println(&quot;输入的月份不合法&quot;);
-&#125;
-System.out.println(day);
-
-</code></pre>
- 
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(b = <span class="literal">false</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        从键盘分别输入年、月、日，判断这一天是当年的第几天</span></span><br><span class="line"><span class="comment">        注：判断一年是否是闰年的标准：</span></span><br><span class="line"><span class="comment">        1）可以被4整除，但不可被100整除、或</span></span><br><span class="line"><span class="comment">        2）可以被400整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入几号：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">date</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"><span class="type">int</span> <span class="variable">month2</span> <span class="operator">=</span> <span class="number">28</span>;</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year %<span class="number">100</span> != <span class="number">0</span> ||year % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    month2 = <span class="number">29</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">switch</span> (month)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        day += month2;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        day += date;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;输入的月份不合法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(day);</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -662,6 +603,7 @@ System.out.println(day);
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     

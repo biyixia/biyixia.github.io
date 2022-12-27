@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">579</span>
+            <span class="post-count">576</span>
         </span>
     </span>
 
@@ -174,16 +174,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code class="language-java">String str1 = &quot;hello&quot;;
-String str2 = &quot;hello&quot;;//存储在方法区同一地址下
-System.out.println(str1 == str2);//true
-System.out.println(str1.equals(str2));//true
-
-String str3 = new String(&quot;hello&quot;);
-String str4 = new String(&quot;hello&quot;);
-System.out.println(str3 == str4);//false
-System.out.println(str3.equals(str4));//true
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p>比较引用数据类型，使用equals更好</p>
 <p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
 <p>原因：在这些类中重写了Object类的 equals()方法</p>
@@ -679,6 +670,7 @@ System.out.println(str3.equals(str4));//true
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     

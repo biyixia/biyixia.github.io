@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">202</span>
+            <span class="post-count">203</span>
         </span>
     </span>
 
@@ -130,16 +130,10 @@
 <li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
 </ul>
 <h1>文档注释</h1>
-<pre><code class="language-java">/**
-@author	指定java程序的作者
-@version 指定源文件的版本
-@since 自从哪个版本号开始就存在了
-*/
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
 <p>操作方式</p>
-<pre><code class="language-java">javadoc –d mydoc –author –version FileName.java
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -632,6 +626,7 @@
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     

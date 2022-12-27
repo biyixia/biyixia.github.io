@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">543</span>
+            <span class="post-count">555</span>
         </span>
     </span>
 
@@ -116,13 +116,7 @@
 <p>Markdown是一种轻量级标记语言，排版语法简洁，让人们更多地关注内容本身而非排版。它使用易读易写的纯文本格式编写文档，可与HTML混编，可导出 HTML、PDF 以及本身的 .md 格式的文件。因简洁、高效、易读、易写，Markdown被大量使用，如Github、Wikipedia、简书等。</p>
 <span id="more"></span>
 <h2 id="标题">标题</h2>
-<pre><code class="language-markdown"># 标题1
-## 标题2
-### 标题3
-#### 标题4
-##### 标题5
-###### 标题6
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 标题1</span></span><br><span class="line"><span class="section">## 标题2</span></span><br><span class="line"><span class="section">### 标题3</span></span><br><span class="line"><span class="section">#### 标题4</span></span><br><span class="line"><span class="section">##### 标题5</span></span><br><span class="line"><span class="section">###### 标题6</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <h1>标题1</h1>
 <h2 id="标题2">标题2</h2>
@@ -133,11 +127,7 @@
 </blockquote>
 <h2 id="列表">列表</h2>
 <h3 id="有序列表">有序列表</h3>
-<pre><code class="language-markdown">把大象放进冰箱：
-1. 打开冰箱
-2. 把大象放进冰箱
-3. 关上冰箱
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">把大象放进冰箱：</span><br><span class="line"><span class="bullet">1.</span> 打开冰箱</span><br><span class="line"><span class="bullet">2.</span> 把大象放进冰箱</span><br><span class="line"><span class="bullet">3.</span> 关上冰箱</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>把大象放进冰箱:</p>
 <ol>
@@ -147,11 +137,7 @@
 </ol>
 </blockquote>
 <h3 id="无序列表">无序列表</h3>
-<pre><code class="language-markdown">无序列表：
-- 所爱扥就
-- 撒欧丹发腮
-- 哦啊赛季反扒
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">无序列表：</span><br><span class="line"><span class="bullet">-</span> 所爱扥就</span><br><span class="line"><span class="bullet">-</span> 撒欧丹发腮</span><br><span class="line"><span class="bullet">-</span> 哦啊赛季反扒</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>无序列表：</p>
 <ul>
@@ -161,11 +147,7 @@
 </ul>
 </blockquote>
 <h2 id="任务列表">任务列表</h2>
-<pre><code class="language-markdown">明天要做的事：	
-- [ ] 吃饭	//每个字符之间由空格隔开	
-- [ ] 睡觉
-- [ ] 打豆豆
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">明天要做的事：	</span><br><span class="line"><span class="bullet">-</span> [ ] 吃饭	//每个字符之间由空格隔开	</span><br><span class="line"><span class="bullet">-</span> [ ] 睡觉</span><br><span class="line"><span class="bullet">-</span> [ ] 打豆豆</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>明天要做的事：</p>
 <ul>
@@ -175,35 +157,19 @@
 </ul>
 </blockquote>
 <h2 id="代码块">代码块</h2>
-<pre><code class="language-markdown">``` c      //选择语言
-int main()&#123;
-&#125;
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">``` c      //选择语言</span></span><br><span class="line"><span class="code">int main()&#123;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<pre><code class="language-c">int main()&#123;
-&#125;
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<pre><code>
-## 数学公式：
-
-``` markdown
-$$
-\frac&#123;\partial f&#125;&#123;\partial x&#125; = 2\sqrt&#123;a&#125;x
-$$
-</code></pre>
+<h2 id="数学公式：">数学公式：</h2>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\frac&#123;\partial f&#125;&#123;\partial x&#125; = 2\sqrt&#123;a&#125;x</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>$$<br>
 \frac{\partial f}{\partial x} = 2\sqrt{a}x<br>
 $$</p>
 </blockquote>
 <h2 id="表格">表格</h2>
-<pre><code class="language-markdown">|姓名|年龄|成绩|
-|:--|--:|:-----:| 
-			//冒号靠左为左对齐，靠右为右对齐，两边都有冒号为居中对齐
-|张三|18|90|
-|李四|20|89|
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|姓名|年龄|成绩|</span><br><span class="line">|:--|--:|:-----:| </span><br><span class="line"><span class="code">			//冒号靠左为左对齐，靠右为右对齐，两边都有冒号为居中对齐</span></span><br><span class="line"><span class="code">|张三|18|90|</span></span><br><span class="line"><span class="code">|李四|20|89|</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <table>
 <thead>
@@ -228,26 +194,13 @@ $$</p>
 </table>
 </blockquote>
 <h2 id="脚注">脚注</h2>
-<pre><code class="language-markdown">这是一条注释[^注释]
-[^注释]:这是注释的注释。
- ---
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是一条注释[^注释]</span><br><span class="line">[<span class="symbol">^注释</span>]:<span class="link">这是注释的注释。</span></span><br><span class="line"> ---</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这是一条注释<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <hr>
 </blockquote>
 <h2 id="超链接">超链接</h2>
-<pre><code class="language-markdown">[百度](http://www.baidu.com &quot;一个搜索引擎&quot;)
-[百度][id]
-[id]:http://www.baidu.com &quot;一个搜索引擎&quot;
-
-请参考[标题1](#标题)
-
-URL：
-http://www.baidu.com
-
-![百度](https://imgse.com/i/z2p2JH&quot;百度搜索&quot;)
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">http://www.baidu.com &quot;一个搜索引擎&quot;</span>)</span><br><span class="line">[<span class="string">百度</span>][<span class="symbol">id</span>]</span><br><span class="line">[<span class="symbol">id</span>]:<span class="link">http://www.baidu.com &quot;一个搜索引擎&quot;</span></span><br><span class="line"></span><br><span class="line">请参考[<span class="string">标题1</span>](<span class="link">#标题</span>)</span><br><span class="line"></span><br><span class="line">URL：</span><br><span class="line">http://www.baidu.com</span><br><span class="line"></span><br><span class="line">![<span class="string">百度</span>](<span class="link">https://imgse.com/i/z2p2JH&quot;百度搜索&quot;</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://www.baidu.com" title="一个搜索引擎">百度</a><br>
 <a target="_blank" rel="noopener" href="http://www.baidu.com" title="一个搜索引擎">百度</a></p>
@@ -257,15 +210,7 @@ http://www.baidu.com
 <p><img src="https://pic.imgdb.cn/item/63914551b1fccdcd36559921.png%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2%22" alt="百度"></p>
 </blockquote>
 <h2 id="字体变化">字体变化</h2>
-<pre><code class="language-markdown">*斜体*
-**加粗**
-`行内代码printf()`
-&lt;u&gt;下划线&lt;/u&gt;
-:smile:
-$\theta=x^2$
-H~2~O,x^2^
-==这是一段高亮文字==
-</code></pre>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br><span class="line"><span class="strong">**加粗**</span></span><br><span class="line"><span class="code">`行内代码printf()`</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br><span class="line">:smile:</span><br><span class="line">$\theta=x^2$</span><br><span class="line">H~2~O,x^2^</span><br><span class="line">==这是一段高亮文字==</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><em>斜体</em><br>
 <strong>加粗</strong><br>
@@ -772,6 +717,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
     mermaid.initialize({ theme: "forest" });
   }
 </script>
+
 
 
     
