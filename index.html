@@ -175,6 +175,187 @@
     
     
     <article
+  id="post-多态"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/post/%E5%A4%9A%E6%80%81/"
+    >多态</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/%E5%A4%9A%E6%80%81/" class="article-date">
+  <time datetime="2022-12-28T01:02:20.541Z" itemprop="datePublished">2022-12-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>当我们使用代码描述主人喂养宠物的场景，首先在这个场景当中应该有“宠物对象” ，宠物对象应该有吃的行为，另外还需要一个“主人对象” ，主人对象应该有一个喂的行为。然而对于不同的宠物，吃的行为也不相同，或许是吃的东西不同，也或许是吃的方式不同，此时每当出现新的宠物时，我们就需要修改对于宠物吃行为的描述，这不符合OCP原则。对于需要更改的“宠物对象”，应当将其“封装”起来，在新的模块中对宠物不同的吃行为进行描述，而无需修改原本“宠物对象”的描述。</p>
+<h1>多态(polymorphism)</h1>
+<p>编译时类型和运行时类型不一致，就出现了对象的多态性(Polymorphism)多态情况</p>
+<h2 id="前提">前提</h2>
+<p>继承或实现</p>
+<p>重写</p>
+<h2 id="现象">现象</h2>
+<ol>
+<li>父类引用类型变量指向多种子类对象(父父new子)</li>
+<li>该变量不能再访问子类中新添加的属性和方法（局限）</li>
+<li>属性没有多态，即使子类有同名属性，编译期和运行期也访问的是父类的属性，但可以通过子类重写的方法调用子类的属性</li>
+<li>子类重写父类的方法，编译期看到的是父类中的方法,运行期执行的是子类重写后的方法(编译期看左边 运行期看右边)</li>
+</ol>
+<h2 id="原理">原理</h2>
+<h3 id="虚拟方法调用-多态情况下">虚拟方法调用(多态情况下)</h3>
+<p>子类中定义了与父类同名同参数的方法,此时父类的方法称为<strong>虚拟方法</strong>(Virtual Method Invocation)</p>
+<ul>
+<li>
+<p>在编译期，对象还没有创建出出来，只能看到父类的虚拟方法</p>
+</li>
+<li>
+<p>直到运行期,真正的子类对象被创建出来,父类引用变量得到具体的子类对象地址，并动态调用子类重写的该方法。（动态绑定）</p>
+</li>
+</ul>
+<h3 id="静态绑定与动态绑定">静态绑定与动态绑定</h3>
+<p>重载，允许存在多个同名不同参数方法。编译器根据方法不同的参数列表，对同名方法的名称做修饰。同名方法就成了不同的方法。 它们的调用地址在编译期就绑定了。因此，在方法调用之前，编译器就已经确定了所要调用的方法，这称为“早绑定”或“静态绑定” ；</p>
+<p>而对于多态，只有等到方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定”或 “动态绑定 ” 。</p>
+<h2 id="作用">作用</h2>
+<p>提高了代码的通用性、提高软件的扩展性、实现软件设计的解耦</p>
+<h2 id="应用">应用</h2>
+<p>当方法声明的形参类型为父类类型，可以使用子类的对象作为实参调用该方法</p>
+<h2 id="类型转换-Casting">类型转换(Casting)</h2>
+<h3 id="基本数据类型">基本数据类型</h3>
+<ul>
+<li>
+<p>自动类型转换：小的数据类型可以自动转换成大的数据类型</p>
+</li>
+<li>
+<p>强制类型转换：可以把大的数据类型强制转换成小的数据类型</p>
+</li>
+</ul>
+<h3 id="引用数据类型">引用数据类型</h3>
+<p>对Java对象的强制类型转换称为<strong>造型</strong></p>
+<ul>
+<li>
+<p>向上转型：从子类到父类的类型转换可以自动进行(多态)</p>
+</li>
+<li>
+<p>向下转型：从父类到子类的类型转换必须通过造型(强制类型转换)实现</p>
+</li>
+<li>
+<p>无继承关系的引用类型间的转换是非法的</p>
+</li>
+</ul>
+<p>多态情况下，当我们需要访问子类中新添加的属性和方法时，需要向下转型（强转）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Base</span> <span class="variable">base</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sub</span>();</span><br><span class="line">    base.add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);		<span class="comment">//调用的是子类重写父类的方法	sub_1</span></span><br><span class="line">    <span class="type">Sub</span> <span class="variable">s</span> <span class="operator">=</span> (Sub)base;		<span class="comment">//造型</span></span><br><span class="line">    s.add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);			<span class="comment">//调用的是子类独有的方法	sub_2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>... arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;base &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Sub</span> <span class="keyword">extends</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="instanceof-操作符">instanceof 操作符</h3>
+<p>在造型前可以使用instanceof操作符测试一个对象的类型</p>
+<p>x instanceof A：</p>
+<ul>
+<li>
+<p>检验x是否为类A的对象，返回值为boolean型。 x是A类对象返回true，反之返回false</p>
+</li>
+<li>
+<p>如果x属于类A的子类B，返回值也为true</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Graduate</span> <span class="keyword">extends</span> <span class="title class_">Student</span>&#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method1</span><span class="params">(Person e)</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Person) <span class="comment">// 处理Person类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Student) <span class="comment">//处理Student类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Graduate) <span class="comment">//处理Graduate类及其子类对象 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>x所属的类与A类对象没有继承关系，则编译错误。</p>
+<h2 id="验证：多态是运行时行为">验证：多态是运行时行为</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">switch</span> (r) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Cat</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Dog</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    animal.eat();<span class="comment">//运行时才能确定animal引用类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; animal eat food&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; cat eat fish&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Dog eat bone &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-包装类的使用"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"
+    >包装类的使用</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2022-12-27T12:19:56.147Z" itemprop="datePublished">2022-12-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>针对八种基本数据类型定义相应的引用类型—包装类</p>
+<p>首先,Java语言是一个面向对象的语言,但是Java中的基本数据类型却是不面向对象的，为了实现一 切皆对象,将每个基本数据类型设计一个对应的类进行代表，这种方式增强了Java面向对象的性质。</p>
+<p>其次，如果仅仅有基本数据类型，那么在实际使用时将存在很多的不便，很多地方都需要使用对象。比如，在集合类中，我们是无法将int 、double等类型放进去的，因为集合的容器要求元素是Object类型。而包装类型的存在使得向集合中传入数值成为可能，包装类的存在弥补了基本数据类型的不足。</p>
+<p>此外，包装类还为基本类型添加了属性和方法，丰富了基本类型的操作。如当我们想知道int取值 范围的最小值，我们需要通过运算，如下面所示，但是有了包装类，我们可以直接使Integer.MAX_VALUE即可。</p>
+<p>注意:为什么要保留基本数据类型？Java种创建的对象都是存储在堆里的，使用的时候需要通过栈中的引用， 所以常用的基本数据类型，不需要使用new在堆上创建，而是直接在栈内存中存储不创建对象，就会比较高效。</p> 
+      <a class="article-more-link" href="/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-抽象类和接口"
   class="article article-type-post"
   itemscope
@@ -266,72 +447,11 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
-<p>Object的类型变量可以指向任意类型的子类对象</p>
-<h2 id="int-hashCode">int hashCode()</h2>
-<p>返回该对象的哈希码值 可以类似的看做虚拟内存地址</p>
-<h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
-<p>返回此对象的运行时类。看创建对象是哪个类</p>
-<table>
-<thead>
-<tr>
-<th>getClass()</th>
-<th>getClass().getName()</th>
-<th>getClass().getSimpleName()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>class  包名.类名</td>
-<td>包名.类名</td>
-<td>类名</td>
-</tr>
-</tbody>
-</table>
-<h2 id="String-toString">String toString()</h2>
-<p>返回该对象的字符串表示。</p>
-<ul>
-<li>
-<p>默认实现 类的全限定名@hashcode的十六进制</p>
-</li>
-<li>
-<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
-</li>
-</ul>
-<h2 id="protected-void-finalize">protected void finalize()</h2>
-<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
-<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
-<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
-<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
-<h2 id="boolean-equals-Object-obj">boolean equals(Object obj)</h2>
-<p>指示其他某个对象是否与此对象“相等”。</p>
-<h2 id="和-equals-区别">== 和 equals 区别?</h2>
-<table>
-<thead>
-<tr>
-<th>== 比较运算符</th>
-<th>equals是object中的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
-<td>只能比较引用数据类型</td>
-</tr>
-<tr>
-<td>对于引用数据类型，比较的是地址</td>
-<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
-</tr>
-<tr>
-<td></td>
-<td>可重写成比较属性是否相等</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>比较引用数据类型，使用equals更好</p>
-<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
-<p>原因：在这些类中重写了Object类的 equals()方法</p>
- 
+<p>Object的类型变量可以指向任意类型的子类对象</p> 
+      <a class="article-more-link" href="/post/Object%E7%B1%BB/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -869,118 +989,6 @@
   <h1>引言</h1>
 <p>1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？</p> 
       <a class="article-more-link" href="/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-数据类型"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"
-    >数据类型</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
-  <time datetime="2022-12-10T01:21:48.429Z" itemprop="datePublished">2022-12-10</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>引言</h1>
-<p>赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。</p> 
-      <a class="article-more-link" href="/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-变量"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/post/%E5%8F%98%E9%87%8F/"
-    >变量</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/post/%E5%8F%98%E9%87%8F/" class="article-date">
-  <time datetime="2022-12-09T12:51:53.924Z" itemprop="datePublished">2022-12-09</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1>引言</h1>
-<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p> 
-      <a class="article-more-link" href="/post/%E5%8F%98%E9%87%8F/"
         >阅读更多...</a
       >
        

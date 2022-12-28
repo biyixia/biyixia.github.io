@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Object类 |  biyixia</title>
+      <title>包装类的使用 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Object类"
+  id="post-包装类的使用"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Object类
+  包装类的使用
 </h1>
  
 
@@ -76,8 +76,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/Object%E7%B1%BB/" class="article-date">
-  <time datetime="2022-12-26T12:24:31.027Z" itemprop="datePublished">2022-12-26</time>
+      <a href="/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2022-12-27T12:19:56.147Z" itemprop="datePublished">2022-12-27</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">576</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -112,73 +112,163 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
-<p>Object的类型变量可以指向任意类型的子类对象</p>
+  <p>针对八种基本数据类型定义相应的引用类型—包装类</p>
+<p>首先,Java语言是一个面向对象的语言,但是Java中的基本数据类型却是不面向对象的，为了实现一 切皆对象,将每个基本数据类型设计一个对应的类进行代表，这种方式增强了Java面向对象的性质。</p>
+<p>其次，如果仅仅有基本数据类型，那么在实际使用时将存在很多的不便，很多地方都需要使用对象。比如，在集合类中，我们是无法将int 、double等类型放进去的，因为集合的容器要求元素是Object类型。而包装类型的存在使得向集合中传入数值成为可能，包装类的存在弥补了基本数据类型的不足。</p>
+<p>此外，包装类还为基本类型添加了属性和方法，丰富了基本类型的操作。如当我们想知道int取值 范围的最小值，我们需要通过运算，如下面所示，但是有了包装类，我们可以直接使Integer.MAX_VALUE即可。</p>
+<p>注意:为什么要保留基本数据类型？Java种创建的对象都是存储在堆里的，使用的时候需要通过栈中的引用， 所以常用的基本数据类型，不需要使用new在堆上创建，而是直接在栈内存中存储不创建对象，就会比较高效。</p>
 <span id="more"></span>
-<h2 id="int-hashCode">int hashCode()</h2>
-<p>返回该对象的哈希码值 可以类似的看做虚拟内存地址</p>
-<h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
-<p>返回此对象的运行时类。看创建对象是哪个类</p>
 <table>
 <thead>
 <tr>
-<th>getClass()</th>
-<th>getClass().getName()</th>
-<th>getClass().getSimpleName()</th>
+<th>基本数据类型</th>
+<th>包装类</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>class  包名.类名</td>
-<td>包名.类名</td>
-<td>类名</td>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
 </tr>
 </tbody>
 </table>
-<h2 id="String-toString">String toString()</h2>
-<p>返回该对象的字符串表示。</p>
+<h2 id="装箱和拆箱">装箱和拆箱</h2>
+<h3 id="基本数据类型转换为包装类-装箱">基本数据类型转换为包装类(装箱)</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Byte</span>(<span class="number">123</span>); 	<span class="comment">//通过构造器 </span></span><br><span class="line"><span class="type">Short</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Short</span>(<span class="string">&quot;123&quot;</span>);<span class="comment">//NumberFormatException </span></span><br><span class="line"></span><br><span class="line"><span class="type">Interger</span> <span class="variable">t</span> <span class="operator">=</span> Integer.valueOf(<span class="number">123</span>); <span class="comment">//通过包装类的valueOf()方法 </span></span><br><span class="line"><span class="type">Long</span> <span class="variable">l</span> <span class="operator">=</span> Long.valueOf(<span class="string">&quot;123&quot;</span>) <span class="comment">//NumberFormatException </span></span><br></pre></td></tr></table></figure>
+<h3 id="包装类转换为基本数据类型-拆箱">包装类转换为基本数据类型(拆箱)</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> obj.booleanValue(); <span class="comment">//调用包装类的.xxxValue()方法</span></span><br></pre></td></tr></table></figure>
+<h3 id="自动拆装箱">自动拆装箱</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>; </span><br><span class="line"><span class="type">Integer</span> <span class="variable">t</span> <span class="operator">=</span> i; </span><br><span class="line"><span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> t<span class="comment">// jdk5之后出现自动拆装箱 </span></span><br></pre></td></tr></table></figure>
+<h2 id="基本类型和字符串">基本类型和字符串</h2>
+<h3 id="字符串转换成基本数据类型">字符串转换成基本数据类型</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="string">&quot;12&quot;</span>);<span class="comment">//通过包装类的构造器实现：</span></span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="variable">l</span> <span class="operator">=</span> Long.valueOf(<span class="string">&quot;123&quot;</span>);<span class="comment">//通过包装类的valueOf()实现</span></span><br><span class="line"></span><br><span class="line"><span class="type">Float</span> <span class="variable">f</span> <span class="operator">=</span> Float.parseFloat(<span class="string">&quot;12.1&quot;</span>);<span class="comment">//通过包装类的parseXxx(String s)静态方法：</span></span><br></pre></td></tr></table></figure>
+<h3 id="基本数据类型转换成字符串">基本数据类型转换成字符串</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str= String.valueOf(<span class="number">2.34f</span>);<span class="comment">//调用字符串重载的valueOf()方法：</span></span><br><span class="line"></span><br><span class="line">String str= <span class="number">5</span> + “”<span class="comment">//使用+做字符串连接</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>基本数据类型</th>
+<th>包装类</th>
+<th>字符串</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本数据类型转换成</td>
+<td>\</td>
+<td>包装类构造器、包装类.valueOf(X)、自动</td>
+<td>包装类.valueOf(X)、字符串拼接</td>
+</tr>
+<tr>
+<td>包装类转换成</td>
+<td>包装类实例对象.XXXValue()、自动</td>
+<td>\</td>
+<td>包装类.toString()</td>
+</tr>
+<tr>
+<td>字符串转换成</td>
+<td>包装类构造器、包装类.valueOf(X)、包装类.parseXxx(X)</td>
+<td>包装类构造器、包装类.valueOf(X)</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/63aaec6708b6830163fb2d26.png" alt></p>
+<h2 id="包装类中的缓存机制">包装类中的缓存机制</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">num1</span> <span class="operator">=</span> Integer.valueOf(<span class="number">10</span>);</span><br><span class="line"><span class="comment">//Integer num1 = 10;</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">num2</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">System.out.println((num1 == num2) +<span class="string">&quot;\t&quot;</span>+ num1.equals(num2));<span class="comment">//true	true</span></span><br><span class="line">System.out.println(<span class="string">&quot;-----------------------------------------&quot;</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">20</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">20</span>);</span><br><span class="line">System.out.println((num3 == num4) +<span class="string">&quot;\t&quot;</span>+ num3.equals(num4));<span class="comment">//false	true</span></span><br><span class="line">System.out.println(<span class="string">&quot;-------------------------------------------&quot;</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num5</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num6</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">System.out.println((num5 == num6) +<span class="string">&quot;\t&quot;</span>+ num5.equals(num6));<span class="comment">//false	true</span></span><br></pre></td></tr></table></figure>
+<p>Integer类第一次被使用时，Integer的静态内部类就被加载，加载的时候会创建-128到127的 Integer对象，同时创建一个数组cache来缓存这些对象。</p>
 <ul>
-<li>
-<p>默认实现 类的全限定名@hashcode的十六进制</p>
-</li>
-<li>
-<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
-</li>
+<li>当使用valueOf()方法创建对象时，就直接返回已经缓存的对象，不会再新建对象；</li>
+<li>当使用new关键字或者使用valueOf()方法创建小于-128大于 127的值对象时，就会创建新对象。</li>
 </ul>
-<h2 id="protected-void-finalize">protected void finalize()</h2>
-<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
-<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
-<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
-<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
-<h2 id="boolean-equals-Object-obj">boolean equals(Object obj)</h2>
-<p>指示其他某个对象是否与此对象“相等”。</p>
-<h2 id="和-equals-区别">== 和 equals 区别?</h2>
 <table>
 <thead>
 <tr>
-<th>== 比较运算符</th>
-<th>equals是object中的方法</th>
+<th>Character、Byte、Short、Integer、Long</th>
+<th>Boolean</th>
+<th>Float、Double</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
-<td>只能比较引用数据类型</td>
-</tr>
-<tr>
-<td>对于引用数据类型，比较的是地址</td>
-<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
-</tr>
-<tr>
-<td></td>
-<td>可重写成比较属性是否相等</td>
+<td>有缓存区，且实现方式基本一样，都是-128到127的缓存范围。</td>
+<td>没有缓存区，但在成员变量中就创建了两个相应的对象true、false</td>
+<td>没有缓存区，即使在0到1这么小的范围，浮点数也有无数个，使用缓存区缓存它们不具备可能性和实用性。</td>
 </tr>
 </tbody>
 </table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>比较引用数据类型，使用equals更好</p>
-<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
-<p>原因：在这些类中重写了Object类的 equals()方法</p>
+<p>缓存区的存在使得常用的包装类对象可以得到复用，这有利于提升性能。当我们需要创建新对象的时候再new一个，增加了灵活性。</p>
+<h2 id="基本数据类型与包装类区别">基本数据类型与包装类区别</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>基本数据类型</th>
+<th>包装类（引用数据类型）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成员</td>
+<td>\</td>
+<td>可调用各种属性及方法</td>
+</tr>
+<tr>
+<td>实例化</td>
+<td>不需要实例化</td>
+<td>必须实例化后才能使用</td>
+</tr>
+<tr>
+<td>存储方式</td>
+<td>直接存储数据值</td>
+<td>实际是对象的引用</td>
+</tr>
+<tr>
+<td>默认值</td>
+<td>有默认值</td>
+<td>默认值是null</td>
+</tr>
+<tr>
+<td>空指针异常</td>
+<td>不会发生空指针异常</td>
+<td>可能发生空指针异常</td>
+</tr>
+<tr>
+<td>强制转换</td>
+<td>可以强制转换为其他类型</td>
+<td>不能强制转换为其他类型</td>
+</tr>
+</tbody>
+</table>
  
       <!-- reward -->
       
@@ -249,7 +339,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/Object%E7%B1%BB/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,19 +350,19 @@
    
   <nav class="article-nav">
     
-      <a href="/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/" class="article-nav-link">
+      <a href="/post/%E5%A4%9A%E6%80%81/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            抽象类和接口
+            多态
           
         </div>
       </a>
     
     
-      <a href="/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-nav-link">
+      <a href="/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">static、final关键字</div>
+        <div class="article-nav-title">抽象类和接口</div>
       </a>
     
   </nav>
