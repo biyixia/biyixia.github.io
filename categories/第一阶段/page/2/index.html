@@ -95,6 +95,60 @@
       <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
+      <a href="/post/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="archive-article-date">
+  <time datetime="2022-12-12T12:20:26.198Z" itemprop="datePublished">12/12</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/post/%E8%BF%90%E7%AE%97%E7%AC%A6/"
+    >运算符</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
+  <time datetime="2022-12-10T01:21:48.429Z" itemprop="datePublished">12/10</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"
+    >数据类型</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       <a href="/post/%E5%8F%98%E9%87%8F/" class="archive-article-date">
   <time datetime="2022-12-09T12:51:53.924Z" itemprop="datePublished">12/09</time>
 </a>
@@ -669,6 +723,42 @@
 
     
     
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
 
   </div>
 </body>
