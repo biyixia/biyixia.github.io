@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-02T16:20:27.858Z</updated>
+  <updated>2023-01-09T12:42:45.035Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>集合</title>
+    <link href="http://example.com/post/%E9%9B%86%E5%90%88/"/>
+    <id>http://example.com/post/%E9%9B%86%E5%90%88/</id>
+    <published>2023-01-09T01:11:26.181Z</published>
+    <updated>2023-01-09T12:42:45.035Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;java中集合和数组的区别&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;数组的长度是固定的，集合的长度无限制&lt;/li&gt;
+&lt;li&gt;数组里面的每个元素都必须是相同类型，集合里面的元素可以是任意类型
+&lt;ul&gt;
+&lt;li&gt;集合里面的元素往往在很多时候是需要统一的，集合采用了泛型的方法来统一元素类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;数组拥有固定的算法，集合有很多种类，已经实现了各种算法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;java中的集合和数组都是容器&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;学习集合的各种知识点
+&lt;ul&gt;
+&lt;li&gt;集合的类型&lt;/li&gt;
+&lt;li&gt;集合的操作（添加、删除、修改、遍历）&lt;/li&gt;
+&lt;li&gt;不同类型的集合的大致的实现原理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JVM内存结构</title>
@@ -432,24 +468,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;p&gt;对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>常用文本编辑快捷键</title>
-    <link href="http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
-    <published>2022-12-09T11:26:25.849Z</published>
-    <updated>2022-12-09T12:48:07.303Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：&lt;/p&gt;</summary>
     
     
     
