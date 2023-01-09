@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-09T12:42:45.035Z</updated>
+  <updated>2023-01-09T13:21:01.310Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/post/%E9%9B%86%E5%90%88/"/>
     <id>http://example.com/post/%E9%9B%86%E5%90%88/</id>
     <published>2023-01-09T01:11:26.181Z</published>
-    <updated>2023-01-09T12:42:45.035Z</updated>
+    <updated>2023-01-09T13:21:01.310Z</updated>
     
     
     <summary type="html">&lt;h1&gt;java中集合和数组的区别&lt;/h1&gt;
@@ -57,17 +57,15 @@
     <link href="http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
     <id>http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</id>
     <published>2022-12-30T03:27:18.355Z</published>
-    <updated>2023-01-02T16:20:27.858Z</updated>
+    <updated>2023-01-09T13:21:55.817Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/101495810&quot;&gt;JVM内存模型（详解） - 知乎 (zhihu.com)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
+&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png&quot; alt=&quot;JVM内存模型&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;程序计数器（Program-Counter-Register）&quot;&gt;程序计数器（Program Counter Register）&lt;/h3&gt;
+&lt;p&gt;是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。&lt;/p&gt;
+&lt;h3 id=&quot;本地方法栈（-Native-Method-Stack）&quot;&gt;本地方法栈（ Native Method Stack）&lt;/h3&gt;
+&lt;p&gt;本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。&lt;/p&gt;</summary>
     
     
     
@@ -81,13 +79,9 @@
     <link href="http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
     <id>http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</id>
     <published>2022-12-30T01:13:10.359Z</published>
-    <updated>2023-01-02T11:16:15.053Z</updated>
+    <updated>2023-01-09T13:22:23.916Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h2 id=&quot;静态代码块&quot;&gt;静态代码块&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -97,9 +91,17 @@
 &lt;p&gt;当出现多个静态代码块(包括静态属性赋值）时，按顺序执行&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure</summary>
-        
-      
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;String[] args&lt;/span&gt;)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    System.&lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt;.println(Order.i);		&lt;span class=&quot;comment&quot;&gt;//1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;构造代码块&quot;&gt;构造代码块&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;随着对象的创建而运行，且先于构造函数的执行&lt;/li&gt;
+&lt;li&gt;有多个构造代码块时，也按顺序执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;构造器&quot;&gt;构造器&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器&lt;/li&gt;
+&lt;li&gt;当未定义任何构造器时，编译器会默认提供一个无参的构造器&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -113,18 +115,14 @@
     <link href="http://example.com/post/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
     <id>http://example.com/post/%E5%86%85%E9%83%A8%E7%B1%BB/</id>
     <published>2022-12-29T09:27:08.981Z</published>
-    <updated>2023-01-05T02:07:03.407Z</updated>
+    <updated>2023-01-09T13:22:52.504Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。&lt;/p&gt;
 &lt;p&gt;在Java中，允许一个类的定义位于另一个类的内部，该类称为内部类，被定义的类称为外部类&lt;/p&gt;
-&lt;p&gt;内部类一般用在定</summary>
-        
-      
+&lt;p&gt;内部类一般用在定义它的类或语句块之内，在外部引用它时必须给出完整的名称。&lt;/p&gt;
+&lt;p&gt;内部类的名字不能与包含它的外部类类名相同；&lt;/p&gt;
+&lt;p&gt;内部类按照声明位置又分为成员内部类和局部内部类&lt;/p&gt;</summary>
     
     
     

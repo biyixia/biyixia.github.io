@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.1k</span>
+            <span class="post-count">3.3k</span>
         </span>
     </span>
 
@@ -438,6 +438,41 @@
 <li>用移位和减法来代替乘法。31可以 由i*31== (i&lt;&lt;5)-1来表示,现在很多虚拟机可以自动完成相关优化（提高算法效率）</li>
 </ol>
 <h1>TreeSet</h1>
+<h2 id="概述-2">概述</h2>
+<ol>
+<li>TreeSet 的元素必须实现Comparable接口的 compareTo(Object obj) 方法或Comparator接口的compare(Object obj1,Object obj2)</li>
+</ol>
+<p>包装类已经实现了Comparable ：</p>
+<table>
+<thead>
+<tr>
+<th>包装类</th>
+<th>compareTo(Object obj) 方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所有的数值型对应的包装类</td>
+<td>按对应的数值大小进行比较</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>按字符的 unicode值来进行比较</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>true对应的包装类实例大于 false对应的包装类实例</td>
+</tr>
+<tr>
+<td>String</td>
+<td>按字符串中字符的 unicode 值进行比较</td>
+</tr>
+<tr>
+<td>Date、Time</td>
+<td>后边的时间、日期比前面的时间、日期大</td>
+</tr>
+</tbody>
+</table>
 <h2 id="初始化-3">初始化</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TreeSet&lt;E&gt; e = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <h2 id="方法-3">方法</h2>
@@ -536,9 +571,12 @@
 </ul>
 <h2 id="比较器">比较器</h2>
 <ul>
-<li>TreeSet里面的所有元素必须是java.lang.Comparable实现类或是java.util.Comparator的实现类</li>
-<li>内部比较器（）接口是比较器,主要用于规定比较规则（相等为0,大于或者小于使用正整数或者负数，但是官方建议使用1或者-1）</li>
-<li>外部比较器（）</li>
+<li>
+<p>添加元素时，TreeSet 会调用集合元素的 compareTo(Object obj) 方法或compare(Object obj1,Object obj2) 来比较元素之间的大小关系（相等为0,大于或者小于使用正整数或者负数，但是官方建议使用1或者-1）， 然后将集合元素按升序(默认情况)排列</p>
+</li>
+<li>
+<p>通常情况下，应保证当两个对象通过equals()方法比较返回true，则通过compareTo(Object obj)方法比较也应返回0</p>
+</li>
 </ul>
 <table>
 <thead>
@@ -561,13 +599,13 @@
 </tr>
 <tr>
 <td>实现</td>
-<td>实体类中实现接口，重写int compareTo(E)方法</td>
-<td>创建实现类实现接口，重写int compare(E,T)方法</td>
+<td>实体类中实现接口，重写int compareTo(Object o)方法</td>
+<td>创建实现类实现接口，重写int compare(Object o1,Object o2)方法</td>
 </tr>
 <tr>
 <td>TreeSet构造</td>
 <td>无参构造TreeSet</td>
-<td>传入比较器参数构造TreeSet</td>
+<td>实现类实例作为形参传入TreeSet构造器</td>
 </tr>
 </tbody>
 </table>

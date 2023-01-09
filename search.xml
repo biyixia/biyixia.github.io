@@ -313,85 +313,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JDK的安装及环境变量的配置</title>
-    <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1>引言</h1>
-<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
-<span id="more"></span>
-<h1>JDK 的安装</h1>
-<h2 id="下载">下载</h2>
-<p>首先通过甲骨文官方下载JDK所需的安装包</p>
-<p><a href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
-<p>选择需要的JDK版本，通常使用的是JDK8</p>
-<img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
-<p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
-<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
-<p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
-<h2 id="安装">安装</h2>
-<ul>
-<li>
-<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
-</li>
-<li>
-<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
-</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
-<h1>环境变量的配置</h1>
-<h2 id="查看环境变量">查看环境变量</h2>
-<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
-<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
-<h2 id="JAVA-HOME">JAVA_HOME</h2>
-<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
-<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
-<h2 id="Path">Path</h2>
-<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
-<img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
-<h2 id="CLASSPATH">CLASSPATH</h2>
-<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
-<p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
-<p>这里需注意：</p>
-<ul>
-<li>CLASSPATH变量中的字符必须是英文字符</li>
-<li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
-<p>随后一路确定，即配置完成</p>
-<h1>测试</h1>
-<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
-<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
-<h1>总结</h1>
-<h2 id="为什么要配置环境变量">为什么要配置环境变量?</h2>
-<h3 id="path">path</h3>
-<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
-<p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
-<p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
-<h3 id="JAVA-HOME-2">JAVA_HOME</h3>
-<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
-<p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
-<p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
-<h3 id="CLASSPATH（一般不需配置）">CLASSPATH（一般不需配置）</h3>
-<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
-<p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
-<p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
-<p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
-<ul>
-<li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
-<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
-<p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
-<p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JVM内存结构</title>
     <url>/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/101495810">JVM内存模型（详解） - 知乎 (zhihu.com)</a></p>
@@ -400,6 +321,7 @@
 <p>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。</p>
 <h3 id="本地方法栈（-Native-Method-Stack）">本地方法栈（ Native Method Stack）</h3>
 <p>本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。</p>
+<span id="more"></span>
 <h3 id="虚拟机栈（VM-Stack）">虚拟机栈（VM Stack）</h3>
 <p>JVM栈是线程私有的内存区域。主要存放方法执行数据</p>
 <ol>
@@ -505,6 +427,85 @@ System.out.println(“我是Yi_ding的方法”);</p>
 </li>
 </ol>
 <img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JDK的安装及环境变量的配置</title>
+    <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1>引言</h1>
+<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
+<span id="more"></span>
+<h1>JDK 的安装</h1>
+<h2 id="下载">下载</h2>
+<p>首先通过甲骨文官方下载JDK所需的安装包</p>
+<p><a href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
+<p>选择需要的JDK版本，通常使用的是JDK8</p>
+<img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
+<p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
+<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
+<p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
+<h2 id="安装">安装</h2>
+<ul>
+<li>
+<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
+</li>
+<li>
+<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
+</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
+<h1>环境变量的配置</h1>
+<h2 id="查看环境变量">查看环境变量</h2>
+<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
+<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
+<h2 id="JAVA-HOME">JAVA_HOME</h2>
+<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
+<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
+<h2 id="Path">Path</h2>
+<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
+<img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
+<h2 id="CLASSPATH">CLASSPATH</h2>
+<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
+<p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
+<p>这里需注意：</p>
+<ul>
+<li>CLASSPATH变量中的字符必须是英文字符</li>
+<li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
+<p>随后一路确定，即配置完成</p>
+<h1>测试</h1>
+<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
+<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
+<h1>总结</h1>
+<h2 id="为什么要配置环境变量">为什么要配置环境变量?</h2>
+<h3 id="path">path</h3>
+<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
+<p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
+<p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
+<h3 id="JAVA-HOME-2">JAVA_HOME</h3>
+<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
+<p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
+<p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
+<h3 id="CLASSPATH（一般不需配置）">CLASSPATH（一般不需配置）</h3>
+<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
+<p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
+<p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
+<ul>
+<li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
+<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
+<p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
+<p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -798,88 +799,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>Object类</title>
-    <url>/post/Object%E7%B1%BB/</url>
-    <content><![CDATA[<p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
-<p>Object的类型变量可以指向任意类型的子类对象</p>
-<span id="more"></span>
-<h2 id="int-hashCode">int hashCode()</h2>
-<p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
-<p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
-<ul>
-<li>引用类型（注意是没有重写过hashCode）Object计算hashCode是以对象的地址为基本数据，进行二进制换算</li>
-<li>String对象的字符序列一样，则hashCode一样</li>
-<li>值类型的数值一旦一样，则hashCode一样</li>
-<li>布尔的哈希值true=1231,false=1237</li>
-</ul>
-<h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
-<p>返回此对象的运行时类。看创建对象是哪个类</p>
-<table>
-<thead>
-<tr>
-<th>getClass()</th>
-<th>getClass().getName()</th>
-<th>getClass().getSimpleName()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>class  包名.类名</td>
-<td>包名.类名</td>
-<td>类名</td>
-</tr>
-</tbody>
-</table>
-<h2 id="String-toString">String toString()</h2>
-<p>返回该对象的字符串表示。</p>
-<ul>
-<li>
-<p>默认实现 类的全限定名@hashcode的十六进制</p>
-</li>
-<li>
-<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
-</li>
-</ul>
-<h2 id="protected-void-finalize">protected void finalize()</h2>
-<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
-<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
-<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
-<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
-<h2 id="boolean-equals-Object-obj">boolean equals(Object obj)</h2>
-<p>指示其他某个对象是否与此对象“相等”。</p>
-<h2 id="和-equals-区别">== 和 equals 区别?</h2>
-<table>
-<thead>
-<tr>
-<th>== 比较运算符</th>
-<th>equals是object中的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
-<td>只能比较引用数据类型</td>
-</tr>
-<tr>
-<td>对于引用数据类型，比较的是地址</td>
-<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
-</tr>
-<tr>
-<td></td>
-<td>可重写成比较属性是否相等</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>比较引用数据类型，使用equals更好</p>
-<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
-<p>原因：在这些类中重写了Object类的 equals()方法</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>static、final关键字、代码块</title>
     <url>/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/</url>
     <content><![CDATA[<h1>static</h1>
@@ -1012,6 +931,88 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>Object类</title>
+    <url>/post/Object%E7%B1%BB/</url>
+    <content><![CDATA[<p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
+<p>Object的类型变量可以指向任意类型的子类对象</p>
+<span id="more"></span>
+<h2 id="int-hashCode">int hashCode()</h2>
+<p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
+<p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
+<ul>
+<li>引用类型（注意是没有重写过hashCode）Object计算hashCode是以对象的地址为基本数据，进行二进制换算</li>
+<li>String对象的字符序列一样，则hashCode一样</li>
+<li>值类型的数值一旦一样，则hashCode一样</li>
+<li>布尔的哈希值true=1231,false=1237</li>
+</ul>
+<h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
+<p>返回此对象的运行时类。看创建对象是哪个类</p>
+<table>
+<thead>
+<tr>
+<th>getClass()</th>
+<th>getClass().getName()</th>
+<th>getClass().getSimpleName()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class  包名.类名</td>
+<td>包名.类名</td>
+<td>类名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="String-toString">String toString()</h2>
+<p>返回该对象的字符串表示。</p>
+<ul>
+<li>
+<p>默认实现 类的全限定名@hashcode的十六进制</p>
+</li>
+<li>
+<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
+</li>
+</ul>
+<h2 id="protected-void-finalize">protected void finalize()</h2>
+<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
+<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
+<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
+<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
+<h2 id="boolean-equals-Object-obj">boolean equals(Object obj)</h2>
+<p>指示其他某个对象是否与此对象“相等”。</p>
+<h2 id="和-equals-区别">== 和 equals 区别?</h2>
+<table>
+<thead>
+<tr>
+<th>== 比较运算符</th>
+<th>equals是object中的方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
+<td>只能比较引用数据类型</td>
+</tr>
+<tr>
+<td>对于引用数据类型，比较的是地址</td>
+<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
+</tr>
+<tr>
+<td></td>
+<td>可重写成比较属性是否相等</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>比较引用数据类型，使用equals更好</p>
+<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
+<p>原因：在这些类中重写了Object类的 equals()方法</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>super</title>
     <url>/post/super/</url>
     <content><![CDATA[<p>super	超类的</p>
@@ -1086,6 +1087,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <p>内部类一般用在定义它的类或语句块之内，在外部引用它时必须给出完整的名称。</p>
 <p>内部类的名字不能与包含它的外部类类名相同；</p>
 <p>内部类按照声明位置又分为成员内部类和局部内部类</p>
+<span id="more"></span>
 <h2 id="成员内部类">成员内部类</h2>
 <p>成员内部类声明在外部类的成员位置</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">TestPojo</span> <span class="keyword">implements</span> <span class="title class_">TestInterface</span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我正在跑！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testf</span><span class="params">()</span> &#123;<span class="comment">//重写的接口方法</span></span><br><span class="line">            System.out.println(<span class="string">&quot;实现接口！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 方法里面调用内部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>();</span><br><span class="line">        b.testf(); <span class="comment">// 掉用重写接口方法</span></span><br><span class="line">        b.run(); 　<span class="comment">// 调用自己的方法</span></span><br><span class="line">        b.testpojo(); <span class="comment">// 调用继承父类的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// main 方法测试</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>() ;</span><br><span class="line">        a.test() ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义了一个接口 ，方法为testf()</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TestInterface</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testf</span><span class="params">()</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义了一个普通类 方法testpojo()</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestPojo</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testpojo</span><span class="params">()</span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;我是简单的pojo类&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实现 调用内部类里面的方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Textone</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        A.<span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>().<span class="keyword">new</span> <span class="title class_">B</span>() ; <span class="comment">//调用类A里面的内部类B</span></span><br><span class="line">        <span class="comment">/** 等同于 下面代码</span></span><br><span class="line"><span class="comment">        * A a = new A() ;</span></span><br><span class="line"><span class="comment">        * A.B b = a.new B() ;</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        b.testf() ; <span class="comment">// 掉用重写接口方法</span></span><br><span class="line">        b.run() ; <span class="comment">// 调用自己的方法</span></span><br><span class="line">        b.testpojo() ; <span class="comment">// 调用继承父类的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1859,15 +1861,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>流程控制</title>
-    <url>/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(b = <span class="literal">false</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        从键盘分别输入年、月、日，判断这一天是当年的第几天</span></span><br><span class="line"><span class="comment">        注：判断一年是否是闰年的标准：</span></span><br><span class="line"><span class="comment">        1）可以被4整除，但不可被100整除、或</span></span><br><span class="line"><span class="comment">        2）可以被400整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入几号：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">date</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"><span class="type">int</span> <span class="variable">month2</span> <span class="operator">=</span> <span class="number">28</span>;</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year %<span class="number">100</span> != <span class="number">0</span> ||year % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    month2 = <span class="number">29</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">switch</span> (month)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        day += month2;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        day += date;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;输入的月份不合法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(day);</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>标识符</title>
     <url>/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
     <content><![CDATA[<h1>引言</h1>
@@ -2000,6 +1993,7 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <li>与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器</li>
 <li>当未定义任何构造器时，编译器会默认提供一个无参的构造器</li>
 </ul>
+<span id="more"></span>
 <h2 id="执行顺序">执行顺序</h2>
 <figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Order</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Order</span>()</span>&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> Order();</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;===============&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> Order();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------------------------------------</span><br><span class="line">静态代码块</span><br><span class="line">构造代码块</span><br><span class="line">构造器</span><br><span class="line">===============</span><br><span class="line">构造代码块</span><br><span class="line">构造器</span><br></pre></td></tr></table></figure>
 <p>可以看出</p>
@@ -2077,6 +2071,15 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 </tbody>
 </table>
 ]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>流程控制</title>
+    <url>/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(b = <span class="literal">false</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        从键盘分别输入年、月、日，判断这一天是当年的第几天</span></span><br><span class="line"><span class="comment">        注：判断一年是否是闰年的标准：</span></span><br><span class="line"><span class="comment">        1）可以被4整除，但不可被100整除、或</span></span><br><span class="line"><span class="comment">        2）可以被400整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入几号：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">date</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"><span class="type">int</span> <span class="variable">month2</span> <span class="operator">=</span> <span class="number">28</span>;</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year %<span class="number">100</span> != <span class="number">0</span> ||year % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    month2 = <span class="number">29</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">switch</span> (month)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        day += month2;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        day += date;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;输入的月份不合法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(day);</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>第一阶段</category>
       </categories>
@@ -3475,6 +3478,41 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <li>用移位和减法来代替乘法。31可以 由i*31== (i&lt;&lt;5)-1来表示,现在很多虚拟机可以自动完成相关优化（提高算法效率）</li>
 </ol>
 <h1>TreeSet</h1>
+<h2 id="概述-2">概述</h2>
+<ol>
+<li>TreeSet 的元素必须实现Comparable接口的 compareTo(Object obj) 方法或Comparator接口的compare(Object obj1,Object obj2)</li>
+</ol>
+<p>包装类已经实现了Comparable ：</p>
+<table>
+<thead>
+<tr>
+<th>包装类</th>
+<th>compareTo(Object obj) 方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所有的数值型对应的包装类</td>
+<td>按对应的数值大小进行比较</td>
+</tr>
+<tr>
+<td>Character</td>
+<td>按字符的 unicode值来进行比较</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>true对应的包装类实例大于 false对应的包装类实例</td>
+</tr>
+<tr>
+<td>String</td>
+<td>按字符串中字符的 unicode 值进行比较</td>
+</tr>
+<tr>
+<td>Date、Time</td>
+<td>后边的时间、日期比前面的时间、日期大</td>
+</tr>
+</tbody>
+</table>
 <h2 id="初始化-3">初始化</h2>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">TreeSet&lt;E&gt; e = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <h2 id="方法-3">方法</h2>
@@ -3573,9 +3611,12 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 </ul>
 <h2 id="比较器">比较器</h2>
 <ul>
-<li>TreeSet里面的所有元素必须是java.lang.Comparable实现类或是java.util.Comparator的实现类</li>
-<li>内部比较器（）接口是比较器,主要用于规定比较规则（相等为0,大于或者小于使用正整数或者负数，但是官方建议使用1或者-1）</li>
-<li>外部比较器（）</li>
+<li>
+<p>添加元素时，TreeSet 会调用集合元素的 compareTo(Object obj) 方法或compare(Object obj1,Object obj2) 来比较元素之间的大小关系（相等为0,大于或者小于使用正整数或者负数，但是官方建议使用1或者-1）， 然后将集合元素按升序(默认情况)排列</p>
+</li>
+<li>
+<p>通常情况下，应保证当两个对象通过equals()方法比较返回true，则通过compareTo(Object obj)方法比较也应返回0</p>
+</li>
 </ul>
 <table>
 <thead>
@@ -3598,13 +3639,13 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 </tr>
 <tr>
 <td>实现</td>
-<td>实体类中实现接口，重写int compareTo(E)方法</td>
-<td>创建实现类实现接口，重写int compare(E,T)方法</td>
+<td>实体类中实现接口，重写int compareTo(Object o)方法</td>
+<td>创建实现类实现接口，重写int compare(Object o1,Object o2)方法</td>
 </tr>
 <tr>
 <td>TreeSet构造</td>
 <td>无参构造TreeSet</td>
-<td>传入比较器参数构造TreeSet</td>
+<td>实现类实例作为形参传入TreeSet构造器</td>
 </tr>
 </tbody>
 </table>
