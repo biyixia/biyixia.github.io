@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>static、final关键字 |  biyixia</title>
+      <title>JVM内存结构 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-static、final关键字"
+  id="post-JVM内存结构"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  static、final关键字
+  JVM内存结构
 </h1>
  
 
@@ -76,8 +76,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
-  <time datetime="2022-12-26T06:49:08.031Z" itemprop="datePublished">2022-12-26</time>
+      <a href="/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="article-date">
+  <time datetime="2022-12-30T03:27:18.355Z" itemprop="datePublished">2022-12-30</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.9k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">6 min</span>
         </span>
     </span>
 </div>
@@ -112,93 +112,117 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1>static</h1>
-<h2 id="修饰属性">修饰属性</h2>
-<p>static修饰的属性称为：静态变量、全局变量、静态属性、全局属性、类变量、类属性，非static修饰的属性可称为实例变量</p>
-<span id="more"></span>
-<ul>
-<li>静态属性随类的加载而加载，先于对象存在</li>
-<li>静态属性仅存放JVM方法区的静态域中，所有对象共享</li>
-</ul>
-<p>静态属性常用于所有对象属性值唯一的属性，即属性值与对象无关</p>
-<p><img src="https://pic.imgdb.cn/item/63a97c1608b6830163f144a1.png" alt></p>
-<h2 id="修饰方法">修饰方法</h2>
-<p>static修饰的方法称为：静态方法，非static修饰的方法可称为实例方法</p>
-<ul>
-<li>静态方法随着类的加载而加载，先于对象存在</li>
-<li>静态方法常通过 类名.方法名 调用</li>
-<li>静态方法无法访问非静态属性、非静态方法，他们需要实例才可以访问</li>
-<li>实例方法既可以访问静态属性、静态方法，也可以访问非静态属性、非静态方法</li>
-</ul>
-<p>静态方法常用于</p>
-<p>1.工具类（直接使用  类名.方法名 调用，Math.random() ）</p>
-<p>2.处理静态属性的方法</p>
-<p><strong>main()方法</strong>也是静态方法，在main()方法中不能直接访问该类中的非静态成员，需要创建实例对象，通过实例对象访问该类中的非静态成员</p>
-<p>main()方法中的关键字</p>
-<ul>
-<li>Java虚拟机需要访问main()方法，访问权限使用public</li>
-<li>main()方法无需创建实例对象，使用static</li>
-<li>接收个String类型的数组参数，可通过java指令传参   <strong>java 类名  “XXX” “XXX” “XXX”</strong></li>
-</ul>
-<h2 id="修饰代码块">修饰代码块</h2>
-<p>static修饰的代码块常用于初始化静态属性</p>
-<h2 id="修饰内部类">修饰内部类</h2>
-<h1>代码块</h1>
-<p>代码块只能有static关键字来修饰，其中static修饰的称为静态代码块，否则称为实例代码块，代码块是为了对Java类或对象进行初始化</p>
-<table>
-<thead>
-<tr>
-<th>静态代码块</th>
-<th>非静态代码块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>随着类的加载而加载，仅执行一次</td>
-<td>每次创建对象都执行一次，先于构造器执行</td>
-</tr>
-<tr>
-<td>静态代码块先于非静态代码块执行</td>
-<td></td>
-</tr>
-<tr>
-<td>静态代码块间顺序执行</td>
-<td>非静态代码块间顺序执行</td>
-</tr>
-<tr>
-<td>不可以调用非静态的属性和方法。</td>
-<td>既能调用非静态成员，还能调用静态成员</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Class Order&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;<span class="comment">//同级别顺序执行</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Father</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123; </span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 由父及子 静态先行</span></span><br><span class="line">        System.out.print(<span class="string">&quot;G&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Father</span>();   <span class="comment">//BC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADG************************</span><br><span class="line">BCEF************************</span><br><span class="line">BCEF************************</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
-<h1>final</h1>
+  <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101495810">JVM内存模型（详解） - 知乎 (zhihu.com)</a></p>
+<p><img src="https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png" alt="JVM内存模型"></p>
+<h3 id="程序计数器（Program-Counter-Register）">程序计数器（Program Counter Register）</h3>
+<p>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。</p>
+<h3 id="本地方法栈（-Native-Method-Stack）">本地方法栈（ Native Method Stack）</h3>
+<p>本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。</p>
+<h3 id="虚拟机栈（VM-Stack）">虚拟机栈（VM Stack）</h3>
+<p>JVM栈是线程私有的内存区域。主要存放方法执行数据</p>
 <ol>
-<li>使用final修饰的类不能被继承</li>
-<li>使用final修饰的方法不能被重写</li>
-<li>使用final标记的变量称为常量。名称大写，且只能被赋值一次。</li>
-</ol>
-<p>final标记的成员变量必须在声明时或在每个构造器中或代码块中显式赋值，然后才能使用。</p>
-<ul>
-<li>final修饰基本数据类型的变量，值不能改变</li>
-<li>修饰引用型数据类型的变量时，地址不能改变</li>
-</ul>
-<p>final、static同时修饰的属性为：全局唯一常量</p>
-<h1>单例模式</h1>
-<p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
+<li>每个方法执行时都会创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法返回地址等信息</li>
+<li>局部变量表存放各种基本数据类型、对象引用（reference类型，指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）和returnAddress类型（指向了一跳字节码指令的地址）</li>
+<li>动态连接（Dynamic Linking）通过每个栈帧都包含一个指向该栈帧所属方法（常量池）的引用，在<strong>运行期间</strong>将指向该方法的<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/#%E8%A7%A3%E6%9E%90">符号引用</a>转化为直接引用
 <ol>
-<li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
-<li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
-<li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
+<li>静态解析：在类加载的解析阶段或者第一次使用时将指向该方法的符号引用转化为直接引用，</li>
 </ol>
-<h2 id="懒汉模式">懒汉模式</h2>
-<p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="饿汉模式">饿汉模式</h2>
-<p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="堆（Heap）">堆（Heap）</h3>
+<p>通常情况下，它占用的空间是所有内存区域中最大的</p>
+<ol>
+<li>存储实例对象、数组、成员变量</li>
+<li>堆由垃圾收集器自动回收，堆区由各子线程共享使用</li>
+<li>堆的内存空间既可以固定大小，也可运行时动态地调整</li>
+</ol>
+<h3 id="方法区（Method-Area）">方法区（Method Area）</h3>
+<p>线程共享的内存区域</p>
+<ol>
+<li>存储字节码文件，包含所有的class文件和static变量(静态域)、常量(常量池)、即时编译后的代码等数据</li>
+<li>静态域：存放类中以static声明的静态成员变量</li>
+<li>常量池：在编译期间就将一部分数据存放于该区域，包含以final修饰的基本数据类型的常量值、String字符串。（在java6时它是方法区的一部分；1.7又把他放到了堆内存中；1.8之后出现了元空间，它又回到了方法区）</li>
+</ol>
+<h3 id="类成员存储">类成员存储</h3>
+<h3 id="前提">前提</h3>
+<p><a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载及执行原理</a></p>
+<h3 id="属性存储">属性存储</h3>
+<p>属性根据声明位置不同分为成员变量和局部变量</p>
+<ol>
+<li>局部变量声明在方法体中，在程序执行过程中随着方法被调用一起入栈，存储在栈的栈帧的局部变量表中</li>
+<li>成员变量分为静态变量和实例变量
+<ol>
+<li>静态变量在类加载的准备阶段分配在方法体的静态域中，并设置初始值</li>
+<li>实例变量则在程序执行中和对象实例一起存放在堆中</li>
+</ol>
+</li>
+</ol>
+<h3 id="方法存储">方法存储</h3>
+<p>方法根据是否用static修饰可以分为静态方法和实例方法</p>
+<ol>
+<li>实例方法：创建对象实例时，对象实例和该对象中的实例方法被存放在堆中，通过实例对象的引用调用实例方法</li>
+<li>静态方法：随着类加载而加载到方法区中，但不会自动执行，可通过类名.方法名访问</li>
+</ol>
+<h4 id="实例方法调用过程">实例方法调用过程</h4>
+<ol>
+<li>在JVM中的一个进程中，每个线程都会拥有一个<strong>方法调用栈</strong>，用于跟踪线程运行中一系列的方法调用过程</li>
+<li>当线程调用一个方法时就会向方法栈中压入一个新栈帧。<strong>栈帧</strong>是用于支持虚拟机进行方法调用和方法执行的数据结构，也是虚拟机运行时数据区中的虚拟机栈的栈元素。</li>
+<li>每个<strong>方法从调用开始至执行结束的过程</strong>，都对应着一个栈帧在虚拟机栈里面从<strong>入栈到出栈的过程</strong></li>
+<li>当方法执行完成时，该栈帧就会<strong>弹出栈帧的元素作为这个方法的返回值</strong>（参数传递），并且清除这个栈帧</li>
+<li><strong>栈顶</strong>的栈帧就是当前正在执行的方法</li>
+<li>每个栈帧都包含一个<strong>指向运行时常量池中该栈帧所属方法的引用</strong>，持有这个引用是为了支持方法调用过程中的动态连接</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Function</span> <span class="variable">function</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Function</span>();  <span class="comment">//function是对象引用存在栈中，new Funciotn()的实例放在堆中（包含方法区中的类型信息(方法信息等)引用等）。</span></span><br><span class="line">        function.out2();  <span class="comment">//调用out2方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Function</span>&#123; <span class="comment">//运行时把加载之后的Function的信息存入方法区（类型信息、常量、静态变量、方法信息等）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out1</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out1方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out2</span><span class="params">()</span>&#123;</span><br><span class="line">        out1();   <span class="comment">//这块调用out1主要是为了展示栈帧和栈帧中的动态链接</span></span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out2方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>启动Java虚拟机进程，通过<a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载机制</a>加载编译后的.class文件</p>
+</li>
+<li>
+<p>JVM定位到方法区中静态方法Main()的字节码，将main方法转换为栈帧压入方法调用栈，并开始顺序执行它的指令：</p>
+<blockquote>
+<p>Function function = new Function();<br>
+function.out2();</p>
+</blockquote>
+</li>
+<li>
+<p>Function function = new Function():</p>
+<ol>
+<li>加载Function类。 把Function类的相关信息存放在了方法区中</li>
+<li>JVM在堆中为一个新的Function类的实例分配内存。该实例有着指向方法区的Function类的类型信息的引用（内存地址）</li>
+<li>使function变量指向堆区中的Function实例。即function变量有指向Function类的实例的引用。变量function为局部变量，因此它会被JVM存放到执行main()方法的方法调用栈中</li>
+</ol>
+</li>
+<li>
+<p>function.out2():</p>
+<ol>
+<li>
+<p>将根据局部变量function的引用，定位到堆中的Function类的实例，再根据Function类的实例的引用，定位到方法区中Function类的类型信息（包括类，静态变量，静态方法，常量和成员方法），从而获取out2()方法的字节码</p>
+</li>
+<li>
+<p>将out2()方法压入方法调用栈，并顺序执行out2()方法中的指令</p>
+<blockquote>
+<p>out1();<br>
+System.out.println(“我是Yi_ding的方法”);</p>
+</blockquote>
+<ol>
+<li>out2()方法调用out1()方法。根据动态链接（在运行时期将常量池中指向方法的符号引用转换为直接引用）来获取out1()方法的直接引用，并将out1()方法压入方法调用栈，并顺序执行out1()方法中的指令</li>
+<li>输出&quot;执行了out1方法&quot;</li>
+<li>out1()方法执行完成，out1()方法出栈</li>
+</ol>
+</li>
+<li>
+<p>输出&quot;执行了out2方法&quot;</p>
+</li>
+<li>
+<p>out2()方法执行完成，out2()方法出栈</p>
+</li>
+</ol>
+</li>
+<li>
+<p>main()方法执行完成，main()方法出栈，程序执行结束</p>
+</li>
+</ol>
+<img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
  
       <!-- reward -->
       
@@ -269,7 +293,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,19 +304,10 @@
    
   <nav class="article-nav">
     
-      <a href="/post/Object%E7%B1%BB/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Object类
-          
-        </div>
-      </a>
     
-    
-      <a href="/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/" class="article-nav-link">
+      <a href="/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">流程控制</div>
+        <div class="article-nav-title">类加载的初始化顺序</div>
       </a>
     
   </nav>
@@ -335,7 +350,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2022
+        2022-2023
         <i class="ri-heart-fill heart_icon"></i> biyixia
       </li>
     </ul>

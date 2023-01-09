@@ -79,6 +79,88 @@
       </tags>
   </entry>
   <entry>
+    <title>常用模板</title>
+    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>psvm</strong></td>
+<td>可生成 main 方法</td>
+</tr>
+<tr>
+<td><strong>sout</strong></td>
+<td>System.out.println() 快捷输出</td>
+</tr>
+<tr>
+<td><strong>soutp</strong></td>
+<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
+</tr>
+<tr>
+<td><strong>soutv</strong></td>
+<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
+</tr>
+<tr>
+<td><strong>soutm</strong></td>
+<td>System.out.println(“当前类名.当前方 法”);</td>
+</tr>
+<tr>
+<td><strong>“abc”.sout</strong></td>
+<td>System.out.println(“abc”);</td>
+</tr>
+<tr>
+<td><strong>fori</strong></td>
+<td>可生成 for 循环</td>
+</tr>
+<tr>
+<td>iter</td>
+<td>可生成增强 for 循环</td>
+</tr>
+<tr>
+<td>itar</td>
+<td>可生成普通 for 循环</td>
+</tr>
+<tr>
+<td>list.for</td>
+<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
+</tr>
+<tr>
+<td><strong>ifn</strong></td>
+<td>可生成 if(xxx = null)</td>
+</tr>
+<tr>
+<td><strong>inn</strong></td>
+<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
+</tr>
+<tr>
+<td>prsf</td>
+<td>可生成 private static final</td>
+</tr>
+<tr>
+<td>psf</td>
+<td>可生成 public static final</td>
+</tr>
+<tr>
+<td>psfi</td>
+<td>可生成 public static final int</td>
+</tr>
+<tr>
+<td>psfs</td>
+<td>可生成 public static final String</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>IDEA常用快捷键</title>
     <url>/post/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<table>
@@ -231,88 +313,6 @@
       </categories>
   </entry>
   <entry>
-    <title>常用模板</title>
-    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th>模板</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>psvm</strong></td>
-<td>可生成 main 方法</td>
-</tr>
-<tr>
-<td><strong>sout</strong></td>
-<td>System.out.println() 快捷输出</td>
-</tr>
-<tr>
-<td><strong>soutp</strong></td>
-<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
-</tr>
-<tr>
-<td><strong>soutv</strong></td>
-<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
-</tr>
-<tr>
-<td><strong>soutm</strong></td>
-<td>System.out.println(“当前类名.当前方 法”);</td>
-</tr>
-<tr>
-<td><strong>“abc”.sout</strong></td>
-<td>System.out.println(“abc”);</td>
-</tr>
-<tr>
-<td><strong>fori</strong></td>
-<td>可生成 for 循环</td>
-</tr>
-<tr>
-<td>iter</td>
-<td>可生成增强 for 循环</td>
-</tr>
-<tr>
-<td>itar</td>
-<td>可生成普通 for 循环</td>
-</tr>
-<tr>
-<td>list.for</td>
-<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
-</tr>
-<tr>
-<td><strong>ifn</strong></td>
-<td>可生成 if(xxx = null)</td>
-</tr>
-<tr>
-<td><strong>inn</strong></td>
-<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
-</tr>
-<tr>
-<td>prsf</td>
-<td>可生成 private static final</td>
-</tr>
-<tr>
-<td>psf</td>
-<td>可生成 public static final</td>
-</tr>
-<tr>
-<td>psfi</td>
-<td>可生成 public static final int</td>
-</tr>
-<tr>
-<td>psfs</td>
-<td>可生成 public static final String</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JDK的安装及环境变量的配置</title>
     <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1>引言</h1>
@@ -392,12 +392,198 @@
       </categories>
   </entry>
   <entry>
+    <title>JVM内存结构</title>
+    <url>/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/101495810">JVM内存模型（详解） - 知乎 (zhihu.com)</a></p>
+<p><img src="https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png" alt="JVM内存模型"></p>
+<h3 id="程序计数器（Program-Counter-Register）">程序计数器（Program Counter Register）</h3>
+<p>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。</p>
+<h3 id="本地方法栈（-Native-Method-Stack）">本地方法栈（ Native Method Stack）</h3>
+<p>本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。</p>
+<h3 id="虚拟机栈（VM-Stack）">虚拟机栈（VM Stack）</h3>
+<p>JVM栈是线程私有的内存区域。主要存放方法执行数据</p>
+<ol>
+<li>每个方法执行时都会创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法返回地址等信息</li>
+<li>局部变量表存放各种基本数据类型、对象引用（reference类型，指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）和returnAddress类型（指向了一跳字节码指令的地址）</li>
+<li>动态连接（Dynamic Linking）通过每个栈帧都包含一个指向该栈帧所属方法（常量池）的引用，在<strong>运行期间</strong>将指向该方法的<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/#%E8%A7%A3%E6%9E%90">符号引用</a>转化为直接引用
+<ol>
+<li>静态解析：在类加载的解析阶段或者第一次使用时将指向该方法的符号引用转化为直接引用，</li>
+</ol>
+</li>
+</ol>
+<h3 id="堆（Heap）">堆（Heap）</h3>
+<p>通常情况下，它占用的空间是所有内存区域中最大的</p>
+<ol>
+<li>存储实例对象、数组、成员变量</li>
+<li>堆由垃圾收集器自动回收，堆区由各子线程共享使用</li>
+<li>堆的内存空间既可以固定大小，也可运行时动态地调整</li>
+</ol>
+<h3 id="方法区（Method-Area）">方法区（Method Area）</h3>
+<p>线程共享的内存区域</p>
+<ol>
+<li>存储字节码文件，包含所有的class文件和static变量(静态域)、常量(常量池)、即时编译后的代码等数据</li>
+<li>静态域：存放类中以static声明的静态成员变量</li>
+<li>常量池：在编译期间就将一部分数据存放于该区域，包含以final修饰的基本数据类型的常量值、String字符串。（在java6时它是方法区的一部分；1.7又把他放到了堆内存中；1.8之后出现了元空间，它又回到了方法区）</li>
+</ol>
+<h3 id="类成员存储">类成员存储</h3>
+<h3 id="前提">前提</h3>
+<p><a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载及执行原理</a></p>
+<h3 id="属性存储">属性存储</h3>
+<p>属性根据声明位置不同分为成员变量和局部变量</p>
+<ol>
+<li>局部变量声明在方法体中，在程序执行过程中随着方法被调用一起入栈，存储在栈的栈帧的局部变量表中</li>
+<li>成员变量分为静态变量和实例变量
+<ol>
+<li>静态变量在类加载的准备阶段分配在方法体的静态域中，并设置初始值</li>
+<li>实例变量则在程序执行中和对象实例一起存放在堆中</li>
+</ol>
+</li>
+</ol>
+<h3 id="方法存储">方法存储</h3>
+<p>方法根据是否用static修饰可以分为静态方法和实例方法</p>
+<ol>
+<li>实例方法：创建对象实例时，对象实例和该对象中的实例方法被存放在堆中，通过实例对象的引用调用实例方法</li>
+<li>静态方法：随着类加载而加载到方法区中，但不会自动执行，可通过类名.方法名访问</li>
+</ol>
+<h4 id="实例方法调用过程">实例方法调用过程</h4>
+<ol>
+<li>在JVM中的一个进程中，每个线程都会拥有一个<strong>方法调用栈</strong>，用于跟踪线程运行中一系列的方法调用过程</li>
+<li>当线程调用一个方法时就会向方法栈中压入一个新栈帧。<strong>栈帧</strong>是用于支持虚拟机进行方法调用和方法执行的数据结构，也是虚拟机运行时数据区中的虚拟机栈的栈元素。</li>
+<li>每个<strong>方法从调用开始至执行结束的过程</strong>，都对应着一个栈帧在虚拟机栈里面从<strong>入栈到出栈的过程</strong></li>
+<li>当方法执行完成时，该栈帧就会<strong>弹出栈帧的元素作为这个方法的返回值</strong>（参数传递），并且清除这个栈帧</li>
+<li><strong>栈顶</strong>的栈帧就是当前正在执行的方法</li>
+<li>每个栈帧都包含一个<strong>指向运行时常量池中该栈帧所属方法的引用</strong>，持有这个引用是为了支持方法调用过程中的动态连接</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Function</span> <span class="variable">function</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Function</span>();  <span class="comment">//function是对象引用存在栈中，new Funciotn()的实例放在堆中（包含方法区中的类型信息(方法信息等)引用等）。</span></span><br><span class="line">        function.out2();  <span class="comment">//调用out2方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Function</span>&#123; <span class="comment">//运行时把加载之后的Function的信息存入方法区（类型信息、常量、静态变量、方法信息等）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out1</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out1方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out2</span><span class="params">()</span>&#123;</span><br><span class="line">        out1();   <span class="comment">//这块调用out1主要是为了展示栈帧和栈帧中的动态链接</span></span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out2方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>启动Java虚拟机进程，通过<a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载机制</a>加载编译后的.class文件</p>
+</li>
+<li>
+<p>JVM定位到方法区中静态方法Main()的字节码，将main方法转换为栈帧压入方法调用栈，并开始顺序执行它的指令：</p>
+<blockquote>
+<p>Function function = new Function();<br>
+function.out2();</p>
+</blockquote>
+</li>
+<li>
+<p>Function function = new Function():</p>
+<ol>
+<li>加载Function类。 把Function类的相关信息存放在了方法区中</li>
+<li>JVM在堆中为一个新的Function类的实例分配内存。该实例有着指向方法区的Function类的类型信息的引用（内存地址）</li>
+<li>使function变量指向堆区中的Function实例。即function变量有指向Function类的实例的引用。变量function为局部变量，因此它会被JVM存放到执行main()方法的方法调用栈中</li>
+</ol>
+</li>
+<li>
+<p>function.out2():</p>
+<ol>
+<li>
+<p>将根据局部变量function的引用，定位到堆中的Function类的实例，再根据Function类的实例的引用，定位到方法区中Function类的类型信息（包括类，静态变量，静态方法，常量和成员方法），从而获取out2()方法的字节码</p>
+</li>
+<li>
+<p>将out2()方法压入方法调用栈，并顺序执行out2()方法中的指令</p>
+<blockquote>
+<p>out1();<br>
+System.out.println(“我是Yi_ding的方法”);</p>
+</blockquote>
+<ol>
+<li>out2()方法调用out1()方法。根据动态链接（在运行时期将常量池中指向方法的符号引用转换为直接引用）来获取out1()方法的直接引用，并将out1()方法压入方法调用栈，并顺序执行out1()方法中的指令</li>
+<li>输出&quot;执行了out1方法&quot;</li>
+<li>out1()方法执行完成，out1()方法出栈</li>
+</ol>
+</li>
+<li>
+<p>输出&quot;执行了out2方法&quot;</p>
+</li>
+<li>
+<p>out2()方法执行完成，out2()方法出栈</p>
+</li>
+</ol>
+</li>
+<li>
+<p>main()方法执行完成，main()方法出栈，程序执行结束</p>
+</li>
+</ol>
+<img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java加载及执行原理</title>
     <url>/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1>Java程序执行原理</h1>
 <p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
 <span id="more"></span>
 <p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
+<h1>类加载的过程</h1>
+<p>加载、验证、准备、解析和初始化5个阶段</p>
+<h2 id="加载">加载</h2>
+<ol>
+<li>通过类的全限定名来获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口</li>
+</ol>
+<h2 id="验证">验证</h2>
+<p>目的是确保Class文件的字节流中包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当作代码运行后不会危害虚拟机自身的安全</p>
+<h2 id="准备">准备</h2>
+<p>正式为类中定义的变量（即静态变量）分配内存并设置类变量初始值</p>
+<ul>
+<li>
+<p>从概念上讲，这些变量所使用的内存都应当在方法区中进行分配，但方法区本身是一个逻辑上的区域（在JDK7及之前，HotSpot使用永久代来实现方法区时，实现是完全符合这种逻辑概念的；而在JDK8及之后，类变量则会随着Class对象一起存放在Java堆中，这时候“类变量在方法区”就完全是一种对逻辑概念的表述了）</p>
+</li>
+<li>
+<p>内存分配只包括类变量，而不包括实例变量。实例变量将会在对象实例化时随着对象一起分配在Java堆中。</p>
+</li>
+<li>
+<p>初始值通常指数据类型的零值。赋值指令是程序被编译后，存放于类构造器()方法之中，所以赋值动作要到类的初始化阶段才会被执行。</p>
+</li>
+</ul>
+<h2 id="解析">解析</h2>
+<p>所有目标方法都是通过符号引用（在Class文件的常量池中）来调用。在类加载的解析阶段，会将部分<strong>符号引用</strong>转化为<strong>直接引用</strong>。这些符号引用所属的方法在程序运行前就有一个可确定的调用版本，且在运行期不可改变（编译期可知，运行期不可变）。换句话说，调用目标在程序代码写好、编译器进行编译那一刻就已经确定下来。</p>
+<p>主要指静态方法和私有方法，前者与类型直接关联，后者在外部不可被访问，这两种方法各自的特点决定了它们都不可能通过继承或别的方式重写出其他版本，因此它们都适合在类加载阶段进行解析。</p>
+<p>主要针对类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符</p>
+<blockquote>
+<p>符号引用：以一组符号来描述所引用的目标。符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。符号引用与虚拟机实现的内存布局无关，引用的目标并不一定是已经加载到虚拟机内存当中的内容。</p>
+<p>直接引用：直接引用是可以直接指向目标的指针。相对偏移量或者是一个能间接定位到目标的句柄。直接引用是和虚拟机实现的内存布局直接相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。如果有了直接引用，那引用的目标必定已经在虚拟机的内存中存在。</p>
+</blockquote>
+<ul>
+<li>
+<p>虚拟机实现时可以自行判断，是在类被加载器加载时，还是等到符号引用将被使用时，对常量池中的符号引用进行解析</p>
+</li>
+<li>
+<p>解析阶段中对它们的可访问性（public、protected、 private、）进行检查</p>
+</li>
+</ul>
+<h2 id="初始化">初始化</h2>
+<p>Java虚拟机真正开始执行类中编写的Java程序代码</p>
+<ul>
+<li>
+<p>准备阶段时，变量已经赋过一次系统要求的初始零值，而在初始化阶段，则会根据程序代码来初始化类变量和其他资源</p>
+</li>
+<li>
+<p>初始化阶段是执行类构造器&lt;clint&gt;()方法的过程。</p>
+</li>
+</ul>
+<h3 id="clint-方法">&lt;clint&gt;()方法</h3>
+<ol>
+<li>
+<p>&lt;clint&gt;()不是代码中程序员直接编写的方法，它是Javac编译器的自动生成物</p>
+</li>
+<li>
+<p>&lt;clint&gt;()方法由编译器自动收集并合并类中的所有类变量的赋值动作和静态代码块中的语句，收集的顺序与语句在源文件中出现的顺序一致</p>
+</li>
+<li>
+<p>JVM会保证在子类的&lt;clint&gt;()方法执行前，父类的&lt;clint&gt;()方法已经执行完毕。&lt;clint&gt;()方法与类的实例构造函数不同，它不需要显式地调用父类构造器，父类的&lt;clint&gt;()方法会优先先执行，也就意味着父类的静态语句块要优先于子类的变量赋值操作，具体查看<a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F">类加载的初始化顺序</a></p>
+</li>
+<li>
+<p>如果类中没有静态语句块、对变量的赋值操作，编译器可以不为这个类生成&lt;clint&gt;()方法</p>
+</li>
+<li>
+<p>即使接口中不能使用静态语句块，但仍然有变量初始化的赋值操作，因此接口与类一样都会生成&lt;clint&gt;()方法。但接口与类不同的是，父接口的&lt;clint&gt;()方法不需要先于子接口的&lt;clint&gt;()方法执行，接口的实现类在初始化时也不会先执行接口的&lt;clint&gt;()方法。因为只有当父接口中定义的变量被使用时，父接口才会被初始化。</p>
+</li>
+</ol>
 <h1>源文件、类、字节码文件</h1>
 <ul>
 <li>源文件中可包含一个或多个类</li>
@@ -450,6 +636,36 @@
 <h2 id="JDK（Java-Development-Kit）">JDK（Java Development Kit）</h2>
 <p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
 <img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java文档注释</title>
+    <url>/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1>引言</h1>
+<ul>
+<li>
+<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li>
+<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li>
+<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>单行注释	/注释文字/</li>
+<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
+</ul>
+<h1>文档注释</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p>操作方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -582,43 +798,20 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>Java文档注释</title>
-    <url>/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
-    <content><![CDATA[<h1>引言</h1>
-<ul>
-<li>
-<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
-</li>
-<li>
-<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
-</li>
-<li>
-<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>单行注释	/注释文字/</li>
-<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
-</ul>
-<h1>文档注释</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p>操作方式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Object类</title>
     <url>/post/Object%E7%B1%BB/</url>
     <content><![CDATA[<p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
 <p>Object的类型变量可以指向任意类型的子类对象</p>
 <span id="more"></span>
 <h2 id="int-hashCode">int hashCode()</h2>
-<p>返回该对象的哈希码值 可以类似的看做虚拟内存地址</p>
+<p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
+<p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
+<ul>
+<li>引用类型（注意是没有重写过hashCode）Object计算hashCode是以对象的地址为基本数据，进行二进制换算</li>
+<li>String对象的字符序列一样，则hashCode一样</li>
+<li>值类型的数值一旦一样，则hashCode一样</li>
+<li>布尔的哈希值true=1231,false=1237</li>
+</ul>
 <h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
 <p>返回此对象的运行时类。看创建对象是哪个类</p>
 <table>
@@ -687,6 +880,138 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>static、final关键字、代码块</title>
+    <url>/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/</url>
+    <content><![CDATA[<h1>static</h1>
+<h2 id="修饰属性">修饰属性</h2>
+<p>static修饰的属性称为：静态变量、全局变量、静态属性、全局属性、类变量、类属性，非static修饰的属性可称为实例变量</p>
+<span id="more"></span>
+<ul>
+<li>静态属性随类的加载而加载，先于对象存在</li>
+<li>静态属性仅存放JVM方法区的静态域中，所有对象共享</li>
+</ul>
+<p>静态属性常用于所有对象属性值唯一的属性，即属性值与对象无关</p>
+<p><img src="https://pic.imgdb.cn/item/63a97c1608b6830163f144a1.png" alt></p>
+<h2 id="修饰方法">修饰方法</h2>
+<p>static修饰的方法称为：静态方法，非static修饰的方法可称为实例方法</p>
+<ul>
+<li>静态方法随着类的加载而加载，先于对象存在</li>
+<li>静态方法常通过 类名.方法名 调用</li>
+<li>静态方法无法访问非静态属性、非静态方法，他们需要实例才可以访问</li>
+<li>实例方法既可以访问静态属性、静态方法，也可以访问非静态属性、非静态方法</li>
+</ul>
+<p>静态方法常用于</p>
+<p>1.工具类（直接使用  类名.方法名 调用，Math.random() ）</p>
+<p>2.处理静态属性的方法</p>
+<p><strong>main()方法</strong>也是静态方法，在main()方法中不能直接访问该类中的非静态成员，需要创建实例对象，通过实例对象访问该类中的非静态成员</p>
+<p>main()方法中的关键字</p>
+<ul>
+<li>Java虚拟机需要访问main()方法，访问权限使用public</li>
+<li>main()方法无需创建实例对象，使用static</li>
+<li>接收个String类型的数组参数，可通过java指令传参   <strong>java 类名  “XXX” “XXX” “XXX”</strong></li>
+</ul>
+<h2 id="修饰代码块">修饰代码块</h2>
+<p>static修饰的代码块，当类被载入时，静态代码块被执行，且只被执行一次，常用于初始化静态属性</p>
+<ul>
+<li>静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    i = <span class="number">0</span>; <span class="comment">// 给变量复制可以正常编译通过</span></span><br><span class="line">    System.out.print(i); <span class="comment">// 这句编译器会提示“非法向前引用”</span></span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态代码块-静态方法区别">静态代码块 静态方法区别</h3>
+<table>
+<thead>
+<tr>
+<th>静态代码块</th>
+<th>静态方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在类加载时自动执行，且只执行一次</td>
+<td>在类加载时加载到方法区,其他程序来调用时,无需创建对象,通过类名.方法名执行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="修饰内部类">修饰内部类</h2>
+<h3 id="为什么静态方法无法直接访问非静态成员">为什么静态方法无法直接访问非静态成员</h3>
+<ol>
+<li>静态方法在类加载的解析阶段实现了符号引用转换成直接引用，在类加载后就能通过类名.方法名访问</li>
+<li>而非静态成员要等到符号引用被使用时（即类加载后的初始化阶段），才会对常量池中指向非静态成员的符号引用进行解析，因为非静态成员可能在运行期间发生改变（变量赋值、方法重写）</li>
+<li>在静态方法解析完成时，非静态成员可能仍未开始解析，因此静态方法获取不了非静态成员的直接引用，即无法访问非静态成员</li>
+<li>在静态方法中定义非静态成员所属类的实例对象，通过对象可以访问类的非静态成员</li>
+</ol>
+<h3 id="为什么非静态成员为什么无法容纳静态成员">为什么非静态成员为什么无法容纳静态成员</h3>
+<h4 id="实例方法无法定义静态属性">实例方法无法定义静态属性</h4>
+<ol>
+<li>静态属性是属于类的，在类加载阶段就加载到方法区的静态域中</li>
+<li>实例方法等到它被调用时，它的符号引用才被解析，然后被JVM压入方法调用栈</li>
+<li>如果实例方法中定义了静态属性，实例方法被调用时才被解析，无法满足其静态变量在类加载阶段就被解析；</li>
+<li>而且实例方法中的属性会随着方法压入栈中，而静态变量唯一存放在方法区的静态域中</li>
+</ol>
+<h4 id="实例内部类无法访问静态成员（属性、静态方法、静态代码块）">实例内部类无法访问静态成员（属性、静态方法、静态代码块）</h4>
+<p>假设实例内部类中定义了静态成员，在类加载时，静态成员就应被初始化，定义了静态成员的实例内部类作为外部类的成员之一，还需要通过外部类实例对象被调用才会被初始化，因此无法实现在类加载时实现实例内部类的静态初始化。(JDK16以后可以)</p>
+<p>但是实例内部类中可以定义static、final常量，常量在编译期就是确定的，加载常量不需要加载它所属的实例内部类</p>
+<h1>代码块</h1>
+<p>代码块只能有static关键字来修饰，其中static修饰的称为静态代码块，否则称为实例代码块，代码块是为了对Java类或对象进行初始化</p>
+<table>
+<thead>
+<tr>
+<th>静态代码块</th>
+<th>非静态代码块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>随着类的加载而加载，仅执行一次</td>
+<td>每次创建对象都执行一次，先于构造器执行</td>
+</tr>
+<tr>
+<td>静态代码块先于非静态代码块执行</td>
+<td></td>
+</tr>
+<tr>
+<td>静态代码块间顺序执行</td>
+<td>非静态代码块间顺序执行</td>
+</tr>
+<tr>
+<td>不可以调用非静态的属性和方法。</td>
+<td>既能调用非静态成员，还能调用静态成员</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class Order&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;<span class="comment">//同级别顺序执行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Father</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123; </span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 由父及子 静态先行</span></span><br><span class="line">        System.out.print(<span class="string">&quot;G&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Father</span>();   <span class="comment">//BC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ADG************************</span><br><span class="line">BCEF************************</span><br><span class="line">BCEF************************</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
+<h1>final</h1>
+<ol>
+<li>使用final修饰的类不能被继承</li>
+<li>使用final修饰的方法不能被重写</li>
+<li>使用final标记的变量称为常量。名称大写，且只能被赋值一次。</li>
+</ol>
+<p>final标记的成员变量必须在声明时或在每个构造器中或代码块中显式赋值，然后才能使用。</p>
+<ul>
+<li>final修饰基本数据类型的变量，值不能改变</li>
+<li>修饰引用型数据类型的变量时，地址不能改变</li>
+</ul>
+<p>final、static同时修饰的属性为：全局唯一常量</p>
+<h1>单例模式</h1>
+<p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
+<ol>
+<li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
+<li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
+<li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
+</ol>
+<h2 id="懒汉模式">懒汉模式</h2>
+<p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="饿汉模式">饿汉模式</h2>
+<p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>super</title>
     <url>/post/super/</url>
     <content><![CDATA[<p>super	超类的</p>
@@ -748,101 +1073,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 </tr>
 </tbody>
 </table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>static、final关键字</title>
-    <url>/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/</url>
-    <content><![CDATA[<h1>static</h1>
-<h2 id="修饰属性">修饰属性</h2>
-<p>static修饰的属性称为：静态变量、全局变量、静态属性、全局属性、类变量、类属性，非static修饰的属性可称为实例变量</p>
-<span id="more"></span>
-<ul>
-<li>静态属性随类的加载而加载，先于对象存在</li>
-<li>静态属性仅存放JVM方法区的静态域中，所有对象共享</li>
-</ul>
-<p>静态属性常用于所有对象属性值唯一的属性，即属性值与对象无关</p>
-<p><img src="https://pic.imgdb.cn/item/63a97c1608b6830163f144a1.png" alt></p>
-<h2 id="修饰方法">修饰方法</h2>
-<p>static修饰的方法称为：静态方法，非static修饰的方法可称为实例方法</p>
-<ul>
-<li>静态方法随着类的加载而加载，先于对象存在</li>
-<li>静态方法常通过 类名.方法名 调用</li>
-<li>静态方法无法访问非静态属性、非静态方法，他们需要实例才可以访问</li>
-<li>实例方法既可以访问静态属性、静态方法，也可以访问非静态属性、非静态方法</li>
-</ul>
-<p>静态方法常用于</p>
-<p>1.工具类（直接使用  类名.方法名 调用，Math.random() ）</p>
-<p>2.处理静态属性的方法</p>
-<p><strong>main()方法</strong>也是静态方法，在main()方法中不能直接访问该类中的非静态成员，需要创建实例对象，通过实例对象访问该类中的非静态成员</p>
-<p>main()方法中的关键字</p>
-<ul>
-<li>Java虚拟机需要访问main()方法，访问权限使用public</li>
-<li>main()方法无需创建实例对象，使用static</li>
-<li>接收个String类型的数组参数，可通过java指令传参   <strong>java 类名  “XXX” “XXX” “XXX”</strong></li>
-</ul>
-<h2 id="修饰代码块">修饰代码块</h2>
-<p>static修饰的代码块常用于初始化静态属性</p>
-<h2 id="修饰内部类">修饰内部类</h2>
-<h1>代码块</h1>
-<p>代码块只能有static关键字来修饰，其中static修饰的称为静态代码块，否则称为实例代码块，代码块是为了对Java类或对象进行初始化</p>
-<table>
-<thead>
-<tr>
-<th>静态代码块</th>
-<th>非静态代码块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>随着类的加载而加载，仅执行一次</td>
-<td>每次创建对象都执行一次，先于构造器执行</td>
-</tr>
-<tr>
-<td>静态代码块先于非静态代码块执行</td>
-<td></td>
-</tr>
-<tr>
-<td>静态代码块间顺序执行</td>
-<td>非静态代码块间顺序执行</td>
-</tr>
-<tr>
-<td>不可以调用非静态的属性和方法。</td>
-<td>既能调用非静态成员，还能调用静态成员</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class Order&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;<span class="comment">//同级别顺序执行</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Father</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123; </span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 由父及子 静态先行</span></span><br><span class="line">        System.out.print(<span class="string">&quot;G&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Father</span>();   <span class="comment">//BC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ADG************************</span><br><span class="line">BCEF************************</span><br><span class="line">BCEF************************</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
-<h1>final</h1>
-<ol>
-<li>使用final修饰的类不能被继承</li>
-<li>使用final修饰的方法不能被重写</li>
-<li>使用final标记的变量称为常量。名称大写，且只能被赋值一次。</li>
-</ol>
-<p>final标记的成员变量必须在声明时或在每个构造器中或代码块中显式赋值，然后才能使用。</p>
-<ul>
-<li>final修饰基本数据类型的变量，值不能改变</li>
-<li>修饰引用型数据类型的变量时，地址不能改变</li>
-</ul>
-<p>final、static同时修饰的属性为：全局唯一常量</p>
-<h1>单例模式</h1>
-<p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
-<ol>
-<li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
-<li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
-<li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
-</ol>
-<h2 id="懒汉模式">懒汉模式</h2>
-<p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="饿汉模式">饿汉模式</h2>
-<p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1014,6 +1244,132 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>内部类</title>
+    <url>/post/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
+    <content><![CDATA[<p>当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。</p>
+<p>在Java中，允许一个类的定义位于另一个类的内部，该类称为内部类，被定义的类称为外部类</p>
+<p>内部类一般用在定义它的类或语句块之内，在外部引用它时必须给出完整的名称。</p>
+<p>内部类的名字不能与包含它的外部类类名相同；</p>
+<p>内部类按照声明位置又分为成员内部类和局部内部类</p>
+<h2 id="成员内部类">成员内部类</h2>
+<p>成员内部类声明在外部类的成员位置</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">B</span> <span class="keyword">extends</span> <span class="title class_">TestPojo</span> <span class="keyword">implements</span> <span class="title class_">TestInterface</span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;我正在跑！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testf</span><span class="params">()</span> &#123;<span class="comment">//重写的接口方法</span></span><br><span class="line">            System.out.println(<span class="string">&quot;实现接口！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 方法里面调用内部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>();</span><br><span class="line">        b.testf(); <span class="comment">// 掉用重写接口方法</span></span><br><span class="line">        b.run(); 　<span class="comment">// 调用自己的方法</span></span><br><span class="line">        b.testpojo(); <span class="comment">// 调用继承父类的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// main 方法测试</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>() ;</span><br><span class="line">        a.test() ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义了一个接口 ，方法为testf()</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">TestInterface</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testf</span><span class="params">()</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义了一个普通类 方法testpojo()</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestPojo</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testpojo</span><span class="params">()</span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">&quot;我是简单的pojo类&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实现 调用内部类里面的方法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Textone</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        A.<span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">A</span>().<span class="keyword">new</span> <span class="title class_">B</span>() ; <span class="comment">//调用类A里面的内部类B</span></span><br><span class="line">        <span class="comment">/** 等同于 下面代码</span></span><br><span class="line"><span class="comment">        * A a = new A() ;</span></span><br><span class="line"><span class="comment">        * A.B b = a.new B() ;</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        b.testf() ; <span class="comment">// 掉用重写接口方法</span></span><br><span class="line">        b.run() ; <span class="comment">// 调用自己的方法</span></span><br><span class="line">        b.testpojo() ; <span class="comment">// 调用继承父类的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="特点">特点</h3>
+<h4 id="作为类的成员">作为类的成员</h4>
+<table>
+<thead>
+<tr>
+<th>类的成员</th>
+<th>成员内部类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可被static、final修饰，abstract可修饰方法</td>
+<td>可被static、abstract、final修饰</td>
+</tr>
+<tr>
+<td>可被4种访问权限修饰符修饰</td>
+<td>可被(public default protected private) 访问权限修饰符修饰，，类一般只能被public、default修饰</td>
+</tr>
+<tr>
+<td>方法可直接访问类的其他成员(包括private成员)</td>
+<td>实例内部类可直接访问外部类的所有成员(包括private成员)；静态内部类只能访问外部类的静态成员(类似静态方法只能访问静态成员)</td>
+</tr>
+<tr>
+<td>存在同名成员则编译报错</td>
+<td>实例内部类和外部类有同名成员，可使用<code>外部类名.this.成员名</code> 访问外部类成员；静态内部类和外部静态成员同名，使用<code>类名.静态成员名</code>访问</td>
+</tr>
+</tbody>
+</table>
+<h4 id="作为类">作为类</h4>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>成员内部类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类的成员</td>
+<td>可定义类的所有成员（属性、方法、构造器、代码块、内部类）</td>
+</tr>
+<tr>
+<td>创建实例对象</td>
+<td>构建内部类对象（静态内部类、实例内部类构建方式不同）</td>
+</tr>
+<tr>
+<td>编译生成字节码文件</td>
+<td>编译后生成独立字节码文件(<code>外部类名$内部类名.class</code>)（也适用于局部内部类）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="静态内部类和实例内部类">静态内部类和实例内部类</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>静态内部类(有static修饰)</th>
+<th>实例内部类(没有static修饰)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>构建内部类对象</td>
+<td><code>new 外部类名.内部类名()</code></td>
+<td><code>new 外部类名().new 内部类名()) </code></td>
+</tr>
+<tr>
+<td>外部类访问内部类成员</td>
+<td>静态成员:<code>静态内部类完整类名.静态成员</code>实例成员：先创建静态内部类对象<code>静态内部类对象.实例成员</code></td>
+<td>先创建实例内部类对象<code>实例内部类对象.成员</code></td>
+</tr>
+<tr>
+<td>内部类访问外部来成员</td>
+<td>只能访问外部类的静态成员(类似静态方法只能访问静态成员)</td>
+<td>可直接访问外部类的所有成员(包括private成员)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>实例内部类中不能声明静态成员，只有在外部类或静态内部类中 才可声明static成员</td>
+</tr>
+</tbody>
+</table>
+<h4 id="为什么实例内部类不能声明静态成员？">为什么实例内部类不能声明静态成员？</h4>
+<p>在类加载的时候，static变量就会被初始化，内部类对象在没有外部类这个对象时便生成了，这样这个成员内部类就脱离了外部类的掌控，不需要外部类的对象就可以生成内部类的对象，这与成员内部类的定义就相驳了，因为我们知道成员内部类的对象必须是现有外部类的对象才能创建</p>
+<h2 id="局部内部类">局部内部类</h2>
+<p>局部内部类声明在外部类的方法内，类似于局部变量，有效范围在方法内</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PerTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123; <span class="comment">// 定义一个方法</span></span><br><span class="line">        <span class="keyword">class</span> <span class="title class_">Ne</span>&#123; <span class="comment">// 定义一个方法内部类</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fle</span><span class="params">()</span>&#123; <span class="comment">// 定义方法内部类的方法</span></span><br><span class="line">            	System.out.println(<span class="string">&quot;我正在飞翔！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">     	&#125; ;</span><br><span class="line">     	<span class="keyword">new</span> <span class="title class_">Ne</span>().fle() ; <span class="comment">//调用内部类的方法</span></span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">PerTest</span>().test() ; <span class="comment">//测试</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>权限修饰符修饰：不能使用static abstract</p>
+</li>
+<li>
+<p>字节码名称:外部类名$标号内部类名.class</p>
+</li>
+<li>
+<p>局部内部类使用的外部局部变量会自动将该变量识别为final的</p>
+</li>
+</ul>
+<ol>
+<li>方法内部类只能在定义该内部类的方法内实例化，不可以在此方法外对其实例化</li>
+</ol>
+<h4 id="方法内部类对象不能使用该内部类所在方法的非final局部变量。">方法内部类对象不能使用该内部类所在方法的非final局部变量。</h4>
+<p>因为方法的局部变量位于栈上，只存在于该方法的生命期内。当一个方法结束，其栈结构被删除，局部变量成为历史。但是该方法结束之后，在方法内创建的内部类对象可能仍然存在于堆中！例如，如果对它的引用被传递到其他某些代码，并存储在一个成员变量内。正因为不能保证局部变量的存活期和方法内部类对象的一样长，所以内部类对象不能使用它们。</p>
+<h3 id="匿名内部类-匿名抽象类-匿名实现类">匿名内部类(匿名抽象类 匿名实现类)</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>)、抽象匿名内部类</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AbstractClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123; <span class="comment">//方法为test</span></span><br><span class="line">        <span class="type">TestA</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestA</span>()&#123; <span class="comment">//实现抽象类</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123; <span class="comment">//实现抽象类的方法</span></span><br><span class="line">                System.out.println(<span class="string">&quot;我正在使用抽象匿名内部类&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; ;</span><br><span class="line">        a.run() ; <span class="comment">//调用内部类的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">AbstractClass</span>().test() ; <span class="comment">//测试</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个抽象类 TestA 抽象方法为run()</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">TestA</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2</span>)、接口匿名内部类</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestAnonymous</span> &#123;</span><br><span class="line">    <span class="type">MyInterface</span> <span class="variable">m</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyInterface</span>()&#123; <span class="comment">//实现接口</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123; <span class="comment">//重写MyInterface 接口方法</span></span><br><span class="line">            System.out.println(<span class="string">&quot;我正在吃饭！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">  	&#125; ;</span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">ss</span><span class="params">()</span>&#123; <span class="comment">//方法ss</span></span><br><span class="line">        m.eat() ; <span class="comment">//调用重写的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    	<span class="keyword">new</span> <span class="title class_">TestAnonymous</span>().ss() ; <span class="comment">//测试</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个接口 方法为 eat</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">MyInterface</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：匿名内部类可以定义在方法内也可以定义在类的成员中，不管是那种匿名内部类都不能被外部类直接调用</p>
+<h3 id="内部类的作用">内部类的作用</h3>
+<p>每个内部类都能独立地继承自一个(接口的)实现，所以无论外围类是否已经继承了某个(接口的)实现，对于内部类都没有影响。如果没有内部类提供的可以继承多个具体的或抽象的类的能力，一些设计与编程问题就很难解决。从这个角度看，内部类使得多重继承的解决方案变得完整。接口解决了部分问题，而内部类有效地实现了“多重继承”。</p>
+<h4 id="内部类如何实现多继承">内部类如何实现多继承</h4>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>变量</title>
     <url>/post/%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h1>引言</h1>
@@ -1128,87 +1484,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <p>x所属的类与A类对象没有继承关系，则编译错误。</p>
 <h2 id="验证：多态是运行时行为">验证：多态是运行时行为</h2>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">switch</span> (r) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Cat</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Dog</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    animal.eat();<span class="comment">//运行时才能确定animal引用类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; animal eat food&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; cat eat fish&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Dog eat bone &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常用文本编辑快捷键</title>
-    <url>/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h1>引言</h1>
-<p>掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：</p>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">快捷键</th>
-<th style="text-align:center">使用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ctrl+c</td>
-<td style="text-align:center">复制</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+v</td>
-<td style="text-align:center">粘贴</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+x</td>
-<td style="text-align:center">剪切</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+s</td>
-<td style="text-align:center">保存</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+z</td>
-<td style="text-align:center">撤销</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+y</td>
-<td style="text-align:center">重做</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl+a</td>
-<td style="text-align:center">全选</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl + f</td>
-<td style="text-align:center">查找</td>
-</tr>
-<tr>
-<td style="text-align:center">home 键</td>
-<td style="text-align:center">光标回到行首</td>
-</tr>
-<tr>
-<td style="text-align:center">end 键</td>
-<td style="text-align:center">光标回到行尾</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl + home 键</td>
-<td style="text-align:center">光标回到文章开始</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl + end 键</td>
-<td style="text-align:center">光标回到文章末尾</td>
-</tr>
-<tr>
-<td style="text-align:center">shift + home 或 end 键</td>
-<td style="text-align:center">选中一行</td>
-</tr>
-<tr>
-<td style="text-align:center">ctrl + shift +右箭头或左箭头</td>
-<td style="text-align:center">选中一个单词</td>
-</tr>
-<tr>
-<td style="text-align:center">鼠标双击</td>
-<td style="text-align:center">选中一个单词</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1347,6 +1622,87 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <h2 id="匿名实现类对象">匿名实现类对象</h2>
 <p>如果接口没有实现类，仍要得到接口的实现时</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用文本编辑快捷键</title>
+    <url>/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h1>引言</h1>
+<p>掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：</p>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">快捷键</th>
+<th style="text-align:center">使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ctrl+c</td>
+<td style="text-align:center">复制</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+v</td>
+<td style="text-align:center">粘贴</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+x</td>
+<td style="text-align:center">剪切</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+s</td>
+<td style="text-align:center">保存</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+z</td>
+<td style="text-align:center">撤销</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+y</td>
+<td style="text-align:center">重做</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl+a</td>
+<td style="text-align:center">全选</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + f</td>
+<td style="text-align:center">查找</td>
+</tr>
+<tr>
+<td style="text-align:center">home 键</td>
+<td style="text-align:center">光标回到行首</td>
+</tr>
+<tr>
+<td style="text-align:center">end 键</td>
+<td style="text-align:center">光标回到行尾</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + home 键</td>
+<td style="text-align:center">光标回到文章开始</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + end 键</td>
+<td style="text-align:center">光标回到文章末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">shift + home 或 end 键</td>
+<td style="text-align:center">选中一行</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + shift +右箭头或左箭头</td>
+<td style="text-align:center">选中一个单词</td>
+</tr>
+<tr>
+<td style="text-align:center">鼠标双击</td>
+<td style="text-align:center">选中一个单词</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1622,6 +1978,110 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>类加载的初始化顺序</title>
+    <url>/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="静态代码块">静态代码块</h2>
+<ul>
+<li>
+<p>随着类的加载而运行，只执行一次</p>
+</li>
+<li>
+<p>当出现多个静态代码块(包括静态属性赋值）时，按顺序执行</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    i = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="built_in">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(Order.i);		<span class="comment">//1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="构造代码块">构造代码块</h2>
+<ul>
+<li>随着对象的创建而运行，且先于构造函数的执行</li>
+<li>有多个构造代码块时，也按顺序执行</li>
+</ul>
+<h2 id="构造器">构造器</h2>
+<ul>
+<li>与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器</li>
+<li>当未定义任何构造器时，编译器会默认提供一个无参的构造器</li>
+</ul>
+<h2 id="执行顺序">执行顺序</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Order</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Order</span>()</span>&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> Order();</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;===============&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> Order();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------------------------------------</span><br><span class="line">静态代码块</span><br><span class="line">构造代码块</span><br><span class="line">构造器</span><br><span class="line">===============</span><br><span class="line">构造代码块</span><br><span class="line">构造器</span><br></pre></td></tr></table></figure>
+<p>可以看出</p>
+<ol>
+<li>静态代码块&gt;&gt;构造代码块&gt;&gt;构造器</li>
+<li>不管new几次对象，静态代码块都只执行一次，而构造代码块和构造器每次创建对象时都会执行</li>
+</ol>
+<h2 id="继承的情况">继承的情况</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Inheritance</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> GrandChild();</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;===============&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> GrandChild();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Parent</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;父类的静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;父类的构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Parent()&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;父类的构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Child</span> <span class="title">extends</span> <span class="title">Parent</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;子类的静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;子类的构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Child()&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;子类的构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">GrandChild</span> <span class="title">extends</span> <span class="title">Child</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;孙子类的静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;孙子类的构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    GrandChild()&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;孙子类的构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">--------------------------------------------</span><br><span class="line">父类的静态代码块</span><br><span class="line">子类的静态代码块</span><br><span class="line">孙子类的静态代码块</span><br><span class="line">父类的构造代码块</span><br><span class="line">父类的构造器</span><br><span class="line">子类的构造代码块</span><br><span class="line">子类的构造器</span><br><span class="line">孙子类的构造代码块</span><br><span class="line">孙子类的构造器</span><br><span class="line">===============</span><br><span class="line">父类的构造代码块</span><br><span class="line">父类的构造器</span><br><span class="line">子类的构造代码块</span><br><span class="line">子类的构造器</span><br><span class="line">孙子类的构造代码块</span><br><span class="line">孙子类的构造器</span><br></pre></td></tr></table></figure>
+<h3 id="子类对象实例化过程">子类对象实例化过程</h3>
+<ol>
+<li>
+<p>首先不断向上查找直至到达顶层父类Object，然后不断向下依次调用父类的构造器进行父特征的初始化</p>
+</li>
+<li>
+<p>然后向下依次执行静态代码块（静态代码块随着类的加载执行且执行一次，再次创建对象无需加载类）</p>
+</li>
+<li>
+<p>接着依次创建对象，依次执行构造代码块、构造器</p>
+</li>
+<li>
+<p>直到创建完所有子类对象</p>
+<p><a href="../super/#%E8%B0%83%E7%94%A8%E7%88%B6%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8">若父类定义了有参构造器而没定义无参构造器，此时子类的构造器会报错</a></p>
+</li>
+</ol>
+<h2 id="静态内部类">静态内部类</h2>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">OuterClass</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">OuterClass</span>()</span>&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;外部类构造器&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testMethod</span>()</span>&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;外部类静态方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;外部类静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">&quot;外部类构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">StaticInnerClass</span>&#123;</span><br><span class="line">        StaticInnerClass()&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;静态内部类的构造器&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">static</span> &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;静态内部类的静态代码块&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;静态内部类的构造代码块&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testMethod</span>()</span>&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;静态内部类的静态方法&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">class</span> <span class="title">InnerClass</span>&#123;</span><br><span class="line">        InnerClass()&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;实例内部类的构造器&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*static void testMethod()&#123;					//编译报错</span></span><br><span class="line"><span class="comment">            System.out.println(&quot;实例内部类静态方法&quot;);</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        static&#123;									   //编译报错</span></span><br><span class="line"><span class="comment">            System.out.println(&quot;实例内部类静态代码块&quot;);</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">        &#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">&quot;实例内部类的构造代码块&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="外部类执行顺序">外部类执行顺序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">OuterClass</span>();</span><br><span class="line">--------------------------------------------</span><br><span class="line">外部类静态代码块</span><br><span class="line">外部类构造代码块</span><br><span class="line">外部类构造器</span><br></pre></td></tr></table></figure>
+<h3 id="外部类静态方法执行顺序">外部类静态方法执行顺序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OuterClass.testMethod();</span><br><span class="line">--------------------------------------------</span><br><span class="line">外部类静态代码块</span><br><span class="line">外部类静态方法</span><br></pre></td></tr></table></figure>
+<ul>
+<li>执行静态方法时，先加载类和静态代码块</li>
+<li>不创建类实例对象，直接访问静态方法</li>
+</ul>
+<h3 id="静态内部类执行顺序">静态内部类执行顺序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">OuterClass</span>.StaticInnerClass();</span><br><span class="line">--------------------------------------------</span><br><span class="line">外部类静态代码块</span><br><span class="line">静态内部类的静态代码块</span><br><span class="line">静态内部类的构造代码块</span><br><span class="line">静态内部类的构造器</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先加载外部类以及外部类静态代码块，但没有创建外部类实例对象</li>
+<li>接着顺序执行构造静态内部类实例对象</li>
+</ul>
+<h3 id="静态内部类静态方法执行顺序">静态内部类静态方法执行顺序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">OuterClass.StaticInnerClass.testMethod();</span><br><span class="line">--------------------------------------------</span><br><span class="line">外部类静态代码块</span><br><span class="line">静态内部类的静态代码块</span><br><span class="line">静态内部类的静态方法</span><br></pre></td></tr></table></figure>
+<ul>
+<li>同样加载了外部类及外部类静态代码块，但没有创建外部类实例对象</li>
+<li>加载了当前内部类及静态代码块，但没有创建内部类实例对象</li>
+</ul>
+<h3 id="实例内部类执行顺序">实例内部类执行顺序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">OuterClass</span>().<span class="keyword">new</span> <span class="title class_">InnerClass</span>();</span><br><span class="line">--------------------------------------------</span><br><span class="line">外部类静态代码块</span><br><span class="line">外部类构造代码块</span><br><span class="line">外部类构造器</span><br><span class="line">实例内部类的构造代码块</span><br><span class="line">实例内部类的构造器</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先后创建了外部类、内部类的实例对象</li>
+</ul>
+<p><strong>结论</strong>：<br>
+静态内部类并不会随着外部类的初始化而被初始化，而是当静态内部类的方法被调用时，静态内部类才被初始化。反之，静态内部类被调用时，仅加载了外部类及外部类静态代码块，并没有创建外部类实例对象</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类的执行顺序</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不含继承关系、不含内部类</td>
+<td>静态代码块&gt;&gt;构造代码块&gt;&gt;构造器，静态代码块随类的加载只执行一次</td>
+</tr>
+<tr>
+<td>含继承关系</td>
+<td>访问子类对象时，从上向下依次加载类和静态代码块，再依次创建对象（构造代码块&gt;&gt;构造器）</td>
+</tr>
+<tr>
+<td>含内部类</td>
+<td>访问内部类对象时，无论静态或非静态，都先加载外部类及外部类静态代码块，不创建外部实例对象，然后创建内部类对象</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>继承</title>
     <url>/post/%E7%BB%A7%E6%89%BF/</url>
     <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
@@ -1691,15 +2151,15 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 </tr>
 <tr>
 <td>同名方法的参数列表不同(参数类型，参数个数以及参数顺序)</td>
-<td>同名方法的参数列表都必须相同</td>
+<td><strong>同名方法的参数列表都必须相同</strong></td>
 </tr>
 <tr>
 <td>返回类型没有要求</td>
-<td>返回类型与父类一致或能自动转换成父类的返回类型</td>
+<td><strong>返回类型与父类一致（引用类型要能向上转型）</strong></td>
 </tr>
 <tr>
 <td>访问权限没有要求</td>
-<td>相比于重写前的方法，访问权限不能更低</td>
+<td>相比于重写前的方法，<strong>访问权限不能更低</strong></td>
 </tr>
 <tr>
 <td>异常没有要求</td>

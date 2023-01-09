@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-12-28T11:35:42.727Z</updated>
+  <updated>2023-01-02T16:20:27.858Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,92 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JVM内存结构</title>
+    <link href="http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
+    <id>http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</id>
+    <published>2022-12-30T03:27:18.355Z</published>
+    <updated>2023-01-02T16:20:27.858Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/101495810&quot;&gt;JVM内存模型（详解） - 知乎 (zhihu.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类加载的初始化顺序</title>
+    <link href="http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</id>
+    <published>2022-12-30T01:13:10.359Z</published>
+    <updated>2023-01-02T11:16:15.053Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;静态代码块&quot;&gt;静态代码块&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;随着类的加载而运行，只执行一次&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当出现多个静态代码块(包括静态属性赋值）时，按顺序执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>内部类</title>
+    <link href="http://example.com/post/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    <id>http://example.com/post/%E5%86%85%E9%83%A8%E7%B1%BB/</id>
+    <published>2022-12-29T09:27:08.981Z</published>
+    <updated>2023-01-05T02:07:03.407Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。&lt;/p&gt;
+&lt;p&gt;在Java中，允许一个类的定义位于另一个类的内部，该类称为内部类，被定义的类称为外部类&lt;/p&gt;
+&lt;p&gt;内部类一般用在定</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>继承</title>
     <link href="http://example.com/post/%E7%BB%A7%E6%89%BF/"/>
     <id>http://example.com/post/%E7%BB%A7%E6%89%BF/</id>
     <published>2022-12-28T09:20:20.160Z</published>
-    <updated>2022-12-28T11:35:42.727Z</updated>
+    <updated>2022-12-28T12:32:17.258Z</updated>
     
     
     <summary type="html">&lt;p&gt;is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。&lt;/p&gt;
@@ -119,7 +200,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <link href="http://example.com/post/Object%E7%B1%BB/"/>
     <id>http://example.com/post/Object%E7%B1%BB/</id>
     <published>2022-12-26T12:24:31.027Z</published>
-    <updated>2022-12-27T12:19:46.758Z</updated>
+    <updated>2023-01-09T06:49:25.813Z</updated>
     
     
     <summary type="html">&lt;p&gt;Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object&lt;/p&gt;
@@ -133,11 +214,11 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>static、final关键字</title>
-    <link href="http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/"/>
-    <id>http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97/</id>
+    <title>static、final关键字、代码块</title>
+    <link href="http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/"/>
+    <id>http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/</id>
     <published>2022-12-26T06:49:08.031Z</published>
-    <updated>2022-12-26T12:02:28.740Z</updated>
+    <updated>2023-01-05T02:00:37.479Z</updated>
     
     
     <summary type="html">&lt;h1&gt;static&lt;/h1&gt;
@@ -369,60 +450,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     
     <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
 &lt;p&gt;掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java加载及执行原理</title>
-    <link href="http://example.com/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/"/>
-    <id>http://example.com/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</id>
-    <published>2022-12-09T10:35:42.688Z</published>
-    <updated>2022-12-09T12:46:42.321Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;Java程序执行原理&lt;/h1&gt;
-&lt;p&gt;编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JDK的安装及环境变量的配置</title>
-    <link href="http://example.com/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</id>
-    <published>2022-12-08T12:09:05.524Z</published>
-    <updated>2022-12-14T03:18:28.120Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;JDK是Java开发的重要工具，安装JDK是学好Java的第一步&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java语言概述</title>
-    <link href="http://example.com/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"/>
-    <id>http://example.com/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</id>
-    <published>2022-12-08T11:19:36.508Z</published>
-    <updated>2022-12-08T13:13:14.645Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;介绍&lt;/h1&gt;
-&lt;p&gt;Java 是一种&lt;strong&gt;高级的、面向对象的、健壮的、多线程的、可跨平台的&lt;/strong&gt;程序设计语言&lt;/p&gt;</summary>
     
     
     
