@@ -114,7 +114,7 @@
        
   <p>super	超类的</p>
 <span id="more"></span>
-<h2 id="子类对象实例化过程">子类对象实例化过程</h2>
+<h2><span id="子类对象实例化过程">子类对象实例化过程</span></h2>
 <ul>
 <li>
 <p>不断向上查找直至到达顶层父类Object，然后不断向下依次调用父类的构造器进行父特征的初始化</p>
@@ -124,7 +124,7 @@
 </li>
 </ul>
 <p>super代表的就是父特征</p>
-<h2 id="使用">使用</h2>
+<h2><span id="使用">使用</span></h2>
 <blockquote>
 <p>super()</p>
 </blockquote>
@@ -133,18 +133,18 @@
 <p>super.成员</p>
 </blockquote>
 <p>调用<strong>父类的属性和方法</strong></p>
-<h3 id="调用父类的构造器">调用父类的构造器</h3>
+<h3><span id="调用父类的构造器">调用父类的构造器</span></h3>
 <ol>
 <li>子类中所有的构造器默认都会访问父类中无参数的构造器（默认有super()）</li>
 <li>若父类中没有无参数的构造器，子类构造器必须调用本类或者父类中相应的构造器。即通过this(参数列表)或者super(参数列表)语句，且必须放在构造器的首行</li>
 <li>若父类中没有无参数的构造器，且子类构造器中既未显式调用父类或本类的构造器，则编译出错</li>
 </ol>
-<h3 id="super（大多情况可省略）">super（大多情况可省略）</h3>
+<h3><span id="super大多情况可省略">super（大多情况可省略）</span></h3>
 <ul>
 <li>当<strong>父类和子类的属性名称相同</strong>，必须使用super.属性指定父类的属性</li>
 <li>当<strong>方法重写需要调用父类的同名属性或者方法</strong>的时候,super不能省略</li>
 </ul>
-<h3 id="this和super">this和super</h3>
+<h3><span id="this和super">this和super</span></h3>
 <table>
 <thead>
 <tr>

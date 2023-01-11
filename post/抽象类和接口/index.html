@@ -118,15 +118,15 @@
 <p>然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。</p>
 <p>接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&quot;是不是&quot;的关系，而接口实现则是 &quot;能不能&quot;的关系。</p>
 <span id="more"></span>
-<h1>abstract</h1>
-<h2 id="抽象类">抽象类</h2>
+<h1><span id="abstract">abstract</span></h1>
+<h2><span id="抽象类">抽象类</span></h2>
 <p>abstract修饰的类称为抽象类，命名规范:xxxxAbstract  Abstractxxxx  xxxxBase</p>
 <ul>
 <li>抽象类不能被实例化，抽象类就是用来继承并实现的，但是有构造器</li>
 <li>抽象类中可以有抽象方法，供继承类重写，若继承类还是抽象类，可以不重写抽象方法</li>
 <li>最多只能继承一个抽象类（单继承）</li>
 </ul>
-<h2 id="抽象方法">抽象方法</h2>
+<h2><span id="抽象方法">抽象方法</span></h2>
 <p>abstract修饰的方法称为抽象方法</p>
 <ul>
 <li>抽象方法没有方法体，抽象方法就是供子类重写的（抽象子类不需要重写）</li>
@@ -165,26 +165,26 @@
 </table>
 <p>因此，final不能修饰抽象类和抽象方法</p>
 <p>static、private不能修饰抽象方法</p>
-<h2 id="匿名抽象类">匿名抽象类</h2>
+<h2><span id="匿名抽象类">匿名抽象类</span></h2>
 <p>如果抽象类没有实现类，仍然要获取抽象类的实例对象时</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    abstrect <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>直接构造抽象类对象，需要在<strong>构造函数后面的花括号实现抽象方法</strong>。</p>
-<h2 id="模板方法设计模式-TemplateMethod">模板方法设计模式(TemplateMethod)</h2>
+<h2><span id="模板方法设计模式templatemethod">模板方法设计模式(TemplateMethod)</span></h2>
 <p>当功能内部一部分实现步骤是固定、通用的，一部分实现是不确定的。这时可以把不确定的、易变部分暴露出去， 让子类去实现。 由此定义出功能算法的骨架，子类不改变算法的结构，且无需重复固定的代码，只需要重定义算法的某些特定步骤。</p>
 <p>银行的营业厅办理业务需要 以下步骤：</p>
 <ol>
 <li>取号 2.办业务 3.评价。</li>
 </ol>
 <p>三个步骤中取号和评价都是 <strong>固定的流程</strong>，每个人要做的 事儿都是一样的。但是办业 务这个步骤根据每个人要办 的事情不同所以需要有<strong>不同的实现</strong>。我们可以将整个办业务这件事儿封装成一个抽象类：取号和评价为模板方法，而办业务为供子类重写的抽象方法。</p>
-<h1>接口</h1>
+<h1><span id="接口">接口</span></h1>
 <p>interface，特殊的、轻量级的抽象类，接口名称和类名一样 符合标识符的规则和规范(首字母大写)</p>
-<h2 id="接口实现">接口实现</h2>
+<h2><span id="接口实现">接口实现</span></h2>
 <p>接口不能被实例化，供实现类使用，没有构造器</p>
 <p>如果一个类实现了接口，则需要实现接口中所有方法，抽象类则不用</p>
-<h3 id="JDK8前">JDK8前</h3>
+<h3><span id="jdk8前">JDK8前</span></h3>
 <p>接口中包含	公共的静态常量、公共的抽象方法</p>
-<h3 id="JDK8后">JDK8后</h3>
-<h2 id="接口和类">接口和类</h2>
+<h3><span id="jdk8后">JDK8后</span></h3>
+<h2><span id="接口和类">接口和类</span></h2>
 <p>一个类可以实现多个接口</p>
 <p>一个接口可以继承多个接口</p>
 <table>
@@ -239,7 +239,7 @@
 </tbody>
 </table>
 <p>抽象类、接口都通过对象的多态性产生实例化对象，但由于抽象类单继承的局限，接口使用更为广泛</p>
-<h2 id="匿名实现类对象">匿名实现类对象</h2>
+<h2><span id="匿名实现类对象">匿名实现类对象</span></h2>
 <p>如果接口没有实现类，仍要得到接口的实现时</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
  

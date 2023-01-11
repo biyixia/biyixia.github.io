@@ -121,9 +121,9 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <span id="more"></span>
 <p>如果多个类有着共同的属性,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,</p>
 <p>别的类通过使用extends继承它,进而获取它的所有的成员(处理构造器)</p>
-<h2 id="意义">意义</h2>
+<h2><span id="意义">意义</span></h2>
 <p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个 类无需再定义这些属性和行为，只要继承那个类即可。</p>
-<h2 id="使用">使用</h2>
+<h2><span id="使用">使用</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>子类:继承其他类的类,又叫派生类</li>
@@ -135,7 +135,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <li>私有成员(private)不能被继承的,引用了私有成员的方法可以被子类继承的</li>
 </ol>
 <p>静态成员也是被继承的(没有意义)</p>
-<h2 id="方法的重写">方法的重写</h2>
+<h2><span id="方法的重写">方法的重写</span></h2>
 <p>当子类从父类中继承过来的方法不满足自身的要求的时，在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将代替父类的方法执行。</p>
 <table>
 <thead>
@@ -164,7 +164,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
 <li>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)， 或者同时声明为static的（不是重写）。因为static方法是属于类的，子类无法重写属于父类的方法。</li>
 </ul>
-<h3 id="重载-Overload-和重写-Override">重载(Overload)和重写(Override)</h3>
+<h3><span id="重载overload和重写override">重载(Overload)和重写(Override)</span></h3>
 <table>
 <thead>
 <tr>
@@ -199,7 +199,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 </tr>
 </tbody>
 </table>
-<h2 id="访问权限修饰符">访问权限修饰符</h2>
+<h2><span id="访问权限修饰符">访问权限修饰符</span></h2>
 <p>在类的成员定义前，用来限定对象对该类成员的访问权限。</p>
 <p>（public&gt;protected&gt;default&gt;private)</p>
 <table>

@@ -114,20 +114,20 @@
        
   <p>当我们使用代码描述主人喂养宠物的场景，首先在这个场景当中应该有“宠物对象” ，宠物对象应该有吃的行为，另外还需要一个“主人对象” ，主人对象应该有一个喂的行为。然而对于不同的宠物，吃的行为也不相同，或许是吃的东西不同，也或许是吃的方式不同，此时每当出现新的宠物时，我们就需要修改对于宠物吃行为的描述，这不符合OCP原则。对于需要更改的“宠物对象”，应当将其“封装”起来，在新的模块中对宠物不同的吃行为进行描述，而无需修改原本“宠物对象”的描述。</p>
 <span id="more"></span>
-<h1>多态(polymorphism)</h1>
+<h1><span id="多态polymorphism">多态(polymorphism)</span></h1>
 <p>编译时类型和运行时类型不一致，就出现了对象的多态性(Polymorphism)多态情况</p>
-<h2 id="前提">前提</h2>
+<h2><span id="前提">前提</span></h2>
 <p>继承或实现</p>
 <p>重写</p>
-<h2 id="现象">现象</h2>
+<h2><span id="现象">现象</span></h2>
 <ol>
 <li>父类引用类型变量指向多种子类对象(父父new子)</li>
 <li>该变量不能再访问子类中新添加的属性和方法（局限）</li>
 <li>属性没有多态，即使子类有同名属性，编译期和运行期也访问的是父类的属性，但可以通过子类重写的方法调用子类的属性</li>
 <li>子类重写父类的方法，编译期看到的是父类中的方法,运行期执行的是子类重写后的方法(编译期看左边 运行期看右边)</li>
 </ol>
-<h2 id="原理">原理</h2>
-<h3 id="虚拟方法调用-多态情况下">虚拟方法调用(多态情况下)</h3>
+<h2><span id="原理">原理</span></h2>
+<h3><span id="虚拟方法调用多态情况下">虚拟方法调用(多态情况下)</span></h3>
 <p>子类中定义了与父类同名同参数的方法,此时父类的方法称为<strong>虚拟方法</strong>(Virtual Method Invocation)</p>
 <ul>
 <li>
@@ -137,15 +137,15 @@
 <p>直到运行期,真正的子类对象被创建出来,父类引用变量得到具体的子类对象地址，并动态调用子类重写的该方法。（动态绑定）</p>
 </li>
 </ul>
-<h3 id="静态绑定与动态绑定">静态绑定与动态绑定</h3>
+<h3><span id="静态绑定与动态绑定">静态绑定与动态绑定</span></h3>
 <p>重载，允许存在多个同名不同参数方法。编译器根据方法不同的参数列表，对同名方法的名称做修饰。同名方法就成了不同的方法。 它们的调用地址在编译期就绑定了。因此，在方法调用之前，编译器就已经确定了所要调用的方法，这称为“早绑定”或“静态绑定” ；</p>
 <p>而对于多态，只有等到方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定”或 “动态绑定 ” 。</p>
-<h2 id="作用">作用</h2>
+<h2><span id="作用">作用</span></h2>
 <p>提高了代码的通用性、提高软件的扩展性、实现软件设计的解耦</p>
-<h2 id="应用">应用</h2>
+<h2><span id="应用">应用</span></h2>
 <p>当方法声明的形参类型为父类类型，可以使用子类的对象作为实参调用该方法</p>
-<h2 id="类型转换-Casting">类型转换(Casting)</h2>
-<h3 id="基本数据类型">基本数据类型</h3>
+<h2><span id="类型转换casting">类型转换(Casting)</span></h2>
+<h3><span id="基本数据类型">基本数据类型</span></h3>
 <ul>
 <li>
 <p>自动类型转换：小的数据类型可以自动转换成大的数据类型</p>
@@ -154,7 +154,7 @@
 <p>强制类型转换：可以把大的数据类型强制转换成小的数据类型</p>
 </li>
 </ul>
-<h3 id="引用数据类型">引用数据类型</h3>
+<h3><span id="引用数据类型">引用数据类型</span></h3>
 <p>对Java对象的强制类型转换称为<strong>造型</strong></p>
 <ul>
 <li>
@@ -169,7 +169,7 @@
 </ul>
 <p>多态情况下，当我们需要访问子类中新添加的属性和方法时，需要向下转型（强转）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Base</span> <span class="variable">base</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sub</span>();</span><br><span class="line">    base.add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);		<span class="comment">//调用的是子类重写父类的方法	sub_1</span></span><br><span class="line">    <span class="type">Sub</span> <span class="variable">s</span> <span class="operator">=</span> (Sub)base;		<span class="comment">//造型</span></span><br><span class="line">    s.add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);			<span class="comment">//调用的是子类独有的方法	sub_2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>... arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;base &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Sub</span> <span class="keyword">extends</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="instanceof-操作符">instanceof 操作符</h3>
+<h3><span id="instanceof-操作符">instanceof 操作符</span></h3>
 <p>在造型前可以使用instanceof操作符测试一个对象的类型</p>
 <p>x instanceof A：</p>
 <ul>
@@ -182,7 +182,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Graduate</span> <span class="keyword">extends</span> <span class="title class_">Student</span>&#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method1</span><span class="params">(Person e)</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Person) <span class="comment">// 处理Person类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Student) <span class="comment">//处理Student类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Graduate) <span class="comment">//处理Graduate类及其子类对象 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>x所属的类与A类对象没有继承关系，则编译错误。</p>
-<h2 id="验证：多态是运行时行为">验证：多态是运行时行为</h2>
+<h2><span id="验证多态是运行时行为">验证：多态是运行时行为</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">switch</span> (r) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Cat</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Dog</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    animal.eat();<span class="comment">//运行时才能确定animal引用类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; animal eat food&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; cat eat fish&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Dog eat bone &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
  
       <!-- reward -->

@@ -115,7 +115,7 @@
   <p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
 <p>Object的类型变量可以指向任意类型的子类对象</p>
 <span id="more"></span>
-<h2 id="int-hashCode">int hashCode()</h2>
+<h2><span id="int-hashcode">int hashCode()</span></h2>
 <p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
 <p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
 <ul>
@@ -124,7 +124,7 @@
 <li>值类型的数值一旦一样，则hashCode一样</li>
 <li>布尔的哈希值true=1231,false=1237</li>
 </ul>
-<h2 id="Class-getClass">Class&lt;?&gt; getClass()</h2>
+<h2><span id="classltgt-getclass">Class&lt;?&gt; getClass()</span></h2>
 <p>返回此对象的运行时类。看创建对象是哪个类</p>
 <table>
 <thead>
@@ -142,7 +142,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="String-toString">String toString()</h2>
+<h2><span id="string-tostring">String toString()</span></h2>
 <p>返回该对象的字符串表示。</p>
 <ul>
 <li>
@@ -152,14 +152,14 @@
 <p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
 </li>
 </ul>
-<h2 id="protected-void-finalize">protected void finalize()</h2>
+<h2><span id="protected-void-finalize">protected void finalize()</span></h2>
 <p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
 <p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
 <p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
 <p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
-<h2 id="boolean-equals-Object-obj">boolean equals(Object obj)</h2>
+<h2><span id="boolean-equalsobject-obj">boolean equals(Object obj)</span></h2>
 <p>指示其他某个对象是否与此对象“相等”。</p>
-<h2 id="和-equals-区别">== 和 equals 区别?</h2>
+<h2><span id="和-equals-区别">== 和 equals 区别?</span></h2>
 <table>
 <thead>
 <tr>

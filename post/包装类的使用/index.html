@@ -160,17 +160,17 @@
 </tr>
 </tbody>
 </table>
-<h2 id="装箱和拆箱">装箱和拆箱</h2>
-<h3 id="基本数据类型转换为包装类-装箱">基本数据类型转换为包装类(装箱)</h3>
+<h2><span id="装箱和拆箱">装箱和拆箱</span></h2>
+<h3><span id="基本数据类型转换为包装类装箱">基本数据类型转换为包装类(装箱)</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Byte</span>(<span class="number">123</span>); 	<span class="comment">//通过构造器 </span></span><br><span class="line"><span class="type">Short</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Short</span>(<span class="string">&quot;123&quot;</span>);<span class="comment">//NumberFormatException </span></span><br><span class="line"></span><br><span class="line"><span class="type">Interger</span> <span class="variable">t</span> <span class="operator">=</span> Integer.valueOf(<span class="number">123</span>); <span class="comment">//通过包装类的valueOf()方法 </span></span><br><span class="line"><span class="type">Long</span> <span class="variable">l</span> <span class="operator">=</span> Long.valueOf(<span class="string">&quot;123&quot;</span>) <span class="comment">//NumberFormatException </span></span><br></pre></td></tr></table></figure>
-<h3 id="包装类转换为基本数据类型-拆箱">包装类转换为基本数据类型(拆箱)</h3>
+<h3><span id="包装类转换为基本数据类型拆箱">包装类转换为基本数据类型(拆箱)</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> obj.booleanValue(); <span class="comment">//调用包装类的.xxxValue()方法</span></span><br></pre></td></tr></table></figure>
-<h3 id="自动拆装箱">自动拆装箱</h3>
+<h3><span id="自动拆装箱">自动拆装箱</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>; </span><br><span class="line"><span class="type">Integer</span> <span class="variable">t</span> <span class="operator">=</span> i; </span><br><span class="line"><span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> t<span class="comment">// jdk5之后出现自动拆装箱 </span></span><br></pre></td></tr></table></figure>
-<h2 id="基本类型和字符串">基本类型和字符串</h2>
-<h3 id="字符串转换成基本数据类型">字符串转换成基本数据类型</h3>
+<h2><span id="基本类型和字符串">基本类型和字符串</span></h2>
+<h3><span id="字符串转换成基本数据类型">字符串转换成基本数据类型</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="string">&quot;12&quot;</span>);<span class="comment">//通过包装类的构造器实现：</span></span><br><span class="line"></span><br><span class="line"><span class="type">long</span> <span class="variable">l</span> <span class="operator">=</span> Long.valueOf(<span class="string">&quot;123&quot;</span>);<span class="comment">//通过包装类的valueOf()实现</span></span><br><span class="line"></span><br><span class="line"><span class="type">Float</span> <span class="variable">f</span> <span class="operator">=</span> Float.parseFloat(<span class="string">&quot;12.1&quot;</span>);<span class="comment">//通过包装类的parseXxx(String s)静态方法：</span></span><br></pre></td></tr></table></figure>
-<h3 id="基本数据类型转换成字符串">基本数据类型转换成字符串</h3>
+<h3><span id="基本数据类型转换成字符串">基本数据类型转换成字符串</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str= String.valueOf(<span class="number">2.34f</span>);<span class="comment">//调用字符串重载的valueOf()方法：</span></span><br><span class="line"></span><br><span class="line">String str= <span class="number">5</span> + “”<span class="comment">//使用+做字符串连接</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -203,7 +203,7 @@
 </tbody>
 </table>
 <p><img src="https://pic.imgdb.cn/item/63aaec6708b6830163fb2d26.png" alt></p>
-<h2 id="包装类中的缓存机制">包装类中的缓存机制</h2>
+<h2><span id="包装类中的缓存机制">包装类中的缓存机制</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">num1</span> <span class="operator">=</span> Integer.valueOf(<span class="number">10</span>);</span><br><span class="line"><span class="comment">//Integer num1 = 10;</span></span><br><span class="line"><span class="type">Integer</span> <span class="variable">num2</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">System.out.println((num1 == num2) +<span class="string">&quot;\t&quot;</span>+ num1.equals(num2));<span class="comment">//true	true</span></span><br><span class="line">System.out.println(<span class="string">&quot;-----------------------------------------&quot;</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">20</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">20</span>);</span><br><span class="line">System.out.println((num3 == num4) +<span class="string">&quot;\t&quot;</span>+ num3.equals(num4));<span class="comment">//false	true</span></span><br><span class="line">System.out.println(<span class="string">&quot;-------------------------------------------&quot;</span>);</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num5</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">num6</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">System.out.println((num5 == num6) +<span class="string">&quot;\t&quot;</span>+ num5.equals(num6));<span class="comment">//false	true</span></span><br></pre></td></tr></table></figure>
 <p>Integer类第一次被使用时，Integer的静态内部类就被加载，加载的时候会创建-128到127的 Integer对象，同时创建一个数组cache来缓存这些对象。</p>
 <ul>
@@ -227,7 +227,7 @@
 </tbody>
 </table>
 <p>缓存区的存在使得常用的包装类对象可以得到复用，这有利于提升性能。当我们需要创建新对象的时候再new一个，增加了灵活性。</p>
-<h2 id="基本数据类型与包装类区别">基本数据类型与包装类区别</h2>
+<h2><span id="基本数据类型与包装类区别">基本数据类型与包装类区别</span></h2>
 <table>
 <thead>
 <tr>

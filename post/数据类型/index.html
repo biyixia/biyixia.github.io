@@ -112,10 +112,10 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1>引言</h1>
+  <h1><span id="引言">引言</span></h1>
 <p>赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。</p>
 <span id="more"></span>
-<h1>基本数据类型</h1>
+<h1><span id="基本数据类型">基本数据类型</span></h1>
 <table>
 <thead>
 <tr>
@@ -174,7 +174,7 @@
 <li>浮点类型表数范围大于long类型，3.404*10<sup>38</sup>&gt;8<sup>38</sup>&gt;2<sup>114</sup>&gt;2<sup>63</sup>-1</li>
 <li>boolean类型数据不能参与运算，不过Java虚拟机中没有任何供boolean值专用的字节码指令，Java语言表达所操作的boolean值，在编译之后都 使用java虚拟机中的int数据类型来代替：true用1表示，false用0表示。</li>
 </ul>
-<h1>字符型</h1>
+<h1><span id="字符型">字符型</span></h1>
 <p>字符型数据通常有三种表示：</p>
 <ul>
 <li>单引号括起的单个字符 ‘a’</li>
@@ -185,12 +185,12 @@
 <p>使用转义字符来表示这些特殊的字符,那么如何输出“\”本身呢？</p>
 <p>“\”本身由“\\”表示,同理“\\”由“\\\\”表示，“\u”由“\\u”表示，将“\\”看作一个整体</p>
 <p>如果出现“\\\”多出一个转义字符无法形成新的整体，则会报错</p>
-<h1>数据类型的转换</h1>
+<h1><span id="数据类型的转换">数据类型的转换</span></h1>
 <ul>
 <li>自动转换：表数范围小的数据类型变量转换成表述范围大的数据类型变量（小水杯的水倒入大水桶，水不会溢出）</li>
 <li>强制转换：表数范围大的数据类型变量转换成表述范围小的数据类型变量（小水杯中的水可能无法装下大水桶中的水，即发生数据溢出）</li>
 </ul>
-<h2 id="字面量的类型">字面量的类型</h2>
+<h2><span id="字面量的类型">字面量的类型</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000</span>; <span class="comment">//int类型</span></span><br><span class="line"><span class="number">3300L</span>; <span class="comment">//long类型</span></span><br><span class="line"><span class="number">123.56f</span>;<span class="comment">//float类型</span></span><br><span class="line"><span class="number">3.14</span>;<span class="comment">//double类型</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>整数
@@ -206,7 +206,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="常数赋值">常数赋值</h2>
+<h2><span id="常数赋值">常数赋值</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">long</span> <span class="variable">l1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i1</span> <span class="operator">=</span> <span class="number">1.0</span>;	<span class="comment">//报错</span></span><br><span class="line"><span class="type">int</span> <span class="variable">i2</span> <span class="operator">=</span> <span class="number">1L</span>;	<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>不难看出，当表数范围大的类型赋值给表数范围小的类型，将会产生错误</li>
@@ -223,7 +223,7 @@
 <p>换种方式，将整数类型的变量赋值给byte、short、char，即使在它们的表数范围内，也会报错</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> i;   <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <p>这是因为在编译过程中，如果赋值的是常数，系统能直接判断是否在表数范围内，而变量在程序执行过程中可能发生变化，无法直接判断变量中的值是否在表数范围内，从而报错</p>
-<h2 id="多种类型变量混合运算">多种类型变量混合运算</h2>
+<h2><span id="多种类型变量混合运算">多种类型变量混合运算</span></h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">x1</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">short</span> <span class="variable">x2</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">x3</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">long</span> <span class="variable">x4</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line"><span class="type">float</span> <span class="variable">x5</span> <span class="operator">=</span> <span class="number">1.0f</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">x6</span> <span class="operator">=</span> <span class="number">1.0</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + x3 + x4 + x5 + x6;</span><br></pre></td></tr></table></figure>
 <p>将x1、x2、x3、x4、x5、x6相加，系统会将所有数据类型转换成表数范围最大的类型，因此需要用double类型的sum接收</p>
@@ -233,7 +233,7 @@
 <p>byte、short、charr之间不会相互转换，他们三者在计算时首先转换为int类型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">1.0</span>*x3;</span><br></pre></td></tr></table></figure>
 <p>乘除法同样符合</p>
-<h3 id="难点">难点</h3>
+<h3><span id="难点">难点</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    <span class="type">short</span> <span class="variable">s</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">    s = s + <span class="number">1</span>;			<span class="comment">//报错</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    byte b = 3;</span></span><br><span class="line"><span class="comment">    b = b + 1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    short s = 3;</span></span><br><span class="line"><span class="comment">    s = s + 1;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    char c = 3;</span></span><br><span class="line"><span class="comment">    c = c + 1;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <p>s = s + 1 ，不能将右侧的s直接代换成1，因为变量s可能在程序执行过程中发生变化，可以拆解成两步：</p>
 <ol>
@@ -241,14 +241,14 @@
 <li><code>short s = result;</code></li>
 </ol>
 <p>第一步中，系统会将所有数据类型转换成表数范围最大的类型即int，int型变量无法直接赋值给short类型，因此报错</p>
-<h1>总结</h1>
-<h2 id="常数赋值（等号右边没有变量）">常数赋值（等号右边没有变量）</h2>
+<h1><span id="总结">总结</span></h1>
+<h2><span id="常数赋值等号右边没有变量">常数赋值（等号右边没有变量）</span></h2>
 <ol>
 <li>先观察字面量类型，观察是否超过字面量类型表数范围</li>
 <li>字面量为常数且int类型时，被赋值变量类型为byte、short、char，字面量大小在byte、short、char的表数范围内，则可以直接赋值</li>
 <li>表数范围小的类型可以赋值给表数范围大的类型，反之报错</li>
 </ol>
-<h2 id="多种类型变量混合运算-2">多种类型变量混合运算</h2>
+<h2><span id="多种类型变量混合运算">多种类型变量混合运算</span></h2>
 <ol>
 <li>byte、short、char三者在计算时首先转换为int类型</li>
 <li>观察等号右边的最大表数范围的数据类型是否小于左边变量类型的表数范围</li>

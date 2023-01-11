@@ -112,8 +112,8 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1>static</h1>
-<h2 id="修饰属性">修饰属性</h2>
+  <h1><span id="static">static</span></h1>
+<h2><span id="修饰属性">修饰属性</span></h2>
 <p>static修饰的属性称为：静态变量、全局变量、静态属性、全局属性、类变量、类属性，非static修饰的属性可称为实例变量</p>
 <span id="more"></span>
 <ul>
@@ -122,7 +122,7 @@
 </ul>
 <p>静态属性常用于所有对象属性值唯一的属性，即属性值与对象无关</p>
 <p><img src="https://pic.imgdb.cn/item/63a97c1608b6830163f144a1.png" alt></p>
-<h2 id="修饰方法">修饰方法</h2>
+<h2><span id="修饰方法">修饰方法</span></h2>
 <p>static修饰的方法称为：静态方法，非static修饰的方法可称为实例方法</p>
 <ul>
 <li>静态方法随着类的加载而加载，先于对象存在</li>
@@ -140,13 +140,13 @@
 <li>main()方法无需创建实例对象，使用static</li>
 <li>接收个String类型的数组参数，可通过java指令传参   <strong>java 类名  “XXX” “XXX” “XXX”</strong></li>
 </ul>
-<h2 id="修饰代码块">修饰代码块</h2>
+<h2><span id="修饰代码块">修饰代码块</span></h2>
 <p>static修饰的代码块，当类被载入时，静态代码块被执行，且只被执行一次，常用于初始化静态属性</p>
 <ul>
 <li>静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能访问</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    i = <span class="number">0</span>; <span class="comment">// 给变量复制可以正常编译通过</span></span><br><span class="line">    System.out.print(i); <span class="comment">// 这句编译器会提示“非法向前引用”</span></span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">static</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="静态代码块-静态方法区别">静态代码块 静态方法区别</h3>
+<h3><span id="静态代码块-静态方法区别">静态代码块 静态方法区别</span></h3>
 <table>
 <thead>
 <tr>
@@ -161,26 +161,26 @@
 </tr>
 </tbody>
 </table>
-<h2 id="修饰内部类">修饰内部类</h2>
-<h3 id="为什么静态方法无法直接访问非静态成员">为什么静态方法无法直接访问非静态成员</h3>
+<h2><span id="修饰内部类">修饰内部类</span></h2>
+<h3><span id="为什么静态方法无法直接访问非静态成员">为什么静态方法无法直接访问非静态成员</span></h3>
 <ol>
 <li>静态方法在类加载的解析阶段实现了符号引用转换成直接引用，在类加载后就能通过类名.方法名访问</li>
 <li>而非静态成员要等到符号引用被使用时（即类加载后的初始化阶段），才会对常量池中指向非静态成员的符号引用进行解析，因为非静态成员可能在运行期间发生改变（变量赋值、方法重写）</li>
 <li>在静态方法解析完成时，非静态成员可能仍未开始解析，因此静态方法获取不了非静态成员的直接引用，即无法访问非静态成员</li>
 <li>在静态方法中定义非静态成员所属类的实例对象，通过对象可以访问类的非静态成员</li>
 </ol>
-<h3 id="为什么非静态成员为什么无法容纳静态成员">为什么非静态成员为什么无法容纳静态成员</h3>
-<h4 id="实例方法无法定义静态属性">实例方法无法定义静态属性</h4>
+<h3><span id="为什么非静态成员为什么无法容纳静态成员">为什么非静态成员为什么无法容纳静态成员</span></h3>
+<h4><span id="实例方法无法定义静态属性">实例方法无法定义静态属性</span></h4>
 <ol>
 <li>静态属性是属于类的，在类加载阶段就加载到方法区的静态域中</li>
 <li>实例方法等到它被调用时，它的符号引用才被解析，然后被JVM压入方法调用栈</li>
 <li>如果实例方法中定义了静态属性，实例方法被调用时才被解析，无法满足其静态变量在类加载阶段就被解析；</li>
 <li>而且实例方法中的属性会随着方法压入栈中，而静态变量唯一存放在方法区的静态域中</li>
 </ol>
-<h4 id="实例内部类无法访问静态成员（属性、静态方法、静态代码块）">实例内部类无法访问静态成员（属性、静态方法、静态代码块）</h4>
+<h4><span id="实例内部类无法访问静态成员属性-静态方法-静态代码块">实例内部类无法访问静态成员（属性、静态方法、静态代码块）</span></h4>
 <p>假设实例内部类中定义了静态成员，在类加载时，静态成员就应被初始化，定义了静态成员的实例内部类作为外部类的成员之一，还需要通过外部类实例对象被调用才会被初始化，因此无法实现在类加载时实现实例内部类的静态初始化。(JDK16以后可以)</p>
 <p>但是实例内部类中可以定义static、final常量，常量在编译期就是确定的，加载常量不需要加载它所属的实例内部类</p>
-<h1>代码块</h1>
+<h1><span id="代码块">代码块</span></h1>
 <p>代码块只能有static关键字来修饰，其中static修饰的称为静态代码块，否则称为实例代码块，代码块是为了对Java类或对象进行初始化</p>
 <table>
 <thead>
@@ -211,7 +211,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Class Order&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">    	orderId = <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">orderId</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">&#125;<span class="comment">//同级别顺序执行</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Father</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123; </span><br><span class="line">        System.out.print(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;F&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 由父及子 静态先行</span></span><br><span class="line">        System.out.print(<span class="string">&quot;G&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();      <span class="comment">//BCEF</span></span><br><span class="line">        System.out.println(<span class="string">&quot;************************&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Father</span>();   <span class="comment">//BC</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ADG************************</span><br><span class="line">BCEF************************</span><br><span class="line">BCEF************************</span><br><span class="line">BC</span><br></pre></td></tr></table></figure>
-<h1>final</h1>
+<h1><span id="final">final</span></h1>
 <ol>
 <li>使用final修饰的类不能被继承</li>
 <li>使用final修饰的方法不能被重写</li>
@@ -223,17 +223,17 @@
 <li>修饰引用型数据类型的变量时，地址不能改变</li>
 </ul>
 <p>final、static同时修饰的属性为：全局唯一常量</p>
-<h1>单例模式</h1>
+<h1><span id="单例模式">单例模式</span></h1>
 <p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
 <ol>
 <li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
 <li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
 <li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
 </ol>
-<h2 id="懒汉模式">懒汉模式</h2>
+<h2><span id="懒汉模式">懒汉模式</span></h2>
 <p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="饿汉模式">饿汉模式</h2>
+<h2><span id="饿汉模式">饿汉模式</span></h2>
 <p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
  
