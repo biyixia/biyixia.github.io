@@ -203,38 +203,7 @@
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>[TOC]</p>
-<h1>java中集合和数组的区别</h1>
-<ul>
-<li>数组的长度是固定的，集合的长度无限制</li>
-<li>数组里面的每个元素都必须是相同类型，集合里面的元素可以是任意类型
-<ul>
-<li>集合里面的元素往往在很多时候是需要统一的，集合采用了泛型的方法来统一元素类型</li>
-</ul>
-</li>
-<li>数组拥有固定的算法，集合有很多种类，已经实现了各种算法</li>
-</ul>
-<h1>java中的集合和数组都是容器</h1>
-<ul>
-<li>学习集合的各种知识点
-<ul>
-<li>集合的类型</li>
-<li>集合的操作（添加、删除、修改、遍历）</li>
-<li>不同类型的集合的大致的实现原理</li>
-</ul>
-</li>
-</ul> 
-      <a class="article-more-link" href="/post/%E9%9B%86%E5%90%88/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -278,23 +247,7 @@
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101495810">JVM内存模型（详解） - 知乎 (zhihu.com)</a></p>
-<p><img src="https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png" alt="JVM内存模型"></p>
-<h3 id="程序计数器（Program-Counter-Register）">程序计数器（Program Counter Register）</h3>
-<p>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。</p>
-<h3 id="本地方法栈（-Native-Method-Stack）">本地方法栈（ Native Method Stack）</h3>
-<p>本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。</p> 
-      <a class="article-more-link" href="/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -338,37 +291,7 @@
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="静态代码块">静态代码块</h2>
-<ul>
-<li>
-<p>随着类的加载而运行，只执行一次</p>
-</li>
-<li>
-<p>当出现多个静态代码块(包括静态属性赋值）时，按顺序执行</p>
-</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    i = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="built_in">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(Order.i);		<span class="comment">//1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="构造代码块">构造代码块</h2>
-<ul>
-<li>随着对象的创建而运行，且先于构造函数的执行</li>
-<li>有多个构造代码块时，也按顺序执行</li>
-</ul>
-<h2 id="构造器">构造器</h2>
-<ul>
-<li>与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器</li>
-<li>当未定义任何构造器时，编译器会默认提供一个无参的构造器</li>
-</ul> 
-      <a class="article-more-link" href="/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -412,22 +335,7 @@
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。</p>
-<p>在Java中，允许一个类的定义位于另一个类的内部，该类称为内部类，被定义的类称为外部类</p>
-<p>内部类一般用在定义它的类或语句块之内，在外部引用它时必须给出完整的名称。</p>
-<p>内部类的名字不能与包含它的外部类类名相同；</p>
-<p>内部类按照声明位置又分为成员内部类和局部内部类</p> 
-      <a class="article-more-link" href="/post/%E5%86%85%E9%83%A8%E7%B1%BB/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -471,23 +379,7 @@
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
-<p>“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。</p>
-<p>is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。<br>
-has a 是如果A中有B，那么，B就是A的组成部分</p>
-<p>如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。<br>
-如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。</p> 
-      <a class="article-more-link" href="/post/%E7%BB%A7%E6%89%BF/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -531,18 +423,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>super	超类的</p> 
-      <a class="article-more-link" href="/post/super/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -586,18 +467,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>当我们使用代码描述主人喂养宠物的场景，首先在这个场景当中应该有“宠物对象” ，宠物对象应该有吃的行为，另外还需要一个“主人对象” ，主人对象应该有一个喂的行为。然而对于不同的宠物，吃的行为也不相同，或许是吃的东西不同，也或许是吃的方式不同，此时每当出现新的宠物时，我们就需要修改对于宠物吃行为的描述，这不符合OCP原则。对于需要更改的“宠物对象”，应当将其“封装”起来，在新的模块中对宠物不同的吃行为进行描述，而无需修改原本“宠物对象”的描述。</p> 
-      <a class="article-more-link" href="/post/%E5%A4%9A%E6%80%81/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -641,22 +511,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>针对八种基本数据类型定义相应的引用类型—包装类</p>
-<p>首先,Java语言是一个面向对象的语言,但是Java中的基本数据类型却是不面向对象的，为了实现一 切皆对象,将每个基本数据类型设计一个对应的类进行代表，这种方式增强了Java面向对象的性质。</p>
-<p>其次，如果仅仅有基本数据类型，那么在实际使用时将存在很多的不便，很多地方都需要使用对象。比如，在集合类中，我们是无法将int 、double等类型放进去的，因为集合的容器要求元素是Object类型。而包装类型的存在使得向集合中传入数值成为可能，包装类的存在弥补了基本数据类型的不足。</p>
-<p>此外，包装类还为基本类型添加了属性和方法，丰富了基本类型的操作。如当我们想知道int取值 范围的最小值，我们需要通过运算，如下面所示，但是有了包装类，我们可以直接使Integer.MAX_VALUE即可。</p>
-<p>注意:为什么要保留基本数据类型？Java种创建的对象都是存储在堆里的，使用的时候需要通过栈中的引用， 所以常用的基本数据类型，不需要使用new在堆上创建，而是直接在栈内存中存储不创建对象，就会比较高效。</p> 
-      <a class="article-more-link" href="/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -700,22 +555,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。</p>
-<p>抽象类是为了把<strong>相同的但不确定</strong>的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。</p>
-<p>当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。</p>
-<p>然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。</p>
-<p>接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&quot;是不是&quot;的关系，而接口实现则是 &quot;能不能&quot;的关系。</p> 
-      <a class="article-more-link" href="/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
@@ -759,19 +599,7 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
   </div>
    
     </div>
-      
-    <div class="article-entry" itemprop="articleBody">
        
-  <p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
-<p>Object的类型变量可以指向任意类型的子类对象</p> 
-      <a class="article-more-link" href="/post/Object%E7%B1%BB/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
 
     <!-- copyright -->
     
