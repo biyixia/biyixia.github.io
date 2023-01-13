@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">5.4k</span>
+            <span class="post-count">8.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">21 min</span>
+            <span class="post-count">32 min</span>
         </span>
     </span>
 </div>
@@ -212,6 +212,11 @@
 <li><a href="#%E6%96%B9%E6%B3%95-3">方法</a></li>
 <li><a href="#%E9%81%8D%E5%8E%86">遍历</a></li>
 <li><a href="#%E5%8E%BB%E9%87%8D">去重</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">执行原理</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%E8%BF%87%E7%A8%8B-2">添加元素过程</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -946,6 +951,131 @@
 <h2><span id="去重">去重</span></h2>
 <p>HashMap去重规则与HashSet一致</p>
 <p>唯一区别：HashMap添加重复数据将替换原有数据</p>
+<h2><span id="执行原理">执行原理</span></h2>
+<h3><span id="添加元素过程">添加元素过程</span></h3>
+<ol>
+<li>
+<p>判断若是首次插入元素，未初始化结点数组</p>
+<ol>
+<li><a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">调整数组大小</a></li>
+</ol>
+</li>
+<li>
+<p>已初始化过数组，<a href="#%E6%8F%92%E5%85%A5%E6%95%B0%E7%BB%84%E4%B8%8B%E6%A0%87">计算要插入结点数组的下标</a></p>
+<ol>
+<li>
+<p>若该位置没有元素，则直接插入</p>
+</li>
+<li>
+<p>若该位置有元素说明发生<a href="#%E5%93%88%E5%B8%8C%E7%A2%B0%E6%92%9E">哈希碰撞</a>，可能出现下面几种情况</p>
+<ol>
+<li>
+<p>两元素<a href="#%E5%88%A4%E9%87%8D">重复</a>（HashSet判重标准），<a href="#%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%84%E7%90%86">处理重复元素</a></p>
+</li>
+<li>
+<p>两元素不重复，原数组元素为树节点（已树化），直接<a href="#">插入树</a></p>
+</li>
+<li>
+<p>两元素不重复，原数组元素为普通结点，则遍历该链表</p>
+<ol>
+<li>
+<p>全链表没有重复元素，则插入该链表，若插入元素为该链表第九个，需处理链表过长（<a href="#%E6%A0%91%E5%8C%96">树化</a>或<a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">扩容</a>）</p>
+</li>
+<li>
+<p>遍历过程中发现链表有重复元素，<a href="#%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%84%E7%90%86">处理重复元素</a></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>若添加新元素后的数组总个数超过threshold，还需<a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">调整数组大小</a></p>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// 默认容量： 16</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAXIMUM_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">30</span>;		<span class="comment">//最大容量 2^30^</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>;		<span class="comment">//负载因子:数组增长率</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">TREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">8</span>;				<span class="comment">//树化链长条件</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">UNTREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">6</span>;			<span class="comment">//链化参数</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_TREEIFY_CAPACITY</span> <span class="operator">=</span> <span class="number">64</span>;			<span class="comment">//树化数组长度条件</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;						<span class="comment">//结点数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,<span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; </span><br><span class="line">    Node&lt;K,V&gt; p; </span><br><span class="line">    <span class="type">int</span> n, i;</span><br><span class="line">    <span class="comment">//当前结点数组为空，或长度为0</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)		</span><br><span class="line">        n = (tab = resize()).length;		<span class="comment">//新建长度为默认容量16结点数组，，更新threshold为负载因子乘上默认容量</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)		<span class="comment">//要插入的数组位置为空</span></span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="literal">null</span>);	<span class="comment">//插入该数组</span></span><br><span class="line">    <span class="keyword">else</span> &#123;								<span class="comment">//结点数组既不为空且插入位置发生冲突</span></span><br><span class="line">        Node&lt;K,V&gt; e; K k;</span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)		<span class="comment">//原数组元素为树节点</span></span><br><span class="line">            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">//TREEIFY_THRESHOLD=8	插入第九个树化</span></span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// key有映射</span></span><br><span class="line">            <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)	<span class="comment">//true丢弃重复元素，false替换</span></span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);			<span class="comment">// LinkedHashMap</span></span><br><span class="line">            <span class="keyword">return</span> oldValue;	<span class="comment">//返回被替换的真值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;		<span class="comment">//记录本次修改</span></span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)		<span class="comment">//threshold比较标准是总数组元素个数，不是数组长度</span></span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);	<span class="comment">// LinkedHashMap</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="调整数组大小">调整数组大小</span></h4>
+<ol>
+<li>首次添加元素，对数组初始化
+<ol>
+<li>新建结点数组，长度为默认容量16，更新threshold为负载因子乘上默认容量</li>
+</ol>
+</li>
+<li>首次添加元素，但<a href="#%E6%9E%84%E9%80%A0%E6%97%B6%E5%88%9D%E5%A7%8B%E5%8C%96threshold">构造集合时初始化了数组长度</a>
+<ol>
+<li>初始化时指定的数组长度大于等于最大数组容量，更新threshold为int最大值</li>
+<li>初始化时指定数组长度小于最大数组容量，更新threshold为指定长度乘上负载因子</li>
+</ol>
+</li>
+<li>数组总元素个数超过threshold，需要扩容（数组中挂链长度大于8但数组长度小于64，为了分解链表也会扩容，扩容至64<a href="#%E6%A0%91%E5%8C%96">树化</a>）
+<ol>
+<li>数组长度已经大于等于最大容量，更新threshold为int最大值</li>
+<li>数组已初始化（长度大于等于默认容量）且数组长度扩容两倍仍小于最大容量，则扩容为原来的两倍，threshold也扩大两倍</li>
+<li>由于数组中已有数据，扩容时还需遍历数组，将旧数组元素转移到新数组中
+<ol>
+<li>当前下标元素既没树化，也没链化，则直接运算其下标存入新数组中</li>
+<li>当前元素为树节点（已树化），则插入树中</li>
+<li>当前元素已链化，分解链表</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;	<span class="comment">//调整大小		数组初始化/数组长度插入新元素后大于threshold</span></span><br><span class="line">    Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldCap</span> <span class="operator">=</span> (oldTab == <span class="literal">null</span>) ? <span class="number">0</span> : oldTab.length;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldThr</span> <span class="operator">=</span> threshold;</span><br><span class="line">    <span class="type">int</span> newCap, newThr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;					   <span class="comment">//结点数组不为空</span></span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;	<span class="comment">//大于等于最大容量</span></span><br><span class="line">            threshold = Integer.MAX_VALUE;	<span class="comment">//threshold设为int最大值</span></span><br><span class="line">            <span class="keyword">return</span> oldTab;				   <span class="comment">//返回旧结点数组</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//新结点数组扩容后仍小于最大容量且旧结点数组长度大于等于16（意味着已经初始化）</span></span><br><span class="line">        <span class="comment">//新结点数组长度扩大两倍</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;	</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// newThr为oldThr两倍</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// 结点数组为空，但threshold已初始化，则按照以有的threshold初始化</span></span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="keyword">else</span> &#123;               <span class="comment">// 未初始化threshold和结点数组，表示使用默认值</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPACITY;		<span class="comment">//新结点数组长度置为默认容量（16）</span></span><br><span class="line">        newThr = (<span class="type">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);	<span class="comment">//newThr置为负载因子乘上默认容量</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;	<span class="comment">//按照以有的threshold初始化</span></span><br><span class="line">        <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> (<span class="type">float</span>)newCap * loadFactor;</span><br><span class="line">        <span class="comment">//初始化数组长度大于等于最大容量时，新threshold设为int最大值</span></span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY ? </span><br><span class="line">                  (<span class="type">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = newThr;	 		<span class="comment">//更新threshold</span></span><br><span class="line">    <span class="meta">@SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span></span><br><span class="line">        Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[newCap];		<span class="comment">//新建结点数组，长度为newCap</span></span><br><span class="line">    table = newTab;</span><br><span class="line">    <span class="keyword">if</span> (oldTab != <span class="literal">null</span>) &#123;			<span class="comment">//数组中尚且有元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            <span class="keyword">if</span> ((e = oldTab[j]) != <span class="literal">null</span>) &#123;	<span class="comment">//当前下标有元素时</span></span><br><span class="line">                oldTab[j] = <span class="literal">null</span>;			<span class="comment">//清除旧数组元素</span></span><br><span class="line">                <span class="keyword">if</span> (e.next == <span class="literal">null</span>)			<span class="comment">//当前元素没有挂链</span></span><br><span class="line">                    newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;		<span class="comment">//直接复制到新数组中</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)		<span class="comment">//树节点</span></span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(<span class="built_in">this</span>, newTab, j, oldCap);</span><br><span class="line">                <span class="keyword">else</span> &#123; <span class="comment">// 当前元素有挂链</span></span><br><span class="line">                    Node&lt;K,V&gt; loHead = <span class="literal">null</span>, loTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; hiHead = <span class="literal">null</span>, hiTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    <span class="comment">//1.新数组长度为旧数组两倍</span></span><br><span class="line">                    <span class="comment">//2.当前下标位置有挂链</span></span><br><span class="line">                    <span class="comment">//3.按照旧数组长度，如2^i，即看第i位是否为1，将挂链分为两条链表</span></span><br><span class="line">                    <span class="comment">//4.第i位为0的存储在原位置，为1的存储在原数组长度加上原位置的位置</span></span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        next = e.next;		<span class="comment">//next指向下个元素</span></span><br><span class="line">                        <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;	</span><br><span class="line">                            <span class="keyword">if</span> (loTail == <span class="literal">null</span>)</span><br><span class="line">                                loHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                loTail.next = e;</span><br><span class="line">                            loTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (hiTail == <span class="literal">null</span>)</span><br><span class="line">                                hiHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                hiTail.next = e;</span><br><span class="line">                            hiTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">while</span> ((e = next) != <span class="literal">null</span>);	<span class="comment">//遍历原链表结点，并赋值到新链表上</span></span><br><span class="line">                    <span class="keyword">if</span> (loTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        loTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j] = loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (hiTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        hiTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j + oldCap] = hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="构造时初始化threshold">构造时初始化threshold</span></h4>
+<p>构造HashMap或HashSet时带参将初始化threshold，参数即使大于最大容量也会自降为最大容量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity, <span class="type">float</span> loadFactor)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal initial capacity: &quot;</span> + initialCapacity);</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">    <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.isNaN(loadFactor))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal load factor: &quot;</span> + loadFactor);</span><br><span class="line">    <span class="built_in">this</span>.loadFactor = loadFactor;</span><br><span class="line">    <span class="built_in">this</span>.threshold = tableSizeFor(initialCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>参数大于1时，初始化的threshold值为大于等于参数且最接近参数的 2<sup>i</sup>数列	（i&gt;=4,i为正整数，最大为最大容量（2<sup>30</sup>））</p>
+<blockquote>
+<p>例如14、22、54的参数，则实际初始化threshold为16、32、64</p>
+</blockquote>
+</li>
+<li>
+<p>参数小于等于1时，初始化threshold值为1</p>
+</li>
+<li>
+<p>参数大于等于最大容量时，初始化threshold值理论上为设置的最大容量，但实际测试超过2<sup>29</sup>时， (OutOfMemoryError)异常</p>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">tableSizeFor</span><span class="params">(<span class="type">int</span> cap)</span> &#123;	</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> cap - <span class="number">1</span>;	</span><br><span class="line">    <span class="comment">//若n的二进制形式中至少有一个位为1 </span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;		<span class="comment">//n与自身右移1位进行或运算（有1则1），导致为1的位的右边1位必定为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;		<span class="comment">//再与自身右移2位进行或运算，则1位右边3位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;		<span class="comment">//再与自身右移4位进行或运算，则1位右边7位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;		<span class="comment">//再与自身右移8位进行或运算，则1位右边15位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;		<span class="comment">//再与自身右移16位进行或运算，则1位右边31位都为1</span></span><br><span class="line">    <span class="comment">//运算后n的结果：为1的最高位其后至多31位都为1</span></span><br><span class="line">    <span class="comment">//n+1：为1最高位为第i-1位,即大于等于cap且最接近的2^i^数列</span></span><br><span class="line">    <span class="comment">//上述为cap大于1的情况</span></span><br><span class="line">    <span class="comment">//cap小于1时，n&lt;0，结果为1</span></span><br><span class="line">    <span class="comment">//cap等于1时，n=0，结果也为1</span></span><br><span class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="插入数组下标">插入数组下标</span></h4>
+<p><code>(n - 1) &amp; hash</code> n为数组长度</p>
+<p>数组长度n为2<sup>i</sup>数列，与n-1进行按位且运算，结果取二进制形式下的后i位</p>
+<p>对于二进制下不超过16位的值类型，相当于取模运算，因为哈希计算过程中，hashCode还要异或上自身的高16位</p>
+<blockquote>
+<ol>
+<li>让高16位也参与运算，可以更好的均匀散列，减少碰撞，进一步降低hash冲突的几率</li>
+<li>异或运算是为了更好保留两组32位二进制数中各自的特征，且运算和或运算会导致结果偏向0或1</li>
+</ol>
+</blockquote>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    <span class="type">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="哈希碰撞">哈希碰撞</span></h4>
+<p>即插入数组下标冲突，不超过16位的值类型的哈希碰撞，意味着它们与数组长度取模后的结果相等</p>
+<p>当两元素发生哈希碰撞，通常还要判断两元素是否重复</p>
+<h4><span id="判重">判重</span></h4>
+<p><code>p.hash == hash &amp;&amp;  (p.key == key || (key != null &amp;&amp; key.equals(p.key)))</code></p>
+<p>首先hash一定相等，且键的地址一样或equals相等，则说明两元素重复</p>
+<h4><span id="重复元素的处理">重复元素的处理</span></h4>
+<p>添加方法的参数onlyIfAbsent 为true时丢弃重复元素，false替换原数组元素</p>
+<h4><span id="树化">树化</span></h4>
+<p>结点数组里的一个下标位中的元素采用红黑树结构存储</p>
+<ol>
+<li>若结点数组中的链表链长大于8，且桶长大于等于64，则树化，否则为调整数组大小</li>
+<li>将链表上的元素转换成红黑树的形式插入结点数组中</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">treeifyBin</span><span class="params">(Node&lt;K,V&gt;[] tab, <span class="type">int</span> hash)</span> &#123;</span><br><span class="line">    <span class="type">int</span> n, index; Node&lt;K,V&gt; e;</span><br><span class="line">    <span class="keyword">if</span> (tab == <span class="literal">null</span> || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)<span class="comment">//64</span></span><br><span class="line">        resize();</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((e = tab[index = (n - <span class="number">1</span>) &amp; hash]) != <span class="literal">null</span>) &#123;<span class="comment">//链表上有元素</span></span><br><span class="line">        TreeNode&lt;K,V&gt; hd = <span class="literal">null</span>, tl = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;<span class="comment">//遍历该链表</span></span><br><span class="line">            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, <span class="literal">null</span>);	<span class="comment">//将结点转换为树结点</span></span><br><span class="line">            <span class="keyword">if</span> (tl == <span class="literal">null</span>)</span><br><span class="line">                hd = p;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p.prev = tl;</span><br><span class="line">                tl.next = p;</span><br><span class="line">            &#125;</span><br><span class="line">            tl = p;</span><br><span class="line">        &#125; <span class="keyword">while</span> ((e = e.next) != <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">if</span> ((tab[index] = hd) != <span class="literal">null</span>)	<span class="comment">//树节点链表插入数组中</span></span><br><span class="line">            hd.treeify(tab);	<span class="comment">//将树节点链表构建成红黑树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="链化">链化</span></h4>
+<p>结点数组里的一个下标位中的元素采用链表结构存储</p>
+<p>如果已经树化，如果树的节点小于6，则链化</p>
+<h2><span id></span></h2>
  
       <!-- reward -->
       
@@ -1026,6 +1156,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/post/%E6%A0%91/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            树
+          
+        </div>
+      </a>
     
     
       <a href="/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="article-nav-link">

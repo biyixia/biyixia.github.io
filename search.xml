@@ -231,85 +231,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JDK的安装及环境变量的配置</title>
-    <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
-<span id="more"></span>
-<h1><span id="jdk-的安装">JDK 的安装</span></h1>
-<h2><span id="下载">下载</span></h2>
-<p>首先通过甲骨文官方下载JDK所需的安装包</p>
-<p><a href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
-<p>选择需要的JDK版本，通常使用的是JDK8</p>
-<img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
-<p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
-<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
-<p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
-<h2><span id="安装">安装</span></h2>
-<ul>
-<li>
-<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
-</li>
-<li>
-<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
-</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
-<h1><span id="环境变量的配置">环境变量的配置</span></h1>
-<h2><span id="查看环境变量">查看环境变量</span></h2>
-<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
-<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
-<h2><span id="java_home">JAVA_HOME</span></h2>
-<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
-<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
-<h2><span id="path">Path</span></h2>
-<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
-<img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
-<h2><span id="classpath">CLASSPATH</span></h2>
-<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
-<p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
-<p>这里需注意：</p>
-<ul>
-<li>CLASSPATH变量中的字符必须是英文字符</li>
-<li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
-<p>随后一路确定，即配置完成</p>
-<h1><span id="测试">测试</span></h1>
-<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
-<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
-<h1><span id="总结">总结</span></h1>
-<h2><span id="为什么要配置环境变量">为什么要配置环境变量?</span></h2>
-<h3><span id="path">path</span></h3>
-<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
-<p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
-<p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
-<h3><span id="java_home">JAVA_HOME</span></h3>
-<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
-<p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
-<p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
-<h3><span id="classpath一般不需配置">CLASSPATH（一般不需配置）</span></h3>
-<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
-<p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
-<p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
-<p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
-<ul>
-<li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
-<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
-<p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
-<p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>常用模板</title>
     <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<table>
@@ -386,6 +307,85 @@
 </tr>
 </tbody>
 </table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JDK的安装及环境变量的配置</title>
+    <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<p>JDK是Java开发的重要工具，安装JDK是学好Java的第一步</p>
+<span id="more"></span>
+<h1><span id="jdk-的安装">JDK 的安装</span></h1>
+<h2><span id="下载">下载</span></h2>
+<p>首先通过甲骨文官方下载JDK所需的安装包</p>
+<p><a href="https://www.oracle.com/java/technologies/downloads/archive/">Java Archive | Oracle</a></p>
+<p>选择需要的JDK版本，通常使用的是JDK8</p>
+<img src="https://pic.imgdb.cn/item/6391d5c8b1fccdcd362211e2.png" style="zoom:50%;">
+<p>往下找到适配自己系统的JDK，这里演示的是windows64字节</p>
+<img src="https://pic.imgdb.cn/item/6391d6b8b1fccdcd362376b7.png" style="zoom: 33%;">
+<p>点击下载链接，勾选接受协议，将会跳转至Oracle登录界面，没有Oracle账号还需注册，登录成功即可开始下载</p>
+<h2><span id="安装">安装</span></h2>
+<ul>
+<li>
+<p>作为开发人员安装JDK，<strong>设置公共JRE公共功能不可用</strong>，因JDK本身即包含了JRE，无需再次安装，关于JDK： <a href="../Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0">Java语言概述</a></p>
+</li>
+<li>
+<p>其次，安装的路径下<strong>不得存在中文</strong>，</p>
+</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391d82cb1fccdcd3625d862.png" style="zoom: 80%;">
+<h1><span id="环境变量的配置">环境变量的配置</span></h1>
+<h2><span id="查看环境变量">查看环境变量</span></h2>
+<p>鼠标右击此电脑点击属性，对于win11的系统，点击设备规格下的高级系统设置，点击环境变量</p>
+<img src="https://pic.imgdb.cn/item/6391de65b1fccdcd362eea05.png" style="zoom: 80%;">
+<h2><span id="java_home">JAVA_HOME</span></h2>
+<p>点击系统变量中的新建，添加一个名为JAVA_HOME的变量，变量值为JDK的安装路径</p>
+<img src="https://pic.imgdb.cn/item/6391de3db1fccdcd362eb8e5.png" style="zoom: 80%;">
+<h2><span id="path">Path</span></h2>
+<p>点击系统变量中的编辑，点击新建，输入<code>%JAVA_HOME%\bin</code></p>
+<img src="https://pic.imgdb.cn/item/6392fd2db1fccdcd36c029a3.png" style="zoom:80%;">
+<h2><span id="classpath">CLASSPATH</span></h2>
+<p>同理添加一个名为CLASSPATH的变量，变量值为</p>
+<p><code> .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code></p>
+<p>这里需注意：</p>
+<ul>
+<li>CLASSPATH变量中的字符必须是英文字符</li>
+<li>此处的%JAVA_HOME%意为对上一个JAVA_HOME的引用，即JDK的安装路径</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391e15eb1fccdcd3633b5d5.png" style="zoom: 80%;">
+<p>随后一路确定，即配置完成</p>
+<h1><span id="测试">测试</span></h1>
+<p>win+r查看cmd，输入<code>java -version</code>查看JDK版本信息</p>
+<img src="https://pic.imgdb.cn/item/6391e1f1b1fccdcd36358bae.png" style="zoom: 80%;">
+<h1><span id="总结">总结</span></h1>
+<h2><span id="为什么要配置环境变量">为什么要配置环境变量?</span></h2>
+<h3><span id="path">path</span></h3>
+<p>首次安装JDK后，当我们想去编译某个.java源代码，需要执行JDK的bin目录下的某个可执行文件(.exe)；在执行DOS命令行中，windows首先在当前目录下查找是否存在所指的可执行文件，若没有找到，将到path环境变量指定的目录中查找，若扔未找到，则报错。</p>
+<p>对此，我们只能在DOS命令行中写下要执行文件的绝对路径，这使操作变得复杂。</p>
+<p>根据windows系统查找可执行文件的原理，我们可以将常执行的文件的目录配置到环境变量中，如此，我们便可以不写文件的绝对路径仍能执行文件。</p>
+<h3><span id="java_home">JAVA_HOME</span></h3>
+<p>在配置了path的基础上，可能会出现多个环境变量需要配置JDK路径的情况，如果想更改使用JDK的版本号，需要找到每个JDK路径并修改他们，这将是个麻烦的过程。</p>
+<p>因此，将JDK路径配置到JAVA_HOME下将方便我们对JDK版本的切换。</p>
+<p>部分第三方软件约定使用JAVA_HOME来指定JDK路径（Tomcat）。</p>
+<h3><span id="classpath一般不需配置">CLASSPATH（一般不需配置）</span></h3>
+<p>编译源代码生成的字节码文件，交给JVM运行处理，在没有配置classpath的情况下，在DOS命令行中输入运行指令，首先，JVM中的类加载器从当前目录下查找是否存在字节码文件，若找不到字节码文件则报错。因此，配置ClassPath环境变量是为了使类加载器从配置的路径中找到字节码文件。<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">Java加载及执行原理</a></p>
+<p>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</p>
+<p>变量中包含了多条路径，它们分别由<code>;</code>隔开，其中 <code>.</code>指的是当前路径；其余两条路径分别为<code> %JAVA_HOME%\lib\dt.jar</code>、<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
+<p>一般情况下要想运行.class文件会切换至.class文件所在的目录，也就是当前路径，因此，CLASSPATH一般不需要配置</p>
+<ul>
+<li>问题：当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test2</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args&#123;</span></span><br><span class="line"><span class="params">		System.out.println(<span class="string">&quot;222222222&quot;</span>)</span>;</span><br><span class="line">     	test1.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>test2类调用了test1类的方法，经过测试我们无法直接编译test2.Java源文件</p>
+<p><img src="https://pic.imgdb.cn/item/639318d0b1fccdcd36f02e1e.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac -classpath &quot;另一个类所处目录路径&quot; test2.java</span><br></pre></td></tr></table></figure>
+<p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
+<p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -506,51 +506,6 @@ System.out.println(“我是Yi_ding的方法”);</p>
 </li>
 </ol>
 <img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java语言概述</title>
-    <url>/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h1><span id="介绍">介绍</span></h1>
-<p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
-<span id="more"></span>
-<h1><span id="java语言的特点">Java语言的特点</span></h1>
-<h2><span id="简单">简单</span></h2>
-<p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
-<h2><span id="面向对象封装-继承-多态">面向对象（封装、继承、多态）</span></h2>
-<h2><span id="健壮">健壮</span></h2>
-<p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
-<h2><span id="多线程">多线程</span></h2>
-<p>Java支持<strong>多条线程并发进行</strong></p>
-<h2><span id="跨平台">跨平台</span></h2>
-<p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
-<h1><span id="java技术体系平台">Java技术体系平台</span></h1>
-<h2><span id="javase">JavaSE</span></h2>
-<p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
-<h2><span id="javaee">JavaEE</span></h2>
-<p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
-<h2><span id="javame">JavaME</span></h2>
-<p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
-<h2><span id="三者之间的关系">三者之间的关系</span></h2>
-<p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
-<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
-<h1><span id="jvm-jre-jdk三者关系">JVM、JRE、JDK三者关系</span></h1>
-<h2><span id="jvmjava-virtual-machine">JVM（Java Virtual Machine）</span></h2>
-<p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
-<p>JVM如何实现Java跨平台运行？</p>
-<ul>
-<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
-<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
-</ul>
-<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
-<h2><span id="jrejava-runtime-environment">JRE（Java Runtime Environment）</span></h2>
-<p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
-<h2><span id="jdkjava-development-kit">JDK（Java Development Kit）</span></h2>
-<p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
-<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -713,6 +668,51 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>Java语言概述</title>
+    <url>/post/Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h1><span id="介绍">介绍</span></h1>
+<p>Java 是一种<strong>高级的、面向对象的、健壮的、多线程的、可跨平台的</strong>程序设计语言</p>
+<span id="more"></span>
+<h1><span id="java语言的特点">Java语言的特点</span></h1>
+<h2><span id="简单">简单</span></h2>
+<p>Java相较于C语言<strong>少了复杂的指针，仅支持单继承</strong></p>
+<h2><span id="面向对象封装-继承-多态">面向对象（封装、继承、多态）</span></h2>
+<h2><span id="健壮">健壮</span></h2>
+<p>Java相较于C语言，<strong>无需开发人员对内存进行管理</strong>，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</p>
+<h2><span id="多线程">多线程</span></h2>
+<p>Java支持<strong>多条线程并发进行</strong></p>
+<h2><span id="跨平台">跨平台</span></h2>
+<p>通过Java语言编写的应用程序可以在<strong>不同系统环境下运行</strong>（JVM）</p>
+<h1><span id="java技术体系平台">Java技术体系平台</span></h1>
+<h2><span id="javase">JavaSE</span></h2>
+<p>Java标准版，主要面向<strong>桌面级应用程序</strong>的开发，为JavaEE、JavaME提供基础</p>
+<h2><span id="javaee">JavaEE</span></h2>
+<p>Java企业版，主要用于<strong>企业应用的、部署在服务器端的Java应用程序</strong>的开发</p>
+<h2><span id="javame">JavaME</span></h2>
+<p>Java微型版，支持Java在<strong>嵌入式等移动终端</strong>上运行</p>
+<h2><span id="三者之间的关系">三者之间的关系</span></h2>
+<p>JavaEE和JavaME都包含了JavaSE，因此学习JavaSE是学习JavaEE、JavaME的基础</p>
+<img src="https://pic.imgdb.cn/item/6391cce1b1fccdcd36138138.png" alt="三者之间关系" style="zoom: 50%;">
+<h1><span id="jvm-jre-jdk三者关系">JVM、JRE、JDK三者关系</span></h1>
+<h2><span id="jvmjava-virtual-machine">JVM（Java Virtual Machine）</span></h2>
+<p>Java虚拟机，Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行。Java虚拟机是Java实现跨平台运行的关键。</p>
+<p>JVM如何实现Java跨平台运行？</p>
+<ul>
+<li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
+<li>JVM接收源代码变异后的字节码，屏蔽了操作系统下的底层运行原理</li>
+</ul>
+<img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
+<h2><span id="jrejava-runtime-environment">JRE（Java Runtime Environment）</span></h2>
+<p>Java运行环境，JRE包括JVM以及一些Java基本类库，JRE可满足运行Java应用程序的需求。</p>
+<h2><span id="jdkjava-development-kit">JDK（Java Development Kit）</span></h2>
+<p>Java开发工具包，JDK包括JRE以及Java开发工具，提供给开发人员使用</p>
+<img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java加载及执行原理</title>
     <url>/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1><span id="java程序执行原理">Java程序执行原理</span></h1>
@@ -793,6 +793,73 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
 <li>执行过程中，只需要指定字节码文件运行</li>
 </ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>super</title>
+    <url>/post/super/</url>
+    <content><![CDATA[<p>super	超类的</p>
+<span id="more"></span>
+<h2><span id="子类对象实例化过程">子类对象实例化过程</span></h2>
+<ul>
+<li>
+<p>不断向上查找直至到达顶层父类Object，然后不断向下依次调用父类的构造器进行父特征的初始化</p>
+</li>
+<li>
+<p>整个过程只产生了一个对象</p>
+</li>
+</ul>
+<p>super代表的就是父特征</p>
+<h2><span id="使用">使用</span></h2>
+<blockquote>
+<p>super()</p>
+</blockquote>
+<p>继承体系中,一定会调用<strong>父类的构造器</strong>初始化父特征，super()是子类构造器默认的第一行</p>
+<blockquote>
+<p>super.成员</p>
+</blockquote>
+<p>调用<strong>父类的属性和方法</strong></p>
+<h3><span id="调用父类的构造器">调用父类的构造器</span></h3>
+<ol>
+<li>子类中所有的构造器默认都会访问父类中无参数的构造器（默认有super()）</li>
+<li>若父类中没有无参数的构造器，子类构造器必须调用本类或者父类中相应的构造器。即通过this(参数列表)或者super(参数列表)语句，且必须放在构造器的首行</li>
+<li>若父类中没有无参数的构造器，且子类构造器中既未显式调用父类或本类的构造器，则编译出错</li>
+</ol>
+<h3><span id="super大多情况可省略">super（大多情况可省略）</span></h3>
+<ul>
+<li>当<strong>父类和子类的属性名称相同</strong>，必须使用super.属性指定父类的属性</li>
+<li>当<strong>方法重写需要调用父类的同名属性或者方法</strong>的时候,super不能省略</li>
+</ul>
+<h3><span id="this和super">this和super</span></h3>
+<table>
+<thead>
+<tr>
+<th>区别点</th>
+<th>this</th>
+<th>super</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>访问属性</td>
+<td>访问本类中的属性，如果本类没有此属性则从父类中继续查找</td>
+<td>直接访问父类中的属性</td>
+</tr>
+<tr>
+<td>调用方法</td>
+<td>访问本类中的方法，如果本类没有此方法则从父类中继续查找</td>
+<td>直接访问父类中的方法</td>
+</tr>
+<tr>
+<td>调用构造器</td>
+<td>调用本类构造器，必须放在构造器的首行</td>
+<td>调用父类构造器，必须放在子类构造器的首行</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1013,113 +1080,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>super</title>
-    <url>/post/super/</url>
-    <content><![CDATA[<p>super	超类的</p>
-<span id="more"></span>
-<h2><span id="子类对象实例化过程">子类对象实例化过程</span></h2>
-<ul>
-<li>
-<p>不断向上查找直至到达顶层父类Object，然后不断向下依次调用父类的构造器进行父特征的初始化</p>
-</li>
-<li>
-<p>整个过程只产生了一个对象</p>
-</li>
-</ul>
-<p>super代表的就是父特征</p>
-<h2><span id="使用">使用</span></h2>
-<blockquote>
-<p>super()</p>
-</blockquote>
-<p>继承体系中,一定会调用<strong>父类的构造器</strong>初始化父特征，super()是子类构造器默认的第一行</p>
-<blockquote>
-<p>super.成员</p>
-</blockquote>
-<p>调用<strong>父类的属性和方法</strong></p>
-<h3><span id="调用父类的构造器">调用父类的构造器</span></h3>
-<ol>
-<li>子类中所有的构造器默认都会访问父类中无参数的构造器（默认有super()）</li>
-<li>若父类中没有无参数的构造器，子类构造器必须调用本类或者父类中相应的构造器。即通过this(参数列表)或者super(参数列表)语句，且必须放在构造器的首行</li>
-<li>若父类中没有无参数的构造器，且子类构造器中既未显式调用父类或本类的构造器，则编译出错</li>
-</ol>
-<h3><span id="super大多情况可省略">super（大多情况可省略）</span></h3>
-<ul>
-<li>当<strong>父类和子类的属性名称相同</strong>，必须使用super.属性指定父类的属性</li>
-<li>当<strong>方法重写需要调用父类的同名属性或者方法</strong>的时候,super不能省略</li>
-</ul>
-<h3><span id="this和super">this和super</span></h3>
-<table>
-<thead>
-<tr>
-<th>区别点</th>
-<th>this</th>
-<th>super</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>访问属性</td>
-<td>访问本类中的属性，如果本类没有此属性则从父类中继续查找</td>
-<td>直接访问父类中的属性</td>
-</tr>
-<tr>
-<td>调用方法</td>
-<td>访问本类中的方法，如果本类没有此方法则从父类中继续查找</td>
-<td>直接访问父类中的方法</td>
-</tr>
-<tr>
-<td>调用构造器</td>
-<td>调用本类构造器，必须放在构造器的首行</td>
-<td>调用父类构造器，必须放在子类构造器的首行</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>变量</title>
-    <url>/post/%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
-<span id="more"></span>
-<h1><span id="数据">数据</span></h1>
-<p>字面量即数据</p>
-<h2><span id="数据类型">数据类型</span></h2>
-<h1><span id="变量">变量</span></h1>
-<h2><span id="变量使用">变量使用</span></h2>
-<h3><span id="声明变量">声明变量</span></h3>
-<p>int var;</p>
-<h3><span id="变量的赋值">变量的赋值</span></h3>
-<p>var = 10;</p>
-<h3><span id="声明和赋值变量">声明和赋值变量</span></h3>
-<p>int var = 10; （数据类型，存储范围）</p>
-<ul>
-<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c=100</li>
-<li>局部变量声明后必须赋值才能使用</li>
-</ul>
-<h3><span id="变量的作用域局部变量">变量的作用域（局部变量）</span></h3>
-<p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
-<p>作用域内只能有一个同名变量</p>
-<h2><span id="变量分类">变量分类</span></h2>
-<p>变量可按照声明位置、数据类型分类</p>
-<h3><span id="按声明位置">按声明位置</span></h3>
-<ul>
-<li>在方法体外，类体内声明的变量称为成员变量。</li>
-<li>在方法体内部声明的变量称为局部变量。</li>
-<li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
-</ul>
-<h3><span id="按数据类型">按数据类型</span></h3>
-<p>变量的类型必须与数据的类型一致</p>
-<img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>内部类</title>
     <url>/post/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
     <content><![CDATA[<p>当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。</p>
@@ -1241,6 +1201,46 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <h3><span id="内部类的作用">内部类的作用</span></h3>
 <p>每个内部类都能独立地继承自一个(接口的)实现，所以无论外围类是否已经继承了某个(接口的)实现，对于内部类都没有影响。如果没有内部类提供的可以继承多个具体的或抽象的类的能力，一些设计与编程问题就很难解决。从这个角度看，内部类使得多重继承的解决方案变得完整。接口解决了部分问题，而内部类有效地实现了“多重继承”。</p>
 <h4><span id="内部类如何实现多继承">内部类如何实现多继承</span></h4>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>变量</title>
+    <url>/post/%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<p>由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。</p>
+<span id="more"></span>
+<h1><span id="数据">数据</span></h1>
+<p>字面量即数据</p>
+<h2><span id="数据类型">数据类型</span></h2>
+<h1><span id="变量">变量</span></h1>
+<h2><span id="变量使用">变量使用</span></h2>
+<h3><span id="声明变量">声明变量</span></h3>
+<p>int var;</p>
+<h3><span id="变量的赋值">变量的赋值</span></h3>
+<p>var = 10;</p>
+<h3><span id="声明和赋值变量">声明和赋值变量</span></h3>
+<p>int var = 10; （数据类型，存储范围）</p>
+<ul>
+<li>Java可以在一行声明多个变量,例如: int a,b,c; long a,b,c=100</li>
+<li>局部变量声明后必须赋值才能使用</li>
+</ul>
+<h3><span id="变量的作用域局部变量">变量的作用域（局部变量）</span></h3>
+<p>变量的作用域在前后花括号{}之间，作用域外相当于没有声明过该变量</p>
+<p>作用域内只能有一个同名变量</p>
+<h2><span id="变量分类">变量分类</span></h2>
+<p>变量可按照声明位置、数据类型分类</p>
+<h3><span id="按声明位置">按声明位置</span></h3>
+<ul>
+<li>在方法体外，类体内声明的变量称为成员变量。</li>
+<li>在方法体内部声明的变量称为局部变量。</li>
+<li>二者都有生命周期，但局部变量除形参外，需初始化。</li>
+</ul>
+<h3><span id="按数据类型">按数据类型</span></h3>
+<p>变量的类型必须与数据的类型一致</p>
+<img src="https://pic.imgdb.cn/item/639332ffb1fccdcd36247b54.png" alt="数据类型" style="zoom: 67%;">
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1492,6 +1492,106 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>异常</title>
+    <url>/post/%E5%BC%82%E5%B8%B8/</url>
+    <content><![CDATA[<h1><span id="异常">异常</span></h1>
+<ul>
+<li>java程序运行的时候或编译的时候可能引发异常
+<ul>
+<li>编译的时候引发的异常会导致无法编译</li>
+<li>运行时引发的异常会到导致程序终止</li>
+</ul>
+</li>
+<li>异常在java中也是面向对象的，Java通过API中Throwable类的众多子类描述各种不同的异常。描述了出现在一段编码中的错误条件。当条件生成时，错误将引发异常。</li>
+</ul>
+<h2><span id="结构">结构</span></h2>
+<img src="https://pic.imgdb.cn/item/63bfed14be43e0d30e1d66cd.jpg">
+<h3><span id="throwable">Throwable</span></h3>
+<p>异常的父类</p>
+<h3><span id="exception">Exception</span></h3>
+<p>是程序本身可以处理的异常。异常需要捕获和处理，否则无法编译。</p>
+<h3><span id="error">Error</span></h3>
+<p>错误，是程序无法处理的错误，表示运行应用程序中较严重问题。</p>
+<p>大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题，JVM一般会选择线程终止。。例如，</p>
+<ol>
+<li>Java虚拟机运行错误（Virtual MachineError）</li>
+<li>JVM不再有继续执行操作所需的内存资源（OutOfMemoryError）。</li>
+<li>Java虚拟机运行错误（Virtual MachineError）</li>
+<li>类定义错误（NoClassDefFoundError）</li>
+</ol>
+<p>这些错误是不可查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况</p>
+<h3><span id="runtimeexception">RuntimeException</span></h3>
+<p>Exception的子类，运行时异常，无需要捕获和处理，也能编译，但是运行时发生错误，则程序会终断，因此运行时异常还是需要捕获和处理</p>
+<p>通常表示“JVM 常用操作”引发的错误。例如，</p>
+<ol>
+<li>
+<p>若试图使用空值对象引用（NullPointerException）</p>
+</li>
+<li>
+<p>除数为零（ArithmeticException）</p>
+</li>
+<li>
+<p>数组越界（ArrayIndexOutOfBoundException）</p>
+<p>注意：异常和错误的区别：异常能被程序本身可以处理，错误是无法处理。</p>
+</li>
+</ol>
+<h2><span id="分类">分类</span></h2>
+<p>Java的异常(包括Exception和Error)分为可查的异常（checked exceptions）和不可查的异常（unchecked exceptions）</p>
+<h3><span id="可查异常">可查异常</span></h3>
+<ul>
+<li>除了RuntimeException及其子类以外，其他的Exception类及其子类都属于可查异常</li>
+<li>可查异常在一定程度上可以预计的，而且一旦发生这种异常状况，就必须采取某种方式进行处理。</li>
+<li>Java编译器会检查它，当程序中可能出现这类异常，必须用try-catch语句捕获或throws子句声明抛出，否则编译不会通过</li>
+</ul>
+<h3><span id="不可查异常">不可查异常</span></h3>
+<ol>
+<li>包括运行时异常（RuntimeException与其子类）和错误（Error）</li>
+<li>编译器不要求强制处置，可以不用try-catch语句捕获、不用throws子句声明抛出，编译可通过</li>
+</ol>
+<h2><span id="处理异常机制">处理异常机制</span></h2>
+<p>在 Java 应用程序中，异常处理机制为：抛出异常，捕捉异常</p>
+<h3><span id="抛出异常">抛出异常</span></h3>
+<p>当一个方法出现错误引发异常时，方法创建异常对象并交付运行时系统，异常对象中包含了异常类型和异常出现时的程序状态等异常信息。运行时系统负责寻找处置异常的代码并执行</p>
+<p>任何Java代码都可以抛出异常，如：自己编写的代码、来自Java开发环境包中代码，或者Java运行时系统。无论是谁，都可以通过Java的throw语句抛出异常</p>
+<h3><span id="捕获异常">捕获异常</span></h3>
+<p>在方法抛出异常之后，运行时系统将转为寻找处理的异常类型与方法抛出的异常类型相符的异常处理器。运行时系统从发生异常的方法开始，依次回查调用栈中的方法，直至找到含有合适异常处理器的方法并执行。当运行时系统遍历调用栈而未找到合适的异常处理器，则运行时系统终止。同时，意味着Java程序的终止。</p>
+<p>捕捉异常通过try-catch语句或者try-catch-finally语句实现</p>
+<p>总结：对于可查异常必须捕捉、或者声明抛出。允许忽略不可查的RuntimeException和Error。</p>
+<h2><span id="try-catch语句">try、catch语句</span></h2>
+<ul>
+<li>捕获处理异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    a = scanner.nextInt();    <span class="comment">//捕获异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (InputMismatchException e)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);    <span class="comment">//处理异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="try-catch-catch-">try-catch-catch-…</span></h2>
+<ul>
+<li>多路catch</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    a = scanner.nextInt();            <span class="comment">//捕获异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (InputMismatchException e)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);            <span class="comment">//处理异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;出现了未知名的错误&quot;</span>);            <span class="comment">//处理异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] a =<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"><span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> random.nextInt(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    a[index] = scanner.nextInt();</span><br><span class="line">&#125; <span class="keyword">catch</span> (InputMismatchException e) &#123;</span><br><span class="line">    <span class="comment">//打印错误堆栈</span></span><br><span class="line">    <span class="comment">//e.printStackTrace();</span></span><br><span class="line">    <span class="comment">//打印错误消息</span></span><br><span class="line">    <span class="comment">//e.getMessage();</span></span><br><span class="line">    System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;你输入的下标超标&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    <span class="comment">//e.printStackTrace();</span></span><br><span class="line">    System.out.println(<span class="string">&quot;不知名错误&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦某个catch捕获到匹配的异常类型，将进入异常处理代码。一经处理结束，就意味着整个try-catch语句结束。其他的catch子句不再有匹配和捕获异常类型的机会。</p>
+<h2><span id="try-catch-finally语句">try、catch、finally语句</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">Scanner scanner=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//捕获异常</span></span><br><span class="line">    a = scanner.nextInt();</span><br><span class="line">    System.out.println(<span class="string">&quot;try***********&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (InputMismatchException e)&#123;</span><br><span class="line">    <span class="comment">//处理异常</span></span><br><span class="line">    System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;catch***********&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">finally</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;finally永远会运行&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="try-catch-finally-return">try、catch、finally、return</span></h2>
+<h3><span id="try-catch-finally中都有return">try、catch、finally中都有return</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="type">int</span>  <span class="title function_">fun1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">    Scanner scanner=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">    <span class="keyword">try</span>&#123;        <span class="comment">//捕获异常</span></span><br><span class="line">        a = scanner.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;try***********&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (InputMismatchException e)&#123;        <span class="comment">//处理异常</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;catch***********&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;finally永远会运行&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">30</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> MyApp3.fun1();</span><br><span class="line">    System.out.println(i);<span class="comment">//30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会将try或catch中的return语句”覆盖“掉，直接执行finally中的return语句，得到返回值</p>
+<h3><span id="finally中没有return">finally中没有return</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="type">int</span>  <span class="title function_">fun1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">    Scanner scanner=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">    <span class="keyword">try</span>&#123;        <span class="comment">//捕获异常</span></span><br><span class="line">        a = scanner.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;try***********&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (InputMismatchException e)&#123;        <span class="comment">//处理异常</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;catch***********&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;finally永远会运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> MyApp3.fun1();</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行finally中的语句后，从try或catch中返回</p>
+<h3><span id="finally中没有return但修改了返回值">finally中没有return但修改了返回值</span></h3>
+<p>无论是try还是catch里面的return返回规则为：</p>
+<ul>
+<li>值类型：return会第一次记录值，然后finally，然后再return（finally无法修改return结果）</li>
+<li>引用类型：return会第一次记地址，然后finally，然后再return（finally可以修改return结果）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="type">int</span>  <span class="title function_">fun1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> b=<span class="number">0</span>;</span><br><span class="line">    Scanner scanner=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">    <span class="keyword">try</span>&#123;<span class="comment">//捕获异常</span></span><br><span class="line">        a = scanner.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;try***********&quot;</span>);</span><br><span class="line">        b=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (InputMismatchException e)&#123;<span class="comment">//处理异常</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;catch***********&quot;</span>);</span><br><span class="line">        b=<span class="number">20</span>;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;finally永远会运行&quot;</span>);</span><br><span class="line">        b=<span class="number">30</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> MyApp3.fun1();</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>  <span class="keyword">static</span> Stu <span class="title function_">fun1</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">    Stu stu=<span class="keyword">new</span> <span class="title class_">Stu</span>(<span class="number">1000</span>,<span class="string">&quot;hzj1&quot;</span>);</span><br><span class="line">    Scanner scanner=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">    <span class="keyword">try</span>&#123;<span class="comment">//捕获异常</span></span><br><span class="line">        a = scanner.nextInt();</span><br><span class="line">        System.out.println(<span class="string">&quot;try***********&quot;</span>);</span><br><span class="line">        stu.setId(<span class="number">2000</span>);</span><br><span class="line">        <span class="comment">//这里先执行return，然后在执行finally,然后再执行return</span></span><br><span class="line">        <span class="comment">//这里return会记录地址（引用类型）</span></span><br><span class="line">        <span class="keyword">return</span> stu;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (InputMismatchException e)&#123;</span><br><span class="line">        <span class="comment">//处理异常</span></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入一个数字&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;catch***********&quot;</span>);</span><br><span class="line">        stu.setId(<span class="number">3000</span>);</span><br><span class="line">        <span class="keyword">return</span> stu;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;finally永远会运行&quot;</span>);</span><br><span class="line">        stu.setId(<span class="number">5000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Stu</span> <span class="variable">i</span> <span class="operator">=</span> MyApp4.fun1();</span><br><span class="line">    System.out.println(i);	<span class="comment">//5000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>第二阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>常用文本编辑快捷键</title>
     <url>/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<h1><span id="引言">引言</span></h1>
@@ -1567,6 +1667,144 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 </tr>
 </tbody>
 </table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>抽象类和接口</title>
+    <url>/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。</p>
+<p>抽象类是为了把<strong>相同的但不确定</strong>的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。</p>
+<p>当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。</p>
+<p>然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。</p>
+<p>接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&quot;是不是&quot;的关系，而接口实现则是 &quot;能不能&quot;的关系。</p>
+<span id="more"></span>
+<h1><span id="abstract">abstract</span></h1>
+<h2><span id="抽象类">抽象类</span></h2>
+<p>abstract修饰的类称为抽象类，命名规范:xxxxAbstract  Abstractxxxx  xxxxBase</p>
+<ul>
+<li>抽象类不能被实例化，抽象类就是用来继承并实现的，但是有构造器</li>
+<li>抽象类中可以有抽象方法，供继承类重写，若继承类还是抽象类，可以不重写抽象方法</li>
+<li>最多只能继承一个抽象类（单继承）</li>
+</ul>
+<h2><span id="抽象方法">抽象方法</span></h2>
+<p>abstract修饰的方法称为抽象方法</p>
+<ul>
+<li>抽象方法没有方法体，抽象方法就是供子类重写的（抽象子类不需要重写）</li>
+<li>含有抽象方法的类一定是抽象类或接口</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>类</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>final</td>
+<td>不能被继承</td>
+<td>不能被重写</td>
+</tr>
+<tr>
+<td>abstract</td>
+<td>供子类继承实现</td>
+<td>供继承类重写</td>
+</tr>
+<tr>
+<td>static</td>
+<td></td>
+<td>需要方法体随类加载而加载</td>
+</tr>
+<tr>
+<td>private</td>
+<td></td>
+<td>对子类不可见</td>
+</tr>
+</tbody>
+</table>
+<p>因此，final不能修饰抽象类和抽象方法</p>
+<p>static、private不能修饰抽象方法</p>
+<h2><span id="匿名抽象类">匿名抽象类</span></h2>
+<p>如果抽象类没有实现类，仍然要获取抽象类的实例对象时</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    abstrect <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>直接构造抽象类对象，需要在<strong>构造函数后面的花括号实现抽象方法</strong>。</p>
+<h2><span id="模板方法设计模式templatemethod">模板方法设计模式(TemplateMethod)</span></h2>
+<p>当功能内部一部分实现步骤是固定、通用的，一部分实现是不确定的。这时可以把不确定的、易变部分暴露出去， 让子类去实现。 由此定义出功能算法的骨架，子类不改变算法的结构，且无需重复固定的代码，只需要重定义算法的某些特定步骤。</p>
+<p>银行的营业厅办理业务需要 以下步骤：</p>
+<ol>
+<li>取号 2.办业务 3.评价。</li>
+</ol>
+<p>三个步骤中取号和评价都是 <strong>固定的流程</strong>，每个人要做的 事儿都是一样的。但是办业 务这个步骤根据每个人要办 的事情不同所以需要有<strong>不同的实现</strong>。我们可以将整个办业务这件事儿封装成一个抽象类：取号和评价为模板方法，而办业务为供子类重写的抽象方法。</p>
+<h1><span id="接口">接口</span></h1>
+<p>interface，特殊的、轻量级的抽象类，接口名称和类名一样 符合标识符的规则和规范(首字母大写)</p>
+<h2><span id="接口实现">接口实现</span></h2>
+<p>接口不能被实例化，供实现类使用，没有构造器</p>
+<p>如果一个类实现了接口，则需要实现接口中所有方法，抽象类则不用</p>
+<h3><span id="jdk8前">JDK8前</span></h3>
+<p>接口中包含	公共的静态常量、公共的抽象方法</p>
+<h3><span id="jdk8后">JDK8后</span></h3>
+<h2><span id="接口和类">接口和类</span></h2>
+<p>一个类可以实现多个接口</p>
+<p>一个接口可以继承多个接口</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>抽象类</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抽象级别</td>
+<td>抽象类不能被实例化，供继承并实现</td>
+<td>接口不能被实例化，供实现类使用，接口抽象级别高于抽象类</td>
+</tr>
+<tr>
+<td>构造器</td>
+<td>有构造器</td>
+<td>没有构造器</td>
+</tr>
+<tr>
+<td>继承</td>
+<td>实现类最多继承一个抽象类</td>
+<td>类可实现多个接口，接口可继承多个接口</td>
+</tr>
+<tr>
+<td>成员</td>
+<td>除了含有抽象方法，其余和普通类相差不大</td>
+<td>只能是公共的静态常量、公共的抽象方法、（静态方法、默认方法为JDK8后）</td>
+</tr>
+<tr>
+<td></td>
+<td>继承类必须实现抽象方法，或本身为抽象类</td>
+<td>实现类必须实现抽象方法，或本身为抽象类</td>
+</tr>
+<tr>
+<td>没有实现类时</td>
+<td>匿名抽象类</td>
+<td>匿名实现类对象</td>
+</tr>
+<tr>
+<td>设计模式</td>
+<td>模板方法</td>
+<td>简单工厂、工厂方法、代理模式</td>
+</tr>
+<tr>
+<td></td>
+<td>作为模板</td>
+<td>作为标准或某种特性</td>
+</tr>
+</tbody>
+</table>
+<p>抽象类、接口都通过对象的多态性产生实例化对象，但由于抽象类单继承的局限，接口使用更为广泛</p>
+<h2><span id="匿名实现类对象">匿名实现类对象</span></h2>
+<p>如果接口没有实现类，仍要得到接口的实现时</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1723,144 +1961,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>抽象类和接口</title>
-    <url>/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。</p>
-<p>抽象类是为了把<strong>相同的但不确定</strong>的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。</p>
-<p>当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。</p>
-<p>然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。</p>
-<p>接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&quot;是不是&quot;的关系，而接口实现则是 &quot;能不能&quot;的关系。</p>
-<span id="more"></span>
-<h1><span id="abstract">abstract</span></h1>
-<h2><span id="抽象类">抽象类</span></h2>
-<p>abstract修饰的类称为抽象类，命名规范:xxxxAbstract  Abstractxxxx  xxxxBase</p>
-<ul>
-<li>抽象类不能被实例化，抽象类就是用来继承并实现的，但是有构造器</li>
-<li>抽象类中可以有抽象方法，供继承类重写，若继承类还是抽象类，可以不重写抽象方法</li>
-<li>最多只能继承一个抽象类（单继承）</li>
-</ul>
-<h2><span id="抽象方法">抽象方法</span></h2>
-<p>abstract修饰的方法称为抽象方法</p>
-<ul>
-<li>抽象方法没有方法体，抽象方法就是供子类重写的（抽象子类不需要重写）</li>
-<li>含有抽象方法的类一定是抽象类或接口</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>类</th>
-<th>方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>final</td>
-<td>不能被继承</td>
-<td>不能被重写</td>
-</tr>
-<tr>
-<td>abstract</td>
-<td>供子类继承实现</td>
-<td>供继承类重写</td>
-</tr>
-<tr>
-<td>static</td>
-<td></td>
-<td>需要方法体随类加载而加载</td>
-</tr>
-<tr>
-<td>private</td>
-<td></td>
-<td>对子类不可见</td>
-</tr>
-</tbody>
-</table>
-<p>因此，final不能修饰抽象类和抽象方法</p>
-<p>static、private不能修饰抽象方法</p>
-<h2><span id="匿名抽象类">匿名抽象类</span></h2>
-<p>如果抽象类没有实现类，仍然要获取抽象类的实例对象时</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    abstrect <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>直接构造抽象类对象，需要在<strong>构造函数后面的花括号实现抽象方法</strong>。</p>
-<h2><span id="模板方法设计模式templatemethod">模板方法设计模式(TemplateMethod)</span></h2>
-<p>当功能内部一部分实现步骤是固定、通用的，一部分实现是不确定的。这时可以把不确定的、易变部分暴露出去， 让子类去实现。 由此定义出功能算法的骨架，子类不改变算法的结构，且无需重复固定的代码，只需要重定义算法的某些特定步骤。</p>
-<p>银行的营业厅办理业务需要 以下步骤：</p>
-<ol>
-<li>取号 2.办业务 3.评价。</li>
-</ol>
-<p>三个步骤中取号和评价都是 <strong>固定的流程</strong>，每个人要做的 事儿都是一样的。但是办业 务这个步骤根据每个人要办 的事情不同所以需要有<strong>不同的实现</strong>。我们可以将整个办业务这件事儿封装成一个抽象类：取号和评价为模板方法，而办业务为供子类重写的抽象方法。</p>
-<h1><span id="接口">接口</span></h1>
-<p>interface，特殊的、轻量级的抽象类，接口名称和类名一样 符合标识符的规则和规范(首字母大写)</p>
-<h2><span id="接口实现">接口实现</span></h2>
-<p>接口不能被实例化，供实现类使用，没有构造器</p>
-<p>如果一个类实现了接口，则需要实现接口中所有方法，抽象类则不用</p>
-<h3><span id="jdk8前">JDK8前</span></h3>
-<p>接口中包含	公共的静态常量、公共的抽象方法</p>
-<h3><span id="jdk8后">JDK8后</span></h3>
-<h2><span id="接口和类">接口和类</span></h2>
-<p>一个类可以实现多个接口</p>
-<p>一个接口可以继承多个接口</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>抽象类</th>
-<th>接口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>抽象级别</td>
-<td>抽象类不能被实例化，供继承并实现</td>
-<td>接口不能被实例化，供实现类使用，接口抽象级别高于抽象类</td>
-</tr>
-<tr>
-<td>构造器</td>
-<td>有构造器</td>
-<td>没有构造器</td>
-</tr>
-<tr>
-<td>继承</td>
-<td>实现类最多继承一个抽象类</td>
-<td>类可实现多个接口，接口可继承多个接口</td>
-</tr>
-<tr>
-<td>成员</td>
-<td>除了含有抽象方法，其余和普通类相差不大</td>
-<td>只能是公共的静态常量、公共的抽象方法、（静态方法、默认方法为JDK8后）</td>
-</tr>
-<tr>
-<td></td>
-<td>继承类必须实现抽象方法，或本身为抽象类</td>
-<td>实现类必须实现抽象方法，或本身为抽象类</td>
-</tr>
-<tr>
-<td>没有实现类时</td>
-<td>匿名抽象类</td>
-<td>匿名实现类对象</td>
-</tr>
-<tr>
-<td>设计模式</td>
-<td>模板方法</td>
-<td>简单工厂、工厂方法、代理模式</td>
-</tr>
-<tr>
-<td></td>
-<td>作为模板</td>
-<td>作为标准或某种特性</td>
-</tr>
-</tbody>
-</table>
-<p>抽象类、接口都通过对象的多态性产生实例化对象，但由于抽象类单继承的局限，接口使用更为广泛</p>
-<h2><span id="匿名实现类对象">匿名实现类对象</span></h2>
-<p>如果接口没有实现类，仍要得到接口的实现时</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">think</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;think&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;eat&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>标识符</title>
     <url>/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
     <content><![CDATA[<h1><span id="引言">引言</span></h1>
@@ -1971,15 +2071,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>流程控制</title>
-    <url>/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(b = <span class="literal">false</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        从键盘分别输入年、月、日，判断这一天是当年的第几天</span></span><br><span class="line"><span class="comment">        注：判断一年是否是闰年的标准：</span></span><br><span class="line"><span class="comment">        1）可以被4整除，但不可被100整除、或</span></span><br><span class="line"><span class="comment">        2）可以被400整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入几号：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">date</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"><span class="type">int</span> <span class="variable">month2</span> <span class="operator">=</span> <span class="number">28</span>;</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year %<span class="number">100</span> != <span class="number">0</span> ||year % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    month2 = <span class="number">29</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">switch</span> (month)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        day += month2;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        day += date;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;输入的月份不合法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(day);</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>类加载的初始化顺序</title>
     <url>/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<h2><span id="静态代码块">静态代码块</span></h2>
@@ -2082,6 +2173,213 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 ]]></content>
       <categories>
         <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>流程控制</title>
+    <url>/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(b = <span class="literal">false</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a &quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;c&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">        从键盘分别输入年、月、日，判断这一天是当年的第几天</span></span><br><span class="line"><span class="comment">        注：判断一年是否是闰年的标准：</span></span><br><span class="line"><span class="comment">        1）可以被4整除，但不可被100整除、或</span></span><br><span class="line"><span class="comment">        2）可以被400整除</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">System.out.println(<span class="string">&quot;请输入年份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入月份：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">System.out.println(<span class="string">&quot;请输入几号：&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">date</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"><span class="type">int</span> <span class="variable">month2</span> <span class="operator">=</span> <span class="number">28</span>;</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; year %<span class="number">100</span> != <span class="number">0</span> ||year % <span class="number">400</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    month2 = <span class="number">29</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">switch</span> (month)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">12</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">11</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">10</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">9</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">        day += <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        day += <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        day += month2;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        day += date;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        System.out.println(<span class="string">&quot;输入的月份不合法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(day);</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>树</title>
+    <url>/post/%E6%A0%91/</url>
+    <content><![CDATA[<h1><span id="二叉排序树">二叉排序树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>也称二叉查找树，一棵空树，或者是具有下列特性的二叉树:</p>
+<ol>
+<li>若左子树非空，则左子树上所有结点的值均小于根结点的值</li>
+<li>若右子树非空，则右子树上所有结点的值均大于根结点的值</li>
+<li>左、右子树也分别是一棵二叉排序树</li>
+</ol>
+<p>左子树结点值 &lt; 根结点值 &lt; 右子树结点值</p>
+<p>对二叉排序树进行中序遍历可以得到一个递增的有序序列</p>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="二叉树的结构">二叉树的结构</span></h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*二叉树的二叉链表结点结构定义*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">int</span> data;	<span class="comment">//结点数据</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>	<span class="comment">//左右孩子指针</span></span><br><span class="line">&#125; BSTNode, *BSTree;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="查找操作">查找操作</span></h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">BSTNode *<span class="title function_">SearchBST</span><span class="params">(BSTree T,<span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="comment">//如果递归过程中T为空，则查找结果返回NULL；或者查找成功，返回指向该关键字的指针</span></span><br><span class="line">	<span class="keyword">while</span>(T != <span class="literal">NULL</span> &amp;&amp; T-&gt;data != key)&#123;</span><br><span class="line">        <span class="keyword">if</span>(key &lt; T-&gt;data) T = T-&gt;lchild;</span><br><span class="line">        <span class="keyword">else</span> T = T-&gt;rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归实现</span></span><br><span class="line">BSTNode *<span class="title function_">SearchBSTNode</span><span class="params">(BSTreee T,<span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data == key)&#123;</span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &gt;key)&#123;</span><br><span class="line">        <span class="keyword">return</span> SearchBSTNode(T-&gt;lchild,key);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SearchBSTNode(T-&gt;rchild,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="插入操作">插入操作</span></h3>
+<p>有了二叉排序树的查找函数，那么所谓的二叉排序树的插入，其实也就是将关键字放到树中的合适位置而已。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertBST</span><span class="params">(BSTree T, <span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(T != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;data == key) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &gt; key) T = T-&gt;lchild;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &lt; key) T = T-&gt;rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    BSTree b = (BSTree) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(BSTree));</span><br><span class="line">    b-&gt;data = key;</span><br><span class="line">    b-&gt;rchild = b-&gt;lchild = <span class="literal">NULL</span>;</span><br><span class="line">    T = b;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//递归实现</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">InsertBST</span><span class="params">(BSTree T,KeyType key)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        BiTree b = (BiTree) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(Bitree));</span><br><span class="line">        b-&gt;data = key;</span><br><span class="line">        b-&gt;lchild = b-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">        T = b;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(key == T-&gt;data)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &lt; T-&gt;data)&#123;</span><br><span class="line">        <span class="keyword">return</span> InsertBST(T-&gt;lchild,key);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InsertBST(T-&gt;rchild,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="构建操作">构建操作</span></h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123;<span class="number">62</span>, <span class="number">88</span>, <span class="number">58</span>, <span class="number">47</span>, <span class="number">35</span>, <span class="number">73</span>, <span class="number">51</span>, <span class="number">99</span>, <span class="number">37</span>, <span class="number">93</span>&#125;;</span><br><span class="line">T = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;</span><br><span class="line">    InsertBST(T,a[i]);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3><span id="删除操作">删除操作</span></h3>
+<ol>
+<li>叶子结点：删除该结点不需要做其他操作；</li>
+<li>仅有左或右子树的结点：删除后让被删除结点的直接后继接替它的位置；</li>
+<li>左右子树都有的结点：遍历得到被删除结点的直接前驱或者直接后继来接替它的位置，然后再删除</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/63be79c8be43e0d30ec4aff5.jpg" alt></p>
+<p>删除Z结点：</p>
+<ol>
+<li>用左孩子结点代替被删除结点，若该左孩子结点有右子树，则无法满足二叉排序树定义，没有右子树则直接替换，删除该元素</li>
+<li>用左孩子的右孩子代替被删除的结点，若该节点有右子树，则无法满足二叉排序树定义</li>
+<li>用左孩子的右孩子的右孩子的…右孩子的结点代替删除的结点，该节点没有右子树，代替可满足二叉排序树定义</li>
+<li>且该节点有左子树或是叶子结点，删除同上述，由此得到直接前驱的概念</li>
+</ol>
+<ul>
+<li>直接前驱：Z结点左孩子的右孩子的右孩子的…右孩子的结点，直到该节点没有右子树，即左子树中最右下的结点</li>
+<li>直接后继：同理，是Z结点右子树中最坐下的结点</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> *<span class="title function_">DeleteBST</span><span class="params">(BSTNode *p)</span>&#123;</span><br><span class="line">    BSTree q,s;</span><br><span class="line">    <span class="keyword">if</span>(*p == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>((*p)-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; (*p)-&gt;rchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        *p = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        q = *p;</span><br><span class="line">        *p = (*p)-&gt;rchild;   </span><br><span class="line">        <span class="built_in">free</span>(q);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>((*p)-&gt;rchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        q = *p;</span><br><span class="line">        *p = (*p)-&gt;lchild;    </span><br><span class="line">        <span class="built_in">free</span>(q);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        q = *p;							<span class="comment">//递归更加直观</span></span><br><span class="line">        s = (*p)-&gt;lchild;</span><br><span class="line">        <span class="keyword">while</span>(s-&gt;rchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            q = s;</span><br><span class="line">            s = s-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">        (*p)-&gt;data = s-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(q != *p)&#123;</span><br><span class="line">            q-&gt;rchild = s-&gt;lchild;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            q-&gt;lchild = s-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line">        <span class="comment">/*s = (*p)-&gt;lchild;</span></span><br><span class="line"><span class="comment">        while(s-&gt;rchild != NULL)&#123;</span></span><br><span class="line"><span class="comment">            s = s-&gt;rchild;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        (*p)-&gt;data = s-&gt;data;</span></span><br><span class="line"><span class="comment">        DeleteBST(s);*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="查找效率">查找效率</span></h2>
+<p>平均查找长度ASL（Average Search Length）：需要对比关键字的次数</p>
+<ol>
+<li>
+<p>查找成功的ASL</p>
+<img src="https://pic.imgdb.cn/item/63be996bbe43e0d30e01cf1e.jpg" style="zoom:50%;">
+</li>
+<li>
+<p>查找失败的ASL</p>
+<img src="https://pic.imgdb.cn/item/63be99b9be43e0d30e0272f7.jpg" style="zoom:50%;">
+</li>
+</ol>
+<h2><span id="引申出平衡二叉树">引申出平衡二叉树</span></h2>
+<p>二叉排序树的优点明显，插入删除的时间性能比较好。</p>
+<p>而对于二叉排序树的查找，其比较次数等于给定值的结点在二叉排序树的层数，即树的高</p>
+<p>最好情况：n个结点的二叉树最小高度为 log<sub>2</sub>n（向下取整）+1</p>
+<p>最坏情况：每个结点1个分支，树高=节点数=n</p>
+<p>也就是说，我们希望二叉排序树是比较平衡的，即其深度与完全二叉树相同，那么查找的时间复杂也就为O(logn)，近似于折半查找</p>
+<h1><span id="平衡二叉树">平衡二叉树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>平衡二叉树(AVL)是一种二叉排序树，其中每一个节点的左子树和右子树的高度差不超过1</p>
+<p>结点的平衡因子：二叉树上结点的左子树深度减去右子树深度的值称为平衡因子</p>
+<p>平衡二叉树上所有结点的平衡因子只能是-1、0和1</p>
+<p>假设n<sub>h</sub>为深度为h的平衡树中含有的最少结点数，n<sub>0</sub>=0，n<sub>1</sub>=1，n<sub>2</sub>= 2 ，平衡二叉树中有n<sub>h</sub> = n<sub>h-1</sub> + n<sub>h-2</sub> +1可证明最大深度和平均查找长度O(long<sub>2</sub>n)</p>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="平衡二叉树的结构">平衡二叉树的结构</span></h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">AVLNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    <span class="type">int</span> balance;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">AVLnode</span> *<span class="title">rchild</span>, *<span class="title">lchild</span>;</span></span><br><span class="line">&#125;AVLNode,*AVLTree;</span><br></pre></td></tr></table></figure>
+<h3><span id="查找操作">查找操作</span></h3>
+<h3><span id="插入操作">插入操作</span></h3>
+<p>当我们在二叉排序树中插入(或删除)一个结点时，可能导致其插入路径上的结点不平衡（平衡因子绝对值大于1）</p>
+<p>若导致了不平衡，须将最小不平衡子树调整平衡，则其他结点都会恢复平衡</p>
+<p>最小不平衡子树：从插入结点王辉找到第一个不平衡结点，以该结点为根的子树</p>
+<h4><span id="ll平衡旋转右单旋转">LL平衡旋转(右单旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea349be43e0d30e12a52e.jpg" alt></p>
+<p>在结点A的左孩子(L)的左子树(L)上插入了新结点</p>
+<p>将A的左孩子B向右上旋转代替A成为根结点，将A结点向右下旋转成为B的右子树的根结点，而B的原右子树则作为A结点的左子树</p>
+<h4><span id="rr平衡旋转左单旋转">RR平衡旋转(左单旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bf666ebe43e0d30e2ce419.jpg" alt="image-20230111195440307"></p>
+<p>在结点A的右孩子®的右子树®上插入了新结点</p>
+<p>将A的右孩子B向左上旋转代替A成为根结点，将A结点向左下旋转成为B的左子树的根结点，而B的原左子树则作为A结点的右子树</p>
+<h4><span id="lr平衡旋转先左后右双旋转">LR平衡旋转(先左后右双旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea837be43e0d30e1d7d44.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/63bea87abe43e0d30e1ddaf3.jpg" alt></p>
+<p>在A的左孩子(L)的右子树®上插入新结点</p>
+<p>先将A结点的左孩子B的右子树的根结点C向左上旋转提升到B结点的位置,即进行一次RR平衡旋转(左单旋转），然后再把该C结点向右上旋转提升到A结点的位置,即进行一次LL平衡旋转(右单旋转)</p>
+<h4><span id="rl平衡旋转先右后左双旋转">RL平衡旋转(先右后左双旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea8b2be43e0d30e1e2b37.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/63bea8ddbe43e0d30e1e681a.jpg" alt></p>
+<p>在A的右孩子®的左子树(L)上插入新结点</p>
+<p>先将A结点的右孩子B的左子树的根结点C向右上旋转提升到B结点的位置,即进行一次LL平衡旋转(右单旋转)，然后再把该C结点向左上旋转提升到A结点的位置,即进行一次RR平衡旋转(左单旋转)</p>
+<p>新结点插入C的左子树还是插入C的右子树不影响旋转过程</p>
+<p><img src="https://pic.imgdb.cn/item/63beaaafbe43e0d30e2182c7.jpg" alt></p>
+<ul>
+<li>插入操作导致的最小不平衡子树（此时插入前平衡）：高度加1，经过调整后最小不平衡子树的高度恢复，从而其祖先结点也恢复</li>
+</ul>
+<h2><span id="查找效率">查找效率</span></h2>
+<ul>
+<li>若树高为h，最坏情况下，查找一个关键字最多需要比较h次，即查找操作的时间复杂度不可能超过O(h)</li>
+</ul>
+<h1><span id="红黑树">红黑树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>红黑树也是二叉排序树，与普通BST相比：左根右，根叶黑 ，不红红，黑路同，左子孙结点值小于根节点值小于右子孙结点值</p>
+<ol>
+<li>每个结点或是红色，或是黑色的</li>
+<li>根节点是黑色的</li>
+<li>叶结点（外部结点、NULL结点、失败结点）均是黑色的</li>
+<li>不存在两个相邻的红结点（即红结点的父节点和孩子结点均是黑色）</li>
+<li>对每个结点，从该节点到任一叶结点的简单路径上，所含黑结点的数目相同</li>
+</ol>
+<ul>
+<li>平衡二叉树 AVL：插入/删除 很容易破坏“平衡”特性，需要频繁调整树的形态。如：插入操作导致不 平衡，则需要先计算平衡因子，找到最小不平衡子树（时间开销大），再进行 LL/RR/LR/RL 调整</li>
+<li>红黑树 RBT：插入/删除 很多时候不会破坏“红黑”特性，无需频繁调整树的形态。即便需要调整，一 般都可以在常数级时间内完成 平衡二叉树：适用于以查为主、很少插入/删除的场景 红黑树：适用于频繁插入、删除的场景，实用性更强 性能逐渐优秀</li>
+</ul>
+<h2><span id="红黑树的结构">红黑树的结构</span></h2>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RBNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    RBNode* parent;</span><br><span class="line">    RBNode* lchild;</span><br><span class="line">    RBNode* rchild;</span><br><span class="line">    <span class="type">int</span> color;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2><span id="性质">性质</span></h2>
+<ol>
+<li>结点的黑高（bh）：从某结点出发（<strong>不含该节点</strong>）到达任一<strong>空叶结点</strong>的<strong>路径上黑结点总数</strong></li>
+<li>从根节点到叶结点的最长路径不大于最短路径的2倍</li>
+<li>有n个内部节点的红黑树高度 h ≤ 2log<sub>2</sub>(n+1)</li>
+<li>查找效率与AVL 树同等数量级 红黑树查找操作时间复杂度 = O(log<sub>2</sub>n)</li>
+</ol>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="插入操作">插入操作</span></h3>
+<ol>
+<li>先查找，确定插入位置（原理同二叉排序树），插入新结点</li>
+<li>新结点是根——染为黑色</li>
+<li>新结点非根——染为红色</li>
+<li>若插入新结点后依然满足红黑树定义，则插入结束，若不满足红黑树定义，则通过叔叔结点的颜色调整
+<ol>
+<li>黑叔：旋转+染色
+<ol>
+<li>LL型：右单旋，父换爷+染色</li>
+<li>RR型：左单旋，父换爷+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色</li>
+<li>RL型：右、左双旋，儿换爷+染色</li>
+</ol>
+</li>
+<li>红叔：染色+变新
+<ol>
+<li>叔父爷染色，爷变为新结点</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> TreeNode&lt;K,V&gt; <span class="title function_">putTreeVal</span><span class="params">(HashMap&lt;K,V&gt; map, Node&lt;K,V&gt;[] tab,</span></span><br><span class="line"><span class="params">                           <span class="type">int</span> h, K k, V v)</span> &#123;</span><br><span class="line">    Class&lt;?&gt; kc = <span class="literal">null</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">searched</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    TreeNode&lt;K,V&gt; root = (parent != <span class="literal">null</span>) ? root() : <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode&lt;K,V&gt; p = root;;) &#123;</span><br><span class="line">        <span class="type">int</span> dir, ph; K pk;</span><br><span class="line">        <span class="keyword">if</span> ((ph = p.hash) &gt; h)</span><br><span class="line">            dir = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ph &lt; h)</span><br><span class="line">            dir = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((pk = p.key) == k || (k != <span class="literal">null</span> &amp;&amp; k.equals(pk)))</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((kc == <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                  (kc = comparableClassFor(k)) == <span class="literal">null</span>) ||</span><br><span class="line">                 (dir = compareComparables(kc, k, pk)) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!searched) &#123;</span><br><span class="line">                TreeNode&lt;K,V&gt; q, ch;</span><br><span class="line">                searched = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (((ch = p.left) != <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                     (q = ch.find(h, k, kc)) != <span class="literal">null</span>) ||</span><br><span class="line">                    ((ch = p.right) != <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                     (q = ch.find(h, k, kc)) != <span class="literal">null</span>))</span><br><span class="line">                    <span class="keyword">return</span> q;</span><br><span class="line">            &#125;</span><br><span class="line">            dir = tieBreakOrder(k, pk);</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode&lt;K,V&gt; xp = p;</span><br><span class="line">        <span class="keyword">if</span> ((p = (dir &lt;= <span class="number">0</span>) ? p.left : p.right) == <span class="literal">null</span>) &#123;</span><br><span class="line">            Node&lt;K,V&gt; xpn = xp.next;</span><br><span class="line">            TreeNode&lt;K,V&gt; x = map.newTreeNode(h, k, v, xpn);</span><br><span class="line">            <span class="keyword">if</span> (dir &lt;= <span class="number">0</span>)</span><br><span class="line">                xp.left = x;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xp.right = x;</span><br><span class="line">            xp.next = x;</span><br><span class="line">            x.parent = x.prev = xp;</span><br><span class="line">            <span class="keyword">if</span> (xpn != <span class="literal">null</span>)</span><br><span class="line">                ((TreeNode&lt;K,V&gt;)xpn).prev = x;</span><br><span class="line">            moveRootToFront(tab, balanceInsertion(root, x));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="构建操作java">构建操作（java）</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">treeify</span><span class="params">(Node&lt;K,V&gt;[] tab)</span> &#123;		<span class="comment">//构建红黑树</span></span><br><span class="line">    TreeNode&lt;K,V&gt; root = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode&lt;K,V&gt; x = <span class="built_in">this</span>, next; x != <span class="literal">null</span>; x = next) &#123;</span><br><span class="line">        next = (TreeNode&lt;K,V&gt;)x.next;</span><br><span class="line">        x.left = x.right = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">            x.parent = <span class="literal">null</span>;</span><br><span class="line">            x.red = <span class="literal">false</span>;</span><br><span class="line">            root = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">K</span> <span class="variable">k</span> <span class="operator">=</span> x.key;</span><br><span class="line">            <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> x.hash;</span><br><span class="line">            Class&lt;?&gt; kc = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (TreeNode&lt;K,V&gt; p = root;;) &#123;</span><br><span class="line">                <span class="type">int</span> dir, ph;</span><br><span class="line">                <span class="type">K</span> <span class="variable">pk</span> <span class="operator">=</span> p.key;</span><br><span class="line">                <span class="keyword">if</span> ((ph = p.hash) &gt; h)</span><br><span class="line">                    dir = -<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ph &lt; h)</span><br><span class="line">                    dir = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> ((kc == <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                          (kc = comparableClassFor(k)) == <span class="literal">null</span>) ||</span><br><span class="line">                         (dir = compareComparables(kc, k, pk)) == <span class="number">0</span>)</span><br><span class="line">                    dir = tieBreakOrder(k, pk);</span><br><span class="line"></span><br><span class="line">                TreeNode&lt;K,V&gt; xp = p;</span><br><span class="line">                <span class="keyword">if</span> ((p = (dir &lt;= <span class="number">0</span>) ? p.left : p.right) == <span class="literal">null</span>) &#123;</span><br><span class="line">                    x.parent = xp;</span><br><span class="line">                    <span class="keyword">if</span> (dir &lt;= <span class="number">0</span>)</span><br><span class="line">                        xp.left = x;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        xp.right = x;</span><br><span class="line">                    root = balanceInsertion(root, x);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    moveRootToFront(tab, root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    首先红黑树是不符合AVL树的平衡条件的，即每个节点的左子树和右子树的高度最多差1的二叉查找树。但是提出了为节点增加颜色，红黑是用非严格的平衡来换取增删节点时候旋转次数的降低，而AVL是严格平衡树，因此在增加或者删除节点的时候，根据不同情况，旋转的次数比红黑树要多</p>
+<p><img src="https://pic.imgdb.cn/item/63bf6956be43e0d30e315a52.jpg" alt="不严格平衡的红黑树"></p>
+<p>​    <strong>Answer 1：</strong></p>
+<ol>
+<li>
+<p>如果插入一个node引起了树的不平衡，AVL和RB-Tree都是最多只需要2次旋转操作，即两者都是O(1)；但是在删除node引起树的不平衡时，最坏情况下，AVL需要维护从被删node到root这条路径上所有node的平衡性，因此需要旋转的量级O(logN)，而RB-Tree最多只需3次旋转，只需要O(1)的复杂度。</p>
+</li>
+<li>
+<p>其次，AVL的结构相较RB-Tree来说更为平衡，在插入和删除node更容易引起Tree的unbalance，因此在大量数据需要插入或者删除时，AVL需要rebalance的频率会更高。因此，RB-Tree在需要大量插入和删除node的场景下，效率更高。自然，由于AVL高度平衡，因此AVL的search效率更高。</p>
+</li>
+<li>
+<p>map的实现只是折衷了两者在search、insert以及delete下的效率。总体来说，RB-tree的统计性能是高于AVL的。</p>
+</li>
+<li>
+<p>红黑树的查询性能略微逊色于AVL树，因为他比avl树会稍微不平衡最多一层，也就是说红黑树的查询性能只比相同内容的avl树最多多一次比较，但是，红黑树在插入和删除上完爆avl树，avl树每次插入删除会进行大量的平衡度计算，而红黑树为了维持红黑性质所做的红黑变换和旋转的开销，相较于avl树为了维持平衡的开销要小得多</p>
+</li>
+<li>
+<p>功能、性能、空间开销的折中结果。<br>
+AVL更平衡，结构上更加直观，时间效能针对读取而言更高；维护稍慢，空间开销较大。<br>
+红黑树，读取略逊于AVL，维护强于AVL，空间开销与AVL类似，内容极多时略优于AVL，维护优于AVL。</p>
+<p><strong>所以简单说，如果你的应用中，搜索的次数远远大于插入和删除，那么选择AVL，如果搜索，插入删除次数几乎差不多，应该选择RB。</strong></p>
+</li>
+</ol>
+<p>​    <strong>1 好处 及 用途</strong></p>
+<p>​    红黑树并不追求“完全平衡”——它只要求部分地达到平衡要求，降低了对旋转的要求，从而提高了性能。</p>
+<p>​    红黑树能够以O(log2 n) 的时间复杂度进行搜索、插入、删除操作。当然，还有一些更好的，但实现起来更复杂的<a href="http://lib.csdn.net/base/datastructure">数据结构</a> 能够做到一步旋转之内达到平衡，但红黑树能够给我们一个比较“便宜”的解决方案。红黑树的<a href="http://lib.csdn.net/base/datastructure">算法</a>时间复杂度和AVL相同，但统计性能比AVL树更高。</p>
+<p>​    当然，红黑树并不适应所有应用树的领域。如果数据基本上是静态的，那么让他们待在他们能够插入，并且不影响平衡的地方会具有更好的性能。如果数据完全是静态的，例如，做一个哈希表，性能可能会更好一些。</p>
+<p>​     在实际的系统中，例如，需要使用动态规则的防火墙系统，使用红黑树而不是散列表被实践证明具有更好的伸缩性。</p>
+<p>​     典型的用途是实现关联数组</p>
+<p>​    <strong>2. AVL树是最先发明的自平衡二叉查找树。</strong></p>
+<p>​    在AVL树中任何节点的两个儿子子树的高度最大差别为一，所以它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下都是O(log n)。增加和删除可能需要通过一次或多次树旋转来重新平衡这个树。AVL树得名于它的发明者 G.M. Adelson-Velsky 和 E.M. Landis，他们在 1962 年的论文 “An algorithm for the organization of information” 中发表了它。引入二叉树的目的是为了提高二叉树的搜索的效率, 减少树的平均搜索长度.为此,就必须每向二叉树插入一个结点时调整树的结构,使得二叉树搜索保持平衡,从而可能降低树的高度,减少的平均树的搜索长度.</p>
+<p>​    AVL树的定义:<br>
+​    一棵AVL树满足以下的条件:<br>
+​    1&gt;它的左子树和右子树都是AVL树<br>
+​    2&gt;左子树和右子树的高度差不能超过1<br>
+​    从条件1可能看出是个递归定义,如GNU一样.</p>
+<p>​    性质:<br>
+​    1&gt;一棵n个结点的AVL树的其高度保持在0(log2(n)),不会超过3/2log2(n+1)<br>
+​    2&gt;一棵n个结点的AVL树的平均搜索长度保持在0(log2(n)).<br>
+​    3&gt;一棵n个结点的AVL树删除一个结点做平衡化旋转所需要的时间为0(log2(n)).</p>
+]]></content>
+      <categories>
+        <category>第二阶段</category>
       </categories>
   </entry>
   <entry>
@@ -2871,6 +3169,143 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>运算符</title>
+    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<span id="more"></span>
+<h1><span id="算数运算符">算数运算符</span></h1>
+<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
+<p>从左向右执行：</p>
+<ul>
+<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
+<li>符号两边都是数字 做的是加法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
+<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
+<h2><span id="乘法">* :	乘法</span></h2>
+<h2><span id="除法">\ :	除法</span></h2>
+<p>​		<code>System.out.println(10/3*3);//9</code></p>
+<h2><span id="取余">%：取余</span></h2>
+<ul>
+<li>
+<p>任意数字和n取余结果是[0，n-1]</p>
+</li>
+<li>
+<p>取余结果符号和被除数符号一致</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
+<h3><span id>++</span></h3>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
+</ul>
+<h2><span id>–</span></h2>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
+<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
+<h1><span id="赋值运算符">赋值运算符</span></h1>
+<h2><span id="基本运算符">基本运算符： =</span></h2>
+<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
+<h1><span id="关系运算符">关系运算符</span></h1>
+<h1><span id="逻辑运算符">逻辑运算符</span></h1>
+<p>操作数是boolean 运算结果也是boolean类型</p>
+<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
+<ul>
+<li>有一假结果是假</li>
+<li>同:运算结果相同</li>
+<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
+<ul>
+<li>有一真结果为真</li>
+<li>运算结果相同</li>
+<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑非">逻辑非</span></h2>
+<ul>
+<li>！取反</li>
+</ul>
+<h2><span id="逻辑异或">逻辑异或</span></h2>
+<ul>
+<li>^ :相同为假 不同为真</li>
+</ul>
+<h1><span id="位运算符">位运算符</span></h1>
+<p>操作的是数值,得到数值的补码然后进行位运算</p>
+<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
+<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
+<p>每移动一位相当于* 2 空位补0</p>
+<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
+<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位补0</p>
+<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
+<p>每一位上如果是1 看做true 如果是0 看做false</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑或">逻辑或 |</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ul>
+<h3><span id="3种变量交换">3种变量交换</span></h3>
+<h4><span id="临时变量">临时变量</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
+<h4><span id="累加消除">累加消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>少定义一个变量</li>
+<li>有局限，可能超过int类型</li>
+</ol>
+<h4><span id="异或消除">异或消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>少定义一个变量</li>
+<li>没有局限</li>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ol>
+<h1><span id="三元运算符">三元运算符</span></h1>
+<ul>
+<li>
+<p>boolean表达式 ? 表达式1 : 表达式2</p>
+</li>
+<li>
+<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
+</li>
+<li>
+<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
+</li>
+</ul>
+<p>注意:</p>
+<ol>
+<li>表达式1 和 表达式2 结果类型必须保持一致</li>
+<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>继承</title>
     <url>/post/%E7%BB%A7%E6%89%BF/</url>
     <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
@@ -3013,143 +3448,6 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
       </categories>
   </entry>
   <entry>
-    <title>运算符</title>
-    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<span id="more"></span>
-<h1><span id="算数运算符">算数运算符</span></h1>
-<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
-<p>从左向右执行：</p>
-<ul>
-<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
-<li>符号两边都是数字 做的是加法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
-<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
-<h2><span id="乘法">* :	乘法</span></h2>
-<h2><span id="除法">\ :	除法</span></h2>
-<p>​		<code>System.out.println(10/3*3);//9</code></p>
-<h2><span id="取余">%：取余</span></h2>
-<ul>
-<li>
-<p>任意数字和n取余结果是[0，n-1]</p>
-</li>
-<li>
-<p>取余结果符号和被除数符号一致</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
-<h3><span id>++</span></h3>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
-</ul>
-<h2><span id>–</span></h2>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
-<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
-<h1><span id="赋值运算符">赋值运算符</span></h1>
-<h2><span id="基本运算符">基本运算符： =</span></h2>
-<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
-<h1><span id="关系运算符">关系运算符</span></h1>
-<h1><span id="逻辑运算符">逻辑运算符</span></h1>
-<p>操作数是boolean 运算结果也是boolean类型</p>
-<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
-<ul>
-<li>有一假结果是假</li>
-<li>同:运算结果相同</li>
-<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
-<ul>
-<li>有一真结果为真</li>
-<li>运算结果相同</li>
-<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑非">逻辑非</span></h2>
-<ul>
-<li>！取反</li>
-</ul>
-<h2><span id="逻辑异或">逻辑异或</span></h2>
-<ul>
-<li>^ :相同为假 不同为真</li>
-</ul>
-<h1><span id="位运算符">位运算符</span></h1>
-<p>操作的是数值,得到数值的补码然后进行位运算</p>
-<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
-<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
-<p>每移动一位相当于* 2 空位补0</p>
-<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
-<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位补0</p>
-<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
-<p>每一位上如果是1 看做true 如果是0 看做false</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑或">逻辑或 |</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ul>
-<h3><span id="3种变量交换">3种变量交换</span></h3>
-<h4><span id="临时变量">临时变量</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
-<h4><span id="累加消除">累加消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>少定义一个变量</li>
-<li>有局限，可能超过int类型</li>
-</ol>
-<h4><span id="异或消除">异或消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>少定义一个变量</li>
-<li>没有局限</li>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ol>
-<h1><span id="三元运算符">三元运算符</span></h1>
-<ul>
-<li>
-<p>boolean表达式 ? 表达式1 : 表达式2</p>
-</li>
-<li>
-<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
-</li>
-<li>
-<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
-</li>
-</ul>
-<p>注意:</p>
-<ol>
-<li>表达式1 和 表达式2 结果类型必须保持一致</li>
-<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>集合</title>
     <url>/post/%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<span id="more"></span>
@@ -3252,6 +3550,11 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <li><a href="#%E6%96%B9%E6%B3%95-3">方法</a></li>
 <li><a href="#%E9%81%8D%E5%8E%86">遍历</a></li>
 <li><a href="#%E5%8E%BB%E9%87%8D">去重</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">执行原理</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%E8%BF%87%E7%A8%8B-2">添加元素过程</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3986,6 +4289,131 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <h2><span id="去重">去重</span></h2>
 <p>HashMap去重规则与HashSet一致</p>
 <p>唯一区别：HashMap添加重复数据将替换原有数据</p>
+<h2><span id="执行原理">执行原理</span></h2>
+<h3><span id="添加元素过程">添加元素过程</span></h3>
+<ol>
+<li>
+<p>判断若是首次插入元素，未初始化结点数组</p>
+<ol>
+<li><a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">调整数组大小</a></li>
+</ol>
+</li>
+<li>
+<p>已初始化过数组，<a href="#%E6%8F%92%E5%85%A5%E6%95%B0%E7%BB%84%E4%B8%8B%E6%A0%87">计算要插入结点数组的下标</a></p>
+<ol>
+<li>
+<p>若该位置没有元素，则直接插入</p>
+</li>
+<li>
+<p>若该位置有元素说明发生<a href="#%E5%93%88%E5%B8%8C%E7%A2%B0%E6%92%9E">哈希碰撞</a>，可能出现下面几种情况</p>
+<ol>
+<li>
+<p>两元素<a href="#%E5%88%A4%E9%87%8D">重复</a>（HashSet判重标准），<a href="#%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%84%E7%90%86">处理重复元素</a></p>
+</li>
+<li>
+<p>两元素不重复，原数组元素为树节点（已树化），直接<a href="#">插入树</a></p>
+</li>
+<li>
+<p>两元素不重复，原数组元素为普通结点，则遍历该链表</p>
+<ol>
+<li>
+<p>全链表没有重复元素，则插入该链表，若插入元素为该链表第九个，需处理链表过长（<a href="#%E6%A0%91%E5%8C%96">树化</a>或<a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">扩容</a>）</p>
+</li>
+<li>
+<p>遍历过程中发现链表有重复元素，<a href="#%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%84%E7%90%86">处理重复元素</a></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>若添加新元素后的数组总个数超过threshold，还需<a href="#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E5%A4%A7%E5%B0%8F">调整数组大小</a></p>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// 默认容量： 16</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAXIMUM_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">30</span>;		<span class="comment">//最大容量 2^30^</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>;		<span class="comment">//负载因子:数组增长率</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">TREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">8</span>;				<span class="comment">//树化链长条件</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">UNTREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">6</span>;			<span class="comment">//链化参数</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_TREEIFY_CAPACITY</span> <span class="operator">=</span> <span class="number">64</span>;			<span class="comment">//树化数组长度条件</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;						<span class="comment">//结点数组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,<span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] tab; </span><br><span class="line">    Node&lt;K,V&gt; p; </span><br><span class="line">    <span class="type">int</span> n, i;</span><br><span class="line">    <span class="comment">//当前结点数组为空，或长度为0</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)		</span><br><span class="line">        n = (tab = resize()).length;		<span class="comment">//新建长度为默认容量16结点数组，，更新threshold为负载因子乘上默认容量</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)		<span class="comment">//要插入的数组位置为空</span></span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="literal">null</span>);	<span class="comment">//插入该数组</span></span><br><span class="line">    <span class="keyword">else</span> &#123;								<span class="comment">//结点数组既不为空且插入位置发生冲突</span></span><br><span class="line">        Node&lt;K,V&gt; e; K k;</span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)		<span class="comment">//原数组元素为树节点</span></span><br><span class="line">            e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">//TREEIFY_THRESHOLD=8	插入第九个树化</span></span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// key有映射</span></span><br><span class="line">            <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)	<span class="comment">//true丢弃重复元素，false替换</span></span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);			<span class="comment">// LinkedHashMap</span></span><br><span class="line">            <span class="keyword">return</span> oldValue;	<span class="comment">//返回被替换的真值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ++modCount;		<span class="comment">//记录本次修改</span></span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)		<span class="comment">//threshold比较标准是总数组元素个数，不是数组长度</span></span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);	<span class="comment">// LinkedHashMap</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="调整数组大小">调整数组大小</span></h4>
+<ol>
+<li>首次添加元素，对数组初始化
+<ol>
+<li>新建结点数组，长度为默认容量16，更新threshold为负载因子乘上默认容量</li>
+</ol>
+</li>
+<li>首次添加元素，但<a href="#%E6%9E%84%E9%80%A0%E6%97%B6%E5%88%9D%E5%A7%8B%E5%8C%96threshold">构造集合时初始化了数组长度</a>
+<ol>
+<li>初始化时指定的数组长度大于等于最大数组容量，更新threshold为int最大值</li>
+<li>初始化时指定数组长度小于最大数组容量，更新threshold为指定长度乘上负载因子</li>
+</ol>
+</li>
+<li>数组总元素个数超过threshold，需要扩容（数组中挂链长度大于8但数组长度小于64，为了分解链表也会扩容，扩容至64<a href="#%E6%A0%91%E5%8C%96">树化</a>）
+<ol>
+<li>数组长度已经大于等于最大容量，更新threshold为int最大值</li>
+<li>数组已初始化（长度大于等于默认容量）且数组长度扩容两倍仍小于最大容量，则扩容为原来的两倍，threshold也扩大两倍</li>
+<li>由于数组中已有数据，扩容时还需遍历数组，将旧数组元素转移到新数组中
+<ol>
+<li>当前下标元素既没树化，也没链化，则直接运算其下标存入新数组中</li>
+<li>当前元素为树节点（已树化），则插入树中</li>
+<li>当前元素已链化，分解链表</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;	<span class="comment">//调整大小		数组初始化/数组长度插入新元素后大于threshold</span></span><br><span class="line">    Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldCap</span> <span class="operator">=</span> (oldTab == <span class="literal">null</span>) ? <span class="number">0</span> : oldTab.length;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldThr</span> <span class="operator">=</span> threshold;</span><br><span class="line">    <span class="type">int</span> newCap, newThr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;					   <span class="comment">//结点数组不为空</span></span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;	<span class="comment">//大于等于最大容量</span></span><br><span class="line">            threshold = Integer.MAX_VALUE;	<span class="comment">//threshold设为int最大值</span></span><br><span class="line">            <span class="keyword">return</span> oldTab;				   <span class="comment">//返回旧结点数组</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//新结点数组扩容后仍小于最大容量且旧结点数组长度大于等于16（意味着已经初始化）</span></span><br><span class="line">        <span class="comment">//新结点数组长度扩大两倍</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;	</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// newThr为oldThr两倍</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// 结点数组为空，但threshold已初始化，则按照以有的threshold初始化</span></span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="keyword">else</span> &#123;               <span class="comment">// 未初始化threshold和结点数组，表示使用默认值</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPACITY;		<span class="comment">//新结点数组长度置为默认容量（16）</span></span><br><span class="line">        newThr = (<span class="type">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);	<span class="comment">//newThr置为负载因子乘上默认容量</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;	<span class="comment">//按照以有的threshold初始化</span></span><br><span class="line">        <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> (<span class="type">float</span>)newCap * loadFactor;</span><br><span class="line">        <span class="comment">//初始化数组长度大于等于最大容量时，新threshold设为int最大值</span></span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY ? </span><br><span class="line">                  (<span class="type">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = newThr;	 		<span class="comment">//更新threshold</span></span><br><span class="line">    <span class="meta">@SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span></span><br><span class="line">        Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[newCap];		<span class="comment">//新建结点数组，长度为newCap</span></span><br><span class="line">    table = newTab;</span><br><span class="line">    <span class="keyword">if</span> (oldTab != <span class="literal">null</span>) &#123;			<span class="comment">//数组中尚且有元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            <span class="keyword">if</span> ((e = oldTab[j]) != <span class="literal">null</span>) &#123;	<span class="comment">//当前下标有元素时</span></span><br><span class="line">                oldTab[j] = <span class="literal">null</span>;			<span class="comment">//清除旧数组元素</span></span><br><span class="line">                <span class="keyword">if</span> (e.next == <span class="literal">null</span>)			<span class="comment">//当前元素没有挂链</span></span><br><span class="line">                    newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;		<span class="comment">//直接复制到新数组中</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)		<span class="comment">//树节点</span></span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(<span class="built_in">this</span>, newTab, j, oldCap);</span><br><span class="line">                <span class="keyword">else</span> &#123; <span class="comment">// 当前元素有挂链</span></span><br><span class="line">                    Node&lt;K,V&gt; loHead = <span class="literal">null</span>, loTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; hiHead = <span class="literal">null</span>, hiTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    <span class="comment">//1.新数组长度为旧数组两倍</span></span><br><span class="line">                    <span class="comment">//2.当前下标位置有挂链</span></span><br><span class="line">                    <span class="comment">//3.按照旧数组长度，如2^i，即看第i位是否为1，将挂链分为两条链表</span></span><br><span class="line">                    <span class="comment">//4.第i位为0的存储在原位置，为1的存储在原数组长度加上原位置的位置</span></span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        next = e.next;		<span class="comment">//next指向下个元素</span></span><br><span class="line">                        <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;	</span><br><span class="line">                            <span class="keyword">if</span> (loTail == <span class="literal">null</span>)</span><br><span class="line">                                loHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                loTail.next = e;</span><br><span class="line">                            loTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (hiTail == <span class="literal">null</span>)</span><br><span class="line">                                hiHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                hiTail.next = e;</span><br><span class="line">                            hiTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">while</span> ((e = next) != <span class="literal">null</span>);	<span class="comment">//遍历原链表结点，并赋值到新链表上</span></span><br><span class="line">                    <span class="keyword">if</span> (loTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        loTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j] = loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (hiTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        hiTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j + oldCap] = hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="构造时初始化threshold">构造时初始化threshold</span></h4>
+<p>构造HashMap或HashSet时带参将初始化threshold，参数即使大于最大容量也会自降为最大容量</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity, <span class="type">float</span> loadFactor)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal initial capacity: &quot;</span> + initialCapacity);</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">    <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.isNaN(loadFactor))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal load factor: &quot;</span> + loadFactor);</span><br><span class="line">    <span class="built_in">this</span>.loadFactor = loadFactor;</span><br><span class="line">    <span class="built_in">this</span>.threshold = tableSizeFor(initialCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>参数大于1时，初始化的threshold值为大于等于参数且最接近参数的 2<sup>i</sup>数列	（i&gt;=4,i为正整数，最大为最大容量（2<sup>30</sup>））</p>
+<blockquote>
+<p>例如14、22、54的参数，则实际初始化threshold为16、32、64</p>
+</blockquote>
+</li>
+<li>
+<p>参数小于等于1时，初始化threshold值为1</p>
+</li>
+<li>
+<p>参数大于等于最大容量时，初始化threshold值理论上为设置的最大容量，但实际测试超过2<sup>29</sup>时， (OutOfMemoryError)异常</p>
+</li>
+</ol>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">tableSizeFor</span><span class="params">(<span class="type">int</span> cap)</span> &#123;	</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> cap - <span class="number">1</span>;	</span><br><span class="line">    <span class="comment">//若n的二进制形式中至少有一个位为1 </span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;		<span class="comment">//n与自身右移1位进行或运算（有1则1），导致为1的位的右边1位必定为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;		<span class="comment">//再与自身右移2位进行或运算，则1位右边3位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;		<span class="comment">//再与自身右移4位进行或运算，则1位右边7位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;		<span class="comment">//再与自身右移8位进行或运算，则1位右边15位都为1</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;		<span class="comment">//再与自身右移16位进行或运算，则1位右边31位都为1</span></span><br><span class="line">    <span class="comment">//运算后n的结果：为1的最高位其后至多31位都为1</span></span><br><span class="line">    <span class="comment">//n+1：为1最高位为第i-1位,即大于等于cap且最接近的2^i^数列</span></span><br><span class="line">    <span class="comment">//上述为cap大于1的情况</span></span><br><span class="line">    <span class="comment">//cap小于1时，n&lt;0，结果为1</span></span><br><span class="line">    <span class="comment">//cap等于1时，n=0，结果也为1</span></span><br><span class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="插入数组下标">插入数组下标</span></h4>
+<p><code>(n - 1) &amp; hash</code> n为数组长度</p>
+<p>数组长度n为2<sup>i</sup>数列，与n-1进行按位且运算，结果取二进制形式下的后i位</p>
+<p>对于二进制下不超过16位的值类型，相当于取模运算，因为哈希计算过程中，hashCode还要异或上自身的高16位</p>
+<blockquote>
+<ol>
+<li>让高16位也参与运算，可以更好的均匀散列，减少碰撞，进一步降低hash冲突的几率</li>
+<li>异或运算是为了更好保留两组32位二进制数中各自的特征，且运算和或运算会导致结果偏向0或1</li>
+</ol>
+</blockquote>
+<p>源码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">    <span class="type">int</span> h;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="哈希碰撞">哈希碰撞</span></h4>
+<p>即插入数组下标冲突，不超过16位的值类型的哈希碰撞，意味着它们与数组长度取模后的结果相等</p>
+<p>当两元素发生哈希碰撞，通常还要判断两元素是否重复</p>
+<h4><span id="判重">判重</span></h4>
+<p><code>p.hash == hash &amp;&amp;  (p.key == key || (key != null &amp;&amp; key.equals(p.key)))</code></p>
+<p>首先hash一定相等，且键的地址一样或equals相等，则说明两元素重复</p>
+<h4><span id="重复元素的处理">重复元素的处理</span></h4>
+<p>添加方法的参数onlyIfAbsent 为true时丢弃重复元素，false替换原数组元素</p>
+<h4><span id="树化">树化</span></h4>
+<p>结点数组里的一个下标位中的元素采用红黑树结构存储</p>
+<ol>
+<li>若结点数组中的链表链长大于8，且桶长大于等于64，则树化，否则为调整数组大小</li>
+<li>将链表上的元素转换成红黑树的形式插入结点数组中</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">treeifyBin</span><span class="params">(Node&lt;K,V&gt;[] tab, <span class="type">int</span> hash)</span> &#123;</span><br><span class="line">    <span class="type">int</span> n, index; Node&lt;K,V&gt; e;</span><br><span class="line">    <span class="keyword">if</span> (tab == <span class="literal">null</span> || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)<span class="comment">//64</span></span><br><span class="line">        resize();</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ((e = tab[index = (n - <span class="number">1</span>) &amp; hash]) != <span class="literal">null</span>) &#123;<span class="comment">//链表上有元素</span></span><br><span class="line">        TreeNode&lt;K,V&gt; hd = <span class="literal">null</span>, tl = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;<span class="comment">//遍历该链表</span></span><br><span class="line">            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, <span class="literal">null</span>);	<span class="comment">//将结点转换为树结点</span></span><br><span class="line">            <span class="keyword">if</span> (tl == <span class="literal">null</span>)</span><br><span class="line">                hd = p;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                p.prev = tl;</span><br><span class="line">                tl.next = p;</span><br><span class="line">            &#125;</span><br><span class="line">            tl = p;</span><br><span class="line">        &#125; <span class="keyword">while</span> ((e = e.next) != <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">if</span> ((tab[index] = hd) != <span class="literal">null</span>)	<span class="comment">//树节点链表插入数组中</span></span><br><span class="line">            hd.treeify(tab);	<span class="comment">//将树节点链表构建成红黑树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="链化">链化</span></h4>
+<p>结点数组里的一个下标位中的元素采用链表结构存储</p>
+<p>如果已经树化，如果树的节点小于6，则链化</p>
+<h2><span id></span></h2>
 ]]></content>
       <categories>
         <category>第二阶段</category>

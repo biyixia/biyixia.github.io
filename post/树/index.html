@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>树 |  biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-树"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  树
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/%E6%A0%91/" class="article-date">
+  <time datetime="2023-01-11T07:25:18.314Z" itemprop="datePublished">2023-01-11</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/">第二阶段</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">17 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1><span id="二叉排序树">二叉排序树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>也称二叉查找树，一棵空树，或者是具有下列特性的二叉树:</p>
+<ol>
+<li>若左子树非空，则左子树上所有结点的值均小于根结点的值</li>
+<li>若右子树非空，则右子树上所有结点的值均大于根结点的值</li>
+<li>左、右子树也分别是一棵二叉排序树</li>
+</ol>
+<p>左子树结点值 &lt; 根结点值 &lt; 右子树结点值</p>
+<p>对二叉排序树进行中序遍历可以得到一个递增的有序序列</p>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="二叉树的结构">二叉树的结构</span></h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*二叉树的二叉链表结点结构定义*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">int</span> data;	<span class="comment">//结点数据</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BSTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>	<span class="comment">//左右孩子指针</span></span><br><span class="line">&#125; BSTNode, *BSTree;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="查找操作">查找操作</span></h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BSTNode *<span class="title function_">SearchBST</span><span class="params">(BSTree T,<span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="comment">//如果递归过程中T为空，则查找结果返回NULL；或者查找成功，返回指向该关键字的指针</span></span><br><span class="line">	<span class="keyword">while</span>(T != <span class="literal">NULL</span> &amp;&amp; T-&gt;data != key)&#123;</span><br><span class="line">        <span class="keyword">if</span>(key &lt; T-&gt;data) T = T-&gt;lchild;</span><br><span class="line">        <span class="keyword">else</span> T = T-&gt;rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归实现</span></span><br><span class="line">BSTNode *<span class="title function_">SearchBSTNode</span><span class="params">(BSTreee T,<span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data == key)&#123;</span><br><span class="line">        <span class="keyword">return</span> T;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &gt;key)&#123;</span><br><span class="line">        <span class="keyword">return</span> SearchBSTNode(T-&gt;lchild,key);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SearchBSTNode(T-&gt;rchild,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="插入操作">插入操作</span></h3>
+<p>有了二叉排序树的查找函数，那么所谓的二叉排序树的插入，其实也就是将关键字放到树中的合适位置而已。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertBST</span><span class="params">(BSTree T, <span class="type">int</span> key)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(T != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;data == key) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &gt; key) T = T-&gt;lchild;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(T-&gt;data &lt; key) T = T-&gt;rchild;</span><br><span class="line">    &#125;</span><br><span class="line">    BSTree b = (BSTree) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(BSTree));</span><br><span class="line">    b-&gt;data = key;</span><br><span class="line">    b-&gt;rchild = b-&gt;lchild = <span class="literal">NULL</span>;</span><br><span class="line">    T = b;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归实现</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">InsertBST</span><span class="params">(BSTree T,KeyType key)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(T == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        BiTree b = (BiTree) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(Bitree));</span><br><span class="line">        b-&gt;data = key;</span><br><span class="line">        b-&gt;lchild = b-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">        T = b;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(key == T-&gt;data)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &lt; T-&gt;data)&#123;</span><br><span class="line">        <span class="keyword">return</span> InsertBST(T-&gt;lchild,key);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InsertBST(T-&gt;rchild,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="构建操作">构建操作</span></h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123;<span class="number">62</span>, <span class="number">88</span>, <span class="number">58</span>, <span class="number">47</span>, <span class="number">35</span>, <span class="number">73</span>, <span class="number">51</span>, <span class="number">99</span>, <span class="number">37</span>, <span class="number">93</span>&#125;;</span><br><span class="line">T = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++)&#123;</span><br><span class="line">    InsertBST(T,a[i]);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3><span id="删除操作">删除操作</span></h3>
+<ol>
+<li>叶子结点：删除该结点不需要做其他操作；</li>
+<li>仅有左或右子树的结点：删除后让被删除结点的直接后继接替它的位置；</li>
+<li>左右子树都有的结点：遍历得到被删除结点的直接前驱或者直接后继来接替它的位置，然后再删除</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/63be79c8be43e0d30ec4aff5.jpg" alt></p>
+<p>删除Z结点：</p>
+<ol>
+<li>用左孩子结点代替被删除结点，若该左孩子结点有右子树，则无法满足二叉排序树定义，没有右子树则直接替换，删除该元素</li>
+<li>用左孩子的右孩子代替被删除的结点，若该节点有右子树，则无法满足二叉排序树定义</li>
+<li>用左孩子的右孩子的右孩子的…右孩子的结点代替删除的结点，该节点没有右子树，代替可满足二叉排序树定义</li>
+<li>且该节点有左子树或是叶子结点，删除同上述，由此得到直接前驱的概念</li>
+</ol>
+<ul>
+<li>直接前驱：Z结点左孩子的右孩子的右孩子的…右孩子的结点，直到该节点没有右子树，即左子树中最右下的结点</li>
+<li>直接后继：同理，是Z结点右子树中最坐下的结点</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> *<span class="title function_">DeleteBST</span><span class="params">(BSTNode *p)</span>&#123;</span><br><span class="line">    BSTree q,s;</span><br><span class="line">    <span class="keyword">if</span>(*p == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>((*p)-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; (*p)-&gt;rchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        *p = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;lchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        q = *p;</span><br><span class="line">        *p = (*p)-&gt;rchild;   </span><br><span class="line">        <span class="built_in">free</span>(q);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>((*p)-&gt;rchild == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        q = *p;</span><br><span class="line">        *p = (*p)-&gt;lchild;    </span><br><span class="line">        <span class="built_in">free</span>(q);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        q = *p;							<span class="comment">//递归更加直观</span></span><br><span class="line">        s = (*p)-&gt;lchild;</span><br><span class="line">        <span class="keyword">while</span>(s-&gt;rchild != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            q = s;</span><br><span class="line">            s = s-&gt;rchild;</span><br><span class="line">        &#125;</span><br><span class="line">        (*p)-&gt;data = s-&gt;data;</span><br><span class="line">        <span class="keyword">if</span>(q != *p)&#123;</span><br><span class="line">            q-&gt;rchild = s-&gt;lchild;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            q-&gt;lchild = s-&gt;lchild;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">free</span>(s);</span><br><span class="line">        <span class="comment">/*s = (*p)-&gt;lchild;</span></span><br><span class="line"><span class="comment">        while(s-&gt;rchild != NULL)&#123;</span></span><br><span class="line"><span class="comment">            s = s-&gt;rchild;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        (*p)-&gt;data = s-&gt;data;</span></span><br><span class="line"><span class="comment">        DeleteBST(s);*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="查找效率">查找效率</span></h2>
+<p>平均查找长度ASL（Average Search Length）：需要对比关键字的次数</p>
+<ol>
+<li>
+<p>查找成功的ASL</p>
+<img src="https://pic.imgdb.cn/item/63be996bbe43e0d30e01cf1e.jpg" style="zoom:50%;">
+</li>
+<li>
+<p>查找失败的ASL</p>
+<img src="https://pic.imgdb.cn/item/63be99b9be43e0d30e0272f7.jpg" style="zoom:50%;">
+</li>
+</ol>
+<h2><span id="引申出平衡二叉树">引申出平衡二叉树</span></h2>
+<p>二叉排序树的优点明显，插入删除的时间性能比较好。</p>
+<p>而对于二叉排序树的查找，其比较次数等于给定值的结点在二叉排序树的层数，即树的高</p>
+<p>最好情况：n个结点的二叉树最小高度为 log<sub>2</sub>n（向下取整）+1</p>
+<p>最坏情况：每个结点1个分支，树高=节点数=n</p>
+<p>也就是说，我们希望二叉排序树是比较平衡的，即其深度与完全二叉树相同，那么查找的时间复杂也就为O(logn)，近似于折半查找</p>
+<h1><span id="平衡二叉树">平衡二叉树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>平衡二叉树(AVL)是一种二叉排序树，其中每一个节点的左子树和右子树的高度差不超过1</p>
+<p>结点的平衡因子：二叉树上结点的左子树深度减去右子树深度的值称为平衡因子</p>
+<p>平衡二叉树上所有结点的平衡因子只能是-1、0和1</p>
+<p>假设n<sub>h</sub>为深度为h的平衡树中含有的最少结点数，n<sub>0</sub>=0，n<sub>1</sub>=1，n<sub>2</sub>= 2 ，平衡二叉树中有n<sub>h</sub> = n<sub>h-1</sub> + n<sub>h-2</sub> +1可证明最大深度和平均查找长度O(long<sub>2</sub>n)</p>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="平衡二叉树的结构">平衡二叉树的结构</span></h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">AVLNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    <span class="type">int</span> balance;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">AVLnode</span> *<span class="title">rchild</span>, *<span class="title">lchild</span>;</span></span><br><span class="line">&#125;AVLNode,*AVLTree;</span><br></pre></td></tr></table></figure>
+<h3><span id="查找操作">查找操作</span></h3>
+<h3><span id="插入操作">插入操作</span></h3>
+<p>当我们在二叉排序树中插入(或删除)一个结点时，可能导致其插入路径上的结点不平衡（平衡因子绝对值大于1）</p>
+<p>若导致了不平衡，须将最小不平衡子树调整平衡，则其他结点都会恢复平衡</p>
+<p>最小不平衡子树：从插入结点王辉找到第一个不平衡结点，以该结点为根的子树</p>
+<h4><span id="ll平衡旋转右单旋转">LL平衡旋转(右单旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea349be43e0d30e12a52e.jpg" alt></p>
+<p>在结点A的左孩子(L)的左子树(L)上插入了新结点</p>
+<p>将A的左孩子B向右上旋转代替A成为根结点，将A结点向右下旋转成为B的右子树的根结点，而B的原右子树则作为A结点的左子树</p>
+<h4><span id="rr平衡旋转左单旋转">RR平衡旋转(左单旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bf666ebe43e0d30e2ce419.jpg" alt="image-20230111195440307"></p>
+<p>在结点A的右孩子®的右子树®上插入了新结点</p>
+<p>将A的右孩子B向左上旋转代替A成为根结点，将A结点向左下旋转成为B的左子树的根结点，而B的原左子树则作为A结点的右子树</p>
+<h4><span id="lr平衡旋转先左后右双旋转">LR平衡旋转(先左后右双旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea837be43e0d30e1d7d44.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/63bea87abe43e0d30e1ddaf3.jpg" alt></p>
+<p>在A的左孩子(L)的右子树®上插入新结点</p>
+<p>先将A结点的左孩子B的右子树的根结点C向左上旋转提升到B结点的位置,即进行一次RR平衡旋转(左单旋转），然后再把该C结点向右上旋转提升到A结点的位置,即进行一次LL平衡旋转(右单旋转)</p>
+<h4><span id="rl平衡旋转先右后左双旋转">RL平衡旋转(先右后左双旋转)</span></h4>
+<p><img src="https://pic.imgdb.cn/item/63bea8b2be43e0d30e1e2b37.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/63bea8ddbe43e0d30e1e681a.jpg" alt></p>
+<p>在A的右孩子®的左子树(L)上插入新结点</p>
+<p>先将A结点的右孩子B的左子树的根结点C向右上旋转提升到B结点的位置,即进行一次LL平衡旋转(右单旋转)，然后再把该C结点向左上旋转提升到A结点的位置,即进行一次RR平衡旋转(左单旋转)</p>
+<p>新结点插入C的左子树还是插入C的右子树不影响旋转过程</p>
+<p><img src="https://pic.imgdb.cn/item/63beaaafbe43e0d30e2182c7.jpg" alt></p>
+<ul>
+<li>插入操作导致的最小不平衡子树（此时插入前平衡）：高度加1，经过调整后最小不平衡子树的高度恢复，从而其祖先结点也恢复</li>
+</ul>
+<h2><span id="查找效率">查找效率</span></h2>
+<ul>
+<li>若树高为h，最坏情况下，查找一个关键字最多需要比较h次，即查找操作的时间复杂度不可能超过O(h)</li>
+</ul>
+<h1><span id="红黑树">红黑树</span></h1>
+<h2><span id="定义">定义</span></h2>
+<p>红黑树也是二叉排序树，与普通BST相比：左根右，根叶黑 ，不红红，黑路同，左子孙结点值小于根节点值小于右子孙结点值</p>
+<ol>
+<li>每个结点或是红色，或是黑色的</li>
+<li>根节点是黑色的</li>
+<li>叶结点（外部结点、NULL结点、失败结点）均是黑色的</li>
+<li>不存在两个相邻的红结点（即红结点的父节点和孩子结点均是黑色）</li>
+<li>对每个结点，从该节点到任一叶结点的简单路径上，所含黑结点的数目相同</li>
+</ol>
+<ul>
+<li>平衡二叉树 AVL：插入/删除 很容易破坏“平衡”特性，需要频繁调整树的形态。如：插入操作导致不 平衡，则需要先计算平衡因子，找到最小不平衡子树（时间开销大），再进行 LL/RR/LR/RL 调整</li>
+<li>红黑树 RBT：插入/删除 很多时候不会破坏“红黑”特性，无需频繁调整树的形态。即便需要调整，一 般都可以在常数级时间内完成 平衡二叉树：适用于以查为主、很少插入/删除的场景 红黑树：适用于频繁插入、删除的场景，实用性更强 性能逐渐优秀</li>
+</ul>
+<h2><span id="红黑树的结构">红黑树的结构</span></h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RBNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> key;</span><br><span class="line">    RBNode* parent;</span><br><span class="line">    RBNode* lchild;</span><br><span class="line">    RBNode* rchild;</span><br><span class="line">    <span class="type">int</span> color;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2><span id="性质">性质</span></h2>
+<ol>
+<li>结点的黑高（bh）：从某结点出发（<strong>不含该节点</strong>）到达任一<strong>空叶结点</strong>的<strong>路径上黑结点总数</strong></li>
+<li>从根节点到叶结点的最长路径不大于最短路径的2倍</li>
+<li>有n个内部节点的红黑树高度 h ≤ 2log<sub>2</sub>(n+1)</li>
+<li>查找效率与AVL 树同等数量级 红黑树查找操作时间复杂度 = O(log<sub>2</sub>n)</li>
+</ol>
+<h2><span id="操作">操作</span></h2>
+<h3><span id="插入操作">插入操作</span></h3>
+<ol>
+<li>先查找，确定插入位置（原理同二叉排序树），插入新结点</li>
+<li>新结点是根——染为黑色</li>
+<li>新结点非根——染为红色</li>
+<li>若插入新结点后依然满足红黑树定义，则插入结束，若不满足红黑树定义，则通过叔叔结点的颜色调整
+<ol>
+<li>黑叔：旋转+染色
+<ol>
+<li>LL型：右单旋，父换爷+染色</li>
+<li>RR型：左单旋，父换爷+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色</li>
+<li>RL型：右、左双旋，儿换爷+染色</li>
+</ol>
+</li>
+<li>红叔：染色+变新
+<ol>
+<li>叔父爷染色，爷变为新结点</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> TreeNode&lt;K,V&gt; <span class="title function_">putTreeVal</span><span class="params">(HashMap&lt;K,V&gt; map, Node&lt;K,V&gt;[] tab,</span></span><br><span class="line"><span class="params">                           <span class="type">int</span> h, K k, V v)</span> &#123;</span><br><span class="line">    Class&lt;?&gt; kc = <span class="literal">null</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">searched</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    TreeNode&lt;K,V&gt; root = (parent != <span class="literal">null</span>) ? root() : <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode&lt;K,V&gt; p = root;;) &#123;</span><br><span class="line">        <span class="type">int</span> dir, ph; K pk;</span><br><span class="line">        <span class="keyword">if</span> ((ph = p.hash) &gt; h)</span><br><span class="line">            dir = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ph &lt; h)</span><br><span class="line">            dir = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((pk = p.key) == k || (k != <span class="literal">null</span> &amp;&amp; k.equals(pk)))</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((kc == <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                  (kc = comparableClassFor(k)) == <span class="literal">null</span>) ||</span><br><span class="line">                 (dir = compareComparables(kc, k, pk)) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!searched) &#123;</span><br><span class="line">                TreeNode&lt;K,V&gt; q, ch;</span><br><span class="line">                searched = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">if</span> (((ch = p.left) != <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                     (q = ch.find(h, k, kc)) != <span class="literal">null</span>) ||</span><br><span class="line">                    ((ch = p.right) != <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                     (q = ch.find(h, k, kc)) != <span class="literal">null</span>))</span><br><span class="line">                    <span class="keyword">return</span> q;</span><br><span class="line">            &#125;</span><br><span class="line">            dir = tieBreakOrder(k, pk);</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode&lt;K,V&gt; xp = p;</span><br><span class="line">        <span class="keyword">if</span> ((p = (dir &lt;= <span class="number">0</span>) ? p.left : p.right) == <span class="literal">null</span>) &#123;</span><br><span class="line">            Node&lt;K,V&gt; xpn = xp.next;</span><br><span class="line">            TreeNode&lt;K,V&gt; x = map.newTreeNode(h, k, v, xpn);</span><br><span class="line">            <span class="keyword">if</span> (dir &lt;= <span class="number">0</span>)</span><br><span class="line">                xp.left = x;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                xp.right = x;</span><br><span class="line">            xp.next = x;</span><br><span class="line">            x.parent = x.prev = xp;</span><br><span class="line">            <span class="keyword">if</span> (xpn != <span class="literal">null</span>)</span><br><span class="line">                ((TreeNode&lt;K,V&gt;)xpn).prev = x;</span><br><span class="line">            moveRootToFront(tab, balanceInsertion(root, x));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="构建操作java">构建操作（java）</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">treeify</span><span class="params">(Node&lt;K,V&gt;[] tab)</span> &#123;		<span class="comment">//构建红黑树</span></span><br><span class="line">    TreeNode&lt;K,V&gt; root = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">for</span> (TreeNode&lt;K,V&gt; x = <span class="built_in">this</span>, next; x != <span class="literal">null</span>; x = next) &#123;</span><br><span class="line">        next = (TreeNode&lt;K,V&gt;)x.next;</span><br><span class="line">        x.left = x.right = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">null</span>) &#123;</span><br><span class="line">            x.parent = <span class="literal">null</span>;</span><br><span class="line">            x.red = <span class="literal">false</span>;</span><br><span class="line">            root = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">K</span> <span class="variable">k</span> <span class="operator">=</span> x.key;</span><br><span class="line">            <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> x.hash;</span><br><span class="line">            Class&lt;?&gt; kc = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (TreeNode&lt;K,V&gt; p = root;;) &#123;</span><br><span class="line">                <span class="type">int</span> dir, ph;</span><br><span class="line">                <span class="type">K</span> <span class="variable">pk</span> <span class="operator">=</span> p.key;</span><br><span class="line">                <span class="keyword">if</span> ((ph = p.hash) &gt; h)</span><br><span class="line">                    dir = -<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (ph &lt; h)</span><br><span class="line">                    dir = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> ((kc == <span class="literal">null</span> &amp;&amp;</span><br><span class="line">                          (kc = comparableClassFor(k)) == <span class="literal">null</span>) ||</span><br><span class="line">                         (dir = compareComparables(kc, k, pk)) == <span class="number">0</span>)</span><br><span class="line">                    dir = tieBreakOrder(k, pk);</span><br><span class="line"></span><br><span class="line">                TreeNode&lt;K,V&gt; xp = p;</span><br><span class="line">                <span class="keyword">if</span> ((p = (dir &lt;= <span class="number">0</span>) ? p.left : p.right) == <span class="literal">null</span>) &#123;</span><br><span class="line">                    x.parent = xp;</span><br><span class="line">                    <span class="keyword">if</span> (dir &lt;= <span class="number">0</span>)</span><br><span class="line">                        xp.left = x;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        xp.right = x;</span><br><span class="line">                    root = balanceInsertion(root, x);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    moveRootToFront(tab, root);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    首先红黑树是不符合AVL树的平衡条件的，即每个节点的左子树和右子树的高度最多差1的二叉查找树。但是提出了为节点增加颜色，红黑是用非严格的平衡来换取增删节点时候旋转次数的降低，而AVL是严格平衡树，因此在增加或者删除节点的时候，根据不同情况，旋转的次数比红黑树要多</p>
+<p><img src="https://pic.imgdb.cn/item/63bf6956be43e0d30e315a52.jpg" alt="不严格平衡的红黑树"></p>
+<p>​    <strong>Answer 1：</strong></p>
+<ol>
+<li>
+<p>如果插入一个node引起了树的不平衡，AVL和RB-Tree都是最多只需要2次旋转操作，即两者都是O(1)；但是在删除node引起树的不平衡时，最坏情况下，AVL需要维护从被删node到root这条路径上所有node的平衡性，因此需要旋转的量级O(logN)，而RB-Tree最多只需3次旋转，只需要O(1)的复杂度。</p>
+</li>
+<li>
+<p>其次，AVL的结构相较RB-Tree来说更为平衡，在插入和删除node更容易引起Tree的unbalance，因此在大量数据需要插入或者删除时，AVL需要rebalance的频率会更高。因此，RB-Tree在需要大量插入和删除node的场景下，效率更高。自然，由于AVL高度平衡，因此AVL的search效率更高。</p>
+</li>
+<li>
+<p>map的实现只是折衷了两者在search、insert以及delete下的效率。总体来说，RB-tree的统计性能是高于AVL的。</p>
+</li>
+<li>
+<p>红黑树的查询性能略微逊色于AVL树，因为他比avl树会稍微不平衡最多一层，也就是说红黑树的查询性能只比相同内容的avl树最多多一次比较，但是，红黑树在插入和删除上完爆avl树，avl树每次插入删除会进行大量的平衡度计算，而红黑树为了维持红黑性质所做的红黑变换和旋转的开销，相较于avl树为了维持平衡的开销要小得多</p>
+</li>
+<li>
+<p>功能、性能、空间开销的折中结果。<br>
+AVL更平衡，结构上更加直观，时间效能针对读取而言更高；维护稍慢，空间开销较大。<br>
+红黑树，读取略逊于AVL，维护强于AVL，空间开销与AVL类似，内容极多时略优于AVL，维护优于AVL。</p>
+<p><strong>所以简单说，如果你的应用中，搜索的次数远远大于插入和删除，那么选择AVL，如果搜索，插入删除次数几乎差不多，应该选择RB。</strong></p>
+</li>
+</ol>
+<p>​    <strong>1 好处 及 用途</strong></p>
+<p>​    红黑树并不追求“完全平衡”——它只要求部分地达到平衡要求，降低了对旋转的要求，从而提高了性能。</p>
+<p>​    红黑树能够以O(log2 n) 的时间复杂度进行搜索、插入、删除操作。当然，还有一些更好的，但实现起来更复杂的<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/datastructure">数据结构</a> 能够做到一步旋转之内达到平衡，但红黑树能够给我们一个比较“便宜”的解决方案。红黑树的<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/datastructure">算法</a>时间复杂度和AVL相同，但统计性能比AVL树更高。</p>
+<p>​    当然，红黑树并不适应所有应用树的领域。如果数据基本上是静态的，那么让他们待在他们能够插入，并且不影响平衡的地方会具有更好的性能。如果数据完全是静态的，例如，做一个哈希表，性能可能会更好一些。</p>
+<p>​     在实际的系统中，例如，需要使用动态规则的防火墙系统，使用红黑树而不是散列表被实践证明具有更好的伸缩性。</p>
+<p>​     典型的用途是实现关联数组</p>
+<p>​    <strong>2. AVL树是最先发明的自平衡二叉查找树。</strong></p>
+<p>​    在AVL树中任何节点的两个儿子子树的高度最大差别为一，所以它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下都是O(log n)。增加和删除可能需要通过一次或多次树旋转来重新平衡这个树。AVL树得名于它的发明者 G.M. Adelson-Velsky 和 E.M. Landis，他们在 1962 年的论文 “An algorithm for the organization of information” 中发表了它。引入二叉树的目的是为了提高二叉树的搜索的效率, 减少树的平均搜索长度.为此,就必须每向二叉树插入一个结点时调整树的结构,使得二叉树搜索保持平衡,从而可能降低树的高度,减少的平均树的搜索长度.</p>
+<p>​    AVL树的定义:<br>
+​    一棵AVL树满足以下的条件:<br>
+​    1&gt;它的左子树和右子树都是AVL树<br>
+​    2&gt;左子树和右子树的高度差不能超过1<br>
+​    从条件1可能看出是个递归定义,如GNU一样.</p>
+<p>​    性质:<br>
+​    1&gt;一棵n个结点的AVL树的其高度保持在0(log2(n)),不会超过3/2log2(n+1)<br>
+​    2&gt;一棵n个结点的AVL树的平均搜索长度保持在0(log2(n)).<br>
+​    3&gt;一棵n个结点的AVL树删除一个结点做平衡化旋转所需要的时间为0(log2(n)).</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/%E5%BC%82%E5%B8%B8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            异常
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/%E9%9B%86%E5%90%88/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">集合</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2023
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>
