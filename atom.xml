@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-12T13:02:02.529Z</updated>
+  <updated>2023-01-29T13:18:55.783Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,84 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://example.com/post/String%E7%B1%BB/"/>
+    <id>http://example.com/post/String%E7%B1%BB/</id>
+    <published>2023-01-29T11:59:15.462Z</published>
+    <updated>2023-01-29T13:18:55.783Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;hr&gt;
+&lt;h2&gt;&lt;span id=&quot;titlestring类-categories-第二阶段&quot;&gt;title：String类 categories： 第二阶段&lt;/span&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>排序与查找</title>
+    <link href="http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
+    <id>http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
+    <published>2023-01-28T07:37:15.308Z</published>
+    <updated>2023-01-30T09:42:10.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;排序&quot;&gt;排序&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="http://example.com/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://example.com/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
+    <published>2023-01-28T07:22:04.832Z</published>
+    <updated>2023-01-28T07:25:33.715Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;单例模式&quot;&gt;单例模式&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>异常</title>
     <link href="http://example.com/post/%E5%BC%82%E5%B8%B8/"/>
     <id>http://example.com/post/%E5%BC%82%E5%B8%B8/</id>
     <published>2023-01-12T08:53:32.572Z</published>
-    <updated>2023-01-12T13:02:02.529Z</updated>
+    <updated>2023-01-28T13:17:58.296Z</updated>
     
     
       
@@ -44,7 +117,7 @@
     <link href="http://example.com/post/%E6%A0%91/"/>
     <id>http://example.com/post/%E6%A0%91/</id>
     <published>2023-01-11T07:25:18.314Z</published>
-    <updated>2023-01-13T09:38:12.732Z</updated>
+    <updated>2023-01-28T11:47:44.944Z</updated>
     
     
       
@@ -68,7 +141,7 @@
     <link href="http://example.com/post/%E9%9B%86%E5%90%88/"/>
     <id>http://example.com/post/%E9%9B%86%E5%90%88/</id>
     <published>2023-01-09T01:11:26.181Z</published>
-    <updated>2023-01-13T09:39:07.977Z</updated>
+    <updated>2023-01-28T07:36:24.209Z</updated>
     
     
       
@@ -229,7 +302,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <link href="http://example.com/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://example.com/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
     <published>2022-12-27T12:19:56.147Z</published>
-    <updated>2022-12-27T13:25:56.442Z</updated>
+    <updated>2023-01-30T09:02:29.868Z</updated>
     
     
     <summary type="html">&lt;p&gt;针对八种基本数据类型定义相应的引用类型—包装类&lt;/p&gt;
@@ -271,7 +344,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <link href="http://example.com/post/Object%E7%B1%BB/"/>
     <id>http://example.com/post/Object%E7%B1%BB/</id>
     <published>2022-12-26T12:24:31.027Z</published>
-    <updated>2023-01-09T06:49:25.813Z</updated>
+    <updated>2023-01-28T07:20:57.775Z</updated>
     
     
     <summary type="html">&lt;p&gt;Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object&lt;/p&gt;
@@ -289,7 +362,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <link href="http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/"/>
     <id>http://example.com/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/</id>
     <published>2022-12-26T06:49:08.031Z</published>
-    <updated>2023-01-05T02:00:37.479Z</updated>
+    <updated>2023-01-28T07:23:29.429Z</updated>
     
     
     <summary type="html">&lt;h1&gt;static&lt;/h1&gt;
@@ -399,64 +472,10 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <link href="http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <id>http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
     <published>2022-12-12T12:20:26.198Z</published>
-    <updated>2022-12-27T13:25:42.115Z</updated>
+    <updated>2023-01-30T09:33:54.340Z</updated>
     
     
     <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>编码与数制</title>
-    <link href="http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"/>
-    <id>http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</id>
-    <published>2022-12-11T13:07:17.205Z</published>
-    <updated>2022-12-17T13:27:25.250Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="计算机组成与原理" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E5%8E%9F%E7%90%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>数据类型</title>
-    <link href="http://example.com/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://example.com/post/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
-    <published>2022-12-10T01:21:48.429Z</published>
-    <updated>2022-12-14T03:25:35.606Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>变量</title>
-    <link href="http://example.com/post/%E5%8F%98%E9%87%8F/"/>
-    <id>http://example.com/post/%E5%8F%98%E9%87%8F/</id>
-    <published>2022-12-09T12:51:53.924Z</published>
-    <updated>2022-12-10T01:21:18.186Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;由于变量能够把程序中准备使用的每一段数据都赋给一个简短、易于记忆的名字，因此它们十分有用。变量可以保存程序运行时用户输入的数据、特定运算的结果以及要在窗体上显示的一段数据等。简而言之，变量是用于跟踪几乎所有类型信息的简单工具。&lt;/p&gt;</summary>
     
     
     
