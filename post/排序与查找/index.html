@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.8k</span>
+            <span class="post-count">2.7k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">7 min</span>
+            <span class="post-count">11 min</span>
         </span>
     </span>
 </div>
@@ -209,25 +209,98 @@
 </blockquote>
 </li>
 <li>
-<p>首次找到大于基准点的元素时，此处为交换位置</p>
+<p>当前结点前不存在大于基准点的结点时：</p>
 <ol>
-<li>下个元素小于基准点，则前后交换，更新交换位置</li>
+<li>
+<p>若小于基准点，则最终位置右移，继续向右查找</p>
+</li>
+<li>
+<p>若大于基准点，则暂定最终位置为此处，余下结点前出现了大于基准点的结点</p>
+</li>
 </ol>
 </li>
-<li></li>
-<li></li>
-<li></li>
 <li>
-<p>j 指针负责找到比基准点小的元素，一旦找到则与 i 进行交换</p>
+<p>当前结点前为大于基准点的结点时：</p>
+<ol>
+<li>
+<p>若大于基准点，则不改变最终位置（大于基准点的第一个元素）</p>
 </li>
 <li>
-<p>i 指针维护小于基准点元素的边界，也是每次交换的目标索引</p>
+<p>若小于基准点，将当前结点与最终位置的结点交换，交换后最终位置右移，重新调整为最终位置左侧均小，右侧均大</p>
+</li>
+</ol>
 </li>
 <li>
-<p>最后基准点与 i 交换，i 即为分区位置</p>
+<p>当遍历到最后的基准点时，与最终位置的结点交换</p>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">Quick</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= high) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> partion(a, low, high);  <span class="comment">//获取索引，并调整索引位置</span></span><br><span class="line">    Quick(a, <span class="number">0</span>, index - <span class="number">1</span>);</span><br><span class="line">    Quick(a, index + <span class="number">1</span>, high);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partion</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">    <span class="comment">//最右元素作为基准点元素</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> low;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> low; j &lt;= high; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[j] &lt;= a[high]) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a[j];</span><br><span class="line">            a[j] = a[index];</span><br><span class="line">            a[index] = temp;</span><br><span class="line">            <span class="keyword">if</span> (j != high) &#123;</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>双边循环快排（不完全等价于 hoare 霍尔分区方案）</strong></p>
+<ol>
+<li>
+<p>选择最左元素作为基准点元素</p>
+<blockquote>
+<p>最终位置为小于基准点的最后一个元素，先j后i</p>
+</blockquote>
+</li>
+<li>
+<p>j 指针负责从右向左找比基准点小的元素，i 指针负责从左向右找比基准点大的元素，一旦找到二者交换，直至 i，j 相交</p>
+</li>
+<li>
+<p>最后基准点与 i（此时 i 与 j 相等）交换，i 即为分区位置</p>
+<blockquote>
+<p>对于递增有序序列的快排，基准点最终位置在最左不变，i从最左开始</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partion</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> a[low];</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> low + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> high;</span><br><span class="line">    <span class="keyword">while</span> (index != j) &#123;</span><br><span class="line">        <span class="keyword">for</span> (; index != j &amp;&amp; j &gt; low + <span class="number">1</span>; j--) &#123;    <span class="comment">//最终位置为小于基准点的最后一个元素</span></span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; pivot) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (; index != j &amp;&amp; index &lt; high; index++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[index] &gt;= pivot) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index != j) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a[index];</span><br><span class="line">            a[index] = a[j];</span><br><span class="line">            a[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (a[index] &lt; pivot) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a[low];</span><br><span class="line">        a[low] = a[index];</span><br><span class="line">        a[index] = temp;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;     <span class="comment">//当右侧均大时，最终位置即最左</span></span><br><span class="line">        <span class="keyword">return</span> --index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>优化后</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partion2</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> a[low];</span><br><span class="line">    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> low;</span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> high;</span><br><span class="line">    <span class="keyword">while</span> (j &gt; index) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; index &amp;&amp; a[j] &gt; pivot) &#123;       <span class="comment">//最终位置为小于基准点的最后一个元素</span></span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (j &gt; index &amp;&amp; a[index] &lt;= pivot) &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a[index];</span><br><span class="line">        a[index] = a[j];</span><br><span class="line">        a[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a[low];</span><br><span class="line">    a[low] = a[index];</span><br><span class="line">    a[index] = temp;</span><br><span class="line">    <span class="keyword">return</span> index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>快排效率</strong></p>
+<ol>
+<li>
+<p>平均时间复杂度是 $O(nlog_2⁡n )$，最坏时间复杂度 $O(n^2)$，平均空间复杂度为$O(log_2⁡n )$，最坏空间复杂度为$O(n)$</p>
+<blockquote>
+<p>时间复杂度= $O(n*递归层数)$ ：	快排中递归调用Quick方法，每次Quick方法的时间复杂度为$O(n)$</p>
+<p>若将每次划分确定最终位置的结点作为根节点，再递归划分他的左右子序列，数组最终会被组织成一颗二叉树</p>
+<ol>
+<li>二叉树的层数即递归调用的层数</li>
+<li>n个结点的二叉树的最小高度为$logn（向下取整） + 1$，最大高度为$n$</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>最好情况与最坏情况</p>
+<blockquote>
+<p>最坏情况：数组序列为有序递增序列，二叉树所有结点集中在其中一侧，此时二叉树的层数即结点个数</p>
+<img src="https://pic.imgdb.cn/item/63d9075be90d1c00980a5c6a.jpg" style="zoom:67%;">
+<p>最好情况：数组序列基准点将待排序列均匀划分为左右两个序列，二叉树平衡性最高，递归深度最小</p>
+<img src="/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/Users\momo\AppData\Roaming\Typora\typora-user-images\image-20230131202054561.png" style="zoom:67%;">
+<p>优化思路：选择值大小适中的元素作为基准点</p>
+<ol>
+<li>随机选取</li>
+<li>从头中尾三个位置中选择适中大小的结点</li>
+</ol>
+</blockquote>
+</li>
+<li>
+<p>不稳定</p>
+<p><img src="https://pic.imgdb.cn/item/63d8fff3e90d1c0098f92473.jpg" alt></p>
+</li>
+</ol>
+<p><strong>洛穆托分区方案 vs 霍尔分区方案</strong></p>
+<ul>
+<li>霍尔的移动次数平均来讲比洛穆托少3倍</li>
+<li><a target="_blank" rel="noopener" href="https://qastack.cn/cs/11458/quicksort-partitioning-hoare-vs-lomuto">https://qastack.cn/cs/11458/quicksort-partitioning-hoare-vs-lomuto</a></li>
+</ul>
+<blockquote>
+<p><em><strong>补充代码说明</strong></em></p>
+<ul>
+<li>day01.sort.QuickSort3 演示了空穴法改进的双边快排，比较次数更少</li>
+<li>day01.sort.QuickSortHoare 演示了霍尔分区的实现</li>
+<li>day01.sort.LomutoVsHoare 对四种分区实现的移动次数比较</li>
+</ul>
+</blockquote>
 <h2><span id="归并排序">归并排序</span></h2>
 <h2><span id="基数排序">基数排序</span></h2>
 <h2><span id="堆排序">堆排序</span></h2>
@@ -241,6 +314,7 @@
 <th>选择排序</th>
 <th>插入排序</th>
 <th>希尔排序</th>
+<th>快速排序</th>
 </tr>
 </thead>
 <tbody>
@@ -250,6 +324,7 @@
 <td>$O(n^2)$</td>
 <td>$O(n^2)$</td>
 <td>取决于间隙</td>
+<td>$O(nlog_2⁡n )$</td>
 </tr>
 <tr>
 <td>适用</td>
@@ -257,12 +332,14 @@
 <td>无序时交换次数少</td>
 <td>小数据量</td>
 <td>数组</td>
+<td>数据量较大</td>
 </tr>
 <tr>
 <td>稳定性</td>
 <td>稳定</td>
 <td>不稳定</td>
 <td>稳定</td>
+<td>不稳定</td>
 <td>不稳定</td>
 </tr>
 <tr>
@@ -271,10 +348,10 @@
 <td>$O(1)$</td>
 <td>$O(1)$</td>
 <td>$O(1)$</td>
+<td>$O(log_2n)$</td>
 </tr>
 </tbody>
 </table>
-<h2><span id></span></h2>
  
       <!-- reward -->
       

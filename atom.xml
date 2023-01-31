@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-29T13:18:55.783Z</updated>
+  <updated>2023-01-31T09:42:02.292Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日期类</title>
+    <link href="http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/"/>
+    <id>http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/</id>
+    <published>2023-01-31T03:24:24.741Z</published>
+    <updated>2023-01-31T09:42:02.292Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -44,7 +67,7 @@
     <link href="http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
     <id>http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
     <published>2023-01-28T07:37:15.308Z</published>
-    <updated>2023-01-30T09:42:10.627Z</updated>
+    <updated>2023-01-31T12:27:16.445Z</updated>
     
     
       
@@ -298,14 +321,15 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>包装类的使用</title>
-    <link href="http://example.com/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://example.com/post/%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <title>基本数据类型与包装类</title>
+    <link href="http://example.com/post/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8C%85%E8%A3%85%E7%B1%BB/"/>
+    <id>http://example.com/post/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8C%85%E8%A3%85%E7%B1%BB/</id>
     <published>2022-12-27T12:19:56.147Z</published>
-    <updated>2023-01-30T09:02:29.868Z</updated>
+    <updated>2023-01-30T13:30:07.183Z</updated>
     
     
-    <summary type="html">&lt;p&gt;针对八种基本数据类型定义相应的引用类型—包装类&lt;/p&gt;
+    <summary type="html">&lt;p&gt;赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。&lt;/p&gt;
+&lt;p&gt;针对八种基本数据类型定义相应的引用类型—包装类&lt;/p&gt;
 &lt;p&gt;首先,Java语言是一个面向对象的语言,但是Java中的基本数据类型却是不面向对象的，为了实现一 切皆对象,将每个基本数据类型设计一个对应的类进行代表，这种方式增强了Java面向对象的性质。&lt;/p&gt;
 &lt;p&gt;其次，如果仅仅有基本数据类型，那么在实际使用时将存在很多的不便，很多地方都需要使用对象。比如，在集合类中，我们是无法将int 、double等类型放进去的，因为集合的容器要求元素是Object类型。而包装类型的存在使得向集合中传入数值成为可能，包装类的存在弥补了基本数据类型的不足。&lt;/p&gt;
 &lt;p&gt;此外，包装类还为基本类型添加了属性和方法，丰富了基本类型的操作。如当我们想知道int取值 范围的最小值，我们需要通过运算，如下面所示，但是有了包装类，我们可以直接使Integer.MAX_VALUE即可。&lt;/p&gt;
@@ -459,23 +483,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;td&gt;Shift +</summary>
         
       
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>运算符</title>
-    <link href="http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
-    <published>2022-12-12T12:20:26.198Z</published>
-    <updated>2023-01-30T09:33:54.340Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;</summary>
     
     
     
