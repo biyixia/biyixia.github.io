@@ -40,24 +40,24 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>String类</title>
     <link href="http://example.com/post/String%E7%B1%BB/"/>
     <id>http://example.com/post/String%E7%B1%BB/</id>
     <published>2023-01-29T11:59:15.462Z</published>
-    <updated>2023-01-29T13:18:55.783Z</updated>
+    <updated>2023-01-31T12:36:10.547Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;hr&gt;
-&lt;h2&gt;&lt;span id=&quot;titlestring类-categories-第二阶段&quot;&gt;title：String类 categories： 第二阶段&lt;/span&gt;&lt;/h2&gt;
-&lt;h2&gt;&lt;span</summary>
+    <summary type="html">&lt;h2&gt;&lt;span</summary>
         
       
     
     
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -67,7 +67,7 @@
     <link href="http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
     <id>http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
     <published>2023-01-28T07:37:15.308Z</published>
-    <updated>2023-01-31T12:27:16.445Z</updated>
+    <updated>2023-01-31T12:34:53.139Z</updated>
     
     
       
