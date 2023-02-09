@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.8k</span>
+            <span class="post-count">3.3k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">8 min</span>
+            <span class="post-count">14 min</span>
         </span>
     </span>
 </div>
@@ -117,24 +117,31 @@
 <li>
 <p>JDK8日期架构重做，JDK8之前的日期已经废除</p>
 <blockquote>
-<p>JDK8之前使用的日期框架:java.util.Date日期时间类、java.util.Calendar日历类<br>
-JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime（时分秒）、LocalDateTime（年月日时分秒）</p>
+<p>JDK8之前使用的日期框架:java.util.Date日期时间类、java.util.Calendar日历类</p>
+<p>DateFormat：本地时间指计算机的操作系统的区域（例如中文版window，则本地时间为北京时间）</p>
 <ol>
-<li>提供了新的包java.time</li>
-<li>DateFormat：本地时间指计算机的操作系统的区域（例如中文版window，则本地时间为北京时间）</li>
-<li>ZonedDateTime：区域时间可以指定一个区域，然后获取时间，如果指定则默认为本地时间</li>
 <li>JDK8整个日期架构的目的让程序员能使用javaAPI直接操作时间，而不需要关心格林威治</li>
 </ol>
 </blockquote>
 </li>
 </ul>
 <p><img src="https://pic.imgdb.cn/item/63d8b3feface21e9ef1e33ec.jpg" alt></p>
+<p>从Java 8开始，<code>java.time</code>包提供了新的日期和时间API，主要涉及的类型有：</p>
+<ul>
+<li>本地日期和时间：<code>LocalDateTime</code>（年月日时分秒），<code>LocalDate</code>（年月日），<code>LocalTime</code>（时分秒）</li>
+<li>带时区的日期和时间：<code>ZonedDateTime</code></li>
+<li>时刻：<code>Instant</code></li>
+<li>时区：<code>ZoneId</code>，<code>ZoneOffset</code></li>
+<li>时间间隔：<code>Duration</code></li>
+<li>时间格式：取代<code>SimpleDateFormat</code>的格式化类型<code>DateTimeFormatter</code></li>
+</ul>
 <h2><span id="存储方式">存储方式</span></h2>
 <p><strong>时间戳</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.currentTimeMillis();	<span class="comment">//格林威治1970至今经过的毫秒，以long类型存储</span></span><br></pre></td></tr></table></figure>
 <p><strong>常用于计算某段程序的运行时间</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以简单的利用时间戳之差，计算程序大致运行时间</span></span><br><span class="line"><span class="type">long</span> <span class="variable">st</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;<span class="number">1000</span> ; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;<span class="number">1000</span> ; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>; k &lt;<span class="number">1000</span> ; k++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">MyApp</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">long</span> <span class="variable">et</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">System.out.println(et-st);</span><br></pre></td></tr></table></figure>
-<h2><span id="创建日期对象">创建日期对象</span></h2>
+<h2><span id="本地时间">本地时间</span></h2>
+<h3><span id="创建日期对象">创建日期对象</span></h3>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();  <span class="comment">//2023-01-31T11:27:56.391</span></span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> LocalDate.now();          	<span class="comment">//2023-01-31</span></span><br><span class="line"><span class="type">LocalTime</span> <span class="variable">localTime</span> <span class="operator">=</span> LocalTime.now();          	<span class="comment">//11:27:56.391</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -162,30 +169,25 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 <tr>
 <td>LocalDateTime</td>
-<td>parse(CharSequence text)</td>
-<td>从给定的文本字符串获取日期</td>
-</tr>
-<tr>
-<td>LocalDateTime</td>
-<td>parse(CharSequence text, DateTimeFormatter formatter)</td>
-<td>从给定的格式、文本字符串获取日期</td>
-</tr>
-<tr>
-<td>LocalDateTime</td>
 <td>from(TemporalAccessor temporal)</td>
 <td>从指定时间对象中获取日期</td>
 </tr>
 </tbody>
 </table>
-<p><strong>of</strong></p>
+<p><strong>自定义日期创建：of</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime localDateTime=LocalDateTime.of(<span class="number">2023</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">22</span>,<span class="number">32</span>,<span class="number">30</span>);<span class="comment">//自定义日期2023-05-01T22:32:30</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
-<th>LocalDateTime</th>
-<th>of(int year, Month month, int dayOfMonth, int hour, int minute)</th>
+<th>返回类型</th>
+<th>方法名</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>LocalDateTime</td>
+<td>of(int year, Month month, int dayOfMonth, int hour, int minute)</td>
+</tr>
 <tr>
 <td>LocalDateTime</td>
 <td>of(int year, Month month, int dayOfMonth, int hour, int minute, int second)</td>
@@ -220,12 +222,68 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 </tbody>
 </table>
-<h2><span id="格式化">格式化</span></h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss E&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">format</span> <span class="operator">=</span> dateTimeFormatter.format(localDateTime);	<span class="comment">//2023年01月31日 14:59:58 星期二</span></span><br></pre></td></tr></table></figure>
-<h2><span id="自定义">自定义</span></h2>
-<p>//自定义日期使用静态的of方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime localDateTime=LocalDateTime.of(<span class="number">2023</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">22</span>,<span class="number">32</span>,<span class="number">30</span>);<span class="comment">//自定义日期2023-05-01T22:32:30</span></span><br><span class="line">DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss E&quot;</span>);<span class="comment">//格式化</span></span><br><span class="line"><span class="type">String</span> <span class="variable">format</span> <span class="operator">=</span> dateTimeFormatter.format(localDateTime);		<span class="comment">//2023年5月1日 22:32:30</span></span><br></pre></td></tr></table></figure>
-<h2><span id="获取部分">获取部分</span></h2>
+<p><strong>字符串创建日期</strong></p>
+<p>严格按照ISO 8601的格式</p>
+<blockquote>
+<p>日期和时间分隔符是<code>T</code>。标准格式如下：</p>
+<ul>
+<li>日期：yyyy-MM-dd</li>
+<li>时间：HH:mm:ss</li>
+<li>带毫秒的时间：HH:mm:ss.SSS</li>
+<li>日期和时间：yyyy-MM-dd’T’HH:mm:ss</li>
+<li>带毫秒的日期和时间：yyyy-MM-dd’T’HH:mm:ss.SSS</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LocalDateTime</td>
+<td>parse(CharSequence text)</td>
+<td>从给定的文本字符串获取日期</td>
+</tr>
+<tr>
+<td>LocalDateTime</td>
+<td>parse(CharSequence text, DateTimeFormatter formatter)</td>
+<td>从给定的格式、文本字符串获取日期</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="格式化">格式化</span></h3>
+<p><strong>DateTimeFormatter</strong></p>
+<blockquote>
+<p>因为<code>SimpleDateFormat</code>不是线程安全的，使用的时候，只能在方法内部创建新的局部变量。而<code>DateTimeFormatter</code>可以只创建一个实例，到处引用。</p>
+</blockquote>
+<p>如果要自定义输出的格式，或者要把一个非ISO 8601格式的字符串解析成<code>LocalDateTime</code>，可以使用新的<code>DateTimeFormatter</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DateTimeFormatter dtf1=DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss E&quot;</span>);</span><br><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">dtf2</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd日 EE HH:mm&quot;</span>, Locale.US);<span class="comment">//根据字符串、指定的地区创建格式</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">format1</span> <span class="operator">=</span> dtf1.format(localDateTime);	<span class="comment">//2022年01月27日 10:10:47 星期四</span></span><br><span class="line"><span class="type">String</span> <span class="variable">format2</span> <span class="operator">=</span> dtf2.format(localDateTime);	<span class="comment">//2022年01月27日 Thu 10:12</span></span><br><span class="line"></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">ldt</span> <span class="operator">=</span> LocalDateTime.parse(<span class="string">&quot;2019年11月30日 15:16:17 星期六&quot;</span>, dtf1);<span class="comment">//自定义格式解析:</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DateTimeFormatter</td>
+<td>ofPattern(String pattern)</td>
+<td>根据字符串创建格式</td>
+</tr>
+<tr>
+<td>DateTimeFormatter</td>
+<td>ofPattern(String pattern, Locale locale)</td>
+<td>根据字符串、指定的地区创建格式</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="获取部分">获取部分</span></h3>
 <p><strong>创建实例</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br></pre></td></tr></table></figure>
 <ol>
@@ -292,7 +350,39 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </table>
 </li>
 </ol>
-<h2><span id="加减">加减</span></h2>
+<p><strong>枚举ChronoUnit与枚举ChronoField</strong></p>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>ChronoUnit</th>
+<th>ChronoField</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实现接口</td>
+<td>TemporalUnit</td>
+<td>TemporalField</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>用于计算的日期部分</td>
+<td>用于获取日期部分</td>
+</tr>
+</tbody>
+</table>
+<p>NANOS（纳秒）、MICROS（微秒）、MILLIS（毫秒）、SECONDS（秒）、MINUTES（分）、HOURS（时）、HALF_DAYS（半天）、DAYS（天）、WEEKS（周）、MONTHS（月）、YEARS（年）、DECADES（十年）、CENTURIES（百年）、MILLENNIA（千年）、ERAS（十亿年，即纪元）、FOREVER（永远）</p>
+<h3><span id="加减">加减</span></h3>
+<ul>
+<li>
+<p>月份加减、修改会自动调整日期，即把<code>2019-10-31</code>的月份调整为<code>9</code>时，日期也自动变为<code>30</code>。</p>
+</li>
+<li>
+<p><code>LocalDateTime</code>提供了对日期和时间进行加减的非常简单的链式调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dt</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2019</span>, <span class="number">10</span>, <span class="number">26</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">59</span>);</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dt2</span> <span class="operator">=</span> dt.plusDays(<span class="number">5</span>).minusHours(<span class="number">3</span>);	<span class="comment">// 加5天减3小时:2019-10-31T17:30:59</span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dt3</span> <span class="operator">=</span> dt2.minusMonths(<span class="number">1</span>);	<span class="comment">// 减1月:2019-09-30T17:30:59</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p><strong>创建实例</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss E&quot;</span>);</span><br><span class="line">System.out.println(dateTimeFormatter.format(localDateTime));	<span class="comment">//2023年01月31日 16:13:35 星期二</span></span><br></pre></td></tr></table></figure>
 <ol>
@@ -308,11 +398,6 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 <p><strong>with(TemporalField field, long newValue):</strong> 将指定字段的<code>LocalDate</code>实例返回到一个新值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localDateTime3 = localDateTime3.with(ChronoField.MONTH_OF_YEAR, <span class="number">3</span>);	<span class="comment">//修改成3月份</span></span><br><span class="line">System.out.println(dateTimeFormatter.format(localDateTime3));<span class="comment">//2022年03月31日 16:13:35 星期四</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>**参数TemporalUnit与TemporalField的区别 **</p>
-<ol>
-<li>TemporalUnit子类为ChronoUnit，单元用于计算的日期部分</li>
-<li>TemporalField子类是ChronoField，值域用于获取日期部分</li>
 </ol>
 <p><strong>plus</strong></p>
 <table>
@@ -460,13 +545,18 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 <tr>
 <td>LocalDateTime</td>
+<td>with(TemporalField field, long newValue)</td>
+<td>例：localDateTime.with(ChronoField.YEAR, 2017);</td>
+</tr>
+<tr>
+<td>LocalDateTime</td>
 <td>withYear(int year)</td>
 <td>修改为指定年</td>
 </tr>
 <tr>
 <td>LocalDateTime</td>
-<td>with(TemporalField field, long newValue)</td>
-<td>例：localDateTime.with(ChronoField.YEAR, 2017);</td>
+<td>withMonth(int month)</td>
+<td>修改为指定月</td>
 </tr>
 <tr>
 <td>LocalDateTime</td>
@@ -500,21 +590,143 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 </tbody>
 </table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">atTime(<span class="type">int</span> hour, <span class="type">int</span> minute)</span><br><span class="line">atTime(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second)</span><br><span class="line">atTime(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second, <span class="type">int</span> nanoOfSecond)</span><br><span class="line">atTime(LocalTime time) </span><br></pre></td></tr></table></figure>
-<h2><span id="转换">转换</span></h2>
+<p><strong>TemporalAdjusters工具类</strong></p>
+<p><code>LocalDateTime</code>的<code>with(TemporalAdjuster adjuster)</code>方法允许我们做更复杂的运算</p>
+<p>对于计算某个月第1个周日这样的问题，新的API可以轻松完成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本月第一天0:00时刻:</span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">firstDay</span> <span class="operator">=</span> LocalDate.now().withDayOfMonth(<span class="number">1</span>).atStartOfDay();</span><br><span class="line"><span class="comment">// 本月最后1天:</span></span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">lastDay</span> <span class="operator">=</span> LocalDate.now().with(TemporalAdjusters.lastDayOfMonth());</span><br><span class="line"><span class="comment">// 下月第1天:</span></span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">nextMonthFirstDay</span> <span class="operator">=</span> LocalDate.now().with(TemporalAdjusters.firstDayOfNextMonth());</span><br><span class="line"><span class="comment">// 本月第1个周一:</span></span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">firstWeekday</span> <span class="operator">=</span> LocalDate.now().with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDAY));</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TemporalAdjuster</td>
+<td>firstDayOfMonth()</td>
+<td>本月的第一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>lastDayOfMonth()</td>
+<td>本月的最后一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>firstDayOfNextMonth()</td>
+<td>下个月的第一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>firstDayOfYear()</td>
+<td>本年中的第一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>lastDayOfYear()</td>
+<td>本年中的最后一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>firstDayOfNextYear()</td>
+<td>明年的第一天</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>firstInMonth(DayOfWeek dayOfWeek)</td>
+<td>本月的第一个星期几</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>lastInMonth(DayOfWeek dayOfWeek)</td>
+<td>本月的最后一个星期几</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>dayOfWeekInMonth(int ordinal, DayOfWeek dayOfWeek)</td>
+<td>本月中的第几个星期几</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>next(DayOfWeek dayOfWeek)</td>
+<td>下一个星期几</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>nextOrSame(DayOfWeek dayOfWeek)</td>
+<td>本日符合参数返回本日</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>previous(DayOfWeek dayOfWeek)</td>
+<td>上一个星期几</td>
+</tr>
+<tr>
+<td>TemporalAdjuster</td>
+<td>previousOrSame(DayOfWeek dayOfWeek)</td>
+<td>本日符合参数返回本日</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="转换">转换</span></h3>
 <p><strong>LocalDate 转化为 LocalDateTime</strong></p>
 <ol>
 <li>
 <p>LocalDate实例方法atTime()，结合给定时间返回 LocalDateTime 实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">localDate.atTime(<span class="type">int</span> hour, <span class="type">int</span> minute)</span><br><span class="line">localDate.atTime(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second)</span><br><span class="line">localDate.atTime(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second, <span class="type">int</span> nanoOfSecond)</span><br><span class="line">localDate.atTime(LocalTime time) </span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LocalDateTime</td>
+<td>atTime(int hour, int minute)</td>
+</tr>
+<tr>
+<td>LocalDateTime</td>
+<td>atTime(int hour, int minute, int second)</td>
+</tr>
+<tr>
+<td>LocalDateTime</td>
+<td>atTime(int hour, int minute, int second, int nanoOfSecond)</td>
+</tr>
+<tr>
+<td>LocalDateTime</td>
+<td>atTime(LocalTime time)</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>atStartOfDay()将LocalDate与00:00的时间结合起来，在这个日期的开始创建LocalDateTime实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime <span class="title function_">atStartOfDay</span><span class="params">()</span></span><br><span class="line">ZonedDateTime <span class="title function_">atStartOfDay</span><span class="params">(ZoneId zone)</span> </span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LocalDateTime</td>
+<td>atStartOfDay()</td>
+</tr>
+<tr>
+<td>ZonedDateTime</td>
+<td>atStartOfDay(ZoneId zone)</td>
+</tr>
+</tbody>
+</table>
 </li>
 </ol>
-<h2><span id="比较">比较</span></h2>
+<h3><span id="比较">比较</span></h3>
 <p>LocalDate、LocalTime、LocalDateTime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">target</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2019</span>, <span class="number">11</span>, <span class="number">19</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">0</span>);</span><br><span class="line">System.out.println(now.isBefore(target));</span><br><span class="line">System.out.println(LocalDate.now().isBefore(LocalDate.of(<span class="number">2019</span>, <span class="number">11</span>, <span class="number">19</span>)));</span><br><span class="line">System.out.println(LocalTime.now().isAfter(LocalTime.parse(<span class="string">&quot;08:15:00&quot;</span>)));</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -551,7 +763,7 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 </tbody>
 </table>
-<h2><span id="检查">检查</span></h2>
+<h3><span id="检查">检查</span></h3>
 <p>LocalDate、LocalTime、LocalDateTime</p>
 <table>
 <thead>
@@ -606,7 +818,7 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 </tbody>
 </table>
-<h2><span id="距离">距离</span></h2>
+<h3><span id="距离">距离</span></h3>
 <p>LocalDateTime、LocalTime</p>
 <table>
 <thead>
@@ -646,8 +858,103 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 </tr>
 </tbody>
 </table>
+<p><strong>Period</strong></p>
+<p>两个<code>LocalDate</code>之间的差值用<code>Period</code>表示(年月日)</p>
+<blockquote>
+<p><code>P1M21D</code>，表示1个月21天</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Period</td>
+<td>Period.between(LocalDate l1,LocalDate l2)</td>
+<td>返回相差的时间量,等同于LocalDate的until</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Duration</strong></p>
+<p>两个<code>LocalDateTime</code>之间的差值使用<code>Duration</code>表示</p>
+<blockquote>
+<p><code>PT1235H10M30S</code>，表示1235小时10分钟30秒</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Duration</td>
+<td>between(LocalDateTime l1,LocalDateTime l2)</td>
+<td>返回相差的时间量</td>
+</tr>
+</tbody>
+</table>
+<p><code>Duration</code>和<code>Period</code>的表示方法也符合ISO 8601的格式，它以<code>P...T...</code>的形式表示，<code>P...T</code>之间表示日期间隔，<code>T</code>后面表示时间间隔。如果是<code>PT...</code>的格式表示仅有时间间隔。</p>
+<h2><span id="时区时间">时区时间</span></h2>
+<p><strong>ZoneDateTime</strong></p>
+<p>带时区的日期和时间</p>
+<h3><span id="创建">创建</span></h3>
+<ol>
+<li>now()方法获取默认时区下的当前时间</li>
+<li>new(ZoneId zone)放方法获取指定时区的当前时间</li>
+<li>相当于当前时间添加时区数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zsh</span> <span class="operator">=</span> ZonedDateTime.now(); <span class="comment">// 默认时区	2023-02-02T20:46:25.322+08:00[Asia/Shanghai]</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zny</span> <span class="operator">=</span> ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line">				<span class="comment">// 用指定时区获取当前时间               2023-02-02T07:46:25.323-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+<h3><span id="localdatetime转换">LocalDateTime转换</span></h3>
+<ol>
+<li>LocalDateTime对象的<code>atZone(ZoneId zone)</code>方法</li>
+<li>相当于当前时间添加时区数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();		<span class="comment">//2023-02-02T20:52:20.756</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> localDateTime.atZone(ZoneId.systemDefault());</span><br><span class="line"><span class="comment">//2023-02-02T20:52:20.756+08:00[Asia/Shanghai]</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zny</span> <span class="operator">=</span> localDateTime.atZone(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br><span class="line"><span class="comment">//2023-02-02T20:52:20.756-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+<h3><span id="时区转换时区运算">时区转换（时区运算）</span></h3>
+<ol>
+<li><code>ZonedDateTime</code>对象的<code>withZoneSameInstant(ZoneId zone)</code>将关联时区转换到另一个时区，转换后日期和时间都会相应调整</li>
+<li>涉及不同时区下的时间转换运算</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以中国时区获取当前时间:2023-02-02T20:59:30.408+08:00[Asia/Shanghai]</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zbj</span> <span class="operator">=</span> ZonedDateTime.now(ZoneId.of(<span class="string">&quot;Asia/Shanghai&quot;</span>));</span><br><span class="line"><span class="comment">// 转换为纽约时间:2023-02-02T07:59:30.408-05:00[America/New_York]</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zny</span> <span class="operator">=</span> zbj.withZoneSameInstant(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br></pre></td></tr></table></figure>
+<h3><span id="转换为localdatetime">转换为LocalDateTime</span></h3>
+<ol>
+<li>ZonedDateTime对象的 <code>atLocalDateTime()</code>方法</li>
+<li>直接丢弃时区数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2023-02-02T21:03:03.682+08:00[Asia/Shanghai]</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">now</span> <span class="operator">=</span> ZonedDateTime.now();</span><br><span class="line"><span class="comment">//2023-02-02T21:03:03.682</span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> now.toLocalDateTime();</span><br></pre></td></tr></table></figure>
+<p><strong>某航线从北京飞到纽约需要13小时20分钟，根据北京起飞日期和时间计算到达纽约的当地日期和时间</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> ZonedDateTime <span class="title function_">arriveTime</span> <span class="params">(ZonedDateTime flyTime)</span>&#123;</span><br><span class="line">    <span class="type">ZonedDateTime</span> <span class="variable">plus</span> <span class="operator">=</span> flyTime.plus(<span class="number">13</span>, ChronoUnit.HOURS).plus(<span class="number">20</span>, ChronoUnit.SECONDS);</span><br><span class="line">    <span class="keyword">return</span> plus.withZoneSameInstant(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2><span id="机器时间">机器时间</span></h2>
-<h2><span id="不同区域的日期">不同区域的日期</span></h2>
+<p><strong>JDK8以下</strong></p>
+<ol>
+<li>
+<pre><code class="language-java">long l = System.currentTimeMillis();	        //获取当前日期的机器时间【毫秒】
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ~~~java</span><br><span class="line">   Date date = new Date();			//自定义时间java.util.Date[jdk8之前的时间]</span><br><span class="line">   long time = date.getTime();		//获取当前日期的机器时间【毫秒】</span><br></pre></td></tr></table></figure>
+
+</code></pre>
+</li>
+</ol>
+<p><strong>JDK8及以上</strong></p>
+<p><strong>Instant</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">now</span> <span class="operator">=</span> Instant.now();		<span class="comment">//获取当前时间戳，相比System.currentTimeMillis()多了更高精度的纳秒</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>LocalDateTime转成时区时间ZonedDateTime再转换成Instant</p>
+<blockquote>
+<p><code>LocalDateTime</code>无法直接转换成时间戳，因为<code>LocalDateTime</code>没有时区，无法确定某一时刻</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="comment">//LocalDateTime转成时区时间ZonedDateTime【需要时区支持】</span></span><br><span class="line"><span class="comment">//ZoneId.systemDefault()获取当前操作系统时区</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> ZonedDateTime.of(localDateTime, ZoneId.systemDefault());</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> zonedDateTime.toInstant();		<span class="comment">//ZonedDateTime转成成机器时间Instant【需要时区支持】</span></span><br><span class="line">System.out.println(instant.toEpochMilli());		<span class="comment">//秒+毫秒的部分</span></span><br><span class="line">System.out.println(instant.getEpochSecond());		<span class="comment">//秒的部分</span></span><br><span class="line">System.out.println(instant.getNano());		<span class="comment">//纳秒部分</span></span><br></pre></td></tr></table></figure>
+<p><strong>Date转换成LocalDateTime</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Date</span> <span class="variable">dateOld</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();		<span class="comment">//Date创建</span></span><br><span class="line"><span class="type">Instant</span> <span class="variable">instantNew</span> <span class="operator">=</span> dateOld.toInstant();		<span class="comment">//Date转机器时间Instant</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTimeNew</span> <span class="operator">=</span> instantNew.atZone(ZoneId.systemDefault());		<span class="comment">//机器时间Instant转ZonedDateTime</span></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTimeNew</span> <span class="operator">=</span> zonedDateTimeNew.toLocalDateTime();		<span class="comment">//ZonedDateTime转LocalDateTime</span></span><br></pre></td></tr></table></figure>
  
       <!-- reward -->
       
@@ -728,6 +1035,15 @@ JDK8及之后统一使用新的日期架构LocalDate（年月日）、LocalTime�
 
    
   <nav class="article-nav">
+    
+      <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据库
+          
+        </div>
+      </a>
     
     
       <a href="/post/String%E7%B1%BB/" class="article-nav-link">
