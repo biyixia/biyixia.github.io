@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>html学习 |  biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-html学习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  html学习
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/html%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2023-06-08T04:33:27.931Z" itemprop="datePublished">2023-06-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/">第二阶段</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">13 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/HTML">HTML</a>（HyperText Markup Language，超文本标记语言）是一种用来告知浏览器如何组织页面的<em>标记语言</em>。HTML 可复杂、可简单，一切取决于 web 开发者。</p>
+<ul>
+<li>语法不严谨</li>
+<li>不区分大小写</li>
+<li>自动填充没有编写的语法</li>
+</ul>
+<h2><span id="元素">元素</span></h2>
+<ul>
+<li><strong>开始标签</strong>（Opening tag）：包含元素的名称（本例为 <em>p</em>），被左、右角括号所包围。开头标签标志着元素开始或开始生效的地方。在这个示例中，它在段落文本的开始之前。</li>
+<li><strong>内容</strong>（Content）：元素的内容，本例中就是段落的文本。</li>
+<li><strong>结束标签</strong>（Closing tag）：与开始标签相似，只是其在元素名之前包含了一个斜杠。这标志着该元素的结束。没有包含关闭标签是一个常见的初学者错误，它可能会产生奇特的结果。</li>
+</ul>
+<p>整个元素即指开始标签、内容、结束标签三部分组成的整体。</p>
+<h3><span id="嵌套元素">嵌套元素</span></h3>
+<p>My cat is <strong>very</strong> grumpy.</p>
+<h3><span id="元素分类">元素分类</span></h3>
+<ul>
+<li>块级元素在页面中以块的形式展现。一个块级元素出现在它前面的内容之后的新行上。任何跟在块级元素后面的内容也会出现在新的行上。块级元素通常是页面上的结构元素。例如，一个块级元素可能代表标题、段落、列表、导航菜单或页脚。一个块级元素不会嵌套在一个内联元素里面，但它可能嵌套在另一个块级元素里面。</li>
+<li>内联元素通常出现在块级元素中并环绕文档内容的一小部分，而不是一整个段落或者一组内容。内联元素不会导致文本换行。它通常与文本一起使用，例如，<a>元素创建一个超链接，<strong>等元素创建强调。</strong></a></li>
+</ul>
+<p><em>第一</em><em>第二</em><em>第三</em></p>
+<p>第四</p><p>第五</p><p>第六</p>
+<blockquote>
+<p>在这篇文章中提到的“块”和“内联”，不应该与 CSS 盒子的类型中的同名术语相混淆。尽管它们默认是相关的，但改变 CSS 显示类型并不会改变元素的分类，也不会影响它可以包含和被包含于哪些元素。防止这种混淆也是 HTML5 摒弃这些术语的原因之一。</p>
+</blockquote>
+<h3><span id="空元素">空元素</span></h3>
+<img src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png" alt="Firefox 图标">
+<h2><span id="属性">属性</span></h2>
+<p>属性包含元素的额外信息，这些信息不会出现在实际的内容中。</p>
+<p>属性必须包含：</p>
+<ul>
+<li>一个空格，它在属性和元素名称之间。如果一个元素具有多个属性，则每个属性之间必须由空格分隔。</li>
+<li>属性名称，后面跟着一个等于号。</li>
+<li>一个属性值，由一对引号（“”）引起来。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.mozilla.org/&quot;</span> <span class="attr">title</span>=<span class="string">&quot;The Mozilla homepage&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>mozila<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>href：声明超链接的 web 地址</li>
+<li>title：超链接声明额外的信息，当鼠标悬停在超链接上面时，这部分信息将以工具提示的形式显示。</li>
+<li>target：指定链接如何呈现出来。例如，<code>target=&quot;_blank&quot;</code> 将在新标签页中显示链接。如果你希望在当前标签页显示链接，忽略这个属性即可。</li>
+</ul>
+<h3><span id="布尔属性">布尔属性</span></h3>
+<p>有时你会看到没有值的属性，这也是完全可以接受的。这些属性被称为布尔属性。布尔属性只能有一个值，这个值一般与属性名称相同。例如，考虑 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#attr-disabled"><code>disabled</code></a> 属性，你可以将其分配给表单输入元素。用它来禁用表单输入元素，这样用户就不能输入了。被禁用的元素通常有一个灰色的外观。示例如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span>=<span class="string">&quot;disabled&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 使用 disabled 属性来防止终端用户输入文本到输入框中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 下面这个输入框不包含 disabled 属性，所以用户可以向其中输入 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="属性引号">属性引号</span></h3>
+<ul>
+<li>
+<p>建议不省略包围属性的引号</p>
+</li>
+<li>
+<p>可以使用单引号或双引号，但不能在一个属性值里混用</p>
+</li>
+<li>
+<p>可以在一种引号中嵌套另一种引号，若想在引号中嵌套同种引号，必须使用 HTML 实体引用 ：' (&amp;apos;)</p>
+</li>
+<li>
+<p>连续多个空格最多显示一个，也需要使用实体引用 </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML%E4%B8%8EHTML%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8%E5%88%97%E8%A1%A8#HTML%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8">XML与HTML字符实体引用列表 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;https://www.example.com&#x27;</span> <span class="attr">title</span>=<span class="string">&#x27;Isn<span class="symbol">&amp;apos;</span>t this fun?&#x27;</span>&gt;</span>示例站点链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2><span id="html文档">HTML文档</span></h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>我的测试站点</title>
+  </head>
+  <body>
+    <h1><span id="经典回忆">经典回忆</span></h1>
+    <p>
+     相思无用，惟别而已。别期若有定，千般煎熬又何如？莫道黯然销魂，何处<strong>柳暗花明</strong>？<br>
+     ——《<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/神鵰俠侶">神雕侠侣</a>》
+    </p>
+    <img src="https://roy-tian.github.io/learning-area/extras/tools/playable-code/images/sdxl.jfif" alt="《神雕侠侣》作品图片">
+    <div>
+      <input type="text">
+    </div>
+	<div>
+      <input type="text" disabled>
+    </div>
+  </body>
+</html>
+<ol>
+<li><code>&lt;!DOCTYPE html&gt;</code>: 声明文档类型。早期的 HTML（大约 1991-1992 年）文档类型声明类似于链接，规定了 HTML 页面必须遵从的良好规则，能自动检测错误和其他有用的东西。文档类型是一个历史遗留问题，需要包含它才能使其他东西正常工作。现在，只需要知道 <code>&lt;!DOCTYPE html&gt;</code> 是html第五个版本的声明</li>
+<li><code>&lt;html&gt;&lt;/html&gt;</code>: <html>元素。这个元素包裹了页面中所有的内容，有时被称为根元素。</html></li>
+<li><code>&lt;head&gt;&lt;/head&gt;</code>: <head>元素。这个元素是一个容器，它包含了所有你想包含在 HTML 页面中但<strong>不在 HTML 页面中显示</strong>的内容。这些内容包括你想在搜索结果中出现的关键字和页面描述、CSS 样式、字符集声明等等。以后的章节中会学到更多相关的内容。</head></li>
+<li><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>: <meta>元素。这个元素代表了不能由其他 HTML 元相关元素表示的元数据，比如<base><link><script><style><title>。charset属性将你的文档的字符集设置为 UTF-8，其中包括绝大多数人类书面语言的大多数字符。有了这个设置，页面现在可以处理它可能包含的任何文本内容。没有理由不对它进行设置，它可以帮助避免以后的一些问题。</li>
+<li><code>&lt;title&gt;&lt;/title&gt;</code>: <title> 元素。这设置了页面的标题，也就是出现在该页面加载的浏览器标签中的内容。当页面被加入书签时，页面标题也被用来描述该页面。</li>
+<li><code>&lt;body&gt;&lt;/body&gt;</code>: <body> 元素。包含了你访问页面时<em>所有</em>显示在页面上的内容，包含文本、图片、视频、游戏、可播放音频轨道等等。</li>
+</ol>
+<h2 id="格式">格式</h2>
+<ul>
+<li>无论你在 HTML 元素的内容中使用多少空格（包括一个或多个空白字符或换行），当渲染这些代码的时候，HTML 解释器会将连续出现的空白字符减少为一个单独的空格符。</li>
+<li>在我们的HTML中，每个嵌套元素都比它所在的元素多缩进了两个空格。</li>
+</ul>
+<h2 id="注释">注释</h2>
+<!--内容-->
+<h2 id="HTML头部">HTML头部</h2>
+<p>HTML 头部包含 HTML&lt;head&gt;元素的内容，与&lt;body&gt;元素内容不同，页面在浏览器加载后它的内容不会在浏览器中显示，它的作用是保存页面的一些元数据</p>
+<h3 id="添加标题-title">添加标题 title</h3>
+<ul>
+<li>&lt;h1&gt; 元素在页面加载完毕时显示在页面中，通常只出现一次，为 body 添加顶级标题、用来标记页面内容的标题（故事名称、新闻摘要等等）。</li>
+<li>&lt;title&gt;元素是一项元数据，用于表示整个 HTML 文档的标题（而不是文档内容）为head添加标题。</li>
+</ul>
+<h3 id="元数据-meta">元数据 meta</h3>
+<ul>
+<li>指定文档字符编码</li>
+</ul>
+<meta charset="utf-8" />
+<ul>
+<li>添加作者和描述</li>
+</ul>
+<p><meta
+  name="description"
+  content="The MDN Web Docs site
+  provides information about Open Web technologies
+  including HTML, CSS, and APIs for both Web sites and
+  progressive web apps." /></p>
+<p><img src="https://pic.imgdb.cn/item/63f6d267f144a01007a898af.jpg" alt=""></p>
+<ul>
+<li>其他类型</li>
+</ul>
+<h3 id="应用css和JavaScript">应用css和JavaScript</h3>
+<ul>
+<li>&lt;link&gt;元素经常位于文档的头部，它有 2 个属性，<code>rel=&quot;stylesheet&quot;</code> 表明这是文档的样式表，而 <code>href</code> 包含了样式表文件的路径：</li>
+</ul>
+<link rel="stylesheet" href="my-css-file.css" />
+<ul>
+<li>&lt;script&gt;元素也应当放在文档的头部，并包含 <code>src</code> 属性来指向需要加载的 JavaScript 文件路径，同时最好加上 <code>defer</code> 以告诉浏览器在解析完成 HTML 后再加载 JavaScript。这样可以确保在加载脚本之前浏览器已经解析了所有的 HTML 内容。这样你就不会因为 JavaScript 试图访问页面上不存在的 HTML 元素而产生错误。实际上有很多方法来处理在你的页面上加载 JavaScript，但对于现代浏览器来说，这是最可靠的方法</li>
+</ul>
+<script src="my-js-file.js" defer></script>
+<h2><span id="html文本">HTML文本</span></h2>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td>双标签</td>
+<td>段落</td>
+</tr>
+<tr>
+<td>title</td>
+<td>双标签</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>ol（li）</td>
+<td>双标签</td>
+<td>有序列表</td>
+</tr>
+<tr>
+<td>ul（li）</td>
+<td>双标签</td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td>strong</td>
+<td>双标签</td>
+<td>强调</td>
+</tr>
+<tr>
+<td>em</td>
+<td>双标签</td>
+<td>斜体</td>
+</tr>
+<tr>
+<td>br</td>
+<td>单标签</td>
+<td>强制换行</td>
+</tr>
+<tr>
+<td>hr</td>
+<td>单标签</td>
+<td>水平线</td>
+</tr>
+<tr>
+<td>blockquote</td>
+<td>双标签</td>
+<td>块引用</td>
+</tr>
+<tr>
+<td>cite</td>
+<td>双标签</td>
+<td>行引用</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="列表">列表</span></h3>
+<ul>
+<li>
+<p>有序列表</p>
+<ol>
+  <li>沿着条路走到头</li>
+  <li>右转</li>
+  <li>直行穿过第一个十字路口</li>
+  <li>在第三个十字路口处左转</li>
+  <li>继续走 300 米，学校就在你的右手边</li>
+</ol>
+</li>
+<li>
+<p>无序列表</p>
+<ul>
+  <li>豆浆</li>
+  <li>油条</li>
+  <li>豆汁</li>
+  <li>焦圈</li>
+</ul>
+</li>
+<li>
+<p>嵌套列表</p>
+<ol>
+  <li>先用蛋白一个、盐半茶匙及淀粉两大匙搅拌均匀，调成“腌料”，鸡胸肉切成约一厘米见方的碎丁并用“腌料”搅拌均匀，腌渍半小时。</li>
+  <li>用酱油一大匙、淀粉水一大匙、糖半茶匙、盐四分之一茶匙、白醋一茶匙、蒜末半茶匙调拌均匀，调成“综合调味料”。</li>
+  <li>鸡丁腌好以后，色拉油下锅烧热，先将鸡丁倒入锅内，用大火快炸半分钟，炸到变色之后，捞出来沥干油汁备用。</li>
+  <li>在锅里留下约两大匙油，烧热后将切好的干辣椒下锅，用小火炒香后，再放入花椒粒和葱段一起爆香。随后鸡丁重新下锅，用大火快炒片刻后，再倒入“综合调味料”继续快炒。
+    <ul>
+      <li>如果你采用正宗川菜做法，最后只需加入花生米，炒拌几下就可以起锅了。</li>
+      <li>如果你在北方，可加入黄瓜丁、胡萝卜丁和花生米，翻炒后起锅。</li>
+    </ul>
+  </li>
+</ol>
+</li>
+</ul>
+<h3><span id="强调">强调</span></h3>
+<p>This liquid is <strong>highly toxic</strong> —
+if you drink it, <b>you may <em>die</em></b>.</p>
+<p>仅仅影响表象而且没有语义，被称为<strong>表象元素</strong>（presentational elements）并且不应该再被使用。因为正如我们在之前看到的，语义对无障碍、SEO（搜索引擎优化）等非常重要。</p>
+<ul>
+<li><code>&lt;b&gt;</code>、<code>&lt;i&gt;</code> 或 <code>&lt;u&gt;</code> 来表达传统上的粗体、斜体或下划线</li>
+</ul>
+<h3><span id="描述列表">描述列表</span></h3>
+<p>目的是标记一组项目及其相关描述，例如术语和定义，或者是问题和答案等。让我们看一组术语和定义的示例：</p>
+<p>描述列表使用与其他列表类型不同的闭合标签<dl>；此外，每一项都用 <dt>（description term）元素闭合。每个描述都用<dd>（description definition）元素闭合。</dd></dt></dl></p>
+<dl>
+  <dt>内心独白</dt>
+    <dd>戏剧中，某个角色对自己的内心活动或感受进行念白表演，这些台词只面向观众，而其他角色不会听到。</dd>
+  <dt>语言独白</dt>
+    <dd>戏剧中，某个角色把自己的想法直接进行念白表演，观众和其他角色都可以听到。</dd>
+  <dt>旁白</dt>
+    <dd>戏剧中，为渲染幽默或戏剧性效果而进行的场景之外的补充注释念白，只面向观众，内容一般都是角色的感受、想法、以及一些背景信息等。</dd>
+</dl>
+<p>一个术语可以同时有多个描述</p>
+<h3><span id="引用">引用</span></h3>
+<p><strong>块引用</strong></p>
+<p>你应该把它用<blockquote>元素包裹起来表示，并且在cite属性里用 URL 来指向引用的资源。</blockquote></p>
+<p>Here is a blockquote:</p>
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+  <p>
+    The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or
+    <em>HTML Block Quotation Element</em>) indicates that the enclosed text is
+    an extended quotation.
+  </p>
+</blockquote>
+<p><strong>行内引用</strong></p>
+<q>
+<p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+for short quotations that don't require paragraph breaks.</q></p>
+<p>
+  According to the
+  <a href="/en-US/docs/Web/HTML/Element/blockquote">
+    <cite>MDN blockquote page</cite></a>:
+</p>
+<blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+  <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+  Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
+</blockquote>
+<h3><span id="引文cite">引文cite</span></h3>
+<p>The quote element — <code>&lt;q&gt;</code> — is <q cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+for short quotations that don't require paragraph breaks.</q> — <a href="/en-US/docs/Web/HTML/Element/q">
+<cite>MDN q page</cite></a>.</p>
+<h3><span id="水平线">水平线</span></h3>
+<hr color="red" size="100px" width="700px"> 
+<h2><span id="html超链接ltagt">HTML超链接&lt;a&gt;</span></h2>
+<h3><span id="属性">属性</span></h3>
+<ul>
+<li>href：指向链接</li>
+<li>title：关于链接的补充信息</li>
+</ul>
+<h3><span id="url-path">URL、PATH</span></h3>
+<ul>
+<li>
+<p>URL（统一资源定位符）是一个定义了在网络上的位置的一个文本字符串。例如https://www.mozilla.org/zh-CN/`.</p>
+</li>
+<li>
+<p>指向当前： href=“contacts.html”</p>
+</li>
+<li>
+<p>指向子目录：href=&quot;projects/index.html</p>
+</li>
+<li>
+<p>指向上级目录：href=“…/pdfs/project-brief.pdf”</p>
+</li>
+</ul>
+<h3><span id="链接文档特定部分">链接文档特定部分</span></h3>
+<h2><span id="邮寄地址">邮寄地址</span></h2>
+<p>要提供意见和建议，请将信件邮寄至<a href="contacts.html#Mailing_address">我们的地址</a>。</p>
+<ul>
+<li>组件设置id</li>
+<li>通过href:&quot;URL#id&quot;链接到特定的id</li>
+</ul>
+<p><strong>绝对 URL</strong>：指向由其在 Web 上的绝对位置定义的位置，包括<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Protocol">协议</a>和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Domain_name">域名</a>。像下面的例子，如果 <code>index.html</code> 页面上传到了 <code>projects</code> 这一个目录。并且 <code>projects</code> 目录位于 web 服务站点的根目录，web 站点的域名为 <code>http://www.example.com</code>，那么这个页面就可以通过 <code>http://www.example.com/projects/index.html</code> 访问（或者通过 <code>http://www.example.com/projects/</code> 来访问，因为在没有指定特定的 URL 的情况下，大多数 web 服务器会默认访问加载 <code>index.html</code> 这类页面）</p>
+<p><strong>相对 URL</strong>：指向与你链接的文件相关的位置，更像我们在前面一节中所看到的位置。例如，如果我们想从示例文件链接 <code>http://www.example.com/projects/index.html</code> 转到相同目录下的一个 PDF 文件，URL 就是文件名（例如 <code>project-brief.pdf</code>），没有其他的信息要求。如果 PDF 文件能够在 <code>projects</code> 的子目录 <code>pdfs</code> 中访问到，相对路径就是 <code>pdfs/project-brief.pdf</code>（对应的绝对 URL 是 <code>http://www.example.com/projects/pdfs/project-brief.pdf</code>）</p>
+<p>一个相对 URL 将指向不同的位置，这取决于它所在的文件所在的位置</p>
+<p><a target="_blank" rel="noopener" href="https://www.example.com/large-report.pdf">
+  下载销售报告（PDF, 10MB）
+</a></p>
+<p><a href="https://www.example.com/video-stream/" target="_blank">
+  观看视频（将在新标签页中播放，HD 画质）
+</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.example.com/car-game">
+  进入汽车游戏（需要 Flash 插件）
+</a></p>
+<h3><span id="download属性">download属性</span></h3>
+<p>当你链接到要下载的资源而不是在浏览器中打开时，你可以使用 download 属性来提供一个默认的保存文件名。下面是一个 Firefox 的 Windows 最新版本下载链接的示例：</p>
+<p><a target="_blank" rel="noopener" href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN" download="firefox-latest-64bit-installer.exe"><br>
+下载最新的 Firefox 中文版 - Windows（64 位）<br>
+</a></p>
+</q></li></ol> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/html%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/HttpSession/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            HttpSession
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">AOP面向切面编程</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2023
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>

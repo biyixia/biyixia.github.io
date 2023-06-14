@@ -77,7 +77,7 @@
      
     <div class="article-meta">
       <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="article-date">
-  <time datetime="2023-02-03T03:00:18.256Z" itemprop="datePublished">2023-02-03</time>
+  <time datetime="2023-06-08T04:33:27.949Z" itemprop="datePublished">2023-06-08</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/">第二阶段</a>
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">9.4k</span>
+            <span class="post-count">9.9k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">37 min</span>
+            <span class="post-count">39 min</span>
         </span>
     </span>
 </div>
@@ -1209,7 +1209,7 @@
 <li>排名问题：每个部门按业绩来排名</li>
 <li>topN问题：找出每个部门排名前N的员工进行奖励</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span>窗口函数<span class="operator">&gt;</span> <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> <span class="operator">&lt;</span>用于分组的列名<span class="operator">&gt;</span>					<span class="comment">-- 窗口函数可以是专用窗口函数或聚合函数</span></span><br><span class="line">                <span class="keyword">order</span> <span class="keyword">by</span> <span class="operator">&lt;</span>用于排序的列名<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&lt;</span>窗口函数<span class="operator">&gt;</span> <span class="keyword">OVER</span> (<span class="keyword">PARTITION</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>用于分组的列名<span class="operator">&gt;</span>					       <span class="comment">-- 窗口函数可以是专用窗口函数或聚合函数</span></span><br><span class="line">                 <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>用于排序的列名<span class="operator">&gt;</span> <span class="keyword">RANGE</span><span class="operator">|</span><span class="keyword">ROWS</span> <span class="keyword">BETWEEN</span> 边界规则<span class="number">1</span> <span class="keyword">AND</span> 边界规则<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>窗口函数与GROUP BY</strong></p>
 <table>
 <thead>
@@ -1241,6 +1241,60 @@
 </tr>
 </tbody>
 </table>
+<p><strong>窗口函数中的ORDER BY</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lihaoyang/p/6756956.html">SQL开窗函数 - 我俩绝配 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>用于排序的列名<span class="operator">&gt;</span> [<span class="keyword">RANGE</span><span class="operator">|</span><span class="keyword">ROWS</span> <span class="keyword">BETWEEN</span> 边界规则<span class="number">1</span> <span class="keyword">AND</span> 边界规则<span class="number">2</span>] <span class="comment">-- 定位计算范围，这个子句又被称为定位框架</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>RANGE表示按照值的范围进行范围的定义</p>
+<p>ROWS表示按照行的范围进行范围的定义</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>边界规则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CURRENT ROW</td>
+<td>当前行</td>
+</tr>
+<tr>
+<td>N PRECEDING</td>
+<td>前N行</td>
+</tr>
+<tr>
+<td>UNBOUNDED PRECEDING</td>
+<td>一直到第一条记录</td>
+</tr>
+<tr>
+<td>N FOLLOWING</td>
+<td>后N行</td>
+</tr>
+<tr>
+<td>UNBOUNDED FOLLOWING</td>
+<td>一直到最后一条记录</td>
+</tr>
+</tbody>
+</table>
+<p>查询从第一行到当前行为一组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sum</span>(fsalary) <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> fsalary [<span class="keyword">rows</span> <span class="keyword">between</span> unbounded preceding <span class="keyword">and</span> <span class="keyword">current</span> <span class="type">row</span>]）	<span class="comment">-- 可以省略定位框架声明部分</span></span><br></pre></td></tr></table></figure>
+<p>row换成range，按照值范围进行定位</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sum</span>(fsalary) <span class="keyword">over</span>(<span class="keyword">order</span> <span class="keyword">by</span> fsalary <span class="keyword">range</span> <span class="keyword">between</span> unbounded preceding <span class="keyword">and</span> <span class="keyword">current</span> <span class="type">row</span>) 到当前行工资求和</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2015.cnblogs.com/blog/702434/201704/702434-20170424155347381-935401731.png" alt="img"></p>
+<p>处理并列排序的情况：Lily、Swing、Bill这三个人的工资都是2000元</p>
+<ol>
+<li>“ROWS”进行行的范围定位，则计算从第一条到当前行的累积和</li>
+<li>“RANGE”进行值的范围定位，则计算从第一个值1000到当前值的累计和，由于等于2000元的工资有三个人，所以对 Lily、Swing、Bill这三个人进行开窗函数聚合计算的时候得到的都是7000（ “ 1000+2000+2000+2000 ”）</li>
+</ol>
+<p>查询前两行和后两行为一组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SUM</span>(FSalary) <span class="keyword">OVER</span>(<span class="keyword">ORDER</span> <span class="keyword">BY</span> FSalary <span class="keyword">ROWS</span> <span class="keyword">BETWEEN</span> <span class="number">2</span> PRECEDING <span class="keyword">AND</span> <span class="number">2</span> FOLLOWING)  <span class="comment">-- 前二后二和</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images2015.cnblogs.com/blog/702434/201704/702434-20170424155602225-1292657393.png" alt="img"></p>
+<ol>
+<li>按照FSalary进行排序，然后计算从当前行前两行（2 PRECEDING）到当前行后两行（2 FOLLOWING）的工资和</li>
+<li>第一、第二条的“前两行”不存在，最后两行数据的“后两行”也不存在，因此计算时候按照前两行不存在进行计算，结果为空值NULL而非0</li>
+</ol>
 <p><strong>分类</strong></p>
 <ol>
 <li>专用窗口函数</li>
@@ -1303,6 +1357,7 @@
 <p><strong>CEILING</strong></p>
 <p>CEILING（x）返回大于等于x的最小整数（向上取整）</p>
 <h3><span id="其他">其他</span></h3>
+<p><strong>UNION与UNION ALL</strong></p>
 <p><strong>数据汇总</strong></p>
 <p>COALESCE(expression_1, expression_2, …,expression_n)</p>
 <ul>
@@ -1505,10 +1560,19 @@
    
   <nav class="article-nav">
     
+      <a href="/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            校验注解
+          
+        </div>
+      </a>
     
-      <a href="/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/" class="article-nav-link">
+    
+      <a href="/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">日期类</div>
+        <div class="article-nav-title">SpringMVC拦截器</div>
       </a>
     
   </nav>
