@@ -66,14 +66,16 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>同步与异步</title>
     <link href="http://example.com/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/"/>
     <id>http://example.com/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/</id>
     <published>2023-06-15T06:20:27.742Z</published>
-    <updated>2023-06-15T06:20:27.742Z</updated>
+    <updated>2023-06-15T11:04:53.195Z</updated>
     
     
     
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>

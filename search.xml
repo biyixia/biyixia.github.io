@@ -331,88 +331,6 @@
       </categories>
   </entry>
   <entry>
-    <title>常用模板</title>
-    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th>模板</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>psvm</strong></td>
-<td>可生成 main 方法</td>
-</tr>
-<tr>
-<td><strong>sout</strong></td>
-<td>System.out.println() 快捷输出</td>
-</tr>
-<tr>
-<td><strong>soutp</strong></td>
-<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
-</tr>
-<tr>
-<td><strong>soutv</strong></td>
-<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
-</tr>
-<tr>
-<td><strong>soutm</strong></td>
-<td>System.out.println(“当前类名.当前方 法”);</td>
-</tr>
-<tr>
-<td><strong>“abc”.sout</strong></td>
-<td>System.out.println(“abc”);</td>
-</tr>
-<tr>
-<td><strong>fori</strong></td>
-<td>可生成 for 循环</td>
-</tr>
-<tr>
-<td>iter</td>
-<td>可生成增强 for 循环</td>
-</tr>
-<tr>
-<td>itar</td>
-<td>可生成普通 for 循环</td>
-</tr>
-<tr>
-<td>list.for</td>
-<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
-</tr>
-<tr>
-<td><strong>ifn</strong></td>
-<td>可生成 if(xxx = null)</td>
-</tr>
-<tr>
-<td><strong>inn</strong></td>
-<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
-</tr>
-<tr>
-<td>prsf</td>
-<td>可生成 private static final</td>
-</tr>
-<tr>
-<td>psf</td>
-<td>可生成 public static final</td>
-</tr>
-<tr>
-<td>psfi</td>
-<td>可生成 public static final int</td>
-</tr>
-<tr>
-<td>psfs</td>
-<td>可生成 public static final String</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JDK的安装及环境变量的配置</title>
     <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1><span id="引言">引言</span></h1>
@@ -525,6 +443,88 @@
 <p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
 <p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用模板</title>
+    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>psvm</strong></td>
+<td>可生成 main 方法</td>
+</tr>
+<tr>
+<td><strong>sout</strong></td>
+<td>System.out.println() 快捷输出</td>
+</tr>
+<tr>
+<td><strong>soutp</strong></td>
+<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
+</tr>
+<tr>
+<td><strong>soutv</strong></td>
+<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
+</tr>
+<tr>
+<td><strong>soutm</strong></td>
+<td>System.out.println(“当前类名.当前方 法”);</td>
+</tr>
+<tr>
+<td><strong>“abc”.sout</strong></td>
+<td>System.out.println(“abc”);</td>
+</tr>
+<tr>
+<td><strong>fori</strong></td>
+<td>可生成 for 循环</td>
+</tr>
+<tr>
+<td>iter</td>
+<td>可生成增强 for 循环</td>
+</tr>
+<tr>
+<td>itar</td>
+<td>可生成普通 for 循环</td>
+</tr>
+<tr>
+<td>list.for</td>
+<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
+</tr>
+<tr>
+<td><strong>ifn</strong></td>
+<td>可生成 if(xxx = null)</td>
+</tr>
+<tr>
+<td><strong>inn</strong></td>
+<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
+</tr>
+<tr>
+<td>prsf</td>
+<td>可生成 private static final</td>
+</tr>
+<tr>
+<td>psf</td>
+<td>可生成 public static final</td>
+</tr>
+<tr>
+<td>psfi</td>
+<td>可生成 public static final int</td>
+</tr>
+<tr>
+<td>psfs</td>
+<td>可生成 public static final String</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -896,102 +896,6 @@ System.out.println(“我是Yi_ding的方法”);</p>
       </categories>
   </entry>
   <entry>
-    <title>Object类</title>
-    <url>/post/Object%E7%B1%BB/</url>
-    <content><![CDATA[<p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
-<p>Object的类型变量可以指向任意类型的子类对象</p>
-<span id="more"></span>
-<h2><span id="int-hashcode">int hashCode()</span></h2>
-<p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
-<p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
-<ul>
-<li>引用类型（注意是没有重写过hashCode）Object计算hashCode是以对象的地址为基本数据，进行二进制换算</li>
-<li>String对象的字符序列一样，则hashCode一样</li>
-<li>值类型的数值一旦一样，则hashCode一样</li>
-<li>布尔的哈希值true=1231,false=1237</li>
-</ul>
-<p><strong>String对象的hashCode设计</strong></p>
-<ul>
-<li>目标是达到较为均匀的散列效果，每个字符串的 hashCode 足够独特</li>
-<li>字符串中的每个字符都可以表现为一个数字，称为 $S_i$，其中 i 的范围是 0 ~ n - 1</li>
-<li>散列公式为： $S_0∗31^{(n-1)}+ S_1∗31^{(n-2)}+ … S_i ∗ 31^{(n-1-i)}+ …S_{(n-1)}∗31^0$</li>
-<li>31 代入公式有较好的散列特性，并且 31 * h 可以被优化为
-<ul>
-<li>即 $32 ∗h -h $</li>
-<li>即 $2^5  ∗h -h$</li>
-<li>即 $h≪5  -h$</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="classltgt-getclass">Class&lt;?&gt; getClass()</span></h2>
-<p>返回此对象的运行时类。看创建对象是哪个类</p>
-<table>
-<thead>
-<tr>
-<th>getClass()</th>
-<th>getClass().getName()</th>
-<th>getClass().getSimpleName()</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>class  包名.类名</td>
-<td>包名.类名</td>
-<td>类名</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="string-tostring">String toString()</span></h2>
-<p>返回该对象的字符串表示。</p>
-<ul>
-<li>
-<p>默认实现 类的全限定名@hashcode的十六进制</p>
-</li>
-<li>
-<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
-</li>
-</ul>
-<h2><span id="protected-void-finalize">protected void finalize()</span></h2>
-<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
-<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
-<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
-<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
-<h2><span id="boolean-equalsobject-obj">boolean equals(Object obj)</span></h2>
-<p>指示其他某个对象是否与此对象“相等”。</p>
-<h2><span id="和-equals-区别">== 和 equals 区别?</span></h2>
-<table>
-<thead>
-<tr>
-<th>== 比较运算符</th>
-<th>equals是object中的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
-<td>只能比较引用数据类型</td>
-</tr>
-<tr>
-<td>对于引用数据类型，比较的是地址</td>
-<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
-</tr>
-<tr>
-<td></td>
-<td>可重写成比较属性是否相等</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>比较引用数据类型，使用equals更好</p>
-<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
-<p>原因：在这些类中重写了Object类的 equals()方法</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Markdown 入门使用</title>
     <url>/post/Markdown%20%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2><span id="介绍">介绍</span></h2>
@@ -1118,6 +1022,134 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
+    <title>Object类</title>
+    <url>/post/Object%E7%B1%BB/</url>
+    <content><![CDATA[<p>Object类是所有类的根类,如果一个类没有显示的继承其他类,默认继承Object</p>
+<p>Object的类型变量可以指向任意类型的子类对象</p>
+<span id="more"></span>
+<h2><span id="int-hashcode">int hashCode()</span></h2>
+<p>返回该对象的哈希码值 ，可以类似的看做虚拟内存地址</p>
+<p>hashCode作用是用于散列表（hash算法）中的一个参数（寻找到一个数组下标位）【用于HashSet集合去重重复的关键参数之一】</p>
+<ul>
+<li>引用类型（注意是没有重写过hashCode）Object计算hashCode是以对象的地址为基本数据，进行二进制换算</li>
+<li>String对象的字符序列一样，则hashCode一样</li>
+<li>值类型的数值一旦一样，则hashCode一样</li>
+<li>布尔的哈希值true=1231,false=1237</li>
+</ul>
+<p><strong>String对象的hashCode设计</strong></p>
+<ul>
+<li>目标是达到较为均匀的散列效果，每个字符串的 hashCode 足够独特</li>
+<li>字符串中的每个字符都可以表现为一个数字，称为 $S_i$，其中 i 的范围是 0 ~ n - 1</li>
+<li>散列公式为： $S_0∗31^{(n-1)}+ S_1∗31^{(n-2)}+ … S_i ∗ 31^{(n-1-i)}+ …S_{(n-1)}∗31^0$</li>
+<li>31 代入公式有较好的散列特性，并且 31 * h 可以被优化为
+<ul>
+<li>即 $32 ∗h -h $</li>
+<li>即 $2^5  ∗h -h$</li>
+<li>即 $h≪5  -h$</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> hash;</span><br><span class="line">    <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">            h = <span class="number">31</span> * h + val[i];</span><br><span class="line">        &#125;</span><br><span class="line">        hash = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="classltgt-getclass">Class&lt;?&gt; getClass()</span></h2>
+<p>返回此对象的运行时类。看创建对象是哪个类</p>
+<table>
+<thead>
+<tr>
+<th>getClass()</th>
+<th>getClass().getName()</th>
+<th>getClass().getSimpleName()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class  包名.类名</td>
+<td>包名.类名</td>
+<td>类名</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="string-tostring">String toString()</span></h2>
+<p>返回该对象的字符串表示。</p>
+<ul>
+<li>
+<p>默认实现 类的全限定名@hashcode的十六进制</p>
+</li>
+<li>
+<p>自定义类如果不想按照上面的格式输出 需要重写toString()</p>
+</li>
+</ul>
+<h2><span id="protected-void-finalize">protected void finalize()</span></h2>
+<p>当对象不再被程序使用时，垃圾回收器将会将其回收</p>
+<p>垃圾回收是在后台运行的，我们无法命令垃圾回收器马上回收资源，但是我们可 以告诉他，尽快回收资源（<strong>System.gc</strong> 和 Runtime.getRuntime().gc()）</p>
+<p>垃圾回收器在回收某个对象的时候，首先会调用该对象的 finalize 方法</p>
+<p>GC 主要针对堆内存 当垃圾收集器将要收集某个垃圾对象时将会调用 finalize，建议不要使用此方法，因为此方法的运行时间不确定，如果执行此方法出现错误，程序不会报告，仍然继续运行</p>
+<h2><span id="boolean-equalsobject-obj">boolean equals(Object obj)</span></h2>
+<p>指示其他某个对象是否与此对象“相等”。</p>
+<h2><span id="和-equals-区别">== 和 equals 区别?</span></h2>
+<table>
+<thead>
+<tr>
+<th>== 比较运算符</th>
+<th>equals是object中的方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>既可以比较基本数据类型 也可以比较引用数据类型</td>
+<td>只能比较引用数据类型</td>
+</tr>
+<tr>
+<td>对于引用数据类型，比较的是地址</td>
+<td>默认情况下equals方法底层使用==实现, 和 equals比较结果是一样</td>
+</tr>
+<tr>
+<td></td>
+<td>可重写成比较属性是否相等</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;<span class="comment">//存储在方法区同一地址下</span></span><br><span class="line">System.out.println(str1 == str2);<span class="comment">//true</span></span><br><span class="line">System.out.println(str1.equals(str2));<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">System.out.println(str3 == str4);<span class="comment">//false</span></span><br><span class="line">System.out.println(str3.equals(str4));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>比较引用数据类型，使用equals更好</p>
+<p>对于File、String、Date及包装类来说，是比较类型及内容而不考虑引用的是否是同一个对象；</p>
+<p>原因：在这些类中重写了Object类的 equals()方法</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Servlet过滤器</title>
+    <url>/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
+    <content><![CDATA[<p>过滤器/拦截器<br>
+1、无论是请求还是响应都会被过滤器拦截<br>
+2、需要等待过滤器放行</p>
+<p>过滤器作用</p>
+<p>过滤乱码<br>
+限制资源访问<br>
+过滤器的实现<br>
+1、实现一个Filter接口（init()、destroy()的原理和执行时机和Servlet一样）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFilter</span> <span class="keyword">implements</span> <span class="title class_">Filter</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.destroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain Chain)</span></span><br><span class="line">            <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;拦截请求&quot;</span>);</span><br><span class="line">        Chain.doFilter(request,response);  <span class="comment">//放行</span></span><br><span class="line">        System.out.println(<span class="string">&quot;拦截响应&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.init&quot;</span>);</span><br><span class="line">    &#125;  <span class="comment">//第一个过滤器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、在web.xml中配置过滤器，类似servlet</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>my.student.filter.MyFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/*表示拦截一切请求--&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/MyServlet表示只拦截特定请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截HTTP请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截请求转发请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>FORWARD<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通配符<br>
+dispatcher请求方式：<br>
+REQUEST：拦截HTTP请求<br>
+FORWORD：只拦截 通过 请求转发方式的请求<br>
+INCLUDE：只拦截通过request.getRequestDispatcher(“”).indeclude()、通过&lt;jsp:include page=“…”&gt;发出的请求<br>
+ERROR：只拦截&lt;error - page&gt;发出的请求</p>
+<p>通过doFilter()处理拦截，并且通过chain.doFilter(request，response)放行</p>
+<p>Chain.doFilter(request,response);  //放行</p>
+<p>注意：<br>
+在过滤器中doFilter方法的参数：ServletRequest、ServletResponse<br>
+而在Servlet中doGet方法的参数：HttpServletRequest、HttpServletResponse</p>
+<p>过滤器链<br>
+可以增加多个过滤器Filter，过滤器处理的顺序由web.xml中配置的filter-mapping顺序决定</p>
+]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>SSM</title>
     <url>/post/SSM/</url>
     <content><![CDATA[<h2><span id="环境搭建">环境搭建</span></h2>
@@ -1190,32 +1222,107 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>Servlet过滤器</title>
-    <url>/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
-    <content><![CDATA[<p>过滤器/拦截器<br>
-1、无论是请求还是响应都会被过滤器拦截<br>
-2、需要等待过滤器放行</p>
-<p>过滤器作用</p>
-<p>过滤乱码<br>
-限制资源访问<br>
-过滤器的实现<br>
-1、实现一个Filter接口（init()、destroy()的原理和执行时机和Servlet一样）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFilter</span> <span class="keyword">implements</span> <span class="title class_">Filter</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.destroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain Chain)</span></span><br><span class="line">            <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;拦截请求&quot;</span>);</span><br><span class="line">        Chain.doFilter(request,response);  <span class="comment">//放行</span></span><br><span class="line">        System.out.println(<span class="string">&quot;拦截响应&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.init&quot;</span>);</span><br><span class="line">    &#125;  <span class="comment">//第一个过滤器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、在web.xml中配置过滤器，类似servlet</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>my.student.filter.MyFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/*表示拦截一切请求--&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/MyServlet表示只拦截特定请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截HTTP请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截请求转发请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>FORWARD<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通配符<br>
-dispatcher请求方式：<br>
-REQUEST：拦截HTTP请求<br>
-FORWORD：只拦截 通过 请求转发方式的请求<br>
-INCLUDE：只拦截通过request.getRequestDispatcher(“”).indeclude()、通过&lt;jsp:include page=“…”&gt;发出的请求<br>
-ERROR：只拦截&lt;error - page&gt;发出的请求</p>
-<p>通过doFilter()处理拦截，并且通过chain.doFilter(request，response)放行</p>
-<p>Chain.doFilter(request,response);  //放行</p>
-<p>注意：<br>
-在过滤器中doFilter方法的参数：ServletRequest、ServletResponse<br>
-而在Servlet中doGet方法的参数：HttpServletRequest、HttpServletResponse</p>
-<p>过滤器链<br>
-可以增加多个过滤器Filter，过滤器处理的顺序由web.xml中配置的filter-mapping顺序决定</p>
+    <title>SpringMVC拦截器</title>
+    <url>/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/</url>
+    <content><![CDATA[<h2><span id="什么是拦截器">什么是拦截器</span></h2>
+<p>SpringMVC中的interceptor拦截器</p>
+<p>依赖于web框架，基于Java的反射机制实现，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个 controller生命周期之内可以多次调用。</p>
+<p>它主要的作用是拦截指定的用户请求，并进行相应的预处理与后处理。</p>
+<p>使用的aop的思想，多个Controller中集中到拦截器统一处理</p>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>日志记录：记录请求信息的日志，以便进行信息监控、信息统计、计算PV（Page View）等。</li>
+<li>权限检查：如登录检测，进入处理器检测是否登录，如果没有直接返回到登录页面；</li>
+<li>性能监控：有时候系统在某段时间莫名其妙的慢，可以通过拦截器在进入处理器之前记录开始时间，在处理完后记录结束时间，从而得到该请求的处理时间（如果有反向代理，如apache可以自动记录）；</li>
+<li>通用行为：读取cookie得到用户信息并将用户对象放入请求，从而方便后续流程使用，还有如提取Locale、Theme信息等，只要是多个Controller中的处理方法都需要的，我们就可以使用拦截器实现。</li>
+</ul>
+<h2><span id="拦截器执行时机">拦截器执行时机</span></h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>preHandle</td>
+<td>请求前（即控制类方法执行前）执行，通过返回true，拦截返回false</td>
+</tr>
+<tr>
+<td>postHandle</td>
+<td>请求结束（即控制类方法执行后），且此时仍未相应到界面时执行，可以改变响应结果</td>
+</tr>
+<tr>
+<td>afterCompletion</td>
+<td>请求结束（即控制类方法执行后），同时已经响应界面执行，可以用于清理对象、关闭资源</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/64141a80a682492fcc3f3a71.jpg" alt></p>
+<h2><span id="拦截器实现">拦截器实现</span></h2>
+<ol>
+<li>实现HandlerInterceptor拦截器接口</li>
+<li>在spring-mvc.xml配置文件注册</li>
+</ol>
+<h3><span id="注册拦截器">注册拦截器</span></h3>
+<p><strong>拦截器支持的通配符</strong></p>
+<ol>
+<li>*	:包括当前路径所有   /admin/* 拦截的是/admin/add等等这种 , /admin/add/user不会被拦截</li>
+<li>/**  :包括路径及其子路径</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--映射要拦截的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**/*.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--设置放行的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/login.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/loginErr.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置拦截器的类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.bjpowernode.interceptor.MyInterceptor&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="实现handlerinterceptor拦截器接口">实现HandlerInterceptor拦截器接口</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throw</span> Exception&#123;</span><br><span class="line">        <span class="comment">//准备请求地址</span></span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle准备请求地址:&quot;</span>+request.getRequestURI());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拦截请求地址，检测是否登录</span></span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();        <span class="comment">//可以从request对象获取HttpSession对象</span></span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="literal">null</span> &amp;&amp; session.getAttribute(<span class="string">&quot;user&quot;</span>)!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//response.sendRedirect(&quot;/login.html&quot;);ajax则会请求失败，要使用其他的控制器周转</span></span><br><span class="line">            response.sendRedirect(<span class="string">&quot;/user/loginErr.action&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle请求结束准备响应界面：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion请求响应结束：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="拦截器链多拦截器">拦截器链（多拦截器）</span></h2>
+<p>如果多个拦截器能够对相同的请求进行拦截，则多个拦截器会形成一个拦截器链，主要理解拦截器链中各个拦截器的执行顺序。拦截器链中多个拦截器的执行顺序，与拦截器的配置顺序有关，先配置的先执行。也可以通过@Order指定顺序。</p>
+<h2><span id="拦截器与过滤器">拦截器与过滤器</span></h2>
+<h3><span id="过滤器">过滤器</span></h3>
+<p>依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例，只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，比如：在过滤器中修改字符编码； 在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等。</p>
+<h3><span id="拦截器">拦截器</span></h3>
+<p>在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略。</p>
+<blockquote>
+<p>在 Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者可以定义在一个action执行的前后执行的代码，也可以在一个action执行前阻止其执行。同时也是提供了一种可以提取action中可重用的部分的方式。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>拦截器</th>
+<th>过滤器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SpringMVC提供，SpringMVC容器中创建</td>
+<td>servlet中的对象，tomcat服务器创建</td>
+</tr>
+<tr>
+<td>实现HandlerInterceptor</td>
+<td>继承HttpFilter</td>
+</tr>
+<tr>
+<td>验证请求，拦截请求</td>
+<td>设置request，response的参数，属性的，侧重对数据过滤的</td>
+</tr>
+<tr>
+<td>三个执行时间点</td>
+<td>一个执行时间点</td>
+</tr>
+<tr>
+<td>侧重拦截对Controller方法，不会拦截jsp/html/css/image/js</td>
+<td>可以处理jsp，js，html等等</td>
+</tr>
+<tr>
+<td>通常对处理器Controller进行拦截，只能拦截dispatcherServlet处理的请求</td>
+<td>几乎对所有请求过滤</td>
+</tr>
+<tr>
+<td></td>
+<td>过滤器是在拦截器之前先执行的</td>
+</tr>
+</tbody>
+</table>
+<p>使用Interceptor的好处是Interceptor本身是Spring管理的Bean，因此注入任意Bean都非常简单。</p>
 ]]></content>
       <categories>
         <category>第三阶段</category>
@@ -1433,113 +1540,6 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;request_ajax_03&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> Map <span class="title function_">getRequestAjax03</span><span class="params">(<span class="meta">@RequestBody</span> Account account)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;接收到了请求！！！！！！&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;请求参数:&quot;</span>+account);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>()&#123;&#123;</span><br><span class="line">        put(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;新增成功!!!!!!!!&quot;</span>);</span><br><span class="line">        put(<span class="string">&quot;flag&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>SpringMVC拦截器</title>
-    <url>/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/</url>
-    <content><![CDATA[<h2><span id="什么是拦截器">什么是拦截器</span></h2>
-<p>SpringMVC中的interceptor拦截器</p>
-<p>依赖于web框架，基于Java的反射机制实现，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个 controller生命周期之内可以多次调用。</p>
-<p>它主要的作用是拦截指定的用户请求，并进行相应的预处理与后处理。</p>
-<p>使用的aop的思想，多个Controller中集中到拦截器统一处理</p>
-<p><strong>应用场景</strong></p>
-<ul>
-<li>日志记录：记录请求信息的日志，以便进行信息监控、信息统计、计算PV（Page View）等。</li>
-<li>权限检查：如登录检测，进入处理器检测是否登录，如果没有直接返回到登录页面；</li>
-<li>性能监控：有时候系统在某段时间莫名其妙的慢，可以通过拦截器在进入处理器之前记录开始时间，在处理完后记录结束时间，从而得到该请求的处理时间（如果有反向代理，如apache可以自动记录）；</li>
-<li>通用行为：读取cookie得到用户信息并将用户对象放入请求，从而方便后续流程使用，还有如提取Locale、Theme信息等，只要是多个Controller中的处理方法都需要的，我们就可以使用拦截器实现。</li>
-</ul>
-<h2><span id="拦截器执行时机">拦截器执行时机</span></h2>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>preHandle</td>
-<td>请求前（即控制类方法执行前）执行，通过返回true，拦截返回false</td>
-</tr>
-<tr>
-<td>postHandle</td>
-<td>请求结束（即控制类方法执行后），且此时仍未相应到界面时执行，可以改变响应结果</td>
-</tr>
-<tr>
-<td>afterCompletion</td>
-<td>请求结束（即控制类方法执行后），同时已经响应界面执行，可以用于清理对象、关闭资源</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://pic.imgdb.cn/item/64141a80a682492fcc3f3a71.jpg" alt></p>
-<h2><span id="拦截器实现">拦截器实现</span></h2>
-<ol>
-<li>实现HandlerInterceptor拦截器接口</li>
-<li>在spring-mvc.xml配置文件注册</li>
-</ol>
-<h3><span id="注册拦截器">注册拦截器</span></h3>
-<p><strong>拦截器支持的通配符</strong></p>
-<ol>
-<li>*	:包括当前路径所有   /admin/* 拦截的是/admin/add等等这种 , /admin/add/user不会被拦截</li>
-<li>/**  :包括路径及其子路径</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--映射要拦截的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**/*.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--设置放行的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/login.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/loginErr.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置拦截器的类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.bjpowernode.interceptor.MyInterceptor&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3><span id="实现handlerinterceptor拦截器接口">实现HandlerInterceptor拦截器接口</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throw</span> Exception&#123;</span><br><span class="line">        <span class="comment">//准备请求地址</span></span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle准备请求地址:&quot;</span>+request.getRequestURI());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拦截请求地址，检测是否登录</span></span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();        <span class="comment">//可以从request对象获取HttpSession对象</span></span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="literal">null</span> &amp;&amp; session.getAttribute(<span class="string">&quot;user&quot;</span>)!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//response.sendRedirect(&quot;/login.html&quot;);ajax则会请求失败，要使用其他的控制器周转</span></span><br><span class="line">            response.sendRedirect(<span class="string">&quot;/user/loginErr.action&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle请求结束准备响应界面：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion请求响应结束：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="拦截器链多拦截器">拦截器链（多拦截器）</span></h2>
-<p>如果多个拦截器能够对相同的请求进行拦截，则多个拦截器会形成一个拦截器链，主要理解拦截器链中各个拦截器的执行顺序。拦截器链中多个拦截器的执行顺序，与拦截器的配置顺序有关，先配置的先执行。也可以通过@Order指定顺序。</p>
-<h2><span id="拦截器与过滤器">拦截器与过滤器</span></h2>
-<h3><span id="过滤器">过滤器</span></h3>
-<p>依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例，只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，比如：在过滤器中修改字符编码； 在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等。</p>
-<h3><span id="拦截器">拦截器</span></h3>
-<p>在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略。</p>
-<blockquote>
-<p>在 Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者可以定义在一个action执行的前后执行的代码，也可以在一个action执行前阻止其执行。同时也是提供了一种可以提取action中可重用的部分的方式。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>拦截器</th>
-<th>过滤器</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SpringMVC提供，SpringMVC容器中创建</td>
-<td>servlet中的对象，tomcat服务器创建</td>
-</tr>
-<tr>
-<td>实现HandlerInterceptor</td>
-<td>继承HttpFilter</td>
-</tr>
-<tr>
-<td>验证请求，拦截请求</td>
-<td>设置request，response的参数，属性的，侧重对数据过滤的</td>
-</tr>
-<tr>
-<td>三个执行时间点</td>
-<td>一个执行时间点</td>
-</tr>
-<tr>
-<td>侧重拦截对Controller方法，不会拦截jsp/html/css/image/js</td>
-<td>可以处理jsp，js，html等等</td>
-</tr>
-<tr>
-<td>通常对处理器Controller进行拦截，只能拦截dispatcherServlet处理的请求</td>
-<td>几乎对所有请求过滤</td>
-</tr>
-<tr>
-<td></td>
-<td>过滤器是在拦截器之前先执行的</td>
-</tr>
-</tbody>
-</table>
-<p>使用Interceptor的好处是Interceptor本身是Spring管理的Bean，因此注入任意Bean都非常简单。</p>
-]]></content>
-      <categories>
-        <category>第三阶段</category>
-      </categories>
   </entry>
   <entry>
     <title>String类</title>
@@ -3433,6 +3433,14 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
       </categories>
   </entry>
   <entry>
+    <title>同步与异步</title>
+    <url>/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>抽象类和接口</title>
     <url>/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</url>
     <content><![CDATA[<p>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。</p>
@@ -3816,121 +3824,6 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
 ]]></content>
       <categories>
         <category>第二阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>标识符</title>
-    <url>/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
-<span id="more"></span>
-<p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
-<h1><span id="标识符规则">标识符规则</span></h1>
-<ol>
-<li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
-<li>标识符不能以数字开头</li>
-<li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
-<li>标识符中不能包含空格，不能是HelloWord</li>
-</ol>
-<p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
-<h1><span id="标识符命名规范">标识符命名规范</span></h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标识符</th>
-<th style="text-align:center">命名规范</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">包名</td>
-<td style="text-align:center">全部英文字母小写</td>
-</tr>
-<tr>
-<td style="text-align:center">类名、接口名</td>
-<td style="text-align:center">每个英文单词首字母大写</td>
-</tr>
-<tr>
-<td style="text-align:center">变量名、方法名</td>
-<td style="text-align:center">首个英文单词首字母小写，之后每个单词首字母大写</td>
-</tr>
-<tr>
-<td style="text-align:center">常量名</td>
-<td style="text-align:center">全部英文字母大写，单词之间由分隔符隔开</td>
-</tr>
-</tbody>
-</table>
-<h1><span id="关键字">关键字</span></h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">作用</th>
-<th style="text-align:left">关键字</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">用于定义数据类型的关键字</td>
-<td style="text-align:left">class interface enum byte short int long float double char boolean void</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义流程控制的关键字</td>
-<td style="text-align:left">if else switch case default while do for break continue return</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义访问权限修饰符的关键字</td>
-<td style="text-align:left">private protected public</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义类，函数，变量修饰符的关键字</td>
-<td style="text-align:left">abstract final static synchronized</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义类与类之间关系的关键字</td>
-<td style="text-align:left">extends implements</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义建立实例及引用实例，判断实例的关键字</td>
-<td style="text-align:left">new this super instanceof</td>
-</tr>
-<tr>
-<td style="text-align:left">用于异常处理的关键字</td>
-<td style="text-align:left">try catch finally throw throws</td>
-</tr>
-<tr>
-<td style="text-align:left">用于包的关键字</td>
-<td style="text-align:left">package import</td>
-</tr>
-<tr>
-<td style="text-align:left">其他修饰符关键字</td>
-<td style="text-align:left">native strictfp transient volatile assert</td>
-</tr>
-<tr>
-<td style="text-align:left">用于定义数据类型值的字面值</td>
-<td style="text-align:left">true false null</td>
-</tr>
-</tbody>
-</table>
-<h1><span id="保留字">保留字</span></h1>
-<p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
-<p>goto，const</p>
-<h1><span id="总结">总结</span></h1>
-<h2><span id="一个java源文件可以有名称相同大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</span></h2>
-<p>Java源文件可以有名称相同，大小写不同的两个类；</p>
-<p>因为Java标识符严格区分大小写</p>
-<p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
-<h2><span id="java可不可以使用中文命名">java可不可以使用中文命名?</span></h2>
-<p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
-<h2><span id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</span></h2>
-<p>可以 java源文件不用遵循命名规则（public的类不行）</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
       </categories>
   </entry>
   <entry>
@@ -5306,6 +5199,116 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
 ]]></content>
       <categories>
         <category>第二阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>标识符</title>
+    <url>/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<p>标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。</p>
+<span id="more"></span>
+<p>Java源程序中，凡是程序员能够自己命名的都是标识符</p>
+<h1><span id="标识符规则">标识符规则</span></h1>
+<ol>
+<li>标识符由26个英文字母、0-9数字、_$字符组成；不能出现#@！￥%&amp;等其它字符</li>
+<li>标识符不能以数字开头</li>
+<li>标识符不能是关键字、保留字，但可以包含它们，不能是if，可以是wifi</li>
+<li>标识符中不能包含空格，不能是HelloWord</li>
+</ol>
+<p>区分源文件命名：<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">源文件名与类名</a></p>
+<h1><span id="标识符命名规范">标识符命名规范</span></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标识符</th>
+<th style="text-align:center">命名规范</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">包名</td>
+<td style="text-align:center">全部英文字母小写</td>
+</tr>
+<tr>
+<td style="text-align:center">类名、接口名</td>
+<td style="text-align:center">每个英文单词首字母大写</td>
+</tr>
+<tr>
+<td style="text-align:center">变量名、方法名</td>
+<td style="text-align:center">首个英文单词首字母小写，之后每个单词首字母大写</td>
+</tr>
+<tr>
+<td style="text-align:center">常量名</td>
+<td style="text-align:center">全部英文字母大写，单词之间由分隔符隔开</td>
+</tr>
+</tbody>
+</table>
+<h1><span id="关键字">关键字</span></h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">用于定义数据类型的关键字</td>
+<td style="text-align:left">class interface enum byte short int long float double char boolean void</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义流程控制的关键字</td>
+<td style="text-align:left">if else switch case default while do for break continue return</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义访问权限修饰符的关键字</td>
+<td style="text-align:left">private protected public</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义类，函数，变量修饰符的关键字</td>
+<td style="text-align:left">abstract final static synchronized</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义类与类之间关系的关键字</td>
+<td style="text-align:left">extends implements</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义建立实例及引用实例，判断实例的关键字</td>
+<td style="text-align:left">new this super instanceof</td>
+</tr>
+<tr>
+<td style="text-align:left">用于异常处理的关键字</td>
+<td style="text-align:left">try catch finally throw throws</td>
+</tr>
+<tr>
+<td style="text-align:left">用于包的关键字</td>
+<td style="text-align:left">package import</td>
+</tr>
+<tr>
+<td style="text-align:left">其他修饰符关键字</td>
+<td style="text-align:left">native strictfp transient volatile assert</td>
+</tr>
+<tr>
+<td style="text-align:left">用于定义数据类型值的字面值</td>
+<td style="text-align:left">true false null</td>
+</tr>
+</tbody>
+</table>
+<h1><span id="保留字">保留字</span></h1>
+<p>现有Java版本尚未使用，但以后版本可能会作为关键字使用。自己命名标识符时要避免使用这些保留字</p>
+<p>goto，const</p>
+<h1><span id="总结">总结</span></h1>
+<h2><span id="一个java源文件可以有名称相同大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</span></h2>
+<p>Java源文件可以有名称相同，大小写不同的两个类；</p>
+<p>因为Java标识符严格区分大小写</p>
+<p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件。</p>
+<h2><span id="java可不可以使用中文命名">java可不可以使用中文命名?</span></h2>
+<p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
+<h2><span id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</span></h2>
+<p>可以 java源文件不用遵循命名规则（public的类不行）</p>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
       </categories>
   </entry>
   <entry>
