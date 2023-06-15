@@ -46,7 +46,7 @@
     <link href="http://example.com/post/SpringMVC/"/>
     <id>http://example.com/post/SpringMVC/</id>
     <published>2023-06-14T06:19:32.492Z</published>
-    <updated>2023-06-15T00:40:04.290Z</updated>
+    <updated>2023-06-15T01:29:11.964Z</updated>
     
     
       
@@ -60,34 +60,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>WEB-INF安全文件夹</title>
-    <link href="http://example.com/post/WEB-INF%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E5%A4%B9/"/>
-    <id>http://example.com/post/WEB-INF%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E5%A4%B9/</id>
-    <published>2023-06-13T03:47:18.655Z</published>
-    <updated>2023-06-13T03:55:50.933Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;限制与保护&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;不允许在浏览器通过URL拼接的方式进行访问&lt;/li&gt;
-&lt;li&gt;不允许重定向&lt;/li&gt;
-&lt;/ol&gt;
-</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -440,6 +412,24 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
   </entry>
   
   <entry>
+    <title>常用文本编辑快捷键</title>
+    <link href="http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2023-06-08T04:33:27.946Z</published>
+    <updated>2022-12-09T12:48:07.303Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
+&lt;p&gt;掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>多态</title>
     <link href="http://example.com/post/%E5%A4%9A%E6%80%81/"/>
     <id>http://example.com/post/%E5%A4%9A%E6%80%81/</id>
@@ -457,15 +447,19 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>常用文本编辑快捷键</title>
-    <link href="http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
-    <published>2023-06-08T04:33:27.946Z</published>
-    <updated>2022-12-09T12:48:07.303Z</updated>
+    <title>基本数据类型与包装类</title>
+    <link href="http://example.com/post/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8C%85%E8%A3%85%E7%B1%BB/"/>
+    <id>http://example.com/post/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8C%85%E8%A3%85%E7%B1%BB/</id>
+    <published>2023-06-08T04:33:27.945Z</published>
+    <updated>2023-01-30T13:30:07.183Z</updated>
     
     
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;赋值变量的过程中，不仅需要注意变量类型与数据类型是否一致，还需观察数据大小是否在数据类型的范围中。所以灵活使用数据类型能使我们更好的运用数据，根据数值大小将变量分配在合理的类型范围中，能有效减少存储空间。&lt;/p&gt;
+&lt;p&gt;针对八种基本数据类型定义相应的引用类型—包装类&lt;/p&gt;
+&lt;p&gt;首先,Java语言是一个面向对象的语言,但是Java中的基本数据类型却是不面向对象的，为了实现一 切皆对象,将每个基本数据类型设计一个对应的类进行代表，这种方式增强了Java面向对象的性质。&lt;/p&gt;
+&lt;p&gt;其次，如果仅仅有基本数据类型，那么在实际使用时将存在很多的不便，很多地方都需要使用对象。比如，在集合类中，我们是无法将int 、double等类型放进去的，因为集合的容器要求元素是Object类型。而包装类型的存在使得向集合中传入数值成为可能，包装类的存在弥补了基本数据类型的不足。&lt;/p&gt;
+&lt;p&gt;此外，包装类还为基本类型添加了属性和方法，丰富了基本类型的操作。如当我们想知道int取值 范围的最小值，我们需要通过运算，如下面所示，但是有了包装类，我们可以直接使Integer.MAX_VALUE即可。&lt;/p&gt;
+&lt;p&gt;注意:为什么要保留基本数据类型？Java种创建的对象都是存储在堆里的，使用的时候需要通过栈中的引用， 所以常用的基本数据类型，不需要使用new在堆上创建，而是直接在栈内存中存储不创建对象，就会比较高效。&lt;/p&gt;</summary>
     
     
     

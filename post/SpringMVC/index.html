@@ -164,9 +164,9 @@
 <li>如果是String对象字符串，可以不赋值，使用null来表示</li>
 <li>推荐写法: 将基本数据类型改为包装类</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request02&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">hello02</span><span class="params">(Integer id,String name,Double score)</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;DemoRequestController类接收到了请求&quot;</span>);</span><br><span class="line"></span><br><span class="line">    System.out.println(id);</span><br><span class="line">    System.out.println(name);</span><br><span class="line">    System.out.println(score);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>; <span class="comment">//默认使用的请求转发跳转到一个页面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request02&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">hello02</span><span class="params">(Integer id,String name,Double score)</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;DemoRequestController类接收到了请求&quot;</span>);</span><br><span class="line">	<span class="comment">//http://localhost:8080/request02?id=123&amp;&amp;name=biyixia&amp;&amp;score=100</span></span><br><span class="line">    System.out.println(id);<span class="comment">//123</span></span><br><span class="line">    System.out.println(name);<span class="comment">//biyixia</span></span><br><span class="line">    System.out.println(score);<span class="comment">//100.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>; <span class="comment">//默认使用的请求转发跳转到一个页面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="对象类型pojo">对象类型pojo</span></h4>
-<p>对象类型数据(自定义类型数据)， 直接在方法中声明需要封装的pojo，==请求参数名称需要和类中的属性名一致==！</p>
+<p>对象类型数据(自定义类型数据)， 直接在方法中声明需要封装的pojo，请求参数名称需要和类中的属性名一致！</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request03&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">hello03</span><span class="params">(Account account)</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;DemoRequestController类接收到了请求&quot;</span>);</span><br><span class="line"></span><br><span class="line">    System.out.println(account);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>; <span class="comment">//默认使用的请求转发跳转到一个页面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="数组类型">数组类型</span></h4>
 <ol>
@@ -177,10 +177,10 @@
 <p>请求参数的格式：</p>
 <ol>
 <li>
-<p>常规写法： <a target="_blank" rel="noopener" href="http://127.0.0.1/request04?ids=1&amp;ids=2&amp;ids=234">http://127.0.0.1/request04?ids=1&amp;ids=2&amp;ids=234</a></p>
+<p>常规写法： <code>http://127.0.0.1/request04?ids=1&amp;ids=2&amp;ids=234</code></p>
 </li>
 <li>
-<p>简化写法(如需使用，需要添加框架的注解驱动)：<a target="_blank" rel="noopener" href="http://127.0.0.1/request04?ids=1,2,3,4,5,100,50,20">http://127.0.0.1/request04?ids=1,2,3,4,5,100,50,20</a></p>
+<p>简化写法(如需使用，需要添加框架的注解驱动)：<code>http://127.0.0.1/request04?ids=1,2,3,4,5,100,50,20</code></p>
 <blockquote>
 <p>注解驱动：框架提供的一系列的简化写法</p>
 <p><code>&lt;mvc:annotation-driven/&gt;</code></p>
@@ -332,9 +332,9 @@
       </a>
     
     
-      <a href="/post/WEB-INF%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E5%A4%B9/" class="article-nav-link">
+      <a href="/post/%E9%9B%86%E5%90%88/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">WEB-INF安全文件夹</div>
+        <div class="article-nav-title">集合</div>
       </a>
     
   </nav>
