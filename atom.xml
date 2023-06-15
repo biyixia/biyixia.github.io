@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-14T06:19:19.684Z</updated>
+  <updated>2023-06-15T00:31:07.037Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于配置servlet的url-pattern的问题</title>
+    <link href="http://example.com/post/servlet%20url-pattern%E7%9A%84%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/post/servlet%20url-pattern%E7%9A%84%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/</id>
+    <published>2023-06-14T07:35:50.804Z</published>
+    <updated>2023-06-15T00:31:07.037Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;servlet-url-pattern的匹配问题&quot;&gt;servlet url-pattern的匹配问题&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;url-pattern 有三种匹配模式，分别是路径匹配、精确匹配、后缀匹配&lt;/p&gt;
+&lt;h3&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>SpringMVC</title>
     <link href="http://example.com/post/SpringMVC/"/>
     <id>http://example.com/post/SpringMVC/</id>
     <published>2023-06-14T06:19:32.492Z</published>
-    <updated>2023-06-14T06:19:19.684Z</updated>
+    <updated>2023-06-15T00:40:04.290Z</updated>
     
     
       
@@ -68,6 +93,125 @@
   </entry>
   
   <entry>
+    <title>集合</title>
+    <link href="http://example.com/post/%E9%9B%86%E5%90%88/"/>
+    <id>http://example.com/post/%E9%9B%86%E5%90%88/</id>
+    <published>2023-06-08T04:33:27.958Z</published>
+    <updated>2023-01-28T07:36:24.209Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+&lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>运算符</title>
+    <link href="http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://example.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
+    <published>2023-06-08T04:33:27.957Z</published>
+    <updated>2023-01-30T09:33:54.340Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编码与数制</title>
+    <link href="http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"/>
+    <id>http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</id>
+    <published>2023-06-08T04:33:27.956Z</published>
+    <updated>2022-12-17T13:27:25.250Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
+&lt;p&gt;1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="计算机组成与原理" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E5%8E%9F%E7%90%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>继承</title>
+    <link href="http://example.com/post/%E7%BB%A7%E6%89%BF/"/>
+    <id>http://example.com/post/%E7%BB%A7%E6%89%BF/</id>
+    <published>2023-06-08T04:33:27.955Z</published>
+    <updated>2022-12-28T12:32:17.258Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。&lt;/p&gt;
+&lt;p&gt;“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。&lt;/p&gt;
+&lt;p&gt;is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。&lt;br&gt;
+has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
+&lt;p&gt;如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。&lt;br&gt;
+如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类加载的初始化顺序</title>
+    <link href="http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</id>
+    <published>2023-06-08T04:33:27.954Z</published>
+    <updated>2023-01-09T13:22:23.916Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;静态代码块&quot;&gt;静态代码块&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;随着类的加载而运行，只执行一次&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当出现多个静态代码块(包括静态属性赋值）时，按顺序执行&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;String[] args&lt;/span&gt;)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    System.&lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt;.println(Order.i);		&lt;span class=&quot;comment&quot;&gt;//1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;构造代码块&quot;&gt;构造代码块&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;随着对象的创建而运行，且先于构造函数的执行&lt;/li&gt;
+&lt;li&gt;有多个构造代码块时，也按顺序执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;构造器&quot;&gt;构造器&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器&lt;/li&gt;
+&lt;li&gt;当未定义任何构造器时，编译器会默认提供一个无参的构造器&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title></title>
     <link href="http://example.com/post/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%8E%E4%BF%A1%E6%81%AF%E8%BF%94%E5%9B%9E/"/>
     <id>http://example.com/post/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%8E%E4%BF%A1%E6%81%AF%E8%BF%94%E5%9B%9E/</id>
@@ -86,6 +230,29 @@
       
     
     
+    
+    
+  </entry>
+  
+  <entry>
+    <title>流程控制</title>
+    <link href="http://example.com/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
+    <id>http://example.com/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</id>
+    <published>2023-06-08T04:33:27.953Z</published>
+    <updated>2022-12-14T10:42:08.006Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -110,6 +277,95 @@
     
     
     <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>树</title>
+    <link href="http://example.com/post/%E6%A0%91/"/>
+    <id>http://example.com/post/%E6%A0%91/</id>
+    <published>2023-06-08T04:33:27.952Z</published>
+    <updated>2023-01-28T11:47:44.944Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;二叉排序树&quot;&gt;二叉排序树&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>标识符</title>
+    <link href="http://example.com/post/%E6%A0%87%E8%AF%86%E7%AC%A6/"/>
+    <id>http://example.com/post/%E6%A0%87%E8%AF%86%E7%AC%A6/</id>
+    <published>2023-06-08T04:33:27.951Z</published>
+    <updated>2022-12-09T13:24:48.953Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
+&lt;p&gt;标识符是指用来标识某个实体的一个符号，在不同的应用环境下有不同的含义。.在计算机 编程语言 中，标识符是用户编程时使用的名字，用于给变量、 常量 、 函数 、语句块等命名，以建立起名称与使用之间的关系。标识符通常由字母和数字以及其它字符构成。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>日期类</title>
+    <link href="http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/"/>
+    <id>http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/</id>
+    <published>2023-06-08T04:33:27.950Z</published>
+    <updated>2023-02-03T03:00:13.474Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>排序与查找</title>
+    <link href="http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
+    <id>http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
+    <published>2023-06-08T04:33:27.949Z</published>
+    <updated>2023-01-31T12:34:53.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;排序&quot;&gt;排序&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -140,268 +396,22 @@
   </entry>
   
   <entry>
-    <title>SpringMVC拦截器</title>
-    <link href="http://example.com/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/"/>
-    <id>http://example.com/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/</id>
-    <published>2023-06-08T04:33:27.939Z</published>
-    <updated>2023-03-17T08:38:09.085Z</updated>
+    <title>抽象类和接口</title>
+    <link href="http://example.com/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/"/>
+    <id>http://example.com/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</id>
+    <published>2023-06-08T04:33:27.948Z</published>
+    <updated>2022-12-27T11:21:10.745Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span</summary>
-        
-      
+    <summary type="html">&lt;p&gt;在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。&lt;/p&gt;
+&lt;p&gt;抽象类是为了把&lt;strong&gt;相同的但不确定&lt;/strong&gt;的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。&lt;/p&gt;
+&lt;p&gt;当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。&lt;/p&gt;
+&lt;p&gt;然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。&lt;/p&gt;
+&lt;p&gt;接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&amp;quot;是不是&amp;quot;的关系，而接口实现则是 &amp;quot;能不能&amp;quot;的关系。&lt;/p&gt;</summary>
     
     
     
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring学习</title>
-    <link href="http://example.com/post/spring%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/post/spring%E5%AD%A6%E4%B9%A0/</id>
-    <published>2023-06-08T04:33:27.939Z</published>
-    <updated>2023-02-24T13:04:14.047Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;spring能做什么&quot;&gt;Spring能做什么&lt;/span&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;IOC【依赖反转/控制反转】【Inversion of</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Servlet过滤器</title>
-    <link href="http://example.com/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
-    <id>http://example.com/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/</id>
-    <published>2023-06-08T04:33:27.938Z</published>
-    <updated>2023-03-17T10:10:53.340Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;过滤器/拦截器&lt;br&gt;
-1、无论是请求还是响应都会被过滤器拦截&lt;br&gt;
-2、需要等待过滤器放行&lt;/p&gt;
-&lt;p&gt;过滤器作用&lt;/p&gt;
-&lt;p&gt;过滤乱码&lt;br&gt;
-限制资源访问&lt;br&gt;
-过滤器的实现&lt;br&gt;
-1、实现一个Filter接口（init()、destroy()的原理和执行时</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>HttpSession</title>
-    <link href="http://example.com/post/HttpSession/"/>
-    <id>http://example.com/post/HttpSession/</id>
-    <published>2023-06-08T04:33:27.931Z</published>
-    <updated>2023-03-15T03:42:03.137Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/64113030ebf10e5d5374df8a.jpg&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>html学习</title>
-    <link href="http://example.com/post/html%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://example.com/post/html%E5%AD%A6%E4%B9%A0/</id>
-    <published>2023-06-08T04:33:27.931Z</published>
-    <updated>2023-02-27T08:44:13.766Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Glossary/HTML&quot;&gt;HTML&lt;/a&gt;（HyperText Markup</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AOP面向切面编程</title>
-    <link href="http://example.com/post/AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/"/>
-    <id>http://example.com/post/AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/</id>
-    <published>2023-06-08T04:33:27.929Z</published>
-    <updated>2023-03-20T03:41:41.133Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在编写业务层代码时，除了实现业务接口中的方法外（主业务逻辑），可能还需要一些非业务方法，也称为交叉业务逻辑&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ajax请求</title>
-    <link href="http://example.com/post/ajax%E8%AF%B7%E6%B1%82/"/>
-    <id>http://example.com/post/ajax%E8%AF%B7%E6%B1%82/</id>
-    <published>2023-06-08T04:33:27.929Z</published>
-    <updated>2023-02-27T13:04:57.301Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>日期类</title>
-    <link href="http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/"/>
-    <id>http://example.com/post/%E6%97%A5%E6%9C%9F%E7%B1%BB/</id>
-    <published>2023-01-31T03:24:24.741Z</published>
-    <updated>2023-02-03T03:00:13.474Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>String类</title>
-    <link href="http://example.com/post/String%E7%B1%BB/"/>
-    <id>http://example.com/post/String%E7%B1%BB/</id>
-    <published>2023-01-29T11:59:15.462Z</published>
-    <updated>2023-01-31T12:36:10.547Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>排序与查找</title>
-    <link href="http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/"/>
-    <id>http://example.com/post/%E6%8E%92%E5%BA%8F%E4%B8%8E%E6%9F%A5%E6%89%BE/</id>
-    <published>2023-01-28T07:37:15.308Z</published>
-    <updated>2023-01-31T12:34:53.139Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;排序&quot;&gt;排序&lt;/span&gt;&lt;/h1&gt;
-&lt;h2&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="http://example.com/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://example.com/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</id>
-    <published>2023-01-28T07:22:04.832Z</published>
-    <updated>2023-01-28T07:25:33.715Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;单例模式&quot;&gt;单例模式&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -410,7 +420,7 @@
     <title>异常</title>
     <link href="http://example.com/post/%E5%BC%82%E5%B8%B8/"/>
     <id>http://example.com/post/%E5%BC%82%E5%B8%B8/</id>
-    <published>2023-01-12T08:53:32.572Z</published>
+    <published>2023-06-08T04:33:27.947Z</published>
     <updated>2023-01-28T13:17:58.296Z</updated>
     
     
@@ -430,69 +440,32 @@
   </entry>
   
   <entry>
-    <title>树</title>
-    <link href="http://example.com/post/%E6%A0%91/"/>
-    <id>http://example.com/post/%E6%A0%91/</id>
-    <published>2023-01-11T07:25:18.314Z</published>
-    <updated>2023-01-28T11:47:44.944Z</updated>
+    <title>多态</title>
+    <link href="http://example.com/post/%E5%A4%9A%E6%80%81/"/>
+    <id>http://example.com/post/%E5%A4%9A%E6%80%81/</id>
+    <published>2023-06-08T04:33:27.946Z</published>
+    <updated>2022-12-28T07:24:58.933Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;二叉排序树&quot;&gt;二叉排序树&lt;/span&gt;&lt;/h1&gt;
-&lt;h2&gt;&lt;span</summary>
-        
-      
+    <summary type="html">&lt;p&gt;当我们使用代码描述主人喂养宠物的场景，首先在这个场景当中应该有“宠物对象” ，宠物对象应该有吃的行为，另外还需要一个“主人对象” ，主人对象应该有一个喂的行为。然而对于不同的宠物，吃的行为也不相同，或许是吃的东西不同，也或许是吃的方式不同，此时每当出现新的宠物时，我们就需要修改对于宠物吃行为的描述，这不符合OCP原则。对于需要更改的“宠物对象”，应当将其“封装”起来，在新的模块中对宠物不同的吃行为进行描述，而无需修改原本“宠物对象”的描述。&lt;/p&gt;</summary>
     
     
     
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
   
   <entry>
-    <title>集合</title>
-    <link href="http://example.com/post/%E9%9B%86%E5%90%88/"/>
-    <id>http://example.com/post/%E9%9B%86%E5%90%88/</id>
-    <published>2023-01-09T01:11:26.181Z</published>
-    <updated>2023-01-28T07:36:24.209Z</updated>
+    <title>常用文本编辑快捷键</title>
+    <link href="http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://example.com/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2023-06-08T04:33:27.946Z</published>
+    <updated>2022-12-09T12:48:07.303Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
-&lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JVM内存结构</title>
-    <link href="http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/"/>
-    <id>http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</id>
-    <published>2022-12-30T03:27:18.355Z</published>
-    <updated>2023-01-09T13:21:55.817Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/101495810&quot;&gt;JVM内存模型（详解） - 知乎 (zhihu.com)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png&quot; alt=&quot;JVM内存模型&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;程序计数器（Program-Counter-Register）&quot;&gt;程序计数器（Program Counter Register）&lt;/h3&gt;
-&lt;p&gt;是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。&lt;/p&gt;
-&lt;h3 id=&quot;本地方法栈（-Native-Method-Stack）&quot;&gt;本地方法栈（ Native Method Stack）&lt;/h3&gt;
-&lt;p&gt;本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
+&lt;p&gt;掌握一些最基本的快捷方式，对快速编辑有很好的效果。下面列举一些常用的快捷方式，如下所示：&lt;/p&gt;</summary>
     
     
     

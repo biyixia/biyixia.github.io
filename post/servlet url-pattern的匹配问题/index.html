@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>JVM内存结构 |  biyixia</title>
+      <title>关于配置servlet的url-pattern的问题 |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-JVM内存结构"
+  id="post-servlet url-pattern的匹配问题"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  JVM内存结构
+  关于配置servlet的url-pattern的问题
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="article-date">
-  <time datetime="2023-06-08T04:33:27.936Z" itemprop="datePublished">2023-06-08</time>
+      <a href="/post/servlet%20url-pattern%E7%9A%84%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2023-06-14T07:35:50.804Z" itemprop="datePublished">2023-06-14</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/">第三阶段</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.9k</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">6 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -112,118 +112,94 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101495810">JVM内存模型（详解） - 知乎 (zhihu.com)</a></p>
-<p><img src="https://pic.imgdb.cn/item/63ae5b6208b6830163cf8eca.png" alt="JVM内存模型"></p>
-<h3><span id="程序计数器program-counter-register">程序计数器（Program Counter Register）</span></h3>
-<p>是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在虚拟机概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令：分支、跳转、循环、异常处理、线程恢复等基础操作都会依赖这个计数器来完成。每个线程都有独立的程序计数器，用来在线程切换后能恢复到正确的执行位置，各条线程之间的计数器互不影响，独立存储。所以它是一个“线程私有”的内存区域。</p>
-<h3><span id="本地方法栈-native-method-stack">本地方法栈（ Native Method Stack）</span></h3>
-<p>本地方法栈和虚拟机栈所发挥的作用是很相似的，它们之间的区别是虚拟机栈为虚拟机执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法（由其它语言实现）服务。</p>
-<span id="more"></span>
-<h3><span id="虚拟机栈vm-stack">虚拟机栈（VM Stack）</span></h3>
-<p>JVM栈是线程私有的内存区域。主要存放方法执行数据</p>
+  <h2><span id="servlet-url-pattern的匹配问题">servlet url-pattern的匹配问题</span></h2>
+<p>url-pattern 有三种匹配模式，分别是路径匹配、精确匹配、后缀匹配</p>
+<h3><span id="精确匹配">精确匹配</span></h3>
+<p>url-pattern 中配置的项必须与url完全精确匹配。 代码举例</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Kata/detail.html<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/demo.html<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/table<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当在浏览器中输入如下几种url时，都会被匹配到该servlet</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/Kata/detail.html</span><br><span class="line">http://localhost:8080/demo.html</span><br><span class="line">http://localhost:8080/table </span><br></pre></td></tr></table></figure>
+<p>注意：</p>
 <ol>
-<li>每个方法执行时都会创建一个栈帧（Stack Frame）用于存储局部变量表、操作数栈、动态链接、方法返回地址等信息</li>
-<li>局部变量表存放各种基本数据类型、对象引用（reference类型，指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或其他与此对象相关的位置）和returnAddress类型（指向了一跳字节码指令的地址）</li>
-<li>动态连接（Dynamic Linking）通过每个栈帧都包含一个指向该栈帧所属方法（常量池）的引用，在<strong>运行期间</strong>将指向该方法的<a href="../Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/#%E8%A7%A3%E6%9E%90">符号引用</a>转化为直接引用
+<li><code>http://localhost:8080/table/</code> 是非法的url，不会被当作<code>http://localhost:8080/table</code> 识别</li>
+<li>另外上述url后面可以跟任意的查询条件，都会被匹配，如 <code>http://localhost:8080/table?hello</code> 这个请求就会被匹配到MyServlet。</li>
+</ol>
+<h3><span id="路径匹配">路径匹配</span></h3>
+<p>以“/”字符开头，并以“/*”结尾的字符串用于路径匹配</p>
+<p>代码举例:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/user/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/user/admin/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>路径以/user/开始，后面的路径可以任意。比如下面的url都会被匹配。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/user/users.html </span><br><span class="line">http://localhost:8080/user/admin/addUser.action </span><br></pre></td></tr></table></figure>
+<p>/* 为优先级最低的路径匹配，匹配所有请求(所有的后台请求和所有的前端请求)</p>
+<h3><span id="后缀匹配">后缀匹配</span></h3>
+<p>以“ *. ”开头的字符串被用于后缀匹配</p>
+<p>代码举例</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>则任何扩展名为jsp或action的url请求都会匹配，比如下面的url都会被匹配</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/user/users.jsp </span><br><span class="line">http://localhost:8080/toHome.action</span><br></pre></td></tr></table></figure>
+<p>注意：路径和后缀匹配无法同时设置 ,如果设置，启动tomcat服务器会报错</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/user/*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>user*.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="url-pattern的优先级问题">url-pattern的优先级问题</span></h2>
 <ol>
-<li>静态解析：在类加载的解析阶段或者第一次使用时将指向该方法的符号引用转化为直接引用，</li>
+<li>当配置了多个Servlet的url-pattern同时匹配同一个请求时，会将请求匹配给优先级高的Servlet</li>
+<li>精确匹配&gt;路径匹配（/*）&gt;扩展名匹配&gt;缺省匹配</li>
 </ol>
-</li>
-</ol>
-<h3><span id="堆heap">堆（Heap）</span></h3>
-<p>通常情况下，它占用的空间是所有内存区域中最大的</p>
-<ol>
-<li>存储实例对象、数组、成员变量</li>
-<li>堆由垃圾收集器自动回收，堆区由各子线程共享使用</li>
-<li>堆的内存空间既可以固定大小，也可运行时动态地调整</li>
-</ol>
-<h3><span id="方法区method-area">方法区（Method Area）</span></h3>
-<p>线程共享的内存区域</p>
-<ol>
-<li>存储字节码文件，包含所有的class文件和static变量(静态域)、常量(常量池)、即时编译后的代码等数据</li>
-<li>静态域：存放类中以static声明的静态成员变量</li>
-<li>常量池：在编译期间就将一部分数据存放于该区域，包含以final修饰的基本数据类型的常量值、String字符串。（在java6时它是方法区的一部分；1.7又把他放到了堆内存中；1.8之后出现了元空间，它又回到了方法区）</li>
-</ol>
-<h3><span id="类成员存储">类成员存储</span></h3>
-<h3><span id="前提">前提</span></h3>
-<p><a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载及执行原理</a></p>
-<h3><span id="属性存储">属性存储</span></h3>
-<p>属性根据声明位置不同分为成员变量和局部变量</p>
-<ol>
-<li>局部变量声明在方法体中，在程序执行过程中随着方法被调用一起入栈，存储在栈的栈帧的局部变量表中</li>
-<li>成员变量分为静态变量和实例变量
-<ol>
-<li>静态变量在类加载的准备阶段分配在方法体的静态域中，并设置初始值</li>
-<li>实例变量则在程序执行中和对象实例一起存放在堆中</li>
-</ol>
-</li>
-</ol>
-<h3><span id="方法存储">方法存储</span></h3>
-<p>方法根据是否用static修饰可以分为静态方法和实例方法</p>
-<ol>
-<li>实例方法：创建对象实例时，对象实例和该对象中的实例方法被存放在堆中，通过实例对象的引用调用实例方法</li>
-<li>静态方法：随着类加载而加载到方法区中，但不会自动执行，可通过类名.方法名访问</li>
-</ol>
-<h4><span id="实例方法调用过程">实例方法调用过程</span></h4>
-<ol>
-<li>在JVM中的一个进程中，每个线程都会拥有一个<strong>方法调用栈</strong>，用于跟踪线程运行中一系列的方法调用过程</li>
-<li>当线程调用一个方法时就会向方法栈中压入一个新栈帧。<strong>栈帧</strong>是用于支持虚拟机进行方法调用和方法执行的数据结构，也是虚拟机运行时数据区中的虚拟机栈的栈元素。</li>
-<li>每个<strong>方法从调用开始至执行结束的过程</strong>，都对应着一个栈帧在虚拟机栈里面从<strong>入栈到出栈的过程</strong></li>
-<li>当方法执行完成时，该栈帧就会<strong>弹出栈帧的元素作为这个方法的返回值</strong>（参数传递），并且清除这个栈帧</li>
-<li><strong>栈顶</strong>的栈帧就是当前正在执行的方法</li>
-<li>每个栈帧都包含一个<strong>指向运行时常量池中该栈帧所属方法的引用</strong>，持有这个引用是为了支持方法调用过程中的动态连接</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Function</span> <span class="variable">function</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Function</span>();  <span class="comment">//function是对象引用存在栈中，new Funciotn()的实例放在堆中（包含方法区中的类型信息(方法信息等)引用等）。</span></span><br><span class="line">        function.out2();  <span class="comment">//调用out2方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Function</span>&#123; <span class="comment">//运行时把加载之后的Function的信息存入方法区（类型信息、常量、静态变量、方法信息等）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out1</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out1方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">out2</span><span class="params">()</span>&#123;</span><br><span class="line">        out1();   <span class="comment">//这块调用out1主要是为了展示栈帧和栈帧中的动态链接</span></span><br><span class="line">        System.out.println(<span class="string">&quot;执行了out2方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="url-pattern中-和-的区别">url-pattern中 / 和 /* 的区别</span></h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><em><em>web.xml中配置dispatcherServlet， /</em> 不能访问jsp而 / 可以访问jsp</em>*</p>
+<p>/* 能匹配所有请求 ， / 当所有其他匹配都不合适时匹配</p>
 <ol>
 <li>
-<p>启动Java虚拟机进程，通过<a href="../%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86">类加载机制</a>加载编译后的.class文件</p>
+<p>在tomcat/conf/web.xml里 面单独配置了 *.jsp 的配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>jsp<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jsp<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.jspx<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>JVM定位到方法区中静态方法Main()的字节码，将main方法转换为栈帧压入方法调用栈，并开始顺序执行它的指令：</p>
-<blockquote>
-<p>Function function = new Function();<br>
-function.out2();</p>
-</blockquote>
+<p>/*作为路径匹配优先级高于tomcat里的后缀匹配，因此匹配，jsp不再交给tomcat中的JspServlet处理导致jsp文件无法访问</p>
 </li>
 <li>
-<p>Function function = new Function():</p>
-<ol>
-<li>加载Function类。 把Function类的相关信息存放在了方法区中</li>
-<li>JVM在堆中为一个新的Function类的实例分配内存。该实例有着指向方法区的Function类的类型信息的引用（内存地址）</li>
-<li>使function变量指向堆区中的Function实例。即function变量有指向Function类的实例的引用。变量function为局部变量，因此它会被JVM存放到执行main()方法的方法调用栈中</li>
+<p>/ 是最低优先级的匹配，因此匹配tomcat中的JspServlet</p>
+</li>
 </ol>
-</li>
-<li>
-<p>function.out2():</p>
+<p><em><em>web.xml中配置dispatcherServlet， /</em> 和 / 都不能访问html</em>*</p>
 <ol>
 <li>
-<p>将根据局部变量function的引用，定位到堆中的Function类的实例，再根据Function类的实例的引用，定位到方法区中Function类的类型信息（包括类，静态变量，静态方法，常量和成员方法），从而获取out2()方法的字节码</p>
+<p>在tomcat/conf/web.xml里 面单独配置了 / （缺省）的配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>default<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>将out2()方法压入方法调用栈，并顺序执行out2()方法中的指令</p>
-<blockquote>
-<p>out1();<br>
-System.out.println(“我是Yi_ding的方法”);</p>
-</blockquote>
-<ol>
-<li>out2()方法调用out1()方法。根据动态链接（在运行时期将常量池中指向方法的符号引用转换为直接引用）来获取out1()方法的直接引用，并将out1()方法压入方法调用栈，并顺序执行out1()方法中的指令</li>
-<li>输出&quot;执行了out1方法&quot;</li>
-<li>out1()方法执行完成，out1()方法出栈</li>
-</ol>
+<p>/*作为路径匹配优先级高于tomcat里的缺省匹配，因此匹配，jsp不再交给tomcat中的DefaultServlet处理导致无法访问</p>
 </li>
 <li>
-<p>输出&quot;执行了out2方法&quot;</p>
-</li>
-<li>
-<p>out2()方法执行完成，out2()方法出栈</p>
+<p>/ 与 tomcat中的DefaultServlet同优先级导致无法访问html</p>
 </li>
 </ol>
-</li>
-<li>
-<p>main()方法执行完成，main()方法出栈，程序执行结束</p>
-</li>
-</ol>
-<img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>/*</th>
+<th>/</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围</td>
+<td>最广，所有的请求都符合它的要求（jsp、servlet、Controller等）</td>
+<td>当所有其他匹配都不合适时匹配</td>
+</tr>
+<tr>
+<td>匹配优先级</td>
+<td>它是路径匹配的一种，相对 / 较高</td>
+<td>最低，当一个url和所有的 url-pattern 匹配都不合适时匹配</td>
+</tr>
+</tbody>
+</table>
+<p><strong>根路径 / 的匹配问题</strong></p>
+<p>/ 访问<code>http://localhost:8080/</code>可以自动转发到<code>http://localhost:8080/index.html</code></p>
+<p>而/*不能自动转发，只能直接访问<code>http://localhost:8080/index.html</code>（spring容器里面配置了<code>&lt;mvc:default-servlet-handler/&gt;</code>）</p>
+<p><code>http://localhost:8080/</code>会被url-pattern为/*的匹配，但他不会被url-pattern为/匹配。</p>
+<p>在tomcat中，/默认是属于会被defaultservlet匹配，但是其优先级低于路径匹配，所以当某一个servlet的url-pattern为/*时，/就 会被这个servlet匹配，从而不被defaultservlet匹配。 <code>http://localhost:8080/</code>自动转发到<code>http://localhost:8080/index.html</code>的前提是/必须被defaultservlet匹配。</p>
  
       <!-- reward -->
       
@@ -294,7 +270,7 @@ System.out.println(“我是Yi_ding的方法”);</p>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/servlet%20url-pattern%E7%9A%84%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -305,19 +281,10 @@ System.out.println(“我是Yi_ding的方法”);</p>
    
   <nav class="article-nav">
     
-      <a href="/post/Object%E7%B1%BB/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Object类
-          
-        </div>
-      </a>
     
-    
-      <a href="/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/" class="article-nav-link">
+      <a href="/post/SpringMVC/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">JDK的安装及环境变量的配置</div>
+        <div class="article-nav-title">SpringMVC</div>
       </a>
     
   </nav>
