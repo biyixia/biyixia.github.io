@@ -1123,33 +1123,19 @@ H<sub>2</sub>O,x<sup>2</sup><br>
     <content><![CDATA[<h2><span id="环境搭建">环境搭建</span></h2>
 <h3><span id="导入依赖">导入依赖</span></h3>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--可以统一的定义依赖的版本号，方便修改，避免版本号不一致;子标签名称自定义--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-version</span>&gt;</span>5.3.20<span class="tag">&lt;/<span class="name">spring-version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mybatis-version</span>&gt;</span>3.5.11<span class="tag">&lt;/<span class="name">mybatis-version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<p>SpringMVC</p>
+<h4><span id="springmvc">SpringMVC</span></h4>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Servlet</p>
+<h4><span id="servlet">Servlet</span></h4>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--servlet原生技术的相关依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Spring</p>
+<h4><span id="spring">Spring</span></h4>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--spring框架基础环境依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span><span class="comment">&lt;!--与spring-webmvc重复--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- aop程序所需的依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--spring框架和junit结合使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--junit单元测试--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Mybatis</p>
+<h4><span id="mybatis-数据库">Mybatis、数据库</span></h4>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="comment">&lt;!--spring和mybatis结合使用的依赖包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mybatis框架的环境--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;mybatis-version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- DBUtils工具类 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-dbutils<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--mysql数据库的驱动包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.38<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据库连接池，阿里巴巴的德鲁伊连接池--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 分页插件jar --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>其他</p>
+<h4><span id="其他">其他</span></h4>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- lombok，省略实体类中的相关的方法定义 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.26<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 日志相关依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.13.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jboss<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jboss-vfs<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.16.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--json数据转换包，将其他数据类型，转换为String字符串(json字符串)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.14.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.14.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      src/main/java目录下默认情况下只对.java文件进行编译。</span></span><br><span class="line"><span class="comment">      该配置可以添加其它类型的文件也进行编译。</span></span><br><span class="line"><span class="comment">      --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 <h3><span id="配置文件">配置文件</span></h3>
-<ol>
-<li>
-<p>SpringApplication.xml</p>
+<h4><span id="springapplicationxml">SpringApplication.xml</span></h4>
 <ol>
 <li>IOC注解扫描</li>
 <li>AOP注解驱动</li>
@@ -1162,10 +1148,8 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 </ol>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--IOC和DI的注解扫描--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.bjpowernode.dao&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.bjpowernode.service&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--AOP的注解驱动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--从mybatis中转移过来的--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--导入外部的资源文件  classpath: 表示路径，加入一个文件名即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">&quot;classpath:db.properties&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:property-placeholder</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--提供一个数据源,连接池负责处理登录数据库的信息，可以把连接池对象交给具体操作数据库的那个工具类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;configuration&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.ibatis.session.Configuration&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;logImpl&quot;</span> <span class="attr">value</span>=<span class="string">&quot;org.apache.ibatis.logging.stdout.StdOutImpl&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--依然需要mybatis的SqlSessionFactory工厂的。负责获取连接对象,</span></span><br><span class="line"><span class="comment">    需要被MapperScannerConfigurer加载</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;sessionFactory&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引用一个数据源--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置mybatis运行的日志--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;configuration&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;configuration&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--实体类类名简化,如果是多个包可以使用数组类型，如果是一个包可以使用字符串类型--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;typeAliasesPackage&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.bjpowernode.pojo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--分页插件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;plugins&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--读取mybatis框架的配置文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;configurer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--统一配置mapper文件所在的位置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;basePackage&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.bjpowernode.dao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--读取上方配置好的工程对象,引用的是一个对象但是使用的是value,左边的变量是String类型--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;sqlSessionFactoryBeanName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sessionFactory&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--=======================使用AOP完成事务管理控制=========================--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--使用spring框架提供好类完成事务管理，此种写法称之为声明式事务--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--针对事务管理的类DataSourceTransactionManager进行进一步的配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">&quot;txAdvice&quot;</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--针对service中的方法进行细节化的事务管理配置</span></span><br><span class="line"><span class="comment">                区分CRUD</span></span><br><span class="line"><span class="comment">                写法支持通配模式；可以自己定义service中的方法哪些要添加事务管理，哪些不需要添加</span></span><br><span class="line"><span class="comment">                name:service中的方法名，add*表示以add开头的任意名称</span></span><br><span class="line"><span class="comment">                rollback-for:表示name中的方法要添加事务管理，如果发生异常需要回滚，爆出一个异常Exception</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;add*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;insert*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;update*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span> <span class="attr">isolation</span>=<span class="string">&quot;READ_COMMITTED&quot;</span> <span class="attr">propagation</span>=<span class="string">&quot;SUPPORTS&quot;</span> <span class="attr">timeout</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;edit*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;delete*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;del*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;abc*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;transFer&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--如果是查询的方法，是不需要事务管理的</span></span><br><span class="line"><span class="comment">            read-only:表示事务只读，不添加事务管理</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;*&quot;</span> <span class="attr">read-only</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">tx:method</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--通过AOP的方式完成最终的绑定，最终的效果--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--service方法的位置,使用切入点表达式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;pc&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* *..service..*.*(..))&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">&quot;txAdvice&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;pc&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:advisor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>SpringMVC-config.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--IOC和DI的注解扫描--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.bjpowernode.dao&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.bjpowernode.service&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--AOP的注解驱动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--从mybatis中转移过来的--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--导入外部的资源文件  classpath: 表示路径，加入一个文件名即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">&quot;classpath:db.properties&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:property-placeholder</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--提供一个数据源,连接池负责处理登录数据库的信息，可以把连接池对象交给具体操作数据库的那个工具类--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.alibaba.druid.pool.DruidDataSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.url&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;db.password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;configuration&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.ibatis.session.Configuration&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;logImpl&quot;</span> <span class="attr">value</span>=<span class="string">&quot;org.apache.ibatis.logging.stdout.StdOutImpl&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--依然需要mybatis的SqlSessionFactory工厂的。负责获取连接对象,</span></span><br><span class="line"><span class="comment">    需要被MapperScannerConfigurer加载</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;sessionFactory&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引用一个数据源--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置mybatis运行的日志--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;configuration&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;configuration&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--实体类类名简化,如果是多个包可以使用数组类型，如果是一个包可以使用字符串类型--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;typeAliasesPackage&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.bjpowernode.pojo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--若mapper.xml配置在mapper文件夹的xml文件夹下，则需要声明以下--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;mapperLocations&quot;</span> <span class="attr">value</span>=<span class="string">&quot;classpath:com/bjpowernode/mapper/xml/*&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--分页插件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;plugins&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--读取mybatis框架的配置文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;configurer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--统一配置mapper文件所在的位置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;basePackage&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.bjpowernode.dao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--读取上方配置好的工程对象,引用的是一个对象但是使用的是value,左边的变量是String类型--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;sqlSessionFactoryBeanName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sessionFactory&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--=======================使用AOP完成事务管理控制=========================--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--使用spring框架提供好类完成事务管理，此种写法称之为声明式事务--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--针对事务管理的类DataSourceTransactionManager进行进一步的配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">&quot;txAdvice&quot;</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--针对service中的方法进行细节化的事务管理配置</span></span><br><span class="line"><span class="comment">                区分CRUD</span></span><br><span class="line"><span class="comment">                写法支持通配模式；可以自己定义service中的方法哪些要添加事务管理，哪些不需要添加</span></span><br><span class="line"><span class="comment">                name:service中的方法名，add*表示以add开头的任意名称</span></span><br><span class="line"><span class="comment">                rollback-for:表示name中的方法要添加事务管理，如果发生异常需要回滚，爆出一个异常Exception</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;add*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;insert*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;update*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span> <span class="attr">isolation</span>=<span class="string">&quot;READ_COMMITTED&quot;</span> <span class="attr">propagation</span>=<span class="string">&quot;SUPPORTS&quot;</span> <span class="attr">timeout</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;edit*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;delete*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;del*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;abc*&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;transFer&quot;</span> <span class="attr">rollback-for</span>=<span class="string">&quot;Exception&quot;</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--如果是查询的方法，是不需要事务管理的</span></span><br><span class="line"><span class="comment">            read-only:表示事务只读，不添加事务管理</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">&quot;*&quot;</span> <span class="attr">read-only</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">tx:method</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--通过AOP的方式完成最终的绑定，最终的效果--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--service方法的位置,使用切入点表达式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;pc&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;execution(* *..service..*.*(..))&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">&quot;txAdvice&quot;</span> <span class="attr">pointcut-ref</span>=<span class="string">&quot;pc&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:advisor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="springmvc-configxml">SpringMVC-config.xml</span></h4>
 <ol>
 <li>注解扫描</li>
 <li>注解驱动</li>
@@ -1173,17 +1157,14 @@ H<sub>2</sub>O,x<sup>2</sup><br>
 <li>视图解析器</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--注解扫描--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.bjpowernode.web&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--注解驱动:框架提供的一系列的简化写法,推荐不论用或不用，都添加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--视图解析器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;viewResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--响应结果的前缀，页面之前的路径--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/jsp/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--响应结果的前缀，页面之后的扩展名--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.jsp&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>web.xml</p>
+<h4><span id="webxml">web.xml</span></h4>
 <ol>
 <li>servlet添加SpringMVC配置</li>
 <li>listener添加Spring配置</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee</span></span></span><br><span class="line"><span class="string"><span class="tag">                  http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span> <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!--配置springMVC的核心控制器，可以让框架能够接收请求--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--读取springMVC的核心配置文件--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMVC-config.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>dispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!--添加一个监听器，目的是为了读取spring配置文件(spring中自动读取mybatis配置文件)--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--加载spring配置文件，自动的被上面的监听器读取--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springApplication.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--字符编码过滤器--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 <h2><span id="crud">CRUD</span></h2>
+<p><a href="https://github.com/biyixia/java-code.git">https://github.com/biyixia/java-code.git</a></p>
 ]]></content>
       <categories>
         <category>第三阶段</category>
@@ -1224,8 +1205,7 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
   <entry>
     <title>SpringMVC</title>
     <url>/post/SpringMVC/</url>
-    <content><![CDATA[<h1><span id="springmvc">SpringMVC</span></h1>
-<h2><span id="导入依赖">导入依赖</span></h2>
+    <content><![CDATA[<h2><span id="导入依赖">导入依赖</span></h2>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.23<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2><span id="配置文件">配置文件</span></h2>
 <h3><span id="springmvc-configxml">SpringMVC-config.xml</span></h3>
@@ -1254,6 +1234,7 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 <li>在类和方法使用，确定访问路径和类及类中方法的映射关系</li>
 <li>在类上使用时，value值作为一级路径(模块)存在，方便团队分模块开发</li>
 <li>在方法上使用时，value值作为二级路径，表示模块中的不同功能</li>
+<li>路径可以是uri变量，并且通过@PathVariable注解获取作为方法的参数。也可以是通配符来筛选请求地址</li>
 </ol>
 <p><strong>常用属性</strong></p>
 <ol>
@@ -1384,6 +1365,11 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 <h2><span id="springmvc的响应">SpringMVC的响应</span></h2>
 <p>分为全局刷新与局部刷新两种情况</p>
 <h3><span id="全局刷新拼接路径">全局刷新（拼接路径）</span></h3>
+<ol>
+<li>请求：超链接，表单，地址栏</li>
+<li>响应：请求转发，响应重定向</li>
+<li>整个浏览器被新的数据覆盖,浏览器需要加载，渲染页面</li>
+</ol>
 <p>全局刷新情况下，可使用3种不同的返回值，分别为String、ModelAndView和void</p>
 <h4><span id="string类型">String类型</span></h4>
 <ol>
@@ -1417,11 +1403,17 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 <h4><span id="model和modelmap不推荐">Model和ModelMap（不推荐）</span></h4>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request05&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">hello05</span><span class="params">(Model model)</span> &#123;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;DemoRequestController类接收到了请求&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//存放数据</span></span><br><span class="line">    model.addAttribute(<span class="string">&quot;key02&quot;</span>,<span class="string">&quot;value02&quot;</span>);</span><br><span class="line">    <span class="comment">//存放数据</span></span><br><span class="line">    request.setAttribute(<span class="string">&quot;key03&quot;</span>,<span class="string">&quot;value03&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(&quot;request06&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">hello06</span><span class="params">(ModelMap modelMap)</span> &#123;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;DemoRequestController类接收到了请求&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//存放数据</span></span><br><span class="line">    modelMap.addAttribute(<span class="string">&quot;key02&quot;</span>,<span class="string">&quot;value02&quot;</span>);</span><br><span class="line">    <span class="comment">//存放数据</span></span><br><span class="line">    request.setAttribute(<span class="string">&quot;key03&quot;</span>,<span class="string">&quot;value03&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3><span id="局部刷新ajax请求">局部刷新（Ajax请求）</span></h3>
+<ol>
+<li>请求:jquery中的ajax函数发送任意的请求</li>
+<li>响应:底层使用的是打印流返回结果，目前使用的是注解完成</li>
+<li>在浏览器的内部，发起请求，获取数据，改变页面的部分内容。其余的页面无需加载和渲染，网络中的数据传输量少，给用户感觉好，通过Ajax实现</li>
+</ol>
 <p>可以使用任意类型的返回值，通过SpringMVC框架实现</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; %&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>ajax<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入jQuery--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/static/jquery-1.12.4.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 页面加载完成事件</span></span></span><br><span class="line"><span class="language-javascript">        $(<span class="keyword">function</span> (<span class="params">$</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            $(<span class="string">&quot;#sendBtn1&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                $.<span class="title function_">ajax</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">url</span>: <span class="string">&quot;/request_ajax_01&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>(data);</span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            $(<span class="string">&quot;#sendBtn2&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                $.<span class="title function_">ajax</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">url</span>: <span class="string">&quot;/request_ajax_02&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>(data);</span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            $(<span class="string">&quot;#sendBtn3&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                $.<span class="title function_">ajax</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">url</span>: <span class="string">&quot;request_ajax_03&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">// 发送json字符串时，必须使用post请求</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">type</span>: <span class="string">&quot;post&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">// 内容的编码类型</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">contentType</span>:<span class="string">&quot;application/json;charset=utf-8&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">// json字符串，键值必须使用双引号</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">data</span>:<span class="string">&#x27;&#123;&quot;aid&quot;:1001,&quot;name&quot;:&quot;admin&quot;,&quot;balance&quot;:500.0&#125;&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">// JSON.stringify可以将js对象转换为json字符串</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">//data: JSON.stringify(&#123; aid: 1001, name: &quot;tom&quot;, balance: 500.0 &#125;),</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="comment">/**</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">                     * jQuery会根据dataType对结果进行处理，</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">                     * 如果后台设置了content-type为application/json，则此处可以不指定</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">                     * 但最好是明确指定为json，这样即便后台不设置content-type，jQuery也会处理</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">                     */</span></span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                        <span class="comment">// 打印对象，不能看出对象中包含哪些属性</span></span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>(data);</span></span><br><span class="line"><span class="language-javascript">                        <span class="comment">// JSON.stringify可以将js对象转换为json字符串，方便查看对象结构</span></span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>( <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data) );</span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>(data.<span class="property">success</span>);</span></span><br><span class="line"><span class="language-javascript">                        <span class="title function_">alert</span>(data.<span class="property">msg</span>);</span></span><br><span class="line"><span class="language-javascript">                    &#125;</span></span><br><span class="line"><span class="language-javascript">                &#125;);</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;sendBtn1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;原生的方式发送ajax请求&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;sendBtn2&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;框架的方式发送ajax请求_@ResponseBody&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;sendBtn3&quot;</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;框架的方式发送ajax请求_@RequestBody&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request_ajax_01&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getRequestAjax01</span><span class="params">(HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;接收到了请求！！！！！！&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回浏览器一个结果</span></span><br><span class="line">    <span class="type">PrintWriter</span> <span class="variable">out</span> <span class="operator">=</span> response.getWriter();</span><br><span class="line">    <span class="comment">//out.write(&quot;getRequestAjax01方法返回的结果&quot;);//返回一个字符串</span></span><br><span class="line"></span><br><span class="line">    <span class="type">Account</span> <span class="variable">account</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Account</span>(<span class="number">1001</span>,<span class="string">&quot;admin&quot;</span>,<span class="number">1000.5</span>);</span><br><span class="line">    <span class="type">ObjectMapper</span> <span class="variable">objectMapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMapper</span>();</span><br><span class="line">    <span class="type">String</span> <span class="variable">json</span> <span class="operator">=</span> objectMapper.writeValueAsString(account);</span><br><span class="line">    out.write(json);<span class="comment">//返回的是一个对象(集合)</span></span><br><span class="line">    out.flush();</span><br><span class="line">    out.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>前提：若要使用RequestBody和ResponseBody必须导入jackson依赖</p>
 <h4><span id="responsebody">@ResponseBody</span></h4>
+<p>表示方法的返回值直接以Json格式写入Http response body中，而不是解析为跳转路径。</p>
 <p>只处理局部刷新(完成打印流的输出，json数据的类型转换)</p>
 <p>返回值类型没有任何限制了，可以是任意的返回值类型</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;request_ajax_02&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> Account <span class="title function_">getRequestAjax02</span><span class="params">(HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;接收到了请求！！！！！！&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Account</span>(<span class="number">1002</span>,<span class="string">&quot;abcd&quot;</span>,<span class="number">2000.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1432,6 +1424,42 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 <li>在后端的同一个接收方法里，@RequestBody与@RequestParam()可以同时使用，@RequestBody最多只能有一个，而@RequestParam()可以有多个。</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;request_ajax_03&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> Map <span class="title function_">getRequestAjax03</span><span class="params">(<span class="meta">@RequestBody</span> Account account)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;接收到了请求！！！！！！&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;请求参数:&quot;</span>+account);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>()&#123;&#123;</span><br><span class="line">        put(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;新增成功!!!!!!!!&quot;</span>);</span><br><span class="line">        put(<span class="string">&quot;flag&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="restful风格请求">RestFul风格请求</span></h2>
+<p>所有的rest风格请求必须建立在局部刷新的基础上</p>
+<p>传统请求与RestFul请求中都含有请求名称、请求方式、请求参数，但两者唯一区分请求的标准不同</p>
+<table>
+<thead>
+<tr>
+<th>传统请求</th>
+<th>RestFul请求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可以出现&quot;?&quot; “&amp;” 键值对 “/”</td>
+<td>仅 “/”</td>
+</tr>
+<tr>
+<td>主要通过请求名称唯一区分不同请求(请求方式辅助)</td>
+<td>主要通过请求方式唯一区分不同请求(请求参数辅助)</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="pathvariable">@PathVariable</span></h3>
+<p>映射 URL 绑定的占位符，将 URL中{xxx}占位符参数绑定到控制器处理方法的入参中</p>
+<p>一般与@RequestMapping(method = RequestMethod.GET)一起使用</p>
+<p>1、若方法参数名称和需要绑定的url中变量名称一致时,可以简写:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/getUser/&#123;name&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">getUser</span><span class="params">(<span class="meta">@PathVariable</span> String name)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> userService.selectUser(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、若方法参数名称和需要绑定的url中变量名称不一致时，写成:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/getUserById/&#123;name&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> User <span class="title function_">getUser</span><span class="params">(<span class="meta">@PathVariable(&quot;name&quot;)</span> String userName)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> userService.selectUser(userName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="restcontroller">@RestController</span></h3>
+<ol>
+<li>等同于@Controller + @ResponseBody</li>
+<li>若控制器中的所有方法返回的是json格式数据，而不是跳转页面，可以直接在类上标注@RestController，而不用在每个方法中标注@ResponseBody，简化了开发过程。</li>
+</ol>
+<h3><span id="put请求无法获取数据">put请求无法获取数据</span></h3>
+<p>web.xml</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>FormContentFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.FormContentFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>FormContentFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -2241,6 +2269,15 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--3——SpringMVC编写的过滤器，主要过滤编码--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--乱码处理--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--SpringMVC自带的CharacterEncodingFilter过滤器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>控制器</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/stu&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StuController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    StuServices stuServices;</span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;view.action&quot;)</span></span><br><span class="line">    <span class="comment">//使用org.springframework.ui.Model传递参数</span></span><br><span class="line">    <span class="keyword">public</span> String  <span class="title function_">getAll</span><span class="params">(Model model)</span>&#123;<span class="comment">//方法返回值String</span></span><br><span class="line">        ArrayList&lt;Stu&gt; all = stuServices.getAll();</span><br><span class="line">        model.addAttribute(<span class="string">&quot;stus&quot;</span>,all);</span><br><span class="line">        <span class="comment">//1——代表跳转</span></span><br><span class="line">        <span class="comment">//2——return的字符串代表文件名称</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;stuView&quot;</span>;<span class="comment">//如果返回的字符串要代表重定向，可以使用redirect: return &quot;redirect:/index.html&quot;;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="controller注解">@Controller注解</span></h3>
+<p>在一个类上添加@Controller注解，表明了这个类是一个控制器类。但想要让这个类成为一个处理请求的处理器光有@Controller注解是不够的，他还需要进一步修炼才能成为一个处理器。</p>
+<p>1.在spring容器中创建该类的实例。创建实例的方式有两种：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;test.controller.MyController&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述这种方式是在spring容器中注入单个bean，当项目比较大，控制器类比较多时，用这种方式向Spring容器中注入bean非常的让人苦恼，索性有第二种方式。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-scan</span>=<span class="string">&quot;test.controller&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这种方式会扫描指定包中的所有类，并生成相应的bean注入到spring容器中。使用这种方式当然能够极大提高我们的开发效率，但是有时候我们不想某一类型的类注入到spring容器中。这个时候第二种方式也可以解决。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;test&quot;</span>&gt;</span>　　</span><br><span class="line">	<span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">&quot;annotation&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;org.springframework.stereotype.Service&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述代码表示扫描test包中除有@Service注解之外的类。</p>
 ]]></content>
       <categories>
         <category>第二阶段</category>
@@ -2433,6 +2470,70 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
       </categories>
   </entry>
   <entry>
+    <title>单例模式</title>
+    <url>/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1><span id="单例模式">单例模式</span></h1>
+<p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
+<ol>
+<li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
+<li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
+<li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
+</ol>
+<h2><span id="懒汉模式">懒汉模式</span></h2>
+<p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="饿汉模式">饿汉模式</span></h2>
+<p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>要求</strong></p>
+<ul>
+<li>掌握五种单例模式的实现方式</li>
+<li>理解为何 DCL 实现时要使用 volatile 修饰静态变量</li>
+<li>了解 jdk 中用到单例的场景</li>
+</ul>
+<p><strong>饿汉式</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton1</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton1</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;单例对象不能重复创建&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton1()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton1</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton1</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton1 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">readResolve</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>构造方法抛出异常是防止反射破坏单例</li>
+<li><code>readResolve()</code> 是防止反序列化破坏单例</li>
+</ul>
+<p><strong>枚举饿汉式</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Singleton2</span> &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton2</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton2()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton2 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>枚举饿汉式能天然防止反射、反序列化破坏单例</li>
+</ul>
+<p><strong>懒汉式</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton3</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton3</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton3()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton3</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Singleton3.class</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton3 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">            INSTANCE = <span class="keyword">new</span> <span class="title class_">Singleton3</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其实只有首次创建单例对象时才需要同步，但该代码实际上每次调用都会同步</li>
+<li>因此有了下面的双检锁改进</li>
+</ul>
+<p><strong>双检锁懒汉式</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton4</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton4</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton4()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="type">Singleton4</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="literal">null</span>; <span class="comment">// 可见性，有序性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton4 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton4.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">                    INSTANCE = <span class="keyword">new</span> <span class="title class_">Singleton4</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为何必须加 volatile：</p>
+<ul>
+<li><code>INSTANCE = new Singleton4()</code> 不是原子的，分成 3 步：创建对象、调用构造、给静态变量赋值，其中后两步可能被指令重排序优化，变成先赋值、再调用构造</li>
+<li>如果线程1 先执行了赋值，线程2 执行到第一个 <code>INSTANCE == null</code> 时发现 INSTANCE 已经不为 null，此时就会返回一个未完全构造的对象</li>
+</ul>
+<p><strong>内部类懒汉式</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton5</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton5</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton5()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Holder</span> &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="type">Singleton5</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton5</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton5 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>避免了双检锁的缺点</li>
+</ul>
+<p><strong>JDK 中单例的体现</strong></p>
+<ul>
+<li>Runtime 体现了饿汉式单例</li>
+<li>Console 体现了双检锁懒汉式单例</li>
+<li>Collections 中的 EmptyNavigableSet 内部类懒汉式单例</li>
+<li>ReverseComparator.REVERSE_ORDER 内部类懒汉式单例</li>
+<li>Comparators.NaturalOrderComparator.INSTANCE 枚举饿汉式单例</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第二阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>内部类</title>
     <url>/post/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
     <content><![CDATA[<p>当一个事物的内部，有一个完整、复杂部分不能简单使用属性或者方法来描述时，且该结构只为外部事物提供服务，那么整个内部的完整结构最好使用内部类。</p>
@@ -2557,70 +2658,6 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
 ]]></content>
       <categories>
         <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>单例模式</title>
-    <url>/post/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1><span id="单例模式">单例模式</span></h1>
-<p>保证整个系统中一个类只有一个对象的实例，实现这种功能的方式就叫单例模式</p>
-<ol>
-<li>构造私有: 如果要保证一个类不能多次被实例化，那么我肯定要阻止对象被new 出来，所以需要把 类的所有构造方法私有化。</li>
-<li>以静态方法返回实例。 因为外界就不能通过new来获得对象，所以我们要通过提供类的方法来让外界获取对象实例。</li>
-<li>确保对象实例只有一个。 只对类进行一次实例化，以后都直接获取第一次实例化的对象。</li>
-</ol>
-<h2><span id="懒汉模式">懒汉模式</span></h2>
-<p>先不创建类的对象实例，等你需要的时候我再创建，线程不安全 节省资源</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstence</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s == <span class="literal">null</span>)&#123;</span><br><span class="line">            s = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="饿汉模式">饿汉模式</span></h2>
-<p>我先把对象（面包）创建好，等我要用（吃）的直接直接来拿就行了，浪费资源  线程安全</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>要求</strong></p>
-<ul>
-<li>掌握五种单例模式的实现方式</li>
-<li>理解为何 DCL 实现时要使用 volatile 修饰静态变量</li>
-<li>了解 jdk 中用到单例的场景</li>
-</ul>
-<p><strong>饿汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton1</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton1</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;单例对象不能重复创建&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton1()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton1</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton1</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton1 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">readResolve</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>构造方法抛出异常是防止反射破坏单例</li>
-<li><code>readResolve()</code> 是防止反序列化破坏单例</li>
-</ul>
-<p><strong>枚举饿汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Singleton2</span> &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton2</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton2()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton2 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>枚举饿汉式能天然防止反射、反序列化破坏单例</li>
-</ul>
-<p><strong>懒汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton3</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton3</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton3()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton3</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Singleton3.class</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton3 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">            INSTANCE = <span class="keyword">new</span> <span class="title class_">Singleton3</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>其实只有首次创建单例对象时才需要同步，但该代码实际上每次调用都会同步</li>
-<li>因此有了下面的双检锁改进</li>
-</ul>
-<p><strong>双检锁懒汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton4</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton4</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton4()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="type">Singleton4</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="literal">null</span>; <span class="comment">// 可见性，有序性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton4 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton4.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (INSTANCE == <span class="literal">null</span>) &#123;</span><br><span class="line">                    INSTANCE = <span class="keyword">new</span> <span class="title class_">Singleton4</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为何必须加 volatile：</p>
-<ul>
-<li><code>INSTANCE = new Singleton4()</code> 不是原子的，分成 3 步：创建对象、调用构造、给静态变量赋值，其中后两步可能被指令重排序优化，变成先赋值、再调用构造</li>
-<li>如果线程1 先执行了赋值，线程2 执行到第一个 <code>INSTANCE == null</code> 时发现 INSTANCE 已经不为 null，此时就会返回一个未完全构造的对象</li>
-</ul>
-<p><strong>内部类懒汉式</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton5</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton5</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;private Singleton5()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Holder</span> &#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="type">Singleton5</span> <span class="variable">INSTANCE</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton5</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton5 <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">otherMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;otherMethod()&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>避免了双检锁的缺点</li>
-</ul>
-<p><strong>JDK 中单例的体现</strong></p>
-<ul>
-<li>Runtime 体现了饿汉式单例</li>
-<li>Console 体现了双检锁懒汉式单例</li>
-<li>Collections 中的 EmptyNavigableSet 内部类懒汉式单例</li>
-<li>ReverseComparator.REVERSE_ORDER 内部类懒汉式单例</li>
-<li>Comparators.NaturalOrderComparator.INSTANCE 枚举饿汉式单例</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第二阶段</category>
       </categories>
   </entry>
   <entry>
@@ -6163,6 +6200,155 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
       </categories>
   </entry>
   <entry>
+    <title>校验注解</title>
+    <url>/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<h2><span id="导入依赖">导入依赖</span></h2>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.bval<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bval-jsr<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用以下注解时，必须在控制层的参数加上@Valid才能生效</p>
+<h2><span id="notnull">@NotNull</span></h2>
+<ul>
+<li>不能为 null，但可以为 empty</li>
+<li>一般用在 Integer 类型的基本数据类型的非空校验上，而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制</li>
+<li>一个 BigDecimal 的字段使用字段校验标签应该为 @NotNull</li>
+</ul>
+<h2><span id="notempty">@NotEmpty</span></h2>
+<ul>
+<li>不能为 null，且长度必须大于 0</li>
+<li>一般用在集合类上或者数组上</li>
+</ul>
+<h2><span id="notblank">@NotBlank</span></h2>
+<ul>
+<li>只能作用在接收的 String 类型上，不能为 null，而且调用 trim() 后，长度必须大于 0即：必须有实际字符</li>
+</ul>
+<h2><span id="size">@Size</span></h2>
+<p>一般用在 String 类型上可对字段数值进行最大长度限制的控制</p>
+<h2><span id="max-min">@Max @Min</span></h2>
+<p>一般用在 Integer 类型上可对字段数值进行大小范围的控制</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>@NotNull</th>
+<th>@NotEmpty</th>
+<th>@NotBlank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String name = null;</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = “”;</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = &quot; &quot;;</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = “Hello World！”;</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="常用的校验注解">常用的校验注解</span></h2>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Null</td>
+<td>限制只能为null</td>
+</tr>
+<tr>
+<td>@NotNull</td>
+<td>限制必须不能为null</td>
+</tr>
+<tr>
+<td>@AssertTrue</td>
+<td>限制必须为true</td>
+</tr>
+<tr>
+<td>@AssertFalse</td>
+<td>限制必须为false</td>
+</tr>
+<tr>
+<td>@Min(value)</td>
+<td>限制必须为一个不小于指定值的数字</td>
+</tr>
+<tr>
+<td>@Max(value)</td>
+<td>限制必须为一个不大于指定值的数字</td>
+</tr>
+<tr>
+<td>@DecimalMin(value)</td>
+<td>被限制的元素必须是一个数字，其值必须大于等于指定的最小值</td>
+</tr>
+<tr>
+<td>@DecimalMax(value)</td>
+<td>被限制的元素必须是一个数字，其值必须小于等于指定的最大值</td>
+</tr>
+<tr>
+<td>@Size(max,min)</td>
+<td>限制字符长度必须在min到max的指定范围内</td>
+</tr>
+<tr>
+<td>@Digits(integer,fraction)</td>
+<td>限制必须为一个小数，且整数部分的位数不能超过integer、小数部分的位数不能超过fraction的在可接受的范围内</td>
+</tr>
+<tr>
+<td>@Past</td>
+<td>被限制的元素(日期类型)必须是一个过去的日期</td>
+</tr>
+<tr>
+<td>@Future</td>
+<td>被限制的元素(日期类型)必须是一个将来的日期</td>
+</tr>
+<tr>
+<td>@Pattern(value)</td>
+<td>限制必须符合指定的正则表达式</td>
+</tr>
+<tr>
+<td>@Email</td>
+<td>被限制的元素值为是电子邮件地址，也可以通过正则表达式和flag指定自定义的email</td>
+</tr>
+<tr>
+<td>@Length</td>
+<td>被限制的字符串的大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td>@NotEmpty</td>
+<td>被限制的字符串必须非空(不为null且不为空)</td>
+</tr>
+<tr>
+<td>@Range</td>
+<td>被限制的元素必须在合适的范围内</td>
+</tr>
+<tr>
+<td>@JsonFormat</td>
+<td>使用 @JsonFormat 注解时，查到的时间可能会比数据库中的时间少八个小时，这是由于时区差引起的，JsonFormat 默认的时区是 Greenwich Time， 默认的是格林威治时间，而我们是在东八区上，所以时间会比实际我们想得到的时间少八个小时。需要在后面加上一个时区:@JsonFormat(pattern=“yyyy-MM-dd”,timezone=“GMT+8”) private Date date;</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>树</title>
     <url>/post/%E6%A0%91/</url>
     <content><![CDATA[<h1><span id="二叉排序树">二叉排序树</span></h1>
@@ -6401,155 +6587,6 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
       </categories>
   </entry>
   <entry>
-    <title>校验注解</title>
-    <url>/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</url>
-    <content><![CDATA[<h2><span id="导入依赖">导入依赖</span></h2>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.bval<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bval-jsr<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用以下注解时，必须在控制层的参数加上@Valid才能生效</p>
-<h2><span id="notnull">@NotNull</span></h2>
-<ul>
-<li>不能为 null，但可以为 empty</li>
-<li>一般用在 Integer 类型的基本数据类型的非空校验上，而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制</li>
-<li>一个 BigDecimal 的字段使用字段校验标签应该为 @NotNull</li>
-</ul>
-<h2><span id="notempty">@NotEmpty</span></h2>
-<ul>
-<li>不能为 null，且长度必须大于 0</li>
-<li>一般用在集合类上或者数组上</li>
-</ul>
-<h2><span id="notblank">@NotBlank</span></h2>
-<ul>
-<li>只能作用在接收的 String 类型上，不能为 null，而且调用 trim() 后，长度必须大于 0即：必须有实际字符</li>
-</ul>
-<h2><span id="size">@Size</span></h2>
-<p>一般用在 String 类型上可对字段数值进行最大长度限制的控制</p>
-<h2><span id="max-min">@Max @Min</span></h2>
-<p>一般用在 Integer 类型上可对字段数值进行大小范围的控制</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>@NotNull</th>
-<th>@NotEmpty</th>
-<th>@NotBlank</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>String name = null;</td>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = “”;</td>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = &quot; &quot;;</td>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = “Hello World！”;</td>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="常用的校验注解">常用的校验注解</span></h2>
-<table>
-<thead>
-<tr>
-<th>注解</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@Null</td>
-<td>限制只能为null</td>
-</tr>
-<tr>
-<td>@NotNull</td>
-<td>限制必须不能为null</td>
-</tr>
-<tr>
-<td>@AssertTrue</td>
-<td>限制必须为true</td>
-</tr>
-<tr>
-<td>@AssertFalse</td>
-<td>限制必须为false</td>
-</tr>
-<tr>
-<td>@Min(value)</td>
-<td>限制必须为一个不小于指定值的数字</td>
-</tr>
-<tr>
-<td>@Max(value)</td>
-<td>限制必须为一个不大于指定值的数字</td>
-</tr>
-<tr>
-<td>@DecimalMin(value)</td>
-<td>被限制的元素必须是一个数字，其值必须大于等于指定的最小值</td>
-</tr>
-<tr>
-<td>@DecimalMax(value)</td>
-<td>被限制的元素必须是一个数字，其值必须小于等于指定的最大值</td>
-</tr>
-<tr>
-<td>@Size(max,min)</td>
-<td>限制字符长度必须在min到max的指定范围内</td>
-</tr>
-<tr>
-<td>@Digits(integer,fraction)</td>
-<td>限制必须为一个小数，且整数部分的位数不能超过integer、小数部分的位数不能超过fraction的在可接受的范围内</td>
-</tr>
-<tr>
-<td>@Past</td>
-<td>被限制的元素(日期类型)必须是一个过去的日期</td>
-</tr>
-<tr>
-<td>@Future</td>
-<td>被限制的元素(日期类型)必须是一个将来的日期</td>
-</tr>
-<tr>
-<td>@Pattern(value)</td>
-<td>限制必须符合指定的正则表达式</td>
-</tr>
-<tr>
-<td>@Email</td>
-<td>被限制的元素值为是电子邮件地址，也可以通过正则表达式和flag指定自定义的email</td>
-</tr>
-<tr>
-<td>@Length</td>
-<td>被限制的字符串的大小必须在指定的范围内</td>
-</tr>
-<tr>
-<td>@NotEmpty</td>
-<td>被限制的字符串必须非空(不为null且不为空)</td>
-</tr>
-<tr>
-<td>@Range</td>
-<td>被限制的元素必须在合适的范围内</td>
-</tr>
-<tr>
-<td>@JsonFormat</td>
-<td>使用 @JsonFormat 注解时，查到的时间可能会比数据库中的时间少八个小时，这是由于时区差引起的，JsonFormat 默认的时区是 Greenwich Time， 默认的是格林威治时间，而我们是在东八区上，所以时间会比实际我们想得到的时间少八个小时。需要在后面加上一个时区:@JsonFormat(pattern=“yyyy-MM-dd”,timezone=“GMT+8”) private Date date;</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>第三阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>类加载的初始化顺序</title>
     <url>/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<h2><span id="静态代码块">静态代码块</span></h2>
@@ -6675,6 +6712,148 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
 <p>创建一个controller</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoController</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;demo&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Resp&lt;String&gt; <span class="title function_">demo1</span><span class="params">(String name)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;ok&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">return</span> Resp.success(<span class="string">&quot;succ&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;err&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="comment">//抛业务相关的异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.USERNAME_NOT_EXISTS);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;errcode&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.INVALID_CODE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;0&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="type">int</span> i=<span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//检查用户积分是否足够，如果不够，就抛出异常</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;notenough&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.USER_CREDIT_NOT_ENOUTH);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Resp.success(<span class="string">&quot;default&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="meta">@GetMapping(&quot;list&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Resp&lt;List&gt; <span class="title function_">list</span><span class="params">()</span>&#123;</span><br><span class="line">		List&lt;String&gt; list = Arrays.asList(<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;lisi&quot;</span>,<span class="string">&quot;wangwu&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Resp.success(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>继承</title>
+    <url>/post/%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
+<p>“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。</p>
+<p>is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。<br>
+has a 是如果A中有B，那么，B就是A的组成部分</p>
+<p>如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。<br>
+如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。</p>
+<span id="more"></span>
+<p>如果多个类有着共同的属性,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,</p>
+<p>别的类通过使用extends继承它,进而获取它的所有的成员(处理构造器)</p>
+<h2><span id="意义">意义</span></h2>
+<p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个 类无需再定义这些属性和行为，只要继承那个类即可。</p>
+<h2><span id="使用">使用</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子类:继承其他类的类,又叫派生类</li>
+<li>父类:被继承的类,又叫基类或者超类</li>
+</ul>
+<ol>
+<li>Java只支持单继承,不能多继承,支持多级继承</li>
+<li>如果继承了一个类,那么就拥有了除了构造方法之外的父类的所有的成员(属性和方法)</li>
+<li>私有成员(private)不能被继承的,引用了私有成员的方法可以被子类继承的</li>
+</ol>
+<p>静态成员也是被继承的(没有意义)</p>
+<h2><span id="方法的重写">方法的重写</span></h2>
+<p>当子类从父类中继承过来的方法不满足自身的要求的时，在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将代替父类的方法执行。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>子类重写后的方法、父类被重写的方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法名称、参数列表</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>异常、返回值类型</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>大于等于</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</li>
+<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
+<li>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)， 或者同时声明为static的（不是重写）。因为static方法是属于类的，子类无法重写属于父类的方法。</li>
+</ul>
+<h3><span id="重载overload和重写override">重载(Overload)和重写(Override)</span></h3>
+<table>
+<thead>
+<tr>
+<th>重载</th>
+<th>重写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在一个类中</td>
+<td>在子类和父类中</td>
+</tr>
+<tr>
+<td>同名方法的参数列表不同(参数类型，参数个数以及参数顺序)</td>
+<td><strong>同名方法的参数列表都必须相同</strong></td>
+</tr>
+<tr>
+<td>返回类型没有要求</td>
+<td><strong>返回类型与父类一致（引用类型要能向上转型）</strong></td>
+</tr>
+<tr>
+<td>访问权限没有要求</td>
+<td>相比于重写前的方法，<strong>访问权限不能更低</strong></td>
+</tr>
+<tr>
+<td>异常没有要求</td>
+<td>相比于重写前的方法，不能申明更加宽泛的检查型异常</td>
+</tr>
+<tr>
+<td>实现类中的多态（编译时的多态性）</td>
+<td>多态的前提（运行时的多态性）</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="访问权限修饰符">访问权限修饰符</span></h2>
+<p>在类的成员定义前，用来限定对象对该类成员的访问权限。</p>
+<p>（public&gt;protected&gt;default&gt;private)</p>
+<table>
+<thead>
+<tr>
+<th>访问权限修饰符</th>
+<th>public</th>
+<th>protected</th>
+<th>default</th>
+<th>private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类内部</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>同包</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>不同包子类</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>同一个工程</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>其中，对于class的权限修饰只可以用public和default(缺省)。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
   </entry>
   <entry>
     <title>编码与数制</title>
@@ -7463,143 +7642,138 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
       </categories>
   </entry>
   <entry>
-    <title>继承</title>
-    <url>/post/%E7%BB%A7%E6%89%BF/</url>
-    <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
-<p>“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。</p>
-<p>is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。<br>
-has a 是如果A中有B，那么，B就是A的组成部分</p>
-<p>如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。<br>
-如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。</p>
+    <title>运算符</title>
+    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
 <span id="more"></span>
-<p>如果多个类有着共同的属性,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,</p>
-<p>别的类通过使用extends继承它,进而获取它的所有的成员(处理构造器)</p>
-<h2><span id="意义">意义</span></h2>
-<p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个 类无需再定义这些属性和行为，只要继承那个类即可。</p>
-<h2><span id="使用">使用</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="算数运算符">算数运算符</span></h1>
+<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
+<p>从左向右执行：</p>
 <ul>
-<li>子类:继承其他类的类,又叫派生类</li>
-<li>父类:被继承的类,又叫基类或者超类</li>
+<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
+<li>符号两边都是数字 做的是加法</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
+<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
+<h2><span id="乘法">* :	乘法</span></h2>
+<h2><span id="除法">\ :	除法</span></h2>
+<p>​		<code>System.out.println(10/3*3);//9</code></p>
+<h2><span id="取余">%：取余</span></h2>
+<ul>
+<li>
+<p>任意数字和n取余结果是[0，n-1]</p>
+</li>
+<li>
+<p>取余结果符号和被除数符号一致</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
+<h3><span id>++</span></h3>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
+</ul>
+<h2><span id>–</span></h2>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
+<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
+<h1><span id="赋值运算符">赋值运算符</span></h1>
+<h2><span id="基本运算符">基本运算符： =</span></h2>
+<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)	底层发生了强制转换类型</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
+<h1><span id="关系运算符">关系运算符</span></h1>
+<h1><span id="逻辑运算符">逻辑运算符</span></h1>
+<p>操作数是boolean 运算结果也是boolean类型</p>
+<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
+<ul>
+<li>有一假结果是假</li>
+<li>同:运算结果相同</li>
+<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
+<ul>
+<li>有一真结果为真</li>
+<li>运算结果相同</li>
+<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑非">逻辑非</span></h2>
+<ul>
+<li>！取反</li>
+</ul>
+<h2><span id="逻辑异或">逻辑异或</span></h2>
+<ul>
+<li>^ :相同为假 不同为真</li>
+</ul>
+<h1><span id="位运算符">位运算符</span></h1>
+<p>操作的是数值,得到数值的补码然后进行位运算</p>
+<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
+<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
+<p>每移动一位相当于* 2 空位补0</p>
+<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
+<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位补0</p>
+<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
+<p>每一位上如果是1 看做true 如果是0 看做false</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑或">逻辑或 |</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ul>
+<h3><span id="3种变量交换">3种变量交换</span></h3>
+<h4><span id="临时变量">临时变量</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
+<h4><span id="累加消除">累加消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>Java只支持单继承,不能多继承,支持多级继承</li>
-<li>如果继承了一个类,那么就拥有了除了构造方法之外的父类的所有的成员(属性和方法)</li>
-<li>私有成员(private)不能被继承的,引用了私有成员的方法可以被子类继承的</li>
+<li>少定义一个变量</li>
+<li>有局限，可能超过int类型</li>
 </ol>
-<p>静态成员也是被继承的(没有意义)</p>
-<h2><span id="方法的重写">方法的重写</span></h2>
-<p>当子类从父类中继承过来的方法不满足自身的要求的时，在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将代替父类的方法执行。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>子类重写后的方法、父类被重写的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>方法名称、参数列表</td>
-<td>相同</td>
-</tr>
-<tr>
-<td>异常、返回值类型</td>
-<td>小于等于</td>
-</tr>
-<tr>
-<td>访问权限</td>
-<td>大于等于</td>
-</tr>
-</tbody>
-</table>
+<h4><span id="异或消除">异或消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>少定义一个变量</li>
+<li>没有局限</li>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ol>
+<h1><span id="三元运算符">三元运算符</span></h1>
 <ul>
-<li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</li>
-<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
-<li>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)， 或者同时声明为static的（不是重写）。因为static方法是属于类的，子类无法重写属于父类的方法。</li>
+<li>
+<p>boolean表达式 ? 表达式1 : 表达式2</p>
+</li>
+<li>
+<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
+</li>
+<li>
+<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
+</li>
 </ul>
-<h3><span id="重载overload和重写override">重载(Overload)和重写(Override)</span></h3>
-<table>
-<thead>
-<tr>
-<th>重载</th>
-<th>重写</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>在一个类中</td>
-<td>在子类和父类中</td>
-</tr>
-<tr>
-<td>同名方法的参数列表不同(参数类型，参数个数以及参数顺序)</td>
-<td><strong>同名方法的参数列表都必须相同</strong></td>
-</tr>
-<tr>
-<td>返回类型没有要求</td>
-<td><strong>返回类型与父类一致（引用类型要能向上转型）</strong></td>
-</tr>
-<tr>
-<td>访问权限没有要求</td>
-<td>相比于重写前的方法，<strong>访问权限不能更低</strong></td>
-</tr>
-<tr>
-<td>异常没有要求</td>
-<td>相比于重写前的方法，不能申明更加宽泛的检查型异常</td>
-</tr>
-<tr>
-<td>实现类中的多态（编译时的多态性）</td>
-<td>多态的前提（运行时的多态性）</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="访问权限修饰符">访问权限修饰符</span></h2>
-<p>在类的成员定义前，用来限定对象对该类成员的访问权限。</p>
-<p>（public&gt;protected&gt;default&gt;private)</p>
-<table>
-<thead>
-<tr>
-<th>访问权限修饰符</th>
-<th>public</th>
-<th>protected</th>
-<th>default</th>
-<th>private</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类内部</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>同包</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-</tr>
-<tr>
-<td>不同包子类</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>同一个工程</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>其中，对于class的权限修饰只可以用public和default(缺省)。</li>
-</ul>
-]]></content>
+<p>注意:</p>
+<ol>
+<li>表达式1 和 表达式2 结果类型必须保持一致</li>
+<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>第一阶段</category>
       </categories>
@@ -8719,143 +8893,6 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 ]]></content>
       <categories>
         <category>第二阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>运算符</title>
-    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<span id="more"></span>
-<h1><span id="算数运算符">算数运算符</span></h1>
-<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
-<p>从左向右执行：</p>
-<ul>
-<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
-<li>符号两边都是数字 做的是加法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
-<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
-<h2><span id="乘法">* :	乘法</span></h2>
-<h2><span id="除法">\ :	除法</span></h2>
-<p>​		<code>System.out.println(10/3*3);//9</code></p>
-<h2><span id="取余">%：取余</span></h2>
-<ul>
-<li>
-<p>任意数字和n取余结果是[0，n-1]</p>
-</li>
-<li>
-<p>取余结果符号和被除数符号一致</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
-<h3><span id>++</span></h3>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
-</ul>
-<h2><span id>–</span></h2>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
-<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
-<h1><span id="赋值运算符">赋值运算符</span></h1>
-<h2><span id="基本运算符">基本运算符： =</span></h2>
-<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)	底层发生了强制转换类型</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
-<h1><span id="关系运算符">关系运算符</span></h1>
-<h1><span id="逻辑运算符">逻辑运算符</span></h1>
-<p>操作数是boolean 运算结果也是boolean类型</p>
-<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
-<ul>
-<li>有一假结果是假</li>
-<li>同:运算结果相同</li>
-<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
-<ul>
-<li>有一真结果为真</li>
-<li>运算结果相同</li>
-<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑非">逻辑非</span></h2>
-<ul>
-<li>！取反</li>
-</ul>
-<h2><span id="逻辑异或">逻辑异或</span></h2>
-<ul>
-<li>^ :相同为假 不同为真</li>
-</ul>
-<h1><span id="位运算符">位运算符</span></h1>
-<p>操作的是数值,得到数值的补码然后进行位运算</p>
-<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
-<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
-<p>每移动一位相当于* 2 空位补0</p>
-<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
-<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位补0</p>
-<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
-<p>每一位上如果是1 看做true 如果是0 看做false</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑或">逻辑或 |</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ul>
-<h3><span id="3种变量交换">3种变量交换</span></h3>
-<h4><span id="临时变量">临时变量</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
-<h4><span id="累加消除">累加消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>少定义一个变量</li>
-<li>有局限，可能超过int类型</li>
-</ol>
-<h4><span id="异或消除">异或消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>少定义一个变量</li>
-<li>没有局限</li>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ol>
-<h1><span id="三元运算符">三元运算符</span></h1>
-<ul>
-<li>
-<p>boolean表达式 ? 表达式1 : 表达式2</p>
-</li>
-<li>
-<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
-</li>
-<li>
-<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
-</li>
-</ul>
-<p>注意:</p>
-<ol>
-<li>表达式1 和 表达式2 结果类型必须保持一致</li>
-<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>第一阶段</category>
       </categories>
   </entry>
 </search>
