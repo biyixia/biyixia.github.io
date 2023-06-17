@@ -108,77 +108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HttpSession</title>
-    <url>/post/HttpSession/</url>
-    <content><![CDATA[<p><img src="https://pic.imgdb.cn/item/64113030ebf10e5d5374df8a.jpg" alt></p>
-<ul>
-<li>相同的客户端相同的浏览器对应一个HttpSession对象</li>
-<li>HttpSession对象在服务端【tomcat】里面</li>
-<li>一个HttpSession对象可以有多个键值对数据</li>
-<li>当浏览器请求服务端的任意资源时，使用了HttpSession对象的任意方法，服务端将立即创建一个SessionID对应一个HttpSession对象</li>
-<li>浏览器通过cookie存储SessionID</li>
-</ul>
-<h2><span id="httpsession">HttpSession</span></h2>
-<p><strong>浏览器会话对象</strong></p>
-<ul>
-<li>HttpSession拥有存储数据的能力【以KV方式存储对象，setAttribute方法】</li>
-<li>HttpSession对象里面存储的数据在 相同的客户端 相同的浏览器 范围内共享</li>
-</ul>
-<p><strong>生命周期</strong></p>
-<ul>
-<li>HttpSession对象生命周期为整个浏览器运行期间，浏览器运行结束，即浏览器关闭（所有页面关闭），HttpSession对象的生命周期结束</li>
-<li>不同品牌的浏览器HttpSession对象生命周期不一样</li>
-</ul>
-<p><strong>浏览器会话销毁</strong></p>
-<table>
-<thead>
-<tr>
-<th>方式</th>
-<th>HttpSession</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>浏览器关闭</td>
-<td>存在</td>
-<td>仅cookies销毁，浏览器无法传递上一次的SessionID</td>
-</tr>
-<tr>
-<td>httpSession.removeAttribute(K);</td>
-<td>存在</td>
-<td>仅HttpSession中的key删除</td>
-</tr>
-<tr>
-<td>tomcat的设置过期时间或者代码设置httpSession.setMaxInactiveInterval(单位是秒);</td>
-<td>销毁</td>
-<td>HttpSession对象立即GC清除</td>
-</tr>
-<tr>
-<td>tomcat重启</td>
-<td>销毁</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2><span id="tomcat管理httpsession">tomcat管理HttpSession</span></h2>
-<ul>
-<li>当浏览器首次使用httpSession的任意方法，tomcat会立即创建该浏览器的SessionID（Tomcat创建的是JSESSIONID），然后会把SessionID立即存储到浏览器的Cookies里面，浏览器可以通过Cookies携带的SessionID访问tomcat的HttpSession对象，获取键值对数据</li>
-<li>若浏览器没有使用httpSession的任意方法，则tomcat不会创建该浏览器的SessionID</li>
-</ul>
-<h2><span id="cookie">cookie</span></h2>
-<p>在浏览器中存储tomcat中的HttpSession对象的SessionID的值</p>
-<ul>
-<li>客户端浏览器中的cookies的SessionID丢失（手动删除），再次使用HttpSession任意方法，则Tomcat重新生成SessionID（重新创建一个HttpSession对象）存储到浏览器的cookie中</li>
-<li>客户端浏览器中禁止cookies，由于浏览器无法通过cookie访问tomcat中的HttpSession对象，每次使用HttpSession任意方法，Tomcat都会重新生成SessionID（重新创建一个HttpSession对象），此时可以通过url + &quot;;jsessionid=【sessionID】&quot;访问tomcat中的HttpSession对象</li>
-<li>若cookie未禁用且url带有不同的SessionID的方式访问tomcat中的HttpSession，则cookie传递优先级最高</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第三阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>IDEA常用快捷键</title>
     <url>/post/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<table>
@@ -331,6 +260,159 @@
       </categories>
   </entry>
   <entry>
+    <title>HttpSession</title>
+    <url>/post/HttpSession/</url>
+    <content><![CDATA[<p><img src="https://pic.imgdb.cn/item/64113030ebf10e5d5374df8a.jpg" alt></p>
+<ul>
+<li>相同的客户端相同的浏览器对应一个HttpSession对象</li>
+<li>HttpSession对象在服务端【tomcat】里面</li>
+<li>一个HttpSession对象可以有多个键值对数据</li>
+<li>当浏览器请求服务端的任意资源时，使用了HttpSession对象的任意方法，服务端将立即创建一个SessionID对应一个HttpSession对象</li>
+<li>浏览器通过cookie存储SessionID</li>
+</ul>
+<h2><span id="httpsession">HttpSession</span></h2>
+<p><strong>浏览器会话对象</strong></p>
+<ul>
+<li>HttpSession拥有存储数据的能力【以KV方式存储对象，setAttribute方法】</li>
+<li>HttpSession对象里面存储的数据在 相同的客户端 相同的浏览器 范围内共享</li>
+</ul>
+<p><strong>生命周期</strong></p>
+<ul>
+<li>HttpSession对象生命周期为整个浏览器运行期间，浏览器运行结束，即浏览器关闭（所有页面关闭），HttpSession对象的生命周期结束</li>
+<li>不同品牌的浏览器HttpSession对象生命周期不一样</li>
+</ul>
+<p><strong>浏览器会话销毁</strong></p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>HttpSession</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浏览器关闭</td>
+<td>存在</td>
+<td>仅cookies销毁，浏览器无法传递上一次的SessionID</td>
+</tr>
+<tr>
+<td>httpSession.removeAttribute(K);</td>
+<td>存在</td>
+<td>仅HttpSession中的key删除</td>
+</tr>
+<tr>
+<td>tomcat的设置过期时间或者代码设置httpSession.setMaxInactiveInterval(单位是秒);</td>
+<td>销毁</td>
+<td>HttpSession对象立即GC清除</td>
+</tr>
+<tr>
+<td>tomcat重启</td>
+<td>销毁</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><span id="tomcat管理httpsession">tomcat管理HttpSession</span></h2>
+<ul>
+<li>当浏览器首次使用httpSession的任意方法，tomcat会立即创建该浏览器的SessionID（Tomcat创建的是JSESSIONID），然后会把SessionID立即存储到浏览器的Cookies里面，浏览器可以通过Cookies携带的SessionID访问tomcat的HttpSession对象，获取键值对数据</li>
+<li>若浏览器没有使用httpSession的任意方法，则tomcat不会创建该浏览器的SessionID</li>
+</ul>
+<h2><span id="cookie">cookie</span></h2>
+<p>在浏览器中存储tomcat中的HttpSession对象的SessionID的值</p>
+<ul>
+<li>客户端浏览器中的cookies的SessionID丢失（手动删除），再次使用HttpSession任意方法，则Tomcat重新生成SessionID（重新创建一个HttpSession对象）存储到浏览器的cookie中</li>
+<li>客户端浏览器中禁止cookies，由于浏览器无法通过cookie访问tomcat中的HttpSession对象，每次使用HttpSession任意方法，Tomcat都会重新生成SessionID（重新创建一个HttpSession对象），此时可以通过url + &quot;;jsessionid=【sessionID】&quot;访问tomcat中的HttpSession对象</li>
+<li>若cookie未禁用且url带有不同的SessionID的方式访问tomcat中的HttpSession，则cookie传递优先级最高</li>
+</ul>
+]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用模板</title>
+    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>模板</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>psvm</strong></td>
+<td>可生成 main 方法</td>
+</tr>
+<tr>
+<td><strong>sout</strong></td>
+<td>System.out.println() 快捷输出</td>
+</tr>
+<tr>
+<td><strong>soutp</strong></td>
+<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
+</tr>
+<tr>
+<td><strong>soutv</strong></td>
+<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
+</tr>
+<tr>
+<td><strong>soutm</strong></td>
+<td>System.out.println(“当前类名.当前方 法”);</td>
+</tr>
+<tr>
+<td><strong>“abc”.sout</strong></td>
+<td>System.out.println(“abc”);</td>
+</tr>
+<tr>
+<td><strong>fori</strong></td>
+<td>可生成 for 循环</td>
+</tr>
+<tr>
+<td>iter</td>
+<td>可生成增强 for 循环</td>
+</tr>
+<tr>
+<td>itar</td>
+<td>可生成普通 for 循环</td>
+</tr>
+<tr>
+<td>list.for</td>
+<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
+</tr>
+<tr>
+<td><strong>ifn</strong></td>
+<td>可生成 if(xxx = null)</td>
+</tr>
+<tr>
+<td><strong>inn</strong></td>
+<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
+</tr>
+<tr>
+<td>prsf</td>
+<td>可生成 private static final</td>
+</tr>
+<tr>
+<td>psf</td>
+<td>可生成 public static final</td>
+</tr>
+<tr>
+<td>psfi</td>
+<td>可生成 public static final int</td>
+</tr>
+<tr>
+<td>psfs</td>
+<td>可生成 public static final String</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>JDK的安装及环境变量的配置</title>
     <url>/post/JDK%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1><span id="引言">引言</span></h1>
@@ -443,88 +525,6 @@
 <p>通过Java命令-classpath修改CLASSPATH路径，实现对test2的编译</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -classpath .;&quot;另一个类所处目录路径&quot; test2</span><br></pre></td></tr></table></figure>
 <p>执行.class文件时，仅配置了另一个类所处目录的路径会找不到当前要执行的test2.class，因此加上当前目录，即可运行</p>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>常用模板</title>
-    <url>/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th>模板</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>psvm</strong></td>
-<td>可生成 main 方法</td>
-</tr>
-<tr>
-<td><strong>sout</strong></td>
-<td>System.out.println() 快捷输出</td>
-</tr>
-<tr>
-<td><strong>soutp</strong></td>
-<td>System.out.println(&quot;方法形参名 = &quot; +  形参名);</td>
-</tr>
-<tr>
-<td><strong>soutv</strong></td>
-<td>System.out.println(&quot;变量名 = &quot; + 变 量);</td>
-</tr>
-<tr>
-<td><strong>soutm</strong></td>
-<td>System.out.println(“当前类名.当前方 法”);</td>
-</tr>
-<tr>
-<td><strong>“abc”.sout</strong></td>
-<td>System.out.println(“abc”);</td>
-</tr>
-<tr>
-<td><strong>fori</strong></td>
-<td>可生成 for 循环</td>
-</tr>
-<tr>
-<td>iter</td>
-<td>可生成增强 for 循环</td>
-</tr>
-<tr>
-<td>itar</td>
-<td>可生成普通 for 循环</td>
-</tr>
-<tr>
-<td>list.for</td>
-<td>可生成集合 list 的 for 循环 ,for(String s:list){}</td>
-</tr>
-<tr>
-<td><strong>ifn</strong></td>
-<td>可生成 if(xxx = null)</td>
-</tr>
-<tr>
-<td><strong>inn</strong></td>
-<td>可生成 if(xxx != null)或xxx.nn或 xxx.null</td>
-</tr>
-<tr>
-<td>prsf</td>
-<td>可生成 private static final</td>
-</tr>
-<tr>
-<td>psf</td>
-<td>可生成 public static final</td>
-</tr>
-<tr>
-<td>psfi</td>
-<td>可生成 public static final int</td>
-</tr>
-<tr>
-<td>psfs</td>
-<td>可生成 public static final String</td>
-</tr>
-</tbody>
-</table>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -645,36 +645,6 @@ System.out.println(“我是Yi_ding的方法”);</p>
 </li>
 </ol>
 <img src="https://pic.imgdb.cn/item/63b2fb02be43e0d30e96d7da.jpg" style="zoom:150%;">
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java文档注释</title>
-    <url>/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
-<ul>
-<li>
-<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
-</li>
-<li>
-<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
-</li>
-<li>
-<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>单行注释	/注释文字/</li>
-<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
-</ul>
-<h1><span id="文档注释">文档注释</span></h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p>操作方式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -845,6 +815,36 @@ System.out.println(“我是Yi_ding的方法”);</p>
 <li>在编译的过程中，对应每个类会生成相应的.class字节码文件，也就是说，当源文件中存在多个类时，编译完成后，会生成多个与类名一致的.class字节码文件</li>
 <li>执行过程中，只需要指定字节码文件运行</li>
 </ul>
+]]></content>
+      <categories>
+        <category>第一阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java文档注释</title>
+    <url>/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<ul>
+<li>
+<p>注释可以提高代码的可读性，清晰完整的注释便于程序调试的过程</p>
+</li>
+<li>
+<p>于编程者而言，书写注释是编程路上必须具有的良好习惯</p>
+</li>
+<li>
+<p>对代码的解释说明,就像产品的说明书一样,良好的注释会减少团队的沟通成本</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li>单行注释	/注释文字/</li>
+<li>多行注释    /<em>注释文字</em>/     多行注释中不能有多行注释嵌套</li>
+</ul>
+<h1><span id="文档注释">文档注释</span></h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
+<p>操作方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>第一阶段</category>
@@ -1118,38 +1118,6 @@ H<sub>2</sub>O,x<sup>2</sup><br>
       </categories>
   </entry>
   <entry>
-    <title>Servlet过滤器</title>
-    <url>/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
-    <content><![CDATA[<p>过滤器/拦截器<br>
-1、无论是请求还是响应都会被过滤器拦截<br>
-2、需要等待过滤器放行</p>
-<p>过滤器作用</p>
-<p>过滤乱码<br>
-限制资源访问<br>
-过滤器的实现<br>
-1、实现一个Filter接口（init()、destroy()的原理和执行时机和Servlet一样）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFilter</span> <span class="keyword">implements</span> <span class="title class_">Filter</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.destroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain Chain)</span></span><br><span class="line">            <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;拦截请求&quot;</span>);</span><br><span class="line">        Chain.doFilter(request,response);  <span class="comment">//放行</span></span><br><span class="line">        System.out.println(<span class="string">&quot;拦截响应&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.init&quot;</span>);</span><br><span class="line">    &#125;  <span class="comment">//第一个过滤器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、在web.xml中配置过滤器，类似servlet</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>my.student.filter.MyFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/*表示拦截一切请求--&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/MyServlet表示只拦截特定请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截HTTP请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截请求转发请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>FORWARD<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通配符<br>
-dispatcher请求方式：<br>
-REQUEST：拦截HTTP请求<br>
-FORWORD：只拦截 通过 请求转发方式的请求<br>
-INCLUDE：只拦截通过request.getRequestDispatcher(“”).indeclude()、通过&lt;jsp:include page=“…”&gt;发出的请求<br>
-ERROR：只拦截&lt;error - page&gt;发出的请求</p>
-<p>通过doFilter()处理拦截，并且通过chain.doFilter(request，response)放行</p>
-<p>Chain.doFilter(request,response);  //放行</p>
-<p>注意：<br>
-在过滤器中doFilter方法的参数：ServletRequest、ServletResponse<br>
-而在Servlet中doGet方法的参数：HttpServletRequest、HttpServletResponse</p>
-<p>过滤器链<br>
-可以增加多个过滤器Filter，过滤器处理的顺序由web.xml中配置的filter-mapping顺序决定</p>
-]]></content>
-      <categories>
-        <category>第三阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SSM</title>
     <url>/post/SSM/</url>
     <content><![CDATA[<h2><span id="环境搭建">环境搭建</span></h2>
@@ -1222,107 +1190,32 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
       </categories>
   </entry>
   <entry>
-    <title>SpringMVC拦截器</title>
-    <url>/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/</url>
-    <content><![CDATA[<h2><span id="什么是拦截器">什么是拦截器</span></h2>
-<p>SpringMVC中的interceptor拦截器</p>
-<p>依赖于web框架，基于Java的反射机制实现，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个 controller生命周期之内可以多次调用。</p>
-<p>它主要的作用是拦截指定的用户请求，并进行相应的预处理与后处理。</p>
-<p>使用的aop的思想，多个Controller中集中到拦截器统一处理</p>
-<p><strong>应用场景</strong></p>
-<ul>
-<li>日志记录：记录请求信息的日志，以便进行信息监控、信息统计、计算PV（Page View）等。</li>
-<li>权限检查：如登录检测，进入处理器检测是否登录，如果没有直接返回到登录页面；</li>
-<li>性能监控：有时候系统在某段时间莫名其妙的慢，可以通过拦截器在进入处理器之前记录开始时间，在处理完后记录结束时间，从而得到该请求的处理时间（如果有反向代理，如apache可以自动记录）；</li>
-<li>通用行为：读取cookie得到用户信息并将用户对象放入请求，从而方便后续流程使用，还有如提取Locale、Theme信息等，只要是多个Controller中的处理方法都需要的，我们就可以使用拦截器实现。</li>
-</ul>
-<h2><span id="拦截器执行时机">拦截器执行时机</span></h2>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>preHandle</td>
-<td>请求前（即控制类方法执行前）执行，通过返回true，拦截返回false</td>
-</tr>
-<tr>
-<td>postHandle</td>
-<td>请求结束（即控制类方法执行后），且此时仍未相应到界面时执行，可以改变响应结果</td>
-</tr>
-<tr>
-<td>afterCompletion</td>
-<td>请求结束（即控制类方法执行后），同时已经响应界面执行，可以用于清理对象、关闭资源</td>
-</tr>
-</tbody>
-</table>
-<p><img src="https://pic.imgdb.cn/item/64141a80a682492fcc3f3a71.jpg" alt></p>
-<h2><span id="拦截器实现">拦截器实现</span></h2>
-<ol>
-<li>实现HandlerInterceptor拦截器接口</li>
-<li>在spring-mvc.xml配置文件注册</li>
-</ol>
-<h3><span id="注册拦截器">注册拦截器</span></h3>
-<p><strong>拦截器支持的通配符</strong></p>
-<ol>
-<li>*	:包括当前路径所有   /admin/* 拦截的是/admin/add等等这种 , /admin/add/user不会被拦截</li>
-<li>/**  :包括路径及其子路径</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--映射要拦截的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**/*.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--设置放行的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/login.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/loginErr.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置拦截器的类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.bjpowernode.interceptor.MyInterceptor&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3><span id="实现handlerinterceptor拦截器接口">实现HandlerInterceptor拦截器接口</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throw</span> Exception&#123;</span><br><span class="line">        <span class="comment">//准备请求地址</span></span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle准备请求地址:&quot;</span>+request.getRequestURI());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拦截请求地址，检测是否登录</span></span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();        <span class="comment">//可以从request对象获取HttpSession对象</span></span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="literal">null</span> &amp;&amp; session.getAttribute(<span class="string">&quot;user&quot;</span>)!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//response.sendRedirect(&quot;/login.html&quot;);ajax则会请求失败，要使用其他的控制器周转</span></span><br><span class="line">            response.sendRedirect(<span class="string">&quot;/user/loginErr.action&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle请求结束准备响应界面：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion请求响应结束：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="拦截器链多拦截器">拦截器链（多拦截器）</span></h2>
-<p>如果多个拦截器能够对相同的请求进行拦截，则多个拦截器会形成一个拦截器链，主要理解拦截器链中各个拦截器的执行顺序。拦截器链中多个拦截器的执行顺序，与拦截器的配置顺序有关，先配置的先执行。也可以通过@Order指定顺序。</p>
-<h2><span id="拦截器与过滤器">拦截器与过滤器</span></h2>
-<h3><span id="过滤器">过滤器</span></h3>
-<p>依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例，只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，比如：在过滤器中修改字符编码； 在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等。</p>
-<h3><span id="拦截器">拦截器</span></h3>
-<p>在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略。</p>
-<blockquote>
-<p>在 Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者可以定义在一个action执行的前后执行的代码，也可以在一个action执行前阻止其执行。同时也是提供了一种可以提取action中可重用的部分的方式。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>拦截器</th>
-<th>过滤器</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SpringMVC提供，SpringMVC容器中创建</td>
-<td>servlet中的对象，tomcat服务器创建</td>
-</tr>
-<tr>
-<td>实现HandlerInterceptor</td>
-<td>继承HttpFilter</td>
-</tr>
-<tr>
-<td>验证请求，拦截请求</td>
-<td>设置request，response的参数，属性的，侧重对数据过滤的</td>
-</tr>
-<tr>
-<td>三个执行时间点</td>
-<td>一个执行时间点</td>
-</tr>
-<tr>
-<td>侧重拦截对Controller方法，不会拦截jsp/html/css/image/js</td>
-<td>可以处理jsp，js，html等等</td>
-</tr>
-<tr>
-<td>通常对处理器Controller进行拦截，只能拦截dispatcherServlet处理的请求</td>
-<td>几乎对所有请求过滤</td>
-</tr>
-<tr>
-<td></td>
-<td>过滤器是在拦截器之前先执行的</td>
-</tr>
-</tbody>
-</table>
-<p>使用Interceptor的好处是Interceptor本身是Spring管理的Bean，因此注入任意Bean都非常简单。</p>
+    <title>Servlet过滤器</title>
+    <url>/post/Servlet%E8%BF%87%E6%BB%A4%E5%99%A8/</url>
+    <content><![CDATA[<p>过滤器/拦截器<br>
+1、无论是请求还是响应都会被过滤器拦截<br>
+2、需要等待过滤器放行</p>
+<p>过滤器作用</p>
+<p>过滤乱码<br>
+限制资源访问<br>
+过滤器的实现<br>
+1、实现一个Filter接口（init()、destroy()的原理和执行时机和Servlet一样）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyFilter</span> <span class="keyword">implements</span> <span class="title class_">Filter</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.destroy&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain Chain)</span></span><br><span class="line">            <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;拦截请求&quot;</span>);</span><br><span class="line">        Chain.doFilter(request,response);  <span class="comment">//放行</span></span><br><span class="line">        System.out.println(<span class="string">&quot;拦截响应&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Filter.init&quot;</span>);</span><br><span class="line">    &#125;  <span class="comment">//第一个过滤器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、在web.xml中配置过滤器，类似servlet</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>my.student.filter.MyFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/*表示拦截一切请求--&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--/MyServlet表示只拦截特定请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截HTTP请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> 	<span class="comment">&lt;!--拦截请求转发请求--&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>FORWARD<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通配符<br>
+dispatcher请求方式：<br>
+REQUEST：拦截HTTP请求<br>
+FORWORD：只拦截 通过 请求转发方式的请求<br>
+INCLUDE：只拦截通过request.getRequestDispatcher(“”).indeclude()、通过&lt;jsp:include page=“…”&gt;发出的请求<br>
+ERROR：只拦截&lt;error - page&gt;发出的请求</p>
+<p>通过doFilter()处理拦截，并且通过chain.doFilter(request，response)放行</p>
+<p>Chain.doFilter(request,response);  //放行</p>
+<p>注意：<br>
+在过滤器中doFilter方法的参数：ServletRequest、ServletResponse<br>
+而在Servlet中doGet方法的参数：HttpServletRequest、HttpServletResponse</p>
+<p>过滤器链<br>
+可以增加多个过滤器Filter，过滤器处理的顺序由web.xml中配置的filter-mapping顺序决定</p>
 ]]></content>
       <categories>
         <category>第三阶段</category>
@@ -1540,6 +1433,113 @@ ERROR：只拦截&lt;error - page&gt;发出的请求</p>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;request_ajax_03&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> Map <span class="title function_">getRequestAjax03</span><span class="params">(<span class="meta">@RequestBody</span> Account account)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;接收到了请求！！！！！！&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;请求参数:&quot;</span>+account);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>()&#123;&#123;</span><br><span class="line">        put(<span class="string">&quot;msg&quot;</span>,<span class="string">&quot;新增成功!!!!!!!!&quot;</span>);</span><br><span class="line">        put(<span class="string">&quot;flag&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC拦截器</title>
+    <url>/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/</url>
+    <content><![CDATA[<h2><span id="什么是拦截器">什么是拦截器</span></h2>
+<p>SpringMVC中的interceptor拦截器</p>
+<p>依赖于web框架，基于Java的反射机制实现，属于面向切面编程（AOP）的一种运用。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个 controller生命周期之内可以多次调用。</p>
+<p>它主要的作用是拦截指定的用户请求，并进行相应的预处理与后处理。</p>
+<p>使用的aop的思想，多个Controller中集中到拦截器统一处理</p>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>日志记录：记录请求信息的日志，以便进行信息监控、信息统计、计算PV（Page View）等。</li>
+<li>权限检查：如登录检测，进入处理器检测是否登录，如果没有直接返回到登录页面；</li>
+<li>性能监控：有时候系统在某段时间莫名其妙的慢，可以通过拦截器在进入处理器之前记录开始时间，在处理完后记录结束时间，从而得到该请求的处理时间（如果有反向代理，如apache可以自动记录）；</li>
+<li>通用行为：读取cookie得到用户信息并将用户对象放入请求，从而方便后续流程使用，还有如提取Locale、Theme信息等，只要是多个Controller中的处理方法都需要的，我们就可以使用拦截器实现。</li>
+</ul>
+<h2><span id="拦截器执行时机">拦截器执行时机</span></h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>preHandle</td>
+<td>请求前（即控制类方法执行前）执行，通过返回true，拦截返回false</td>
+</tr>
+<tr>
+<td>postHandle</td>
+<td>请求结束（即控制类方法执行后），且此时仍未相应到界面时执行，可以改变响应结果</td>
+</tr>
+<tr>
+<td>afterCompletion</td>
+<td>请求结束（即控制类方法执行后），同时已经响应界面执行，可以用于清理对象、关闭资源</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/64141a80a682492fcc3f3a71.jpg" alt></p>
+<h2><span id="拦截器实现">拦截器实现</span></h2>
+<ol>
+<li>实现HandlerInterceptor拦截器接口</li>
+<li>在spring-mvc.xml配置文件注册</li>
+</ol>
+<h3><span id="注册拦截器">注册拦截器</span></h3>
+<p><strong>拦截器支持的通配符</strong></p>
+<ol>
+<li>*	:包括当前路径所有   /admin/* 拦截的是/admin/add等等这种 , /admin/add/user不会被拦截</li>
+<li>/**  :包括路径及其子路径</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--映射要拦截的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**/*.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--设置放行的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/login.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/user/loginErr.action&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置拦截器的类--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.bjpowernode.interceptor.MyInterceptor&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="实现handlerinterceptor拦截器接口">实现HandlerInterceptor拦截器接口</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throw</span> Exception&#123;</span><br><span class="line">        <span class="comment">//准备请求地址</span></span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle准备请求地址:&quot;</span>+request.getRequestURI());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//拦截请求地址，检测是否登录</span></span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> request.getSession();        <span class="comment">//可以从request对象获取HttpSession对象</span></span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="literal">null</span> &amp;&amp; session.getAttribute(<span class="string">&quot;user&quot;</span>)!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//response.sendRedirect(&quot;/login.html&quot;);ajax则会请求失败，要使用其他的控制器周转</span></span><br><span class="line">            response.sendRedirect(<span class="string">&quot;/user/loginErr.action&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle请求结束准备响应界面：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion请求响应结束：....................&quot;</span>+request.getRequestURI());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="拦截器链多拦截器">拦截器链（多拦截器）</span></h2>
+<p>如果多个拦截器能够对相同的请求进行拦截，则多个拦截器会形成一个拦截器链，主要理解拦截器链中各个拦截器的执行顺序。拦截器链中多个拦截器的执行顺序，与拦截器的配置顺序有关，先配置的先执行。也可以通过@Order指定顺序。</p>
+<h2><span id="拦截器与过滤器">拦截器与过滤器</span></h2>
+<h3><span id="过滤器">过滤器</span></h3>
+<p>依赖于servlet容器。在实现上基于函数回调，可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例，只能在容器初始化时调用一次。使用过滤器的目的是用来做一些过滤操作，比如：在过滤器中修改字符编码； 在过滤器中修改HttpServletRequest的一些参数，包括：过滤低俗文字、危险字符等。</p>
+<h3><span id="拦截器">拦截器</span></h3>
+<p>在AOP（Aspect-Oriented Programming）中用于在某个方法或字段被访问之前，进行拦截然后在之前或之后加入某些操作。拦截是AOP的一种实现策略。</p>
+<blockquote>
+<p>在 Webwork的中文文档的解释为——拦截器是动态拦截Action调用的对象。它提供了一种机制可以使开发者可以定义在一个action执行的前后执行的代码，也可以在一个action执行前阻止其执行。同时也是提供了一种可以提取action中可重用的部分的方式。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>拦截器</th>
+<th>过滤器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SpringMVC提供，SpringMVC容器中创建</td>
+<td>servlet中的对象，tomcat服务器创建</td>
+</tr>
+<tr>
+<td>实现HandlerInterceptor</td>
+<td>继承HttpFilter</td>
+</tr>
+<tr>
+<td>验证请求，拦截请求</td>
+<td>设置request，response的参数，属性的，侧重对数据过滤的</td>
+</tr>
+<tr>
+<td>三个执行时间点</td>
+<td>一个执行时间点</td>
+</tr>
+<tr>
+<td>侧重拦截对Controller方法，不会拦截jsp/html/css/image/js</td>
+<td>可以处理jsp，js，html等等</td>
+</tr>
+<tr>
+<td>通常对处理器Controller进行拦截，只能拦截dispatcherServlet处理的请求</td>
+<td>几乎对所有请求过滤</td>
+</tr>
+<tr>
+<td></td>
+<td>过滤器是在拦截器之前先执行的</td>
+</tr>
+</tbody>
+</table>
+<p>使用Interceptor的好处是Interceptor本身是Spring管理的Bean，因此注入任意Bean都非常简单。</p>
+]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
   </entry>
   <entry>
     <title>String类</title>
@@ -6163,155 +6163,6 @@ for short quotations that don't require paragraph breaks.</q> — <a href="/en-U
       </categories>
   </entry>
   <entry>
-    <title>校验注解</title>
-    <url>/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</url>
-    <content><![CDATA[<h2><span id="导入依赖">导入依赖</span></h2>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.bval<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bval-jsr<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用以下注解时，必须在控制层的参数加上@Valid才能生效</p>
-<h2><span id="notnull">@NotNull</span></h2>
-<ul>
-<li>不能为 null，但可以为 empty</li>
-<li>一般用在 Integer 类型的基本数据类型的非空校验上，而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制</li>
-<li>一个 BigDecimal 的字段使用字段校验标签应该为 @NotNull</li>
-</ul>
-<h2><span id="notempty">@NotEmpty</span></h2>
-<ul>
-<li>不能为 null，且长度必须大于 0</li>
-<li>一般用在集合类上或者数组上</li>
-</ul>
-<h2><span id="notblank">@NotBlank</span></h2>
-<ul>
-<li>只能作用在接收的 String 类型上，不能为 null，而且调用 trim() 后，长度必须大于 0即：必须有实际字符</li>
-</ul>
-<h2><span id="size">@Size</span></h2>
-<p>一般用在 String 类型上可对字段数值进行最大长度限制的控制</p>
-<h2><span id="max-min">@Max @Min</span></h2>
-<p>一般用在 Integer 类型上可对字段数值进行大小范围的控制</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>@NotNull</th>
-<th>@NotEmpty</th>
-<th>@NotBlank</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>String name = null;</td>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = “”;</td>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = &quot; &quot;;</td>
-<td>true</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String name = “Hello World！”;</td>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="常用的校验注解">常用的校验注解</span></h2>
-<table>
-<thead>
-<tr>
-<th>注解</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@Null</td>
-<td>限制只能为null</td>
-</tr>
-<tr>
-<td>@NotNull</td>
-<td>限制必须不能为null</td>
-</tr>
-<tr>
-<td>@AssertTrue</td>
-<td>限制必须为true</td>
-</tr>
-<tr>
-<td>@AssertFalse</td>
-<td>限制必须为false</td>
-</tr>
-<tr>
-<td>@Min(value)</td>
-<td>限制必须为一个不小于指定值的数字</td>
-</tr>
-<tr>
-<td>@Max(value)</td>
-<td>限制必须为一个不大于指定值的数字</td>
-</tr>
-<tr>
-<td>@DecimalMin(value)</td>
-<td>被限制的元素必须是一个数字，其值必须大于等于指定的最小值</td>
-</tr>
-<tr>
-<td>@DecimalMax(value)</td>
-<td>被限制的元素必须是一个数字，其值必须小于等于指定的最大值</td>
-</tr>
-<tr>
-<td>@Size(max,min)</td>
-<td>限制字符长度必须在min到max的指定范围内</td>
-</tr>
-<tr>
-<td>@Digits(integer,fraction)</td>
-<td>限制必须为一个小数，且整数部分的位数不能超过integer、小数部分的位数不能超过fraction的在可接受的范围内</td>
-</tr>
-<tr>
-<td>@Past</td>
-<td>被限制的元素(日期类型)必须是一个过去的日期</td>
-</tr>
-<tr>
-<td>@Future</td>
-<td>被限制的元素(日期类型)必须是一个将来的日期</td>
-</tr>
-<tr>
-<td>@Pattern(value)</td>
-<td>限制必须符合指定的正则表达式</td>
-</tr>
-<tr>
-<td>@Email</td>
-<td>被限制的元素值为是电子邮件地址，也可以通过正则表达式和flag指定自定义的email</td>
-</tr>
-<tr>
-<td>@Length</td>
-<td>被限制的字符串的大小必须在指定的范围内</td>
-</tr>
-<tr>
-<td>@NotEmpty</td>
-<td>被限制的字符串必须非空(不为null且不为空)</td>
-</tr>
-<tr>
-<td>@Range</td>
-<td>被限制的元素必须在合适的范围内</td>
-</tr>
-<tr>
-<td>@JsonFormat</td>
-<td>使用 @JsonFormat 注解时，查到的时间可能会比数据库中的时间少八个小时，这是由于时区差引起的，JsonFormat 默认的时区是 Greenwich Time， 默认的是格林威治时间，而我们是在东八区上，所以时间会比实际我们想得到的时间少八个小时。需要在后面加上一个时区:@JsonFormat(pattern=“yyyy-MM-dd”,timezone=“GMT+8”) private Date date;</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>第三阶段</category>
-      </categories>
-  </entry>
-  <entry>
     <title>树</title>
     <url>/post/%E6%A0%91/</url>
     <content><![CDATA[<h1><span id="二叉排序树">二叉排序树</span></h1>
@@ -6550,6 +6401,155 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
       </categories>
   </entry>
   <entry>
+    <title>校验注解</title>
+    <url>/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<h2><span id="导入依赖">导入依赖</span></h2>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.bval<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bval-jsr<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用以下注解时，必须在控制层的参数加上@Valid才能生效</p>
+<h2><span id="notnull">@NotNull</span></h2>
+<ul>
+<li>不能为 null，但可以为 empty</li>
+<li>一般用在 Integer 类型的基本数据类型的非空校验上，而且被其标注的字段可以使用 @size、@Max、@Min 对字段数值进行大小的控制</li>
+<li>一个 BigDecimal 的字段使用字段校验标签应该为 @NotNull</li>
+</ul>
+<h2><span id="notempty">@NotEmpty</span></h2>
+<ul>
+<li>不能为 null，且长度必须大于 0</li>
+<li>一般用在集合类上或者数组上</li>
+</ul>
+<h2><span id="notblank">@NotBlank</span></h2>
+<ul>
+<li>只能作用在接收的 String 类型上，不能为 null，而且调用 trim() 后，长度必须大于 0即：必须有实际字符</li>
+</ul>
+<h2><span id="size">@Size</span></h2>
+<p>一般用在 String 类型上可对字段数值进行最大长度限制的控制</p>
+<h2><span id="max-min">@Max @Min</span></h2>
+<p>一般用在 Integer 类型上可对字段数值进行大小范围的控制</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>@NotNull</th>
+<th>@NotEmpty</th>
+<th>@NotBlank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String name = null;</td>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = “”;</td>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = &quot; &quot;;</td>
+<td>true</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>String name = “Hello World！”;</td>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="常用的校验注解">常用的校验注解</span></h2>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Null</td>
+<td>限制只能为null</td>
+</tr>
+<tr>
+<td>@NotNull</td>
+<td>限制必须不能为null</td>
+</tr>
+<tr>
+<td>@AssertTrue</td>
+<td>限制必须为true</td>
+</tr>
+<tr>
+<td>@AssertFalse</td>
+<td>限制必须为false</td>
+</tr>
+<tr>
+<td>@Min(value)</td>
+<td>限制必须为一个不小于指定值的数字</td>
+</tr>
+<tr>
+<td>@Max(value)</td>
+<td>限制必须为一个不大于指定值的数字</td>
+</tr>
+<tr>
+<td>@DecimalMin(value)</td>
+<td>被限制的元素必须是一个数字，其值必须大于等于指定的最小值</td>
+</tr>
+<tr>
+<td>@DecimalMax(value)</td>
+<td>被限制的元素必须是一个数字，其值必须小于等于指定的最大值</td>
+</tr>
+<tr>
+<td>@Size(max,min)</td>
+<td>限制字符长度必须在min到max的指定范围内</td>
+</tr>
+<tr>
+<td>@Digits(integer,fraction)</td>
+<td>限制必须为一个小数，且整数部分的位数不能超过integer、小数部分的位数不能超过fraction的在可接受的范围内</td>
+</tr>
+<tr>
+<td>@Past</td>
+<td>被限制的元素(日期类型)必须是一个过去的日期</td>
+</tr>
+<tr>
+<td>@Future</td>
+<td>被限制的元素(日期类型)必须是一个将来的日期</td>
+</tr>
+<tr>
+<td>@Pattern(value)</td>
+<td>限制必须符合指定的正则表达式</td>
+</tr>
+<tr>
+<td>@Email</td>
+<td>被限制的元素值为是电子邮件地址，也可以通过正则表达式和flag指定自定义的email</td>
+</tr>
+<tr>
+<td>@Length</td>
+<td>被限制的字符串的大小必须在指定的范围内</td>
+</tr>
+<tr>
+<td>@NotEmpty</td>
+<td>被限制的字符串必须非空(不为null且不为空)</td>
+</tr>
+<tr>
+<td>@Range</td>
+<td>被限制的元素必须在合适的范围内</td>
+</tr>
+<tr>
+<td>@JsonFormat</td>
+<td>使用 @JsonFormat 注解时，查到的时间可能会比数据库中的时间少八个小时，这是由于时区差引起的，JsonFormat 默认的时区是 Greenwich Time， 默认的是格林威治时间，而我们是在东八区上，所以时间会比实际我们想得到的时间少八个小时。需要在后面加上一个时区:@JsonFormat(pattern=“yyyy-MM-dd”,timezone=“GMT+8”) private Date date;</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>第三阶段</category>
+      </categories>
+  </entry>
+  <entry>
     <title>类加载的初始化顺序</title>
     <url>/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<h2><span id="静态代码块">静态代码块</span></h2>
@@ -6675,148 +6675,6 @@ AVL更平衡，结构上更加直观，时间效能针对读取而言更高；�
 <p>创建一个controller</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoController</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;demo&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Resp&lt;String&gt; <span class="title function_">demo1</span><span class="params">(String name)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;ok&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">return</span> Resp.success(<span class="string">&quot;succ&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;err&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="comment">//抛业务相关的异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.USERNAME_NOT_EXISTS);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;errcode&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.INVALID_CODE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;0&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="type">int</span> i=<span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//检查用户积分是否足够，如果不够，就抛出异常</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&quot;notenough&quot;</span>.equals(name))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AppException</span>(AppExceptionCodeMsg.USER_CREDIT_NOT_ENOUTH);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Resp.success(<span class="string">&quot;default&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="meta">@GetMapping(&quot;list&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Resp&lt;List&gt; <span class="title function_">list</span><span class="params">()</span>&#123;</span><br><span class="line">		List&lt;String&gt; list = Arrays.asList(<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;lisi&quot;</span>,<span class="string">&quot;wangwu&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Resp.success(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>继承</title>
-    <url>/post/%E7%BB%A7%E6%89%BF/</url>
-    <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
-<p>“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。</p>
-<p>is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。<br>
-has a 是如果A中有B，那么，B就是A的组成部分</p>
-<p>如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。<br>
-如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。</p>
-<span id="more"></span>
-<p>如果多个类有着共同的属性,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,</p>
-<p>别的类通过使用extends继承它,进而获取它的所有的成员(处理构造器)</p>
-<h2><span id="意义">意义</span></h2>
-<p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个 类无需再定义这些属性和行为，只要继承那个类即可。</p>
-<h2><span id="使用">使用</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>子类:继承其他类的类,又叫派生类</li>
-<li>父类:被继承的类,又叫基类或者超类</li>
-</ul>
-<ol>
-<li>Java只支持单继承,不能多继承,支持多级继承</li>
-<li>如果继承了一个类,那么就拥有了除了构造方法之外的父类的所有的成员(属性和方法)</li>
-<li>私有成员(private)不能被继承的,引用了私有成员的方法可以被子类继承的</li>
-</ol>
-<p>静态成员也是被继承的(没有意义)</p>
-<h2><span id="方法的重写">方法的重写</span></h2>
-<p>当子类从父类中继承过来的方法不满足自身的要求的时，在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将代替父类的方法执行。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>子类重写后的方法、父类被重写的方法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>方法名称、参数列表</td>
-<td>相同</td>
-</tr>
-<tr>
-<td>异常、返回值类型</td>
-<td>小于等于</td>
-</tr>
-<tr>
-<td>访问权限</td>
-<td>大于等于</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</li>
-<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
-<li>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)， 或者同时声明为static的（不是重写）。因为static方法是属于类的，子类无法重写属于父类的方法。</li>
-</ul>
-<h3><span id="重载overload和重写override">重载(Overload)和重写(Override)</span></h3>
-<table>
-<thead>
-<tr>
-<th>重载</th>
-<th>重写</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>在一个类中</td>
-<td>在子类和父类中</td>
-</tr>
-<tr>
-<td>同名方法的参数列表不同(参数类型，参数个数以及参数顺序)</td>
-<td><strong>同名方法的参数列表都必须相同</strong></td>
-</tr>
-<tr>
-<td>返回类型没有要求</td>
-<td><strong>返回类型与父类一致（引用类型要能向上转型）</strong></td>
-</tr>
-<tr>
-<td>访问权限没有要求</td>
-<td>相比于重写前的方法，<strong>访问权限不能更低</strong></td>
-</tr>
-<tr>
-<td>异常没有要求</td>
-<td>相比于重写前的方法，不能申明更加宽泛的检查型异常</td>
-</tr>
-<tr>
-<td>实现类中的多态（编译时的多态性）</td>
-<td>多态的前提（运行时的多态性）</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="访问权限修饰符">访问权限修饰符</span></h2>
-<p>在类的成员定义前，用来限定对象对该类成员的访问权限。</p>
-<p>（public&gt;protected&gt;default&gt;private)</p>
-<table>
-<thead>
-<tr>
-<th>访问权限修饰符</th>
-<th>public</th>
-<th>protected</th>
-<th>default</th>
-<th>private</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类内部</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>同包</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-</tr>
-<tr>
-<td>不同包子类</td>
-<td>Yes</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>同一个工程</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>其中，对于class的权限修饰只可以用public和default(缺省)。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>第一阶段</category>
-      </categories>
   </entry>
   <entry>
     <title>编码与数制</title>
@@ -7605,138 +7463,143 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
       </categories>
   </entry>
   <entry>
-    <title>运算符</title>
-    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+    <title>继承</title>
+    <url>/post/%E7%BB%A7%E6%89%BF/</url>
+    <content><![CDATA[<p>is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。</p>
+<p>“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。</p>
+<p>is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。<br>
+has a 是如果A中有B，那么，B就是A的组成部分</p>
+<p>如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。<br>
+如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。</p>
 <span id="more"></span>
-<h1><span id="算数运算符">算数运算符</span></h1>
-<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
-<p>从左向右执行：</p>
+<p>如果多个类有着共同的属性,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,</p>
+<p>别的类通过使用extends继承它,进而获取它的所有的成员(处理构造器)</p>
+<h2><span id="意义">意义</span></h2>
+<p>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个 类无需再定义这些属性和行为，只要继承那个类即可。</p>
+<h2><span id="使用">使用</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
-<li>符号两边都是数字 做的是加法</li>
+<li>子类:继承其他类的类,又叫派生类</li>
+<li>父类:被继承的类,又叫基类或者超类</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
-<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
-<h2><span id="乘法">* :	乘法</span></h2>
-<h2><span id="除法">\ :	除法</span></h2>
-<p>​		<code>System.out.println(10/3*3);//9</code></p>
-<h2><span id="取余">%：取余</span></h2>
-<ul>
-<li>
-<p>任意数字和n取余结果是[0，n-1]</p>
-</li>
-<li>
-<p>取余结果符号和被除数符号一致</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
-<h3><span id>++</span></h3>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
-</ul>
-<h2><span id>–</span></h2>
-<ul>
-<li>同:运算结果相同 都是减1</li>
-<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
-<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
-<h1><span id="赋值运算符">赋值运算符</span></h1>
-<h2><span id="基本运算符">基本运算符： =</span></h2>
-<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)	底层发生了强制转换类型</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
-<h1><span id="关系运算符">关系运算符</span></h1>
-<h1><span id="逻辑运算符">逻辑运算符</span></h1>
-<p>操作数是boolean 运算结果也是boolean类型</p>
-<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
-<ul>
-<li>有一假结果是假</li>
-<li>同:运算结果相同</li>
-<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
-<ul>
-<li>有一真结果为真</li>
-<li>运算结果相同</li>
-<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
-<h2><span id="逻辑非">逻辑非</span></h2>
-<ul>
-<li>！取反</li>
-</ul>
-<h2><span id="逻辑异或">逻辑异或</span></h2>
-<ul>
-<li>^ :相同为假 不同为真</li>
-</ul>
-<h1><span id="位运算符">位运算符</span></h1>
-<p>操作的是数值,得到数值的补码然后进行位运算</p>
-<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
-<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
-<p>每移动一位相当于* 2 空位补0</p>
-<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
-<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
-<p>每移动一位相当于/ 2 最高位补0</p>
-<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
-<p>每一位上如果是1 看做true 如果是0 看做false</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑或">逻辑或 |</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
-<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ul>
-<h3><span id="3种变量交换">3种变量交换</span></h3>
-<h4><span id="临时变量">临时变量</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
-<h4><span id="累加消除">累加消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
 <ol>
-<li>少定义一个变量</li>
-<li>有局限，可能超过int类型</li>
+<li>Java只支持单继承,不能多继承,支持多级继承</li>
+<li>如果继承了一个类,那么就拥有了除了构造方法之外的父类的所有的成员(属性和方法)</li>
+<li>私有成员(private)不能被继承的,引用了私有成员的方法可以被子类继承的</li>
 </ol>
-<h4><span id="异或消除">异或消除</span></h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>少定义一个变量</li>
-<li>没有局限</li>
-<li>m = (m^^<sup>n)</sup>^^n</li>
-</ol>
-<h1><span id="三元运算符">三元运算符</span></h1>
+<p>静态成员也是被继承的(没有意义)</p>
+<h2><span id="方法的重写">方法的重写</span></h2>
+<p>当子类从父类中继承过来的方法不满足自身的要求的时，在子类中可以根据需要对从父类中继承来的方法进行改造，也称为方法的重置、覆盖。在程序执行时，子类的方法将代替父类的方法执行。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>子类重写后的方法、父类被重写的方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法名称、参数列表</td>
+<td>相同</td>
+</tr>
+<tr>
+<td>异常、返回值类型</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>大于等于</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>
-<p>boolean表达式 ? 表达式1 : 表达式2</p>
-</li>
-<li>
-<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
-</li>
-<li>
-<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
-</li>
+<li>访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private)</li>
+<li>重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常</li>
+<li>子类与父类中同名同参数的方法必须同时声明为非static的(即为重写)， 或者同时声明为static的（不是重写）。因为static方法是属于类的，子类无法重写属于父类的方法。</li>
 </ul>
-<p>注意:</p>
-<ol>
-<li>表达式1 和 表达式2 结果类型必须保持一致</li>
-<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
+<h3><span id="重载overload和重写override">重载(Overload)和重写(Override)</span></h3>
+<table>
+<thead>
+<tr>
+<th>重载</th>
+<th>重写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在一个类中</td>
+<td>在子类和父类中</td>
+</tr>
+<tr>
+<td>同名方法的参数列表不同(参数类型，参数个数以及参数顺序)</td>
+<td><strong>同名方法的参数列表都必须相同</strong></td>
+</tr>
+<tr>
+<td>返回类型没有要求</td>
+<td><strong>返回类型与父类一致（引用类型要能向上转型）</strong></td>
+</tr>
+<tr>
+<td>访问权限没有要求</td>
+<td>相比于重写前的方法，<strong>访问权限不能更低</strong></td>
+</tr>
+<tr>
+<td>异常没有要求</td>
+<td>相比于重写前的方法，不能申明更加宽泛的检查型异常</td>
+</tr>
+<tr>
+<td>实现类中的多态（编译时的多态性）</td>
+<td>多态的前提（运行时的多态性）</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="访问权限修饰符">访问权限修饰符</span></h2>
+<p>在类的成员定义前，用来限定对象对该类成员的访问权限。</p>
+<p>（public&gt;protected&gt;default&gt;private)</p>
+<table>
+<thead>
+<tr>
+<th>访问权限修饰符</th>
+<th>public</th>
+<th>protected</th>
+<th>default</th>
+<th>private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类内部</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>同包</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td>不同包子类</td>
+<td>Yes</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>同一个工程</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>其中，对于class的权限修饰只可以用public和default(缺省)。</li>
+</ul>
+]]></content>
       <categories>
         <category>第一阶段</category>
       </categories>
@@ -8856,6 +8719,143 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 ]]></content>
       <categories>
         <category>第二阶段</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>运算符</title>
+    <url>/post/%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1><span id="引言">引言</span></h1>
+<span id="more"></span>
+<h1><span id="算数运算符">算数运算符</span></h1>
+<h2><span id="加法-取正">+:	 加法 、取正</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>，b = <span class="number">2</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">System.out.println(a + b + str);<span class="comment">//3hello</span></span><br><span class="line">System.out.println(str + a + b);<span class="comment">//hello12</span></span><br><span class="line">System.out.println(str + (a + b));<span class="comment">//hello3</span></span><br><span class="line">System.out.println(a + str + b);<span class="comment">//1hello2</span></span><br></pre></td></tr></table></figure>
+<p>从左向右执行：</p>
+<ul>
+<li>符号两边有任意一边是字符串 做的是字符串拼接</li>
+<li>符号两边都是数字 做的是加法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> <span class="string">&#x27;0&#x27;</span>;<span class="comment">//48</span></span><br><span class="line"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">System.out.println(x + y + c);<span class="comment">//52</span></span><br><span class="line">System.out.println(s + y + c);<span class="comment">//030</span></span><br><span class="line">System.out.println(y + c + s);<span class="comment">//510</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;----------------------------------&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;*	*&quot;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//数字</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&quot;\t&quot;</span> + <span class="string">&#x27;*&#x27;</span>);<span class="comment">//*	*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + <span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>);<span class="comment">//数字*</span></span><br><span class="line">System.out.println(<span class="string">&#x27;*&#x27;</span> + (<span class="string">&#x27;\t&#x27;</span> + <span class="string">&quot;*&quot;</span>));<span class="comment">//*	*</span></span><br></pre></td></tr></table></figure>
+<h2><span id="-减法-取负">-  :	减法 、 取负</span></h2>
+<h2><span id="乘法">* :	乘法</span></h2>
+<h2><span id="除法">\ :	除法</span></h2>
+<p>​		<code>System.out.println(10/3*3);//9</code></p>
+<h2><span id="取余">%：取余</span></h2>
+<ul>
+<li>
+<p>任意数字和n取余结果是[0，n-1]</p>
+</li>
+<li>
+<p>取余结果符号和被除数符号一致</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (a % b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + b  + <span class="string">&quot; = &quot;</span> + (-a % b));</span><br><span class="line">System.out.println(a  + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (a % -b));</span><br><span class="line">System.out.println(-a + <span class="string">&quot; % &quot;</span> + -b + <span class="string">&quot; = &quot;</span> + (-a % -b));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	随意给出一个整数，打印显示它的个位数，十位数，百</span></span><br><span class="line"><span class="comment">	位数的值，例如:数字345的情况如下：</span></span><br><span class="line"><span class="comment">	个位数：5 十位数：4 百位数：3</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">345</span>;</span><br><span class="line">System.out.println(<span class="string">&quot;个位数:&quot;</span> + number%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;十位数:&quot;</span> + number/<span class="number">10</span>%<span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;百位数:&quot;</span> + number/<span class="number">100</span>);<span class="comment">//number/10/10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="前-后-前-后">前++ 、 后++、前–、后–</span></h2>
+<h3><span id>++</span></h3>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前++：先加1 再赋值     后++：先赋值 再加1</li>
+</ul>
+<h2><span id>–</span></h2>
+<ul>
+<li>同:运算结果相同 都是减1</li>
+<li>异:前–：先减1 再赋值     后–：先赋值 再减</li>
+<li>++ – 不改变自身数据类型 所以 byte b = 3 ;b++;不报错，区别于<a href="../%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型中的常数赋值</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">//b = b + 1;//报错</span></span><br><span class="line">b++;<span class="comment">//++b  === (byte)(b + 1)</span></span><br></pre></td></tr></table></figure>
+<h1><span id="赋值运算符">赋值运算符</span></h1>
+<h2><span id="基本运算符">基本运算符： =</span></h2>
+<h2><span id="扩展运算符-">扩展运算符： += -= *= /= %=</span></h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//给一个数加1 有几种方式</span></span><br><span class="line">i = i + <span class="number">1</span>;<span class="comment">//方式1</span></span><br><span class="line">i++;<span class="comment">//++i; 方式2</span></span><br><span class="line">i += <span class="number">1</span>;<span class="comment">//方式3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不改变自身数据类型 byte b = 5; b += 1; 不报错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">//b = b + 1; //报错</span></span><br><span class="line">b += <span class="number">1</span>;	<span class="comment">//不报错 b = (byte)(b + 1)	底层发生了强制转换类型</span></span><br><span class="line"><span class="type">int</span> <span class="variable">ii</span> <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line">ii *= <span class="number">0.1</span>;<span class="comment">//不报错 ii = (int)(ii * 0.1) </span></span><br></pre></td></tr></table></figure>
+<h1><span id="关系运算符">关系运算符</span></h1>
+<h1><span id="逻辑运算符">逻辑运算符</span></h1>
+<p>操作数是boolean 运算结果也是boolean类型</p>
+<h2><span id="逻辑与-短路与">逻辑与、短路与</span></h2>
+<ul>
+<li>有一假结果是假</li>
+<li>同:运算结果相同</li>
+<li>当运算符左侧是false,&amp;右侧继续运算 &amp;&amp; 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//&amp; 和 &amp;&amp;短路与的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;女&#x27; &amp; age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;女&#x27;</span> &amp;&amp; age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑或-短路或">逻辑或、短路或</span></h2>
+<ul>
+<li>有一真结果为真</li>
+<li>运算结果相同</li>
+<li>当运算符左侧是true,|右侧继续运算 || 发生短路 右侧不运算</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//| 和 || 的区别</span></span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">char</span> <span class="variable">sex</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="comment">//boolean result = sex == &#x27;男&#x27; | age++ == 10;	//age = 11</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> sex == <span class="string">&#x27;男&#x27;</span> || age++ == <span class="number">10</span>;		<span class="comment">//age = 10</span></span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑非">逻辑非</span></h2>
+<ul>
+<li>！取反</li>
+</ul>
+<h2><span id="逻辑异或">逻辑异或</span></h2>
+<ul>
+<li>^ :相同为假 不同为真</li>
+</ul>
+<h1><span id="位运算符">位运算符</span></h1>
+<p>操作的是数值,得到数值的补码然后进行位运算</p>
+<h2><span id="移位运算一元运算符">移位运算(一元运算符)</span></h2>
+<h3><span id="左移-ltlt">左移 &lt;&lt;</span></h3>
+<p>每移动一位相当于* 2 空位补0</p>
+<h3><span id="右移-gtgt">右移 &gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位是0就补0 是1就补1</p>
+<h3><span id="无符号右移-gtgtgt">无符号右移 &gt;&gt;&gt;</span></h3>
+<p>每移动一位相当于/ 2 最高位补0</p>
+<h2><span id="逻辑运算二元运算符">逻辑运算(二元运算符)</span></h2>
+<p>每一位上如果是1 看做true 如果是0 看做false</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑与-amp">逻辑与 &amp;</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> x &amp; y;<span class="comment">//4</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000100 4</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑或">逻辑或 |</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x | y;<span class="comment">//13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001101 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑非-~">逻辑非 ~</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = ~x;<span class="comment">//-13</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//--------------------------------------</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110011 补码</span></span><br><span class="line"><span class="comment">//11111111 11111111 11111111 11110010 反码	补码减去1得到反码</span></span><br><span class="line"><span class="comment">//10000000 00000000 00000000 00001101 源码 	符号位不变其他位取反得到源码	- 13</span></span><br></pre></td></tr></table></figure>
+<h3><span id="逻辑异或">逻辑异或 ^</span></h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">result = x ^ y;<span class="comment">//9</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001100 12</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00000101 5</span></span><br><span class="line"><span class="comment">//---------------------------------------</span></span><br><span class="line"><span class="comment">//00000000 00000000 00000000 00001001 9</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ul>
+<h3><span id="3种变量交换">3种变量交换</span></h3>
+<h4><span id="临时变量">临时变量</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> a;</span><br><span class="line">a = b;</span><br><span class="line">b = tmp;</span><br></pre></td></tr></table></figure>
+<h4><span id="累加消除">累加消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a + b;</span><br><span class="line">a = b - a;</span><br><span class="line">b = b - a;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>少定义一个变量</li>
+<li>有局限，可能超过int类型</li>
+</ol>
+<h4><span id="异或消除">异或消除</span></h4>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>少定义一个变量</li>
+<li>没有局限</li>
+<li>m = (m^^<sup>n)</sup>^^n</li>
+</ol>
+<h1><span id="三元运算符">三元运算符</span></h1>
+<ul>
+<li>
+<p>boolean表达式 ? 表达式1 : 表达式2</p>
+</li>
+<li>
+<p>boolean表达式返回true  表达式1的结果作为整个表达式的结果</p>
+</li>
+<li>
+<p>boolean表达式返回false 表达式2的结果作为整个表达式的结果</p>
+</li>
+</ul>
+<p>注意:</p>
+<ol>
+<li>表达式1 和 表达式2 结果类型必须保持一致</li>
+<li>表达式结果会发生自动类型转换，转换成范围大的数据类型</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">isAdult</span> <span class="operator">=</span> age &gt;= <span class="number">18</span> ? <span class="string">&quot;已成年&quot;</span> : <span class="number">1.0</span>;<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line"><span class="type">double</span> <span class="variable">r</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="number">1</span> : <span class="number">1.0</span>;	<span class="comment">//不报错 发生自动类型转换 1.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="literal">true</span> ? <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>) : <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);<span class="comment">//发生自动类型转换</span></span><br><span class="line">System.out.println(o1);<span class="comment">//1.0</span></span><br><span class="line">Object o2;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Integer</span>(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    o2 = <span class="keyword">new</span> <span class="title class_">Double</span>(<span class="number">2.0</span>);</span><br><span class="line">System.out.println(o2);<span class="comment">//1</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>第一阶段</category>
       </categories>
   </entry>
 </search>
