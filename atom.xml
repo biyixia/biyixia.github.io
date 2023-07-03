@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-06-23T14:41:01.000Z</updated>
+  <updated>2023-07-03T09:44:23.827Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>maven</title>
+    <link href="http://example.com/post/maven/"/>
+    <id>http://example.com/post/maven/</id>
+    <published>2023-07-01T03:17:04.513Z</published>
+    <updated>2023-07-03T09:44:23.827Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;lifecycle&quot;&gt;lifecycle&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;当我们对一个项目进行打包时，maven分别执行了&lt;/p&gt;
+&lt;p&gt;验证（validate） ==&amp;gt; 编译源码（compile） ==&amp;gt;</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git</title>
+    <link href="http://example.com/post/git/"/>
+    <id>http://example.com/post/git/</id>
+    <published>2023-06-29T08:24:56.021Z</published>
+    <updated>2023-06-30T07:31:31.526Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;本地个人开发&quot;&gt;本地个人开发&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Tomcat安装与配置</title>
@@ -427,52 +476,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     
     
     <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>数据库</title>
-    <link href="http://example.com/post/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://example.com/post/%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
-    <published>2023-06-08T04:33:27.949Z</published>
-    <updated>2023-02-11T13:31:43.684Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;安装mysql&quot;&gt;安装MySql&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/06/e74255282ff5da9b.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>抽象类和接口</title>
-    <link href="http://example.com/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/"/>
-    <id>http://example.com/post/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3/</id>
-    <published>2023-06-08T04:33:27.948Z</published>
-    <updated>2022-12-27T11:21:10.745Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。&lt;/p&gt;
-&lt;p&gt;抽象类是为了把&lt;strong&gt;相同的但不确定&lt;/strong&gt;的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。&lt;/p&gt;
-&lt;p&gt;当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例。&lt;/p&gt;
-&lt;p&gt;然而，有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。&lt;/p&gt;
-&lt;p&gt;接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&amp;quot;是不是&amp;quot;的关系，而接口实现则是 &amp;quot;能不能&amp;quot;的关系。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>

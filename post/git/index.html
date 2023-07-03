@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>多态 |  biyixia</title>
+      <title>Git |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-多态"
+  id="post-git"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  多态
+  Git
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/%E5%A4%9A%E6%80%81/" class="article-date">
-  <time datetime="2023-06-08T04:33:27.946Z" itemprop="datePublished">2023-06-08</time>
+      <a href="/post/git/" class="article-date">
+  <time datetime="2023-06-29T08:24:56.021Z" itemprop="datePublished">2023-06-29</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/">第一阶段</a>
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/">第三阶段</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.3k</span>
+            <span class="post-count">2.6k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">9 min</span>
         </span>
     </span>
 </div>
@@ -112,79 +112,368 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>当我们使用代码描述主人喂养宠物的场景，首先在这个场景当中应该有“宠物对象” ，宠物对象应该有吃的行为，另外还需要一个“主人对象” ，主人对象应该有一个喂的行为。然而对于不同的宠物，吃的行为也不相同，或许是吃的东西不同，也或许是吃的方式不同，此时每当出现新的宠物时，我们就需要修改对于宠物吃行为的描述，这不符合OCP原则。对于需要更改的“宠物对象”，应当将其“封装”起来，在新的模块中对宠物不同的吃行为进行描述，而无需修改原本“宠物对象”的描述。</p>
-<span id="more"></span>
-<h1><span id="多态polymorphism">多态(polymorphism)</span></h1>
-<p>编译时类型和运行时类型不一致，就出现了对象的多态性(Polymorphism)多态情况</p>
-<h2><span id="前提">前提</span></h2>
-<p>继承或实现</p>
-<p>重写</p>
-<h2><span id="现象">现象</span></h2>
+  <h2><span id="本地个人开发">本地个人开发</span></h2>
+<h3><span id="常用术语">常用术语</span></h3>
+<table>
+<thead>
+<tr>
+<th>常用术语</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本地仓库（Repository）</td>
+<td>保存了工程开发中的每一个迭代版本</td>
+</tr>
+<tr>
+<td>工作区（Working Directory)</td>
+<td>本地电脑上的工作目录文件夹</td>
+</tr>
+<tr>
+<td>暂存区（Staging area）</td>
+<td>暂存对工作区中文件的操作</td>
+</tr>
+<tr>
+<td>索引（Index）</td>
+<td>暂存区的别名</td>
+</tr>
+<tr>
+<td>签入（Check in）</td>
+<td>将新版本复制回仓库</td>
+</tr>
+<tr>
+<td>签出（Check out）</td>
+<td>从仓库中将文件的最新修订版本复制到工作区</td>
+</tr>
+<tr>
+<td>提交（Commit）</td>
+<td>将暂存区的文件提交到本地仓库</td>
+</tr>
+<tr>
+<td>冲突（Conflict）</td>
+<td>多人对同一文件的同一部分进行了修改，导致了冲突的发生</td>
+</tr>
+<tr>
+<td>分支（Branch）</td>
+<td>两个子版本，当前版本出现了两个不同分支</td>
+</tr>
+<tr>
+<td>合并（Merge）</td>
+<td>将指定的不同的版本合并成当前版本，合并过程中对于冲突的文件需要手动选择保留哪个文件</td>
+</tr>
+<tr>
+<td>头（HEAD）</td>
+<td>指向当前选择的分支</td>
+</tr>
+<tr>
+<td>修订（Revision）</td>
+<td>表示代码的一个版本状态。Git通过用SHA1 hash算法表示的ID来标识不同的版本</td>
+</tr>
+<tr>
+<td>标记（Tags）</td>
+<td>标记某个分支的某一个版本，方便检索和查看</td>
+</tr>
+<tr>
+<td>推送（Push）</td>
+<td>将当前的版本推送到远程仓库</td>
+</tr>
+<tr>
+<td>拉取（Pull）</td>
+<td>从远程仓库拉取文件，并合并入当前分支</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加新的文件（文件夹）到Git项目中，如果添加文件夹，该文件夹下所有文件将被包含</td>
+</tr>
+<tr>
+<td>reset</td>
+<td>选择commit前面版本重新开始编辑，通常是选择恢复到上一个编辑点</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>找出两个文档或目录的不同</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>恢复版本到某个commit前（即使push也能恢复，相当于过去的版本重新覆盖当前版本）</td>
+</tr>
+<tr>
+<td>undo commit</td>
+<td>撤销某个commit（push后无法撤销）</td>
+</tr>
+<tr>
+<td>clone</td>
+<td>从目标服务器下载整个用Git管理项目的</td>
+</tr>
+<tr>
+<td>issues</td>
+<td>问题</td>
+</tr>
+<tr>
+<td>fork</td>
+<td>分叉</td>
+</tr>
+<tr>
+<td>rebase</td>
+<td>重定</td>
+</tr>
+<tr>
+<td>star</td>
+<td>星</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="本地仓库中的数据结构">本地仓库中的数据结构</span></h3>
+<p>某个结点表示该版本中的所有文件。箭头表示HEAD指针。</p>
+<p><img src="https://pic.imgdb.cn/item/649e74731ddac507cc1ea93a.jpg" alt></p>
+<h3><span id="文件状态">文件状态</span></h3>
+<table>
+<thead>
+<tr>
+<th>文件状态</th>
+<th>说明</th>
+<th>存储位置</th>
+<th>去向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Untracked</td>
+<td>未跟踪</td>
+<td>仅工作区，未进行版本控制</td>
+<td>可通过git add 将其加入暂存区</td>
+</tr>
+<tr>
+<td>Staged</td>
+<td>已暂存</td>
+<td>工作区-&gt;暂存区</td>
+<td>commit 加入本地仓库则变为Unmodified，修改则变为Modified</td>
+</tr>
+<tr>
+<td>Modified</td>
+<td>已修改</td>
+<td>工作区、暂存区（内容不同）</td>
+<td>commit 将修改文件加入暂存区并上传至本地仓库，或checkout 丢弃修改, 返回unmodify状态（用暂存区的文件覆盖工作区文件）</td>
+</tr>
+<tr>
+<td>Unmodified</td>
+<td>未修改</td>
+<td>工作区、本地仓库（内容相同）</td>
+<td>修改则变为Modified，移出本地仓库则变为Untracked</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/649d4b211ddac507cc5e3677.jpg" alt></p>
 <ol>
-<li>父类引用类型变量指向多种子类对象(父父new子)</li>
-<li>该变量不能再访问子类中新添加的属性和方法（局限）</li>
-<li>属性没有多态，即使子类有同名属性，编译期和运行期也访问的是父类的属性，但可以通过子类重写的方法调用子类的属性</li>
-<li>子类重写父类的方法，编译期看到的是父类中的方法,运行期执行的是子类重写后的方法(编译期看左边 运行期看右边)</li>
+<li>在工作区新建一个文件 a.txt 。 此时文件状态为 Untracked</li>
+<li>执行 git add a.txt 。 此时文件状态为 Staged</li>
+<li>修改 a.txt 文件并保存，此时文件状态为 Modified，此时可进行两种操作：
+<ol>
+<li>执行 git add a.txt 。 此时文件状态又为 Staged</li>
+<li>执行 git commit -m ‘提交a文件’ ，此时文件状态变为 Unmodified，此时可进行：
+<ol>
+<li>执行 git rm --cached a.txt 。此时工作区的a.txt变为Untracked状态</li>
 </ol>
-<h2><span id="原理">原理</span></h2>
-<h3><span id="虚拟方法调用多态情况下">虚拟方法调用(多态情况下)</span></h3>
-<p>子类中定义了与父类同名同参数的方法,此时父类的方法称为<strong>虚拟方法</strong>(Virtual Method Invocation)</p>
-<ul>
-<li>
-<p>在编译期，对象还没有创建出出来，只能看到父类的虚拟方法</p>
 </li>
-<li>
-<p>直到运行期,真正的子类对象被创建出来,父类引用变量得到具体的子类对象地址，并动态调用子类重写的该方法。（动态绑定）</p>
+</ol>
 </li>
-</ul>
-<h3><span id="静态绑定与动态绑定">静态绑定与动态绑定</span></h3>
-<p>重载，允许存在多个同名不同参数方法。编译器根据方法不同的参数列表，对同名方法的名称做修饰。同名方法就成了不同的方法。 它们的调用地址在编译期就绑定了。因此，在方法调用之前，编译器就已经确定了所要调用的方法，这称为“早绑定”或“静态绑定” ；</p>
-<p>而对于多态，只有等到方法调用的那一刻，解释运行器才会确定所要调用的具体方法，这称为“晚绑定”或 “动态绑定 ” 。</p>
-<h2><span id="作用">作用</span></h2>
-<p>提高了代码的通用性、提高软件的扩展性、实现软件设计的解耦</p>
-<h2><span id="应用">应用</span></h2>
-<p>当方法声明的形参类型为父类类型，可以使用子类的对象作为实参调用该方法</p>
-<h2><span id="类型转换casting">类型转换(Casting)</span></h2>
-<h3><span id="基本数据类型">基本数据类型</span></h3>
-<ul>
-<li>
-<p>自动类型转换：小的数据类型可以自动转换成大的数据类型</p>
-</li>
-<li>
-<p>强制类型转换：可以把大的数据类型强制转换成小的数据类型</p>
-</li>
-</ul>
-<h3><span id="引用数据类型">引用数据类型</span></h3>
-<p>对Java对象的强制类型转换称为<strong>造型</strong></p>
-<ul>
-<li>
-<p>向上转型：从子类到父类的类型转换可以自动进行(多态)</p>
-</li>
-<li>
-<p>向下转型：从父类到子类的类型转换必须通过造型(强制类型转换)实现</p>
-</li>
-<li>
-<p>无继承关系的引用类型间的转换是非法的</p>
-</li>
-</ul>
-<p>多态情况下，当我们需要访问子类中新添加的属性和方法时，需要向下转型（强转）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Base</span> <span class="variable">base</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sub</span>();</span><br><span class="line">    base.add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);		<span class="comment">//调用的是子类重写父类的方法	sub_1</span></span><br><span class="line">    <span class="type">Sub</span> <span class="variable">s</span> <span class="operator">=</span> (Sub)base;		<span class="comment">//造型</span></span><br><span class="line">    s.add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);			<span class="comment">//调用的是子类独有的方法	sub_2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>... arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;base &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Sub</span> <span class="keyword">extends</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sub_2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="instanceof-操作符">instanceof 操作符</span></h3>
-<p>在造型前可以使用instanceof操作符测试一个对象的类型</p>
-<p>x instanceof A：</p>
-<ul>
-<li>
-<p>检验x是否为类A的对象，返回值为boolean型。 x是A类对象返回true，反之返回false</p>
-</li>
-<li>
-<p>如果x属于类A的子类B，返回值也为true</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Graduate</span> <span class="keyword">extends</span> <span class="title class_">Student</span>&#123;…&#125; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">method1</span><span class="params">(Person e)</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Person) <span class="comment">// 处理Person类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Student) <span class="comment">//处理Student类及其子类对象 </span></span><br><span class="line">    <span class="keyword">if</span> (e <span class="keyword">instanceof</span> Graduate) <span class="comment">//处理Graduate类及其子类对象 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>x所属的类与A类对象没有继承关系，则编译错误。</p>
-<h2><span id="验证多态是运行时行为">验证：多态是运行时行为</span></h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Animal</span>();</span><br><span class="line">    <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">switch</span> (r) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Cat</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            animal = <span class="keyword">new</span> <span class="title class_">Dog</span> ();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    animal.eat();<span class="comment">//运行时才能确定animal引用类型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; animal eat food&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot; cat eat fish&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">eat</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Dog eat bone &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- 
+</ol>
+<h3><span id="常用命令">常用命令</span></h3>
+<table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git init</td>
+<td>在当前目录下生成一个名为.git的文件夹，该文件夹即为版本库</td>
+</tr>
+<tr>
+<td>git config</td>
+<td>在将版本提交到版本库之前需要使用git config <a target="_blank" rel="noopener" href="http://user.name">user.name</a> xxx和git config user.email xxx设置好个人身份签名</td>
+</tr>
+<tr>
+<td>git add xxx</td>
+<td>将处理后的文件xxx的最新状态同步至暂存区中</td>
+</tr>
+<tr>
+<td>git commit -m “XXX”</td>
+<td>将暂存区中暂存的所有改动写进版本库中，形成一个新的版本。commit log表示对该版本的一个说明</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看工作区（在工作区中进行了改动还未同步到暂存区的文件）、暂存区（在暂存区中还未写入版本库的文件）的状态</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>显示版本库中，HEAD指针之前的所有版本的详细信息（space向下翻页、b向上翻页、q退出）</td>
+</tr>
+<tr>
+<td>git log --oneline</td>
+<td>显示版本库中，HEAD指针之前的所有版本的简略信息</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>显示版本库中，HEAD指针之前及之后的所有版本的简略信息</td>
+</tr>
+<tr>
+<td>git reset --hard xxx</td>
+<td>将HEAD指针移动到版本哈希为xxx的版本处，并使工作区重置为该版本下的状态</td>
+</tr>
+<tr>
+<td>git revert versionX…versionY</td>
+<td>执行版本X到版本Y之间（不含X含Y）所有版本的逆向操作，使得这些版本的提交所造成的影响被撤销。对指定的每个版本进行撤销都会产生一次新的提交记录。（可添加–no-commit参数使得对所有版本的撤销操作全都保存在暂存区中，再通过commit命令一次性提交）</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="分支管理">分支管理</span></h2>
+<p>使用多条分支来并发地推进多个任务</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch xxx</td>
+<td>创建名为xxx的分支。（在当前HEAD指针所指版本上创建了一个新的HEAD指针）</td>
+</tr>
+<tr>
+<td>git branch -v</td>
+<td>查看本地仓库中的所有分支</td>
+</tr>
+<tr>
+<td>git checkout xxx</td>
+<td>切换到名为xxx的分支下，并使工作区重置为分支xxx的HEAD指针所指版本下的状态</td>
+</tr>
+<tr>
+<td>git merge xxx</td>
+<td>将分支xxx的内容合并进当前分支</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="本地仓库中的数据结构">本地仓库中的数据结构</span></h3>
+<p>（在分支X下仅能操作分支X自身的HEAD指针）</p>
+<p><img src="https://pic.imgdb.cn/item/649e74b41ddac507cc1f0eac.jpg" alt></p>
+<h3><span id="合并">合并</span></h3>
+<h4><span id="fast-forward">fast forward</span></h4>
+<p><img src="https://pic.imgdb.cn/item/649e74cf1ddac507cc1f3c19.jpg" alt></p>
+<ol>
+<li>原分支（Master）的HEAD指针移动至其他分支（Branch）的HEAD指针处。</li>
+<li>分支后，原分支未进行过提交。</li>
+</ol>
+<h4><span id="three-way-merge">three way merge</span></h4>
+<p><img src="https://pic.imgdb.cn/item/649e74f31ddac507cc1f6f68.jpg" alt></p>
+<p>处于该种情况时，在原分支（Master）下对其他分支（Branch）进行的合并操作会使得原分支产生一次新的提交。</p>
+<p>合并时，git会比对版本F和版本G相对于它们的公共祖先版本C所做的改动：</p>
+<ol>
+<li>版本F和版本G相对于版本C新增的文件，在版本H中都会存在；</li>
+<li>版本F和版本G相对于版本C减少的文件，在版本H中都不会存在；</li>
+<li>若两个分支都对同一个文件中的同一行进行了修改，则会发生冲突；</li>
+<li>若一个分支删除了另一个分支进行了修改的文件，则会发生冲突；</li>
+</ol>
+<h3><span id="冲突">冲突</span></h3>
+<p><img src="https://pic.imgdb.cn/item/649e75081ddac507cc1f8e4c.jpg" alt></p>
+<p>冲突的解决：编辑修改好发生冲突的文件x后，执行git add x和git commit -m “message”。</p>
+<h2><span id="远程多人协作">远程多人协作</span></h2>
+<ol>
+<li>远程版本库（远程仓库）：远程版本库与本地版本并无本质区别，只是并不放在本地。使用github、码云等网站可以进行远程版本库的创建。</li>
+<li>远程仓库地址：用于定位远程仓库。以github为例，其为每个仓库提供HTTPS协议和SSH协议的两种地址。</li>
+</ol>
+<h3><span id="常用命令">常用命令</span></h3>
+<table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git remote add 【别名】【 远程仓库地址】</td>
+<td>为远程仓库地址取别名</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>查看当前所有的远程仓库别名</td>
+</tr>
+<tr>
+<td>git clone【 远程仓库地址】</td>
+<td>将远程仓库完整下载下来成为本地仓库</td>
+</tr>
+<tr>
+<td>git pull 【远程仓库地址别名】【 远程分支名】</td>
+<td>将远程仓库中的指定分支拉取到本地，pull操作等同于fetch操作+merge操作</td>
+</tr>
+<tr>
+<td>git fetch【远程仓库地址别名】/【 远程分支名】</td>
+<td>获取远程仓库中的指定分支到本地</td>
+</tr>
+<tr>
+<td>git push【远程仓库别名】【 本地分支名】</td>
+<td>将本地仓库指定分支中HEAD指针所指的版本推送到远程仓库中，作为远程仓库的一次版本更新。远程仓库中该版本的版本说明与本地仓库中该版本的版本说明一致</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>推送到远程仓库的版本必须是基于远程仓库中最新版本所做的修改。否则，需要先	pull拉取最新的内容后再push推送。</li>
+<li>只有远程仓库所属团队的团队成员才能够执行push操作对该远程仓库进行更新。</li>
+</ol>
+<h3><span id="pull-request">pull request</span></h3>
+<p>非远程仓库所属团队的团队成员需通过pull request的方式贡献代码</p>
+<ol>
+<li>对他人的远程仓库进行fork。该操作将会得到一个他人远程仓库的完整副本，并且该远程仓库副本是属于自己的。</li>
+<li>将贡献的代码更新到fork出来的自己的远程仓库中。</li>
+<li>在fork出来的自己的远程仓库中执行pull request操作，请求原远程仓库所属团队成员进行代码审核，来将自己改动的内容合并进他们的远程仓库中。</li>
+</ol>
+<h3><span id="若远程仓库地址使用的是ssh协议">若远程仓库地址使用的是SSH协议</span></h3>
+<p>我们需要先在家目录下执行ssh-keygen -t rsa -C xxx，（xxx为远程仓库所在平台的账号）。该命令将会生成一个.ssh的文件夹。文件夹中包含id_rsa和id_rsa.pub两个文件，分别为非对称密钥的私钥和公钥。我们将公钥中的内容在远程仓库所在平台进行设置后，即可进行ssh协议的传输。</p>
+<h2><span id="gitflow工作流">GitFlow工作流</span></h2>
+<table>
+<thead>
+<tr>
+<th>分支</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主干分支master</td>
+<td>仅负责更新正在运行的生产环境下的版本</td>
+</tr>
+<tr>
+<td>Bug修理分支bugfix</td>
+<td>负责更新master分支中出现紧急bug后，进行bug修复的版本。修复完毕后将并回master分支</td>
+</tr>
+<tr>
+<td>预发布分支release</td>
+<td>负责更新准备发布到主干分支的预发布版本，供一小部分发烧用户预先使用，来收集意见以及测试bug。若出现bug，一般直接在该分支下进行修复；若无问题，则并入主干分支</td>
+</tr>
+<tr>
+<td>开发分支develop</td>
+<td>负责更新开发过程中的版本，一般仅在该分支中更新短周期的开发。当开发完成到一定阶段后，将并入预发布分支，进行正式发布前的最后测试</td>
+</tr>
+<tr>
+<td>功能分支feature</td>
+<td>负责更新针对某一功能的需要进行长周期开发的版本，使得对不同功能的开发可以并行推进，并且不会影响到开发分支中短周期的开发工作。功能开发完成后，将并入开发分支</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="本地机设置提交码云的用户名和全局邮箱">本地机设置提交码云的用户名和全局邮箱</span></h2>
+<p>​	右键打开git-bash</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
+<h2><span id="idea配置git">idea配置Git</span></h2>
+<p><img src="https://pic.imgdb.cn/item/649d42901ddac507cc4dfe2a.jpg" alt></p>
+<h2><span id="idea配置gitee">idea配置Gitee</span></h2>
+<p><img src="https://pic.imgdb.cn/item/649d433f1ddac507cc4f35b3.jpg" alt></p>
+<img src="https://pic.imgdb.cn/item/649d4bad1ddac507cc5f4404.jpg" style="zoom:67%;"> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -254,7 +543,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E5%A4%9A%E6%80%81/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/git/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -265,19 +554,19 @@
    
   <nav class="article-nav">
     
-      <a href="/post/%E5%BC%82%E5%B8%B8/" class="article-nav-link">
+      <a href="/post/maven/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            异常
+            maven
           
         </div>
       </a>
     
     
-      <a href="/post/%E5%B8%B8%E7%94%A8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-nav-link">
+      <a href="/post/Tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">常用文本编辑快捷键</div>
+        <div class="article-nav-title">Tomcat安装与配置</div>
       </a>
     
   </nav>
