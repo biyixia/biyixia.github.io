@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.6k</span>
+            <span class="post-count">3.6k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">9 min</span>
+            <span class="post-count">13 min</span>
         </span>
     </span>
 </div>
@@ -112,8 +112,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2><span id="本地个人开发">本地个人开发</span></h2>
-<h3><span id="常用术语">常用术语</span></h3>
+  <h2><span id="git">Git</span></h2>
+<p>Git是分布式代码版本管理系统，其分为客户端和服务端两个部分</p>
+<p>服务器端：大家共同存储的一个终端，可以自己搭建，也可以选择别的公司更好的的处理</p>
+<p>本地机： 程序员自己的电脑，保存编写的代码</p>
+<p>Git服务端的具体产品有GitHub（国外的喵咪）和Gitee（国内的码云）两款比较出名</p>
+<h2><span id="常用术语">常用术语</span></h2>
 <table>
 <thead>
 <tr>
@@ -125,6 +129,10 @@
 <tr>
 <td>本地仓库（Repository）</td>
 <td>保存了工程开发中的每一个迭代版本</td>
+</tr>
+<tr>
+<td>远程仓库</td>
+<td>远程保存推送的版本，使用github、码云等网站可以进行远程版本库的创建</td>
 </tr>
 <tr>
 <td>工作区（Working Directory)</td>
@@ -224,9 +232,7 @@
 </tr>
 </tbody>
 </table>
-<h3><span id="本地仓库中的数据结构">本地仓库中的数据结构</span></h3>
-<p>某个结点表示该版本中的所有文件。箭头表示HEAD指针。</p>
-<p><img src="https://pic.imgdb.cn/item/649e74731ddac507cc1ea93a.jpg" alt></p>
+<h2><span id="本地开发">本地开发</span></h2>
 <h3><span id="文件状态">文件状态</span></h3>
 <table>
 <thead>
@@ -279,6 +285,9 @@
 </ol>
 </li>
 </ol>
+<h3><span id="数据结构">数据结构</span></h3>
+<p>某个结点表示该版本中的所有文件。箭头表示HEAD指针。</p>
+<p><img src="https://pic.imgdb.cn/item/649e74731ddac507cc1ea93a.jpg" alt></p>
 <h3><span id="常用命令">常用命令</span></h3>
 <table>
 <thead>
@@ -328,65 +337,14 @@
 <td>git revert versionX…versionY</td>
 <td>执行版本X到版本Y之间（不含X含Y）所有版本的逆向操作，使得这些版本的提交所造成的影响被撤销。对指定的每个版本进行撤销都会产生一次新的提交记录。（可添加–no-commit参数使得对所有版本的撤销操作全都保存在暂存区中，再通过commit命令一次性提交）</td>
 </tr>
-</tbody>
-</table>
-<h2><span id="分支管理">分支管理</span></h2>
-<p>使用多条分支来并发地推进多个任务</p>
-<h3><span id="常用命令">常用命令</span></h3>
-<table>
-<thead>
 <tr>
-<th>常用命令</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>git branch xxx</td>
-<td>创建名为xxx的分支。（在当前HEAD指针所指版本上创建了一个新的HEAD指针）</td>
-</tr>
-<tr>
-<td>git branch -v</td>
-<td>查看本地仓库中的所有分支</td>
-</tr>
-<tr>
-<td>git checkout xxx</td>
-<td>切换到名为xxx的分支下，并使工作区重置为分支xxx的HEAD指针所指版本下的状态</td>
-</tr>
-<tr>
-<td>git merge xxx</td>
-<td>将分支xxx的内容合并进当前分支</td>
+<td>git diff 文件名</td>
+<td>查看这个文件和之前文件的对比</td>
 </tr>
 </tbody>
 </table>
-<h3><span id="本地仓库中的数据结构">本地仓库中的数据结构</span></h3>
-<p>（在分支X下仅能操作分支X自身的HEAD指针）</p>
-<p><img src="https://pic.imgdb.cn/item/649e74b41ddac507cc1f0eac.jpg" alt></p>
-<h3><span id="合并">合并</span></h3>
-<h4><span id="fast-forward">fast forward</span></h4>
-<p><img src="https://pic.imgdb.cn/item/649e74cf1ddac507cc1f3c19.jpg" alt></p>
-<ol>
-<li>原分支（Master）的HEAD指针移动至其他分支（Branch）的HEAD指针处。</li>
-<li>分支后，原分支未进行过提交。</li>
-</ol>
-<h4><span id="three-way-merge">three way merge</span></h4>
-<p><img src="https://pic.imgdb.cn/item/649e74f31ddac507cc1f6f68.jpg" alt></p>
-<p>处于该种情况时，在原分支（Master）下对其他分支（Branch）进行的合并操作会使得原分支产生一次新的提交。</p>
-<p>合并时，git会比对版本F和版本G相对于它们的公共祖先版本C所做的改动：</p>
-<ol>
-<li>版本F和版本G相对于版本C新增的文件，在版本H中都会存在；</li>
-<li>版本F和版本G相对于版本C减少的文件，在版本H中都不会存在；</li>
-<li>若两个分支都对同一个文件中的同一行进行了修改，则会发生冲突；</li>
-<li>若一个分支删除了另一个分支进行了修改的文件，则会发生冲突；</li>
-</ol>
-<h3><span id="冲突">冲突</span></h3>
-<p><img src="https://pic.imgdb.cn/item/649e75081ddac507cc1f8e4c.jpg" alt></p>
-<p>冲突的解决：编辑修改好发生冲突的文件x后，执行git add x和git commit -m “message”。</p>
 <h2><span id="远程多人协作">远程多人协作</span></h2>
-<ol>
-<li>远程版本库（远程仓库）：远程版本库与本地版本并无本质区别，只是并不放在本地。使用github、码云等网站可以进行远程版本库的创建。</li>
-<li>远程仓库地址：用于定位远程仓库。以github为例，其为每个仓库提供HTTPS协议和SSH协议的两种地址。</li>
-</ol>
+<p>远程仓库地址：用于定位远程仓库。以github为例，其为每个仓库提供HTTPS协议和SSH协议的两种地址</p>
 <h3><span id="常用命令">常用命令</span></h3>
 <table>
 <thead>
@@ -418,23 +376,85 @@
 </tr>
 <tr>
 <td>git push【远程仓库别名】【 本地分支名】</td>
-<td>将本地仓库指定分支中HEAD指针所指的版本推送到远程仓库中，作为远程仓库的一次版本更新。远程仓库中该版本的版本说明与本地仓库中该版本的版本说明一致</td>
+<td>将本地仓库指定分支中HEAD指针所指的版本推送到远程仓库中，作为远程仓库的一次版本更新</td>
 </tr>
 </tbody>
 </table>
 <ol>
-<li>推送到远程仓库的版本必须是基于远程仓库中最新版本所做的修改。否则，需要先	pull拉取最新的内容后再push推送。</li>
-<li>只有远程仓库所属团队的团队成员才能够执行push操作对该远程仓库进行更新。</li>
+<li>推送到远程仓库的版本必须是基于远程仓库中最新版本所做的修改。否则，需要先	pull拉取最新的内容后再push推送</li>
+<li>只有远程仓库所属团队的团队成员才能够执行push操作对该远程仓库进行更新</li>
 </ol>
 <h3><span id="pull-request">pull request</span></h3>
 <p>非远程仓库所属团队的团队成员需通过pull request的方式贡献代码</p>
 <ol>
-<li>对他人的远程仓库进行fork。该操作将会得到一个他人远程仓库的完整副本，并且该远程仓库副本是属于自己的。</li>
-<li>将贡献的代码更新到fork出来的自己的远程仓库中。</li>
-<li>在fork出来的自己的远程仓库中执行pull request操作，请求原远程仓库所属团队成员进行代码审核，来将自己改动的内容合并进他们的远程仓库中。</li>
+<li>对他人的远程仓库进行fork。该操作将会得到一个他人远程仓库的完整副本，并且该远程仓库副本是属于自己的</li>
+<li>将贡献的代码更新到fork出来的自己的远程仓库中</li>
+<li>在fork出来的自己的远程仓库中执行pull request操作，请求原远程仓库所属团队成员进行代码审核，来将自己改动的内容合并进他们的远程仓库中</li>
 </ol>
-<h3><span id="若远程仓库地址使用的是ssh协议">若远程仓库地址使用的是SSH协议</span></h3>
-<p>我们需要先在家目录下执行ssh-keygen -t rsa -C xxx，（xxx为远程仓库所在平台的账号）。该命令将会生成一个.ssh的文件夹。文件夹中包含id_rsa和id_rsa.pub两个文件，分别为非对称密钥的私钥和公钥。我们将公钥中的内容在远程仓库所在平台进行设置后，即可进行ssh协议的传输。</p>
+<h2><span id="分支管理">分支管理</span></h2>
+<ol>
+<li>git支持分布式开发，集中式开发，分支式处理</li>
+<li>以主分支为核心，创建子分支，利用子分支扩张内容，最后与主分支合并</li>
+<li>从数据上来说呢，每个分支相当于独立的，我们可以在当前分支中进行回溯和查看版本（如:git reflog）</li>
+<li>分支可以任意的切换</li>
+<li>主分支master一般不处理具体的内容，主要负责调配调用子分支，子分支负责处理具体的内容</li>
+</ol>
+<h3><span id="数据结构">数据结构</span></h3>
+<p>（在分支X下仅能操作分支X自身的HEAD指针）</p>
+<p><img src="https://pic.imgdb.cn/item/649e74b41ddac507cc1f0eac.jpg" alt></p>
+<h3><span id="合并">合并</span></h3>
+<p><strong>fast forward</strong></p>
+<p><img src="https://pic.imgdb.cn/item/649e74cf1ddac507cc1f3c19.jpg" alt></p>
+<ol>
+<li>原分支（Master）的HEAD指针移动至其他分支（Branch）的HEAD指针处。</li>
+<li>分支后，原分支未进行过提交。</li>
+</ol>
+<p><strong>three way merge</strong></p>
+<p><img src="https://pic.imgdb.cn/item/649e74f31ddac507cc1f6f68.jpg" alt></p>
+<p>处于该种情况时，在原分支（Master）下对其他分支（Branch）进行的合并操作会使得原分支产生一次新的提交</p>
+<p>合并时，git会比对版本F和版本G相对于它们的公共祖先版本C所做的改动：</p>
+<ol>
+<li>版本F和版本G相对于版本C新增的文件，在版本H中都会存在（新增文件名相同文件某行内容不同也会发生冲突）</li>
+<li>版本F和版本G相对于版本C减少的文件，在版本H中都不会存在</li>
+<li>若两个分支都对同一个文件中的同一行进行了修改，则会发生冲突</li>
+<li>若一个分支删除了另一个分支进行了修改的文件，则会发生冲突</li>
+</ol>
+<h3><span id="冲突">冲突</span></h3>
+<p><img src="https://pic.imgdb.cn/item/649e75081ddac507cc1f8e4c.jpg" alt></p>
+<p>冲突的解决：编辑修改好发生冲突的文件x后，执行git add x和git commit -m “message”</p>
+<h3><span id="变基">变基</span></h3>
+<p>主分支发生了变化，主分支由其他的子分支合并了新的内容，另一个子分支也需要新增的这些内容，就可以让子分支变基(让主分支的新的内容重新分配给子分支)</p>
+<p>先选择要变基的子分支，选中主分支右键选择Rebase即可，主分支中的内容就会重新分配给当前子分支。</p>
+<p>情况一:主分支新建了一个子分支，都有内容的改变，推荐先让子分支合并到主分支中，子分支在变基，最后子分支在合并到主分支中。</p>
+<p>情况二:分支不是由master创建的，而是由其他的子分支创建的，可以正常使用，分支结构线会有点乱</p>
+<p>使用多条分支来并发地推进多个任务</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<table>
+<thead>
+<tr>
+<th>常用命令</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git branch【分支名】</td>
+<td>创建名【分支名】的分支。（在当前HEAD指针所指版本上创建了一个新的HEAD指针）</td>
+</tr>
+<tr>
+<td>git branch -v</td>
+<td>查看本地仓库中的所有分支，* 开头的分支为当前分支</td>
+</tr>
+<tr>
+<td>git checkout【分支名】</td>
+<td>切换到名为【分支名】的分支下，并使工作区重置为该分支的HEAD指针所指版本下的状态</td>
+</tr>
+<tr>
+<td>git merge【分支名】</td>
+<td>将该分支的内容合并进当前分支</td>
+</tr>
+</tbody>
+</table>
 <h2><span id="gitflow工作流">GitFlow工作流</span></h2>
 <table>
 <thead>
@@ -466,14 +486,107 @@
 </tr>
 </tbody>
 </table>
-<h2><span id="本地机设置提交码云的用户名和全局邮箱">本地机设置提交码云的用户名和全局邮箱</span></h2>
-<p>​	右键打开git-bash</p>
+<h2><span id="安装git">安装git</span></h2>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a>(注意安装路径不能有中文)</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/">Gitee官网</a></p>
+<h2><span id="使用git">使用Git</span></h2>
+<p><strong>本地机设置提交码云的用户名和全局邮箱</strong></p>
+<p>右键打开git-bash</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;用户名&quot;</span><br><span class="line">git config --global user.email &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
-<h2><span id="idea配置git">idea配置Git</span></h2>
+<h3><span id="idea配置git">idea配置Git</span></h3>
 <p><img src="https://pic.imgdb.cn/item/649d42901ddac507cc4dfe2a.jpg" alt></p>
-<h2><span id="idea配置gitee">idea配置Gitee</span></h2>
+<h3><span id="idea配置gitee">idea配置Gitee</span></h3>
 <p><img src="https://pic.imgdb.cn/item/649d433f1ddac507cc4f35b3.jpg" alt></p>
-<img src="https://pic.imgdb.cn/item/649d4bad1ddac507cc5f4404.jpg" style="zoom:67%;"> 
+<h3><span id="ssh-配置">SSH 配置</span></h3>
+<p>若远程仓库地址使用的是SSH协议，则需要生成公钥（id_rsa.pub文件）</p>
+<ol>
+<li>右键Git Bash Here打开终端窗口 <code>ssh-keygen -t rsa -C &quot;XXXXXXXXX@qq.com&quot;</code></li>
+<li>按照提示完成三次回车生成 ssh key</li>
+<li><code>cat ~/.ssh/id_rsa.pub</code>  查看生成的钥匙信息</li>
+<li>复制ssh公钥添加到Gitee的SSH公钥管理</li>
+<li>回到终端窗口 <code>ssh -T git@gitee.com</code>  <code>Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access.</code> 则添加成功</li>
+</ol>
+<h3><span id="上传gitee远程仓库">上传Gitee远程仓库</span></h3>
+<img src="https://pic.imgdb.cn/item/649d4bad1ddac507cc5f4404.jpg" style="zoom:67%;">
+<h3><span id="首次提交">首次提交</span></h3>
+<p><img src="https://pic.imgdb.cn/item/64a3eab71ddac507cc353cfb.jpg" alt></p>
+<h3><span id="新增文件交给git">新增文件交给Git</span></h3>
+<p><img src="https://pic.imgdb.cn/item/64a3eb3c1ddac507cc365cee.jpg" alt></p>
+<p>新建文件会提示add的操作，将新建文件加入到git的本地暂存区，让文件被git管理</p>
+<h3><span id="提交新版本">提交新版本</span></h3>
+<p><img src="https://pic.imgdb.cn/item/64a3ebd81ddac507cc37aa06.jpg" alt></p>
+<p>选择需要提交到本地仓库的文件</p>
+<p><img src="https://pic.imgdb.cn/item/64a3ec561ddac507cc38cec2.jpg" alt>commit 将处理好的代码文件提交到版本库中，形成一个新的版本</p>
+<h3><span id="推送至远程仓库">推送至远程仓库</span></h3>
+<p><img src="https://pic.imgdb.cn/item/64a3ecb81ddac507cc39c937.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/64a3f4841ddac507cc4ac21c.jpg" alt>push 将git仓库中的内容推送到码云的远程服务器上</p>
+<h3><span id="更新项目">更新项目</span></h3>
+<p>若远程仓库与本地仓库版本不一致，需要先对本地仓库版本备份，拉取（更新）远程仓库的版本并合并（解决冲突）</p>
+<p><img src="https://pic.imgdb.cn/item/64a3ff831ddac507cc602e12.jpg" alt></p>
+<p><img src="/post/git/C:%5CUsers%5Cbiyixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230704184312999.png" alt="image-20230704184312999"></p>
+<p><strong>冲突发生情况</strong></p>
+<table>
+<thead>
+<tr>
+<th>本地仓库版本</th>
+<th>远程仓库版本</th>
+<th>更新项目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>没有改变</td>
+<td>改变</td>
+<td>直接更新到本地仓库</td>
+</tr>
+<tr>
+<td>改变</td>
+<td>改变</td>
+<td>可能发生冲突</td>
+</tr>
+<tr>
+<td>/</td>
+<td>没有改变</td>
+<td>无更新</td>
+</tr>
+</tbody>
+</table>
+<p><strong>如何避免冲突</strong></p>
+<ol>
+<li>错开推送代码到远程仓库的时间</li>
+<li>在更新版本代码前，需先将远程仓库版本更新到本地仓库</li>
+</ol>
+<h3><span id="撤销提交">撤销提交</span></h3>
+<p><strong>undo commit</strong></p>
+<p>提交本地仓库版本后，<strong>若尚未推送至远程仓库</strong>，则可以撤销本次提交且删除记录</p>
+<p><img src="https://pic.imgdb.cn/item/64a4caac1ddac507cc9969d0.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/64a4cb431ddac507cc9a89af.jpg" alt></p>
+<p>撤销提交不会将暂存区的改动撤销，还需要手动回滚</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e5341ddac507ccce2a62.jpg" alt></p>
+<h3><span id="恢复提交">恢复提交</span></h3>
+<p><strong>revert commit</strong></p>
+<p>提交本地仓库版本后，<strong>若已经推送至远程仓库</strong>，则只能恢复先前的版本（相当于重新提交先前做过的修改），留下操作记录</p>
+<p>恢复提交会将暂存区的改动撤销</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e0a41ddac507ccc5781d.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/64a4e0c51ddac507ccc5bc38.jpg" alt></p>
+<h3><span id="版本回溯">版本回溯</span></h3>
+<p>将版本回溯至指定版本，版本回溯会将暂存区的改动撤销</p>
+<p>版本回溯会清空 <strong>指定回溯版本后的</strong> 、<strong>未推送的</strong>版本记录</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e4261ddac507cccc246f.jpg" alt></p>
+<p><img src="/post/git/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230705113217378.png" alt="image-20230705113217378"></p>
+<h3><span id="创建分支">创建分支</span></h3>
+<p>右键将在当前分支的头结点创建分支，创建后自动切换到新建的分支</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e7641ddac507ccd21c51.jpg" alt></p>
+<h3><span id="合并主分支">合并主分支</span></h3>
+<p>将子分支合并到主分支中，主分支就拥有了主分支的所有内容</p>
+<p>右键主分支，切换至主分支</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e8581ddac507ccd3c92e.jpg" alt></p>
+<p>右键新分支，将新分支提交版本合并到主分支</p>
+<p><img src="https://pic.imgdb.cn/item/64a4e8961ddac507ccd43acc.jpg" alt></p>
+<p>合并后会覆盖主分支中的内容</p>
+<h2><span id="菜单图标">菜单图标</span></h2>
+<p>​</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">

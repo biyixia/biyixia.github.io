@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.7k</span>
+            <span class="post-count">5.3k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">15 min</span>
+            <span class="post-count">22 min</span>
         </span>
     </span>
 </div>
@@ -112,16 +112,16 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2><span id="lifecycle">lifecycle</span></h2>
-<p>当我们对一个项目进行打包时，maven分别执行了</p>
+  <p>当我们对一个项目进行打包时，maven分别执行了</p>
 <p>验证（validate） ==&gt; 编译源码（compile） ==&gt; 编译测试源码（test-compile） ==&gt; 单元测试（test）==&gt; 打包（package）</p>
 <ol>
 <li>这个过程就是生命周期(lifecycle)。在生命周期的过程中会有很多的阶段(phase)（如clean由pre-clean、clean、post-clean组成），这些阶段按照既定的顺序执行来完成一个项目的构建。</li>
 <li>在生命周期中，各个阶段的工作由插件来完成(plugin)，一个插件通常可以完成一个或者多个阶段的工作。每个阶段的工作对应插件中的一个目标(goal)。不同的插件结合起来，就完成了项目的构建。</li>
 </ol>
+<h2><span id="lifecycle">lifecycle</span></h2>
 <p>Maven有三个内置的build lifecycle，分别是：clean、default、site</p>
 <h3><span id="clean">Clean</span></h3>
-<p>构建之前进行项目的清理</p>
+<p>构建之前进行项目的清理（缓存，临时文件，编译文件等）</p>
 <ol>
 <li>pre-clean 执行一些需要在clean 之前完成的工作</li>
 <li>clean 移除所有上一次构建生成的文件</li>
@@ -171,23 +171,95 @@
 </ol>
 <h2><span id="pomproject-object-mode">POM(Project Object Mode)</span></h2>
 <p>Maven基于项目中的POM配置文件来对当前项目进行构建</p>
-<h3><span id="最小pom">最小POM</span></h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span> 4.0.0 <span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>modelVersion</td>
+<td>固定值4.0.0</td>
+</tr>
+<tr>
+<td>groupId</td>
+<td>公司或组织的 id，即公司或组织域名的倒序</td>
+</tr>
+<tr>
+<td>artifactId</td>
+<td>项目或某个模块的名称，作为 Maven 工程的工程名</td>
+</tr>
+<tr>
+<td>version</td>
+<td>版本号</td>
+</tr>
+</tbody>
+</table>
 <ol>
-<li>modelVersion为固定值4.0.0</li>
-<li>groupId，artifactId，version构成了该项目的坐标，其唯一确定了一个project。</li>
+<li>groupId，artifactId，version构成了该项目的坐标，其唯一确定了一个project</li>
+<li>对应Maven本地仓库根目录\【groupId】\【artifactId】\【version】\【artifactId】-【version】.jar</li>
 </ol>
-<h3><span id="项目继承">项目继承</span></h3>
-<p>通过如下POM配置将当前项目设置为另一个项目的子项目。父项目POM文件里的绝大多数配置都将合并到子项目中，成为子项目POM文件的默认值。</p>
-<p>所有项目的POM都默认继承自Maven中的Super POM。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span> </span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中parent标签指定了父项目的坐标，以及父项目的POM文件的相对路径。</p>
-<h3><span id="项目聚合">项目聚合</span></h3>
-<p>通过如下POM配置将多个项目作为当前项目的子模块。对当前项目进行操作时，也将同时为该项目所有的子模块进行操作。</p>
+<h2><span id="项目继承">项目继承</span></h2>
+<p>当一个项目有足够多的文件时，可以将项目拆分多个模块，每个模块都需要配置自身的依赖信息</p>
+<p>通过如下POM配置将当前项目设置为另一个项目的子项目</p>
+<p>父模块POM文件里的<strong>变量、依赖、组织、版本</strong>配置都将合并到子项目中，成为子项目POM文件的默认值（插件配置无法继承）</p>
+<ol>
+<li>子模块继承了父模块的变量，父模块统一管理子模块的依赖版本</li>
+<li>子模块选择性继承父模块的依赖，父模块维护整个项目的依赖信息</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span> </span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中parent标签指定了父项目的坐标，以及父模块的POM文件的相对路径</p>
+<p><strong>父模块打包方式必须为pom</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父模块POM中设置packaging，只有打包方式为pom的工程才能够管理其他工程，工程中不写业务代码，因此可将src目录删除 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>父模块统一管理依赖版本</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父模块POM中设置property，并在其它标签中使用$&#123;propertyName&#125;来表示该property的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">propertyName</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">propertyName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>父模块统一管理依赖配置</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父模块POM中设置dependencyManagement（依赖管理器），子模块手动继承时才会引入到工程 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 若不使用依赖管理器，则强制使所有子模块继承一下依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>子模块引用父工程管理的依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 子模块POM中直接引用依赖，可省略版本号 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="项目聚合">项目聚合</span></h2>
+<p>在<strong>总工程</strong>中通过如下POM配置将各个<strong>模块工程</strong>汇集成起来，作为一个整体（完整的项目）</p>
+<p>对当前项目进行编译时，也将同时为该项目所有的子模块进行编译，解决一次性编译的问题</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--子模块项目的相对路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">module</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">module</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过如下POM配置来设置property，并在其它标签中使用${propertyName}来表示该property的值</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">propertyName</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">propertyName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>除此之外，项目中的所有标签都可以直接作为property来使用，如${project.groupId}, ${project.artifactId}, ${project.version}。</p>
+<h2><span id="依赖配置补充">依赖配置补充</span></h2>
+<p>maven项目依赖生效分为三个时期，编译期、测试期、运行期</p>
+<p>通过对<code>&lt;scope&gt;</code>合理的配置，可以控制当前依赖在不同时期编译期、测试期、运行期生效的关系，指定被依赖资源的依赖范围</p>
+<p>可选配置有 compile、test、provided、runtime、system、import，若不指定则默认 compile</p>
+<p><strong>使用compile依赖范围</strong></p>
+<p>默认会使用该依赖范围，编译期、测试期、运行期都生效。</p>
+<p><strong>使用test依赖范围</strong></p>
+<p>只在测试期生效，典型的是JUnit依赖，只在编译测试代码（src/test）和运行测试的时候才需要</p>
+<p><strong>使用provided 依赖范围</strong></p>
+<p>只在编译期、测试期有效。表示当前依赖在运行时默认由某个子项目项目引用，运行期则不需要引用</p>
+<p><img src="https://pic.imgdb.cn/item/64a396961ddac507cc7a32b3.jpg" alt></p>
+<p>上述工具项目中引用了spring-web依赖，但是当前项目同时引用了<code>spring-boot-starter-web</code>（包括<code>spring-web</code>）</p>
+<p>既然运行时SpringBoot会提供spring-web，因此使用provided依赖范围在运行时不参与项目打包，避免重复引用依赖</p>
+<p><strong>使用runtime依赖范围</strong></p>
+<p>对于测试期、运行期有效</p>
+<p>典型的例子是JDBC驱动实现，项目主代码的编译只需要JDK提供的JDBC接口，只有在执行测试或者运行项目的时候才需要实现上述接口的具体JDBC驱动。</p>
+<p><strong>使用system 依赖范围</strong></p>
+<p>和provided依赖范围一致（编译期、测试期），但需要指定systemPath标签，显示的指定依赖jar的路径。使用此依赖范围，表示的是从本地磁盘上找依赖，不是从maven仓库中解析了。使用此依赖的时候要注意，因为是从自己本地磁盘上找依赖，因此如果多个人在共同开发，比较麻烦，还要拷贝那个依赖jar到对方机器上的相同路径下。因此不建议使用这个依赖范围。</p>
+<p>但是，system 范围的依赖不会从 maven 仓库下载，而是从本地文件系统获取，使用 system 范围的依赖时必须通过 <systempath> 元素显式地指定依赖文件的路径。</systempath></p>
+<p>由于此类依赖不是通过 Maven 仓库解析的，而且往往与本机系统绑定，可能造成构建（构建的产物有：classes和artifact）的不可移植，因此应该谨慎使用。</p>
+<p><strong>使用import 依赖范围</strong></p>
+<p>导入依赖范围。该依赖对于上边说的三种classpath期都没有作用。该范围的依赖只在dependencyManagement标签才有效。它的作用是将目标pom的dependencyManagement标签中的依赖，合并到当前pom的dependencyManagement标签内，供引用项目中使用。由于import依赖的特殊性，一般看到import范围时，就会存在<type>pom</type>，即指向打包类型为pom的模块。比如下边这样：</p>
+<p><strong>使用import 依赖范围</strong></p>
+<p>由于Maven中只能使用单继承，springboot项目的父工程为spring-boot-starter-parent，无法直接配置springCloud的依赖</p>
+<ol>
+<li>打包类型必须是 pom</li>
+<li>必须在 dependencyManagement 配置</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud 微服务 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud Alibaba 微服务 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud-alibaba.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用system依赖范围</strong><br>
+以 Windows 系统环境下开发为例，假设现在 D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar 想要引入到我们的项目中，此时我们就可以将依赖配置为 system 范围：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.javatv.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是很明显：这样引入依赖完全不具有可移植性，所以不要使用</p>
+<p><strong>使用runtime依赖范围</strong><br>
+专门用于编译时不需要，但是运行时需要的 jar 包。比如：编译时我们根据接口调用方法，但是实际运行时需要的是接口的实现类。典型案例是：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--热部署 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>通过如下POM配置，来使得所有其它配置文件的值都在POM中统一管理。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>其中directory标签中为其它配置文件所在的目录路径。添加该配置后，在该目录下的所有配置文件中，我们都可以使用${…}来引用POM中的property，从而使得这些配置的具体值都可以统一在POM文件中进行管理。</p>
@@ -255,7 +327,6 @@
 <p>子项目2：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-c<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>war<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>子项目根据groupId, artifactId, type, classifier四个值来定位到父项目dependencyManagement中的依赖，并完全沿用父项目dependencyManagement中对该依赖的配置。若在子项目中仅指定了groupId=A，artifactId=B未指定type和classifier的值，则将会定位父项目中groupId=A，artifactId=B，type=jar，classifier=null的依赖。（暂无需理会classifier）</p>
-<p>一.maven的聚合和继承可以实现模块的划分(同时也是为后面的分布式做准备)</p>
 <p>二.可以将多个模块组合起来使用，而不再是单个的模块了；<br>
 1.创建一个工程,项目(project),名称为maven01(可以删除src目录)<br>
 2.创建模块module01</p>

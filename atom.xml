@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-03T09:44:23.827Z</updated>
+  <updated>2023-07-04T04:00:09.344Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="http://example.com/post/maven/"/>
     <id>http://example.com/post/maven/</id>
     <published>2023-07-01T03:17:04.513Z</published>
-    <updated>2023-07-03T09:44:23.827Z</updated>
+    <updated>2023-07-04T04:00:09.344Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;lifecycle&quot;&gt;lifecycle&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;当我们对一个项目进行打包时，maven分别执行了&lt;/p&gt;
-&lt;p&gt;验证（validate） ==&amp;gt; 编译源码（compile） ==&amp;gt;</summary>
+    <summary type="html">&lt;p&gt;当我们对一个项目进行打包时，maven分别执行了&lt;/p&gt;
+&lt;p&gt;验证（validate） ==&amp;gt; 编译源码（compile） ==&amp;gt; 编译测试源码（test-compile） ==&amp;gt; 单元测试（test）==&amp;gt;</summary>
         
       
     
@@ -46,15 +45,17 @@
     <link href="http://example.com/post/git/"/>
     <id>http://example.com/post/git/</id>
     <published>2023-06-29T08:24:56.021Z</published>
-    <updated>2023-06-30T07:31:31.526Z</updated>
+    <updated>2023-07-05T04:01:36.037Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;本地个人开发&quot;&gt;本地个人开发&lt;/span&gt;&lt;/h2&gt;
-&lt;h3&gt;&lt;span</summary>
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;git&quot;&gt;Git&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Git是分布式代码版本管理系统，其分为客户端和服务端两个部分&lt;/p&gt;
+&lt;p&gt;服务器端：大家共同存储的一个终端，可以自己搭建，也可以选择别的公司更好的的处理&lt;/p&gt;
+&lt;p&gt;本地机：</summary>
         
       
     
@@ -368,30 +369,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
   </entry>
   
   <entry>
-    <title>校验注解</title>
-    <link href="http://example.com/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/"/>
-    <id>http://example.com/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</id>
-    <published>2023-06-08T04:33:27.952Z</published>
-    <updated>2023-03-14T08:07:02.443Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;导入依赖&quot;&gt;导入依赖&lt;/span&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>树</title>
     <link href="http://example.com/post/%E6%A0%91/"/>
     <id>http://example.com/post/%E6%A0%91/</id>
@@ -411,6 +388,30 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     
     
     <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>校验注解</title>
+    <link href="http://example.com/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/"/>
+    <id>http://example.com/post/%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/</id>
+    <published>2023-06-08T04:33:27.952Z</published>
+    <updated>2023-03-14T08:07:02.443Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;导入依赖&quot;&gt;导入依赖&lt;/span&gt;&lt;/h2&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
