@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.6k</span>
+            <span class="post-count">3.7k</span>
         </span>
     </span>
 
@@ -419,15 +419,15 @@
 <li>若两个分支都对同一个文件中的同一行进行了修改，则会发生冲突</li>
 <li>若一个分支删除了另一个分支进行了修改的文件，则会发生冲突</li>
 </ol>
-<h3><span id="冲突">冲突</span></h3>
-<p><img src="https://pic.imgdb.cn/item/649e75081ddac507cc1f8e4c.jpg" alt></p>
-<p>冲突的解决：编辑修改好发生冲突的文件x后，执行git add x和git commit -m “message”</p>
 <h3><span id="变基">变基</span></h3>
-<p>主分支发生了变化，主分支由其他的子分支合并了新的内容，另一个子分支也需要新增的这些内容，就可以让子分支变基(让主分支的新的内容重新分配给子分支)</p>
+<p><img src="https://pic.imgdb.cn/item/64a528f01ddac507cc587076.jpg" alt>主分支发生了变化，主分支由其他的子分支合并了新的内容，另一个子分支也需要新增的这些内容，就可以让子分支变基(让主分支的新的内容重新分配给子分支)</p>
 <p>先选择要变基的子分支，选中主分支右键选择Rebase即可，主分支中的内容就会重新分配给当前子分支。</p>
 <p>情况一:主分支新建了一个子分支，都有内容的改变，推荐先让子分支合并到主分支中，子分支在变基，最后子分支在合并到主分支中。</p>
 <p>情况二:分支不是由master创建的，而是由其他的子分支创建的，可以正常使用，分支结构线会有点乱</p>
 <p>使用多条分支来并发地推进多个任务</p>
+<h3><span id="冲突">冲突</span></h3>
+<p><img src="https://pic.imgdb.cn/item/649e75081ddac507cc1f8e4c.jpg" alt></p>
+<p>冲突的解决：编辑修改好发生冲突的文件x后，执行git add x和git commit -m “message”</p>
 <h3><span id="常用命令">常用命令</span></h3>
 <table>
 <thead>
@@ -517,6 +517,13 @@
 <p><img src="https://pic.imgdb.cn/item/64a3ebd81ddac507cc37aa06.jpg" alt></p>
 <p>选择需要提交到本地仓库的文件</p>
 <p><img src="https://pic.imgdb.cn/item/64a3ec561ddac507cc38cec2.jpg" alt>commit 将处理好的代码文件提交到版本库中，形成一个新的版本</p>
+<h3><span id="版本内容对比">版本内容对比</span></h3>
+<ol>
+<li>选择提交版本</li>
+<li>右侧在选择的版本中指定要对比的文件</li>
+<li>点击 Show Diff 展示版本文件对比</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/64a50da51ddac507cc1ae605.jpg" alt></p>
 <h3><span id="推送至远程仓库">推送至远程仓库</span></h3>
 <p><img src="https://pic.imgdb.cn/item/64a3ecb81ddac507cc39c937.jpg" alt></p>
 <p><img src="https://pic.imgdb.cn/item/64a3f4841ddac507cc4ac21c.jpg" alt>push 将git仓库中的内容推送到码云的远程服务器上</p>
@@ -585,7 +592,7 @@
 <p><img src="https://pic.imgdb.cn/item/64a4e8961ddac507ccd43acc.jpg" alt></p>
 <p>合并后会覆盖主分支中的内容</p>
 <h2><span id="菜单图标">菜单图标</span></h2>
-<p>​</p>
+<p>​		 <!--mybatis框架的环境--> <dependency>     <groupid>org.mybatis</groupid>     <artifactid>mybatis</artifactid>     <version>${mybatis-version}</version> </dependency><!-- 分页插件jar --><dependency>    <groupid>com.github.pagehelper</groupid>    <artifactid>pagehelper</artifactid>    <version>5.2.0</version></dependency></p>
  
       <!-- reward -->
       

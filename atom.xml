@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-04T04:00:09.344Z</updated>
+  <updated>2023-07-07T12:42:09.583Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://example.com/post/maven/"/>
     <id>http://example.com/post/maven/</id>
     <published>2023-07-01T03:17:04.513Z</published>
-    <updated>2023-07-04T04:00:09.344Z</updated>
+    <updated>2023-07-07T12:42:09.583Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;当我们对一个项目进行打包时，maven分别执行了&lt;/p&gt;
-&lt;p&gt;验证（validate） ==&amp;gt; 编译源码（compile） ==&amp;gt; 编译测试源码（test-compile） ==&amp;gt; 单元测试（test）==&amp;gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://maven.apache.org/&quot;&gt;Maven官网&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span</summary>
         
       
     
@@ -45,7 +45,7 @@
     <link href="http://example.com/post/git/"/>
     <id>http://example.com/post/git/</id>
     <published>2023-06-29T08:24:56.021Z</published>
-    <updated>2023-07-05T04:01:36.037Z</updated>
+    <updated>2023-07-05T10:58:05.110Z</updated>
     
     
       

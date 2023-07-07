@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">5.3k</span>
+            <span class="post-count">8.9k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">22 min</span>
+            <span class="post-count">38 min</span>
         </span>
     </span>
 </div>
@@ -112,66 +112,21 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>当我们对一个项目进行打包时，maven分别执行了</p>
-<p>验证（validate） ==&gt; 编译源码（compile） ==&gt; 编译测试源码（test-compile） ==&gt; 单元测试（test）==&gt; 打包（package）</p>
-<ol>
-<li>这个过程就是生命周期(lifecycle)。在生命周期的过程中会有很多的阶段(phase)（如clean由pre-clean、clean、post-clean组成），这些阶段按照既定的顺序执行来完成一个项目的构建。</li>
-<li>在生命周期中，各个阶段的工作由插件来完成(plugin)，一个插件通常可以完成一个或者多个阶段的工作。每个阶段的工作对应插件中的一个目标(goal)。不同的插件结合起来，就完成了项目的构建。</li>
-</ol>
-<h2><span id="lifecycle">lifecycle</span></h2>
-<p>Maven有三个内置的build lifecycle，分别是：clean、default、site</p>
-<h3><span id="clean">Clean</span></h3>
-<p>构建之前进行项目的清理（缓存，临时文件，编译文件等）</p>
-<ol>
-<li>pre-clean 执行一些需要在clean 之前完成的工作</li>
-<li>clean 移除所有上一次构建生成的文件</li>
-<li>post-clean 执行一些需要在clean 之后立即完成的工作</li>
-</ol>
-<h3><span id="default">Default</span></h3>
-<p>负责项目的部署，构建的核心部分，编译，测试，打包，安装，部署等。</p>
-<ol>
-<li>compile 编译项目源码</li>
-<li>test-Compile 编译测试源代码</li>
-<li>test 使用合适的单元测试框架运行测试，这些测试代码不会打包或者部署</li>
-<li>package 接受编译好的代码，打包成可发布的格式，如 JAR</li>
-<li>install 将包安装至本地仓库，以让其他项目依赖</li>
-<li>deploy 将最终的包复制到远程仓库，以让其他开发人员项目共享或部署到服务器上运行</li>
-</ol>
-<h3><span id="site">Site</span></h3>
-<p>负责项目文档的创建，生成项目报告，站点 ，发布站点</p>
-<ol>
-<li>pre-site 执行一些需要在生成站点文档之前完成的工作</li>
-<li>site 生成项目的站点文档</li>
-<li>site-deploy 将生成的站点文档部署到特定的服务器上</li>
-</ol>
-<h3><span id="注意">注意</span></h3>
-<ol>
-<li>
-<p>当执行命令<code>mvn [phase]</code>时，<code>[phase]</code>及其所在build lifecycle中所有位于<code>[phase]</code>前的build phase都将被按序执行。（运行任何一个阶段的时候，它前面的所有阶段都会被运行 ）</p>
-</li>
-<li>
-<p>在build phase上可以绑定plugin goal。若build phase上未绑定任何plugin goal，则该build phase将不会产生任何影响。若build phase上绑定了一个或多个plugin goal，则所有绑定的plugin goal都将被执行。</p>
-</li>
-<li>
-<p>有两种方式可以为build phase绑定plugin goal：</p>
-<ol>
-<li>
-<p>在POM中设置packaging标签，其值可以被设为jar，war，ear，pom。这些packaging值将会为每个build lifecycle中对应的build phase绑定对应的plugin goal。（未指定packaging标签时，其将被默认设置为jar）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在POM中设置plugin标签，为某个<code>&lt;phase&gt;</code>绑定上该plugin下的某个或某些<code>&lt;goal&gt;</code>。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">phase</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li>
-<p>对于绑定了多个plugin goal的build phase，plugin goal的执行顺序为：先执行packaging中绑定的goal，后按序执行POM中绑定的goal。</p>
-</li>
-</ol>
+  <p><a target="_blank" rel="noopener" href="http://maven.apache.org/">Maven官网</a></p>
+<h2><span id="传统项目开发存在的问题">传统项目开发存在的问题</span></h2>
+<p>一个项目做成一个工程，造成工程比较庞大，package划分模块已经不再满足需求，需要使用工程来划分模块；</p>
+<p>数量众多的项目之间的依赖，需要手动打包并引入；</p>
+<p>项目中需要的数量众多的jar包，需要手动下载并引入，并且多个项目需要的jar包存在重复的问题；</p>
+<p>项目中需要的jar包有版本兼容的问题，需要手动解决；</p>
+<p>项目中需要的jar包又依赖其它的jar包，需要手动解决。</p>
+<h2><span id="maven功能">Maven功能</span></h2>
+<h3><span id="管理依赖">管理依赖</span></h3>
+<p>只需要声明就可以自动到仓库下载</p>
+<h3><span id="构建项目">构建项目</span></h3>
+<h3><span id="管理项目信息">管理项目信息</span></h3>
+<p>生成一个站点文档，一个命令就可以解决，最后再说</p>
 <h2><span id="pomproject-object-mode">POM(Project Object Mode)</span></h2>
 <p>Maven基于项目中的POM配置文件来对当前项目进行构建</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span> 4.0.0 <span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -181,20 +136,52 @@
 </thead>
 <tbody>
 <tr>
-<td>modelVersion</td>
+<td><em>modelVersion</em></td>
 <td>固定值4.0.0</td>
 </tr>
 <tr>
-<td>groupId</td>
-<td>公司或组织的 id，即公司或组织域名的倒序</td>
+<td><em>groupId</em></td>
+<td>公司或组织的 id，<code>项目用途(com/org).公司名.项目名</code></td>
 </tr>
 <tr>
-<td>artifactId</td>
+<td><em>artifactId</em></td>
 <td>项目或某个模块的名称，作为 Maven 工程的工程名</td>
 </tr>
 <tr>
-<td>version</td>
-<td>版本号</td>
+<td><em>version</em></td>
+<td>版本号,若项目还在开发中，通常在版本后带-SNAPSHOT</td>
+</tr>
+<tr>
+<td>packaging</td>
+<td>项目打包的类型，如ar、war、rar、ear、pom，默认是jar</td>
+</tr>
+<tr>
+<td>dependencies</td>
+<td>嵌套一个或多个dependency标签</td>
+</tr>
+<tr>
+<td>dependency</td>
+<td>Maven中用于项目构建、运行所依赖的jar包被称为依赖，该标签用于定位、配置要使用的依赖</td>
+</tr>
+<tr>
+<td>dependencyManagement</td>
+<td>主要用于继承；声明依赖，并不会实际引入依赖</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>定义配置属性，如project.build.sourceEncoding（项目构建源码编码方式）设置为UTF-8防止中文乱码</td>
+</tr>
+<tr>
+<td>build</td>
+<td>配置构建相关的信息，比如build下有finalName，表示的就是最终构建之后的名称</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>声明要继承的父工程的pom配置</td>
+</tr>
+<tr>
+<td>modules</td>
+<td>主要用于聚合其它模块</td>
 </tr>
 </tbody>
 </table>
@@ -202,6 +189,139 @@
 <li>groupId，artifactId，version构成了该项目的坐标，其唯一确定了一个project</li>
 <li>对应Maven本地仓库根目录\【groupId】\【artifactId】\【version】\【artifactId】-【version】.jar</li>
 </ol>
+<h2><span id="六大属性">六大属性</span></h2>
+<h3><span id="内置属性">内置属性</span></h3>
+<p>内置属性(Maven预定义,用户可以直接使用)</p>
+<table>
+<thead>
+<tr>
+<th>内置属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${basedir}</td>
+<td>表示项目根目录,即包含pom.xml文件的目录</td>
+</tr>
+<tr>
+<td>${version}</td>
+<td>表示项目版本</td>
+</tr>
+<tr>
+<td>${project.basedir}</td>
+<td>同 ${basedir}</td>
+</tr>
+<tr>
+<td>${project.baseUri}</td>
+<td>表示项目文件地址</td>
+</tr>
+<tr>
+<td>${maven.build.timestamp}</td>
+<td>表示项目构件开始时间</td>
+</tr>
+<tr>
+<td>${maven.build.timestamp.format}</td>
+<td>表示属性 ${maven.build.timestamp}的展示格式,默认值为yyyyMMdd-HHmm</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">maven.build.timestamp.format</span>&gt;</span>yyyy-MM-dd HH:mm:ss<span class="tag">&lt;/<span class="name">maven.build.timestamp.format</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="pom属性">POM属性</span></h3>
+<p>POM属性(使用pom属性可以引用到pom.xml文件对应元素的值)</p>
+<table>
+<thead>
+<tr>
+<th>POM属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${project.build.directory}</td>
+<td>表示主源码路径</td>
+</tr>
+<tr>
+<td>${project.build.sourceEncoding}</td>
+<td>表示主源码的编码格式</td>
+</tr>
+<tr>
+<td>${project.build.sourceDirectory}</td>
+<td>表示主源码路径</td>
+</tr>
+<tr>
+<td>${project.build.finalName}</td>
+<td>表示输出文件名称</td>
+</tr>
+<tr>
+<td>${project.version}</td>
+<td>表示项目版本,与 ${version}相同</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="自定义属性">自定义属性</span></h3>
+<p>自定义属性(在pom.xml文件的标签下定义的Maven属性)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">spring-version</span>&gt;</span>5.3.20<span class="tag">&lt;/<span class="name">spring-version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mybatis-version</span>&gt;</span>3.5.11<span class="tag">&lt;/<span class="name">mybatis-version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="settingsxml文件属性">settings.xml文件属性</span></h3>
+<p>(与pom属性同理,用户使用以settings.开头的属性引用settings.xml文件中的XML元素值)</p>
+<table>
+<thead>
+<tr>
+<th>settings.xml属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${settings.localRepository}</td>
+<td>表示本地仓库的地址</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="java系统属性">Java系统属性</span></h3>
+<p>(所有的Java系统属性都可以使用Maven属性引用)</p>
+<ol>
+<li>使用mvn help:system命令可查看所有的Java系统属性;</li>
+<li>System.getProperties()可得到所有的Java属性;</li>
+<li>${user.home}表示用户目录;</li>
+</ol>
+<h3><span id="环境变量属性">环境变量属性</span></h3>
+<p>(所有的环境变量都可以用以env.开头的Maven属性引用)</p>
+<ol>
+<li>使用mvn help:system命令可查看所有环境变量;</li>
+<li>${env.JAVA_HOME}表示JAVA_HOME环境变量的值;</li>
+</ol>
+<h2><span id="仓库">仓库</span></h2>
+<p>为了提高构建的效率和依赖复用，maven把所有的依赖统一存储在某一个位置，这个位置就叫做仓库。</p>
+<h3><span id="本地仓库">本地仓库</span></h3>
+<p>默认存放路径为当前用户目录\.m2\repository为本机上所有的Maven工程服务</p>
+<p>可在<code>【Maven_home】/conf/settings.xml</code>中通过<code>&lt;localRepository&gt;</code>标签来指定本地仓库路径</p>
+<h3><span id="远程仓库">远程仓库</span></h3>
+<p>构建项目时，若POM中所声明的依赖未能在本地仓库中找到，将触发Maven从远程仓库中进行下载，并保存在本地仓库中，供项目使用。</p>
+<p>中央仓库是maven默认的远程仓库，其地址是:<a target="_blank" rel="noopener" href="http://repo.maven.apache.org/maven2/">http://repo.maven.apache.org/maven2/</a></p>
+<p>我们可以在<code>【Maven_home】/conf/settings.xml</code>或POM中通过如下配置来对远程仓库进行设置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中id，name，url分别表示该远程仓库的唯一标识、名字、地址</p>
+<p><strong>若配置了多个远程仓库，MAVEN寻找依赖的顺序</strong></p>
+<ol>
+<li>在<code>【Maven_home】/conf/settings.xml</code>文件中配置的远程仓库</li>
+<li>当前项目POM文件中配置的远程仓库</li>
+<li>父项目POM文件中配置的远程仓库</li>
+<li>Super POM文件中配置的远程仓库（Maven的中心仓库）</li>
+</ol>
+<p><strong>在<code>【Maven_home】/conf/settings.xml</code>中通过如下配置来为每个远程仓库配置最多一个镜像</strong></p>
+<p>当Maven需要访问某个远程仓库时，将会去访问该远程仓库的镜像，以下是阿里云maven镜像仓库配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中id，name，url，mirrorOf分别表示该镜像的唯一标识、名字、地址、所镜像的远程仓库id</p>
+<h3><span id="内部仓库私服">内部仓库（私服）</span></h3>
+<p>本质上就是内部使用的远程仓库，架设在局域网内的仓库服务，私服代理广域网上的远程仓库，供局域网内的Maven用户使用</p>
+<p>当Maven需要下载构件的时候，它从私服请求，如果私服上不存在该构件，则从外部的远程仓库下载，缓存在私服上之后，再为Maven的下载请求提供服务。我们还可以把一些无法从外部仓库下载到的构件上传到私服上。公司中常常使用这种方式</p>
+<p>当前主流的maven私服： Apache的Archiva、JFrog的Artifactory、Sonatype的Nexus</p>
+<img src="https://pic.imgdb.cn/item/64a667b41ddac507ccabd228.jpg" style="zoom:50%;">
+<h2><span id="依赖">依赖</span></h2>
+<p>可通过如下POM配置来设置当前项目的直接依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中groupId，artifactId，version为依赖的坐标。type为依赖的类型，一般为依赖文件的后缀名，默认为jar</p>
 <h2><span id="项目继承">项目继承</span></h2>
 <p>当一个项目有足够多的文件时，可以将项目拆分多个模块，每个模块都需要配置自身的依赖信息</p>
 <p>通过如下POM配置将当前项目设置为另一个项目的子项目</p>
@@ -220,32 +340,97 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父模块POM中设置dependencyManagement（依赖管理器），子模块手动继承时才会引入到工程 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 若不使用依赖管理器，则强制使所有子模块继承一下依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>子模块引用父工程管理的依赖</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 子模块POM中直接引用依赖，可省略版本号 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>子项目根据groupId（必填）, artifactId（必填）, type（默认为jar）, classifier（默认为null）四个值来定位到父项目dependencyManagement中的依赖，并完全沿用父项目dependencyManagement中对该依赖的配置</p>
 <h2><span id="项目聚合">项目聚合</span></h2>
 <p>在<strong>总工程</strong>中通过如下POM配置将各个<strong>模块工程</strong>汇集成起来，作为一个整体（完整的项目）</p>
 <p>对当前项目进行编译时，也将同时为该项目所有的子模块进行编译，解决一次性编译的问题</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--子模块项目的相对路径--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">module</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">module</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">module</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2><span id="依赖配置补充">依赖配置补充</span></h2>
+<h2><span id="依赖传递">依赖传递</span></h2>
+<p>根据直接依赖，获取到其所有的间接依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">├── B</span><br><span class="line">│  	└── D</span><br><span class="line">└── C</span><br><span class="line">	└── E</span><br></pre></td></tr></table></figure>
+<p>如当前项目A直接依赖于B和C，而B和C分别直接依赖于D和E。通过依赖传递机制，我们仅需在项目A中配置其直接依赖B和C，Maven会自动对间接依赖D和E进行获取</p>
+<h2><span id="依赖冲突">依赖冲突</span></h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">├── B</span><br><span class="line">│  	└── E 1.0</span><br><span class="line">└── C</span><br><span class="line">    └── D 2.0</span><br><span class="line">    	└── E 2.0</span><br></pre></td></tr></table></figure>
+<p>在上例中，A的间接依赖E发生了冲突。由于E 1.0在依赖树中的层级更加接近项目A，因此E 1.0将会被采用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">├── B</span><br><span class="line">│  	└── D 1.0</span><br><span class="line">└── C</span><br><span class="line">	└── D 2.0</span><br></pre></td></tr></table></figure>
+<p>在上例中，A的间接依赖D发生了冲突。由于D 1.0所属的直接依赖B在A中被首先声明，因此D 1.0将会被采用</p>
+<h2><span id="依赖范围">依赖范围</span></h2>
+<p>在<dependency>标签中，我们可通过设置<scope>标签来指定该依赖的范围。其可选值有：</scope></dependency></p>
 <p>maven项目依赖生效分为三个时期，编译期、测试期、运行期</p>
 <p>通过对<code>&lt;scope&gt;</code>合理的配置，可以控制当前依赖在不同时期编译期、测试期、运行期生效的关系，指定被依赖资源的依赖范围</p>
 <p>可选配置有 compile、test、provided、runtime、system、import，若不指定则默认 compile</p>
-<p><strong>使用compile依赖范围</strong></p>
-<p>默认会使用该依赖范围，编译期、测试期、运行期都生效。</p>
-<p><strong>使用test依赖范围</strong></p>
-<p>只在测试期生效，典型的是JUnit依赖，只在编译测试代码（src/test）和运行测试的时候才需要</p>
-<p><strong>使用provided 依赖范围</strong></p>
-<p>只在编译期、测试期有效。表示当前依赖在运行时默认由某个子项目项目引用，运行期则不需要引用</p>
-<p><img src="https://pic.imgdb.cn/item/64a396961ddac507cc7a32b3.jpg" alt></p>
+<table>
+<thead>
+<tr>
+<th><code>&lt;scope&gt;</code>依赖范围</th>
+<th>编译期</th>
+<th>测试期</th>
+<th>运行期</th>
+<th>打入jar包</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compile</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>默认</td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>如JUnit依赖，只在编译测试代码（src/test）和运行测试的时候才需要</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td>当前依赖在运行时默认由某个子项目项目引用，运行期则不需要引用</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>JDBC驱动实现，项目主代码的编译只需要JDK提供的JDBC接口，只有在执行测试或者运行项目的时候才需要实现上述接口的具体JDBC驱动</td>
+</tr>
+<tr>
+<td>system</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td>由systemPath标签指定依赖jar的路径，表示的是从本地磁盘上找依赖，而不是从 maven 仓库下载，不适用多人协作</td>
+</tr>
+<tr>
+<td>import</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>将目标pom的dependencyManagement标签中的依赖，合并到当前pom的dependencyManagement标签内，供引用项目中使用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用provided依赖范围</strong> <img src="https://pic.imgdb.cn/item/64a396961ddac507cc7a32b3.jpg" alt></p>
 <p>上述工具项目中引用了spring-web依赖，但是当前项目同时引用了<code>spring-boot-starter-web</code>（包括<code>spring-web</code>）</p>
 <p>既然运行时SpringBoot会提供spring-web，因此使用provided依赖范围在运行时不参与项目打包，避免重复引用依赖</p>
-<p><strong>使用runtime依赖范围</strong></p>
-<p>对于测试期、运行期有效</p>
-<p>典型的例子是JDBC驱动实现，项目主代码的编译只需要JDK提供的JDBC接口，只有在执行测试或者运行项目的时候才需要实现上述接口的具体JDBC驱动。</p>
-<p><strong>使用system 依赖范围</strong></p>
-<p>和provided依赖范围一致（编译期、测试期），但需要指定systemPath标签，显示的指定依赖jar的路径。使用此依赖范围，表示的是从本地磁盘上找依赖，不是从maven仓库中解析了。使用此依赖的时候要注意，因为是从自己本地磁盘上找依赖，因此如果多个人在共同开发，比较麻烦，还要拷贝那个依赖jar到对方机器上的相同路径下。因此不建议使用这个依赖范围。</p>
-<p>但是，system 范围的依赖不会从 maven 仓库下载，而是从本地文件系统获取，使用 system 范围的依赖时必须通过 <systempath> 元素显式地指定依赖文件的路径。</systempath></p>
-<p>由于此类依赖不是通过 Maven 仓库解析的，而且往往与本机系统绑定，可能造成构建（构建的产物有：classes和artifact）的不可移植，因此应该谨慎使用。</p>
-<p><strong>使用import 依赖范围</strong></p>
-<p>导入依赖范围。该依赖对于上边说的三种classpath期都没有作用。该范围的依赖只在dependencyManagement标签才有效。它的作用是将目标pom的dependencyManagement标签中的依赖，合并到当前pom的dependencyManagement标签内，供引用项目中使用。由于import依赖的特殊性，一般看到import范围时，就会存在<type>pom</type>，即指向打包类型为pom的模块。比如下边这样：</p>
+<p><strong>使用runtime依赖范围</strong><br>
+专门用于编译时不需要，但是运行时需要的 jar 包。比如：编译时我们根据接口调用方法，但是实际运行时需要的是接口的实现类。典型案例是：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--热部署 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用system依赖范围</strong><br>
+以 Windows 系统环境下开发为例，假设现在 D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar 想要引入到我们的项目中，此时我们就可以将依赖配置为 system 范围：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.javatv.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是很明显：这样引入依赖完全不具有可移植性，所以不要使用</p>
 <p><strong>使用import 依赖范围</strong></p>
 <p>由于Maven中只能使用单继承，springboot项目的父工程为spring-boot-starter-parent，无法直接配置springCloud的依赖</p>
 <ol>
@@ -253,86 +438,409 @@
 <li>必须在 dependencyManagement 配置</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud 微服务 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud Alibaba 微服务 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud-alibaba.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>使用system依赖范围</strong><br>
-以 Windows 系统环境下开发为例，假设现在 D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar 想要引入到我们的项目中，此时我们就可以将依赖配置为 system 范围：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.javatv.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>D:\product\maven-demo-parent\demo-module\target\demo-module-1.0-SNAPSHOT.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>但是很明显：这样引入依赖完全不具有可移植性，所以不要使用</p>
-<p><strong>使用runtime依赖范围</strong><br>
-专门用于编译时不需要，但是运行时需要的 jar 包。比如：编译时我们根据接口调用方法，但是实际运行时需要的是接口的实现类。典型案例是：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--热部署 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过如下POM配置，来使得所有其它配置文件的值都在POM中统一管理。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中directory标签中为其它配置文件所在的目录路径。添加该配置后，在该目录下的所有配置文件中，我们都可以使用${…}来引用POM中的property，从而使得这些配置的具体值都可以统一在POM文件中进行管理。</p>
+<h2><span id="依赖范围传递">依赖范围传递</span></h2>
+<img src="file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml4668\wps2.jpg" alt="img" style="zoom:67%;"> 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">└── B</span><br><span class="line">	└── C</span><br></pre></td></tr></table></figure>
+<p>A直接依赖于B，B直接依赖于C</p>
+<ol>
+<li>当B的POM文件将依赖C配置为test和provided范围时，B和C之间的依赖传递将被阻断。此时A不再间接依赖于C</li>
+<li>当B的POM文件将依赖C配置为compile和runtime范围时，C将会成为A的间接依赖，其范围值将被设置为与依赖B的范围值一致</li>
+<li>特殊：当B的POM文件将依赖C配置为runtime范围且A的POM文件将依赖B配置为compile范围时，C的范围值将被设置为runtime</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>test</th>
+<th>provided</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B中依赖C仅用于测试，因此A依赖B而无需间接依赖C</td>
+<td>B在运行时外界将提供C，则A无需间接依赖C</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="可选依赖">可选依赖</span></h2>
+<p>可通过如下POM配置来将当前项目的某个直接依赖设置为可选依赖。该设置将会阻断当前项目与该依赖间的依赖传递，使得其它项目无法通过当前项目而间接依赖于该依赖，只能本项目使用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span> </span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="依赖排除">依赖排除</span></h2>
+<p>可通过如下POM配置来删除当前项目的某个直接依赖中的间接依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span> </span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="依赖循环问题">依赖循环问题</span></h2>
+<p>如果 A 工程依赖 B 工程，B 工程依赖 C 工程，C 工程又反过来依赖 A 工程，那么在执行构建操作时会报下面的错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DANGER</span><br><span class="line"></span><br><span class="line">[ERROR] [ERROR] The projects in the reactor contain a cyclic reference:</span><br></pre></td></tr></table></figure>
+<h2><span id="生命周期">生命周期</span></h2>
+<p>当我们对一个项目进行打包时，maven分别执行了</p>
+<p>验证（validate） ==&gt; 编译源码（compile） ==&gt; 编译测试源码（test-compile） ==&gt; 单元测试（test）==&gt; 打包（package）</p>
+<ol>
+<li>这个过程就是生命周期(lifecycle)。在生命周期的过程中会有很多的阶段(phase)（如clean由pre-clean、clean、post-clean组成），这些阶段按照既定的顺序执行来完成一个项目的构建。</li>
+</ol>
+<p>Maven有三个内置的构建生命周期，分别是：clean、default、site，都对应成一个个的生命周期阶段，并对每一个阶段提供相应的命令</p>
+<h3><span id="clean">Clean</span></h3>
+<p>构建之前进行项目的清理（缓存，临时文件，编译文件等）</p>
+<ol>
+<li>pre-clean 执行一些需要在clean 之前完成的工作</li>
+<li>clean 移除所有上一次构建生成的文件，即target目录，但是已经install到仓库里的包不会删除</li>
+<li>post-clean 执行一些需要在clean 之后立即完成的工作</li>
+</ol>
+<h3><span id="default">Default</span></h3>
+<p>负责项目的部署，构建的核心部分，编译，测试，打包，安装，部署等。</p>
+<ol>
+<li>compile 编译项目源码，会在当前目录下生成一个target,里边存放编译主程序之后生成的字节码文件</li>
+<li>test-Compile 编译测试源代码，会在当前目录下生成一个target,里边存放编译测试程序之后生成的字节码文件</li>
+<li>test 会生成一个目录surefire-reports，保存测试结果使用合适的单元测试框架运行测试，这些测试代码不会打包或者部署</li>
+<li>package 编译、编译测试、测试；并把主程序按照pom.xml配置打包</li>
+<li>install 打包，且按照本工程的坐标保存至本地仓库，以让其他项目依赖</li>
+<li>deploy 打包、保存到本地仓库中，并将最终的包保存到私服仓库，以让其他开发人员项目共享或部署到服务器上运行</li>
+</ol>
+<h3><span id="site">Site</span></h3>
+<p>负责项目文档的创建，生成项目报告，站点 ，发布站点</p>
+<ol>
+<li>pre-site 执行一些需要在生成站点文档之前完成的工作</li>
+<li>site 生成项目的站点文档</li>
+<li>site-deploy 将生成的站点文档部署到特定的服务器上</li>
+</ol>
+<p><strong>注意</strong></p>
+<p>当执行某个生命周期的阶段时，该阶段及其所在生命周期中所有位于该阶段前的所有构建阶段都将被按序执行（运行任何一个阶段的时候，它前面的所有阶段都会被运行 ）</p>
+<h2><span id="构建配置">构建配置</span></h2>
+<p><code>&lt;build&gt;</code> 标签的子标签大致包含如下三个部分</p>
+<h3><span id="定义约定的目录结构">定义约定的目录结构</span></h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project(根目录，也就是工程名)</span><br><span class="line">- src(源代码)</span><br><span class="line">  - main(主程序)</span><br><span class="line">    - java(主程序的java源码)</span><br><span class="line">    - resources(主程序的配置文件)</span><br><span class="line">  - test(测试程序)</span><br><span class="line">    - java(测试程序的java源码)</span><br><span class="line">    - resources(测试程序的配置文件)</span><br><span class="line">- pom.xml (Maven工程的核心配置文件)</span><br></pre></td></tr></table></figure>
+<p>在项目根路径下查看pom.xml，右键点击Show Effective POM选项，在页面中可以查找到maven默认的目录结构</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">sourceDirectory</span>&gt;</span>【module_path】\src\main\java<span class="tag">&lt;/<span class="name">sourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scriptSourceDirectory</span>&gt;</span>【module_path】e\src\main\scripts<span class="tag">&lt;/<span class="name">scriptSourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testSourceDirectory</span>&gt;</span>【module_path】\src\test\java<span class="tag">&lt;/<span class="name">testSourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>【module_path】\target\classes<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testOutputDirectory</span>&gt;</span>【module_path】\target\test-classes<span class="tag">&lt;/<span class="name">testOutputDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>【module_path】\src\main\resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testResources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">testResource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>【module_path】\src\test\resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">testResource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">testResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>【module_path】\target<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>demo-module-1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sourceDirectory</td>
+<td>主体源程序存放目录</td>
+</tr>
+<tr>
+<td>scriptSourceDirectory</td>
+<td>脚本源程序存放目录</td>
+</tr>
+<tr>
+<td>testSourceDirectory</td>
+<td>测试源程序存放目录</td>
+</tr>
+<tr>
+<td>outputDirectory</td>
+<td>主体源程序编译结果输出目录</td>
+</tr>
+<tr>
+<td>testOutputDirectory</td>
+<td>测试源程序编译结果输出目录</td>
+</tr>
+<tr>
+<td>resources</td>
+<td>主体资源文件存放目录</td>
+</tr>
+<tr>
+<td>testResources</td>
+<td>测试资源文件存放目录件，默认位于${basedir}/src/test/resources/目录下</td>
+</tr>
+<tr>
+<td>directory</td>
+<td>构建结果输出目录，默认为${basedir}/target目录</td>
+</tr>
+<tr>
+<td>finalName</td>
+<td>构建的最终结果的名字，该名字可能在其他plugin中被改变</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>resource标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resources</td>
+<td>build过程中涉及的资源文件</td>
+</tr>
+<tr>
+<td>targetPath</td>
+<td>资源文件的目标路径</td>
+</tr>
+<tr>
+<td>filtering</td>
+<td>构建过程中是否对资源进行过滤，默认false</td>
+</tr>
+<tr>
+<td>directory</td>
+<td>资源文件的路径，默认位于${basedir}/src/main/resources/目录下</td>
+</tr>
+<tr>
+<td>includes</td>
+<td>一组文件名的匹配模式，被匹配的资源文件将被构建过程处理</td>
+</tr>
+<tr>
+<td>excludes</td>
+<td>一组文件名的匹配模式，被匹配的资源文件将被构建过程忽略。同时被includes和excludes匹配的资源文件，将被忽略</td>
+</tr>
+<tr>
+<td>filters</td>
+<td>给出对资源文件进行过滤的属性文件的路径，默认位于${basedir}/src/main/filters/目录下。属性文件中定义若干键值对。在构建过程中，对于资源文件中出现的变量（键），将使用属性文件中该键对应的值替换</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="自定义配置资源文件">自定义配置资源文件</span></h3>
+<p>将java源代码路径下的资源文件也打包输出到指定路径</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当是web项目时，编译结果会在target下生成目录，【project_name】是项目名</p>
+<ol>
+<li><code>src/main/webapps</code> 下的文件输出到 <code>target/【project_name】</code></li>
+<li><code>target/classes </code>下的文件输出到 <code>target/【project_name】/WEB-INF/classes</code></li>
+<li>项目所有依赖输出到 <code>target/【project_name】/WEB-INF/lib </code></li>
+</ol>
+<h3><span id="备用插件管理">备用插件管理</span></h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-antrun-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2-beta-5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-release-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>pluginManagement</strong></p>
+<ol>
+<li>在<code>&lt;build&gt;</code>中，<code>&lt;pluginManagement&gt;</code>与<code>&lt;plugins&gt;</code>并列 ,两者之间的关系类似于<code>&lt;dependencyManagement&gt;</code>与<code>&lt;dependencies&gt;</code>之间的关系</li>
+<li><code>&lt;pluginManagement&gt;</code>中也配置<code>&lt;plugin&gt;</code>，其配置参数与<code>&lt;plugins&gt;</code>中的<code>&lt;plugin&gt;</code>完全一致</li>
+<li><code>&lt;pluginManagement&gt;</code>往往出现在父项目中，其中配置的<code>&lt;plugin&gt;</code>往往通用于子项目。子项目中只要在<code>&lt;plugins&gt;</code>中以<code>&lt;plugin&gt;</code>声明该插件，该插件的具体配置参数则继承自父项目中<code>&lt;pluginManagement&gt;</code>对该插件的配置，从而避免在子项目中进行重复配置</li>
+</ol>
+<h3><span id="生命周期插件">生命周期插件</span></h3>
+<ol>
+<li>在生命周期中，各个阶段的工作由插件来完成(plugin)</li>
+<li>一个插件通常可以完成一个或者多个阶段的工作。每个阶段的工作对应插件中的一个目标(goal)</li>
+<li>不同的插件结合起来，就完成了项目的构建</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-clean-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-clean<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>clean<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>clean<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-resources-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-testResources<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>process-test-resources<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testResources<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-resources<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>process-resources<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>resources<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-jar-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-jar<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-compile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-testCompile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testCompile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.12.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-test<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>test<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-install-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-install<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>install<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>install<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-deploy-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-deploy<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>deploy<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>deploy<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-site-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-site<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>site<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>site<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>D:\1MyProject\gitee-test\target\site<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-project-info-reports-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>default-deploy<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>site-deploy<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>deploy<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>D:\1MyProject\gitee-test\target\site<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-project-info-reports-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>D:\1MyProject\gitee-test\target\site<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-project-info-reports-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">reportPlugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">reportPlugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>插件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clean</td>
+<td>maven-clean-plugin:2.5</td>
+</tr>
+<tr>
+<td>resources、testResources</td>
+<td>maven-resources-plugin:2.6</td>
+</tr>
+<tr>
+<td>compile、testCompile</td>
+<td>maven-compiler-plugin:3.1</td>
+</tr>
+<tr>
+<td>test</td>
+<td>maven-surefire-plugin:2.12.4</td>
+</tr>
+<tr>
+<td>package</td>
+<td>maven-jar-plugin:2.4</td>
+</tr>
+<tr>
+<td>install</td>
+<td>maven-install-plugin:2.4</td>
+</tr>
+<tr>
+<td>site、deploy</td>
+<td>maven-site-plugin:3.3</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>maven-deploy-plugin:2.7</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>plugin标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extensions</td>
+<td>是否加载该插件的扩展，默认false</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td>该插件所需要的特殊配置，在父子项目之间可以覆盖或合并</td>
+</tr>
+<tr>
+<td>inherited</td>
+<td>该插件的configuration中的配置是否可以被（继承该POM的其他Maven项目）继承，默认true</td>
+</tr>
+<tr>
+<td>dependencies</td>
+<td>该插件所特有的依赖类库</td>
+</tr>
+<tr>
+<td>executions</td>
+<td>该插件的某个goal（一个插件中可能包含多个goal）的执行方式</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>execution标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>唯一标识</td>
+</tr>
+<tr>
+<td>goals</td>
+<td>要执行的插件的goal（可以有多个），如<code>&lt;goal&gt;run&lt;/goal&gt;</code></td>
+</tr>
+<tr>
+<td>phase</td>
+<td>插件的goal要嵌入到Maven的生命周期阶段（phase）中执行，如verify</td>
+</tr>
+<tr>
+<td>inherited</td>
+<td>该execution是否可被子项目继承</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td>该execution的其他配置参数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>绑定插件目标(goal)</strong></p>
+<p>在构建阶段上可以绑定插件目标。若阶段上未绑定任何插件目标，则该阶段将不会产生任何影响。若阶段绑定了一个或多个插件目标，则所有绑定的插件目标都将被执行</p>
+<p>为构建阶段绑定插件目标(goal)：若某个阶段绑定了多个插件目标，先执行packaging中绑定的goal，后按序执行POM中绑定的goal</p>
+<p><strong>在POM中设置packaging标签</strong></p>
+<p>其值可以被设为jar，war，ear，pom。这些packaging值将会为每个build lifecycle中对应的build phase绑定对应的plugin goal（未指定packaging标签时，其将被默认设置为jar）</p>
+<p><strong>在POM中设置plugin标签</strong></p>
+<p>为某个<code>&lt;phase&gt;</code>绑定上该plugin下的某个或某些<code>&lt;goal&gt;</code></p>
+<h3><span id="自定义配置插件">自定义配置插件</span></h3>
+<h4><span id="指定-jdk-版本">指定 JDK 版本</span></h4>
+<p>在 settings.xml 中已经配置了 JDK 版本，若将 Maven 工程部署都服务器上，脱离了 settings.xml 配置覆盖范围，无法生效</p>
+<p>当前Maven工程 pom.xml 中的 maven-compiler-plugin 插件配置JDK 版本，无论在哪个环境执行编译等构建操作都有效。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 插件的坐标。此处引用的 maven-compiler-plugin 插件不是第三方的，是一个 Maven 自带的插件。 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- configuration 标签：配置 maven-compiler-plugin 插件 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 具体配置信息会因为插件不同、需求不同而有所差异 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="springboot-定制化打包">SpringBoot 定制化打包</span></h4>
+<p>默认情况下 Maven 使用 maven-jar-plugin 插件的 jar 目标，打包成普通的 jar 包（无法通过 java -jar xxx.jar 直接运行），而SpringBoot项目需要为每个『微服务』导出为一个可以直接启动运行的jar 包（ java -jar xxx.jar ），因此需要使用spring-boot-maven-plugin</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过如下POM配置，来使得所有其它配置文件的值都在POM中统一管理</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中directory标签中为其它配置文件所在的目录路径。添加该配置后，在该目录下的所有配置文件中，我们都可以使用${…}来引用POM中的property，从而使得这些配置的具体值都可以统一在POM文件中进行管理</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resources</td>
+<td>build过程中涉及的资源文件</td>
+</tr>
+<tr>
+<td>targetPath</td>
+<td>资源文件的目标路径</td>
+</tr>
+<tr>
+<td>filtering</td>
+<td>构建过程中是否对资源进行过滤，默认false</td>
+</tr>
+<tr>
+<td>directory</td>
+<td>资源文件的路径，默认位于${basedir}/src/main/resources/目录下</td>
+</tr>
+<tr>
+<td>includes</td>
+<td>一组文件名的匹配模式，被匹配的资源文件将被构建过程处理</td>
+</tr>
+<tr>
+<td>excludes</td>
+<td>一组文件名的匹配模式，被匹配的资源文件将被构建过程忽略。同时被includes和excludes匹配的资源文件，将被忽略</td>
+</tr>
+<tr>
+<td>filters</td>
+<td>给出对资源文件进行过滤的属性文件的路径，默认位于${basedir}/src/main/filters/目录下。属性文件中定义若干键值对。在构建过程中，对于资源文件中出现的变量（键），将使用属性文件中该键对应的值替换</td>
+</tr>
+<tr>
+<td>testResources</td>
+<td>test过程中涉及的资源文件，默认位于${basedir}/src/test/resources/目录下。这里的资源文件不会被构建到目标构件中</td>
+</tr>
+</tbody>
+</table>
 <h2><span id="build-profiles">Build Profiles</span></h2>
 <p>通过如下POM配置来为当前项目配置build profile</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>不同的build profile可以在不同的情况下被触发，使得其中配置的内容可以对POM文件中的内容进行补充或覆盖。这使得POM文件拥有可以根据不同情况产生不同配置的能力。</p>
+<p>由于 profile 天然代表众多可选配置中的一个所以由复数形式的 profiles 标签统一管理。<br>
+由于 profile 标签覆盖了 pom.xml 中的默认配置，所以 profiles 标签通常是 pom.xml 中的最后一个标签</p>
+<p>一个 profile 可以覆盖项目的最终名称、项目依赖、插件配置等各个方面以影响构建行为</p>
+<h3><span id="profile触发">Profile触发</span></h3>
+<p><strong>默认配置触发</strong></p>
+<p>POM文件中没有被<code>&lt;profile&gt;</code>标签嵌套的内容作为默认的Profile触发</p>
+<p><strong>基于环境配置触发</strong></p>
+<p>不同的build profile可以在不同的情况下被触发，使得其中配置的内容可以对POM文件中的内容进行补充或覆盖。这使得POM文件拥有可以根据不同情况产生不同配置的能力</p>
 <p>设置build profile的触发方式</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--当jdk版本为...时，将触发profile-1；--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-1<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdk</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当操作系统为...时，将触发profile2；--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-2<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">os</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">os</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当构建命令中带了Denvironment=test参数时，将触发profile-3--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--（mvn &lt;build phase&gt; -Denvironment=test）；--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当构建命令中带了-P profile-x时，将触发profile-x--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--（mvn &lt;build phase&gt; -P profile-x）；--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-3<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">name</span>&gt;</span>environment<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">value</span>&gt;</span>test<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当未触发任何一个build profile时，将默认触发profile-4。--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--多个build profile可被同时触发。对于发生冲突的配置，先触发的build profile中的内容会被后触发的build profile中的内容覆盖。--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-4<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2><span id="仓库">仓库</span></h2>
-<h3><span id="本地仓库">本地仓库</span></h3>
-<p>本地仓库中存储着本地的所有依赖，供项目使用</p>
-<p>本地仓库的默认路径为当前用户目录的.m2文件夹。可在setting.xml文件中通过<localrepository>标签来指定本地仓库路径。</localrepository></p>
-<h3><span id="远程仓库">远程仓库</span></h3>
-<p>构建项目时，若POM中所声明的依赖未能在本地仓库中找到，将触发Maven从远程仓库中进行下载，并保存在本地仓库中，供项目使用。</p>
-<p>我们可以在setting.xml或POM中通过如下配置来对远程仓库进行设置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中id，name，url分别表示该远程仓库的唯一标识、名字、地址。</p>
-<p>对于配置的多个远程仓库，Maven将会按以下顺序，逐一去这些远程仓库寻找所需的依赖：</p>
-<p>(i) 在settings.xml文件中配置的远程仓库</p>
-<p>(ii) 当前项目POM文件中配置的远程仓库</p>
-<p>(iii) 父项目POM文件中配置的远程仓库</p>
-<p>(iv) Super POM文件中配置的远程仓库（Maven的中心仓库）</p>
-<p>我们可以在setting.xml中通过如下配置来为每个远程仓库配置最多一个镜像。当Maven需要访问某个远程仓库时，将会去访问该远程仓库的镜像。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中id，name，url，mirrorOf分别表示该镜像的唯一标识、名字、地址、所镜像的远程仓库id。</p>
-<h3><span id="内部仓库私服">内部仓库（私服）</span></h3>
-<p>本质上就是内部使用的远程仓库。</p>
-<p><em><strong>*依赖*</strong></em></p>
-<p>\1. 我们可以通过如下POM配置来设置当前项目的直接依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中groupId，artifactId，version为依赖的坐标。type为依赖的类型，一般为依赖文件的后缀名，默认为jar。</p>
-<p>\2. 依赖传递机制：通过该机制，Maven可根据项目的直接依赖，获取到其所有的间接依赖。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">├── B</span><br><span class="line">│  └── D</span><br><span class="line">└── C</span><br><span class="line">  └── E</span><br></pre></td></tr></table></figure>
-<p>如当前项目A直接依赖于B和C，而B和C分别直接依赖于D和E。通过依赖传递机制，我们仅需在项目A中配置其直接依赖B和C，Maven会自动对间接依赖D和E进行获取。</p>
-<p>\3. 依赖冲突的解决</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> A</span><br><span class="line"> ├── B</span><br><span class="line"> │  └── E 1.0</span><br><span class="line"> └── C</span><br><span class="line">   └── D 2.0</span><br><span class="line">​     └── E 2.0</span><br></pre></td></tr></table></figure>
-<p>在上例中，A的间接依赖E发生了冲突。由于E 1.0在依赖树中的层级更加接近项目A，因此E 1.0将会被采用。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">├── B</span><br><span class="line">│  └── D 1.0</span><br><span class="line">└── C</span><br><span class="line">  └── D 2.0</span><br></pre></td></tr></table></figure>
-<p>在上例中，A的间接依赖D发生了冲突。由于D 1.0所属的直接依赖B在A中被首先声明，因此D 1.0将会被采用。</p>
-<p>\4. 依赖范围</p>
-<p>在<dependency>标签中，我们可通过设置<scope>标签来指定该依赖的范围。其可选值有：</scope></dependency></p>
-<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml4668\wps1.jpg)</p>
-<p>compile：在运行main文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在运行test文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在打包时，该依赖会被放入包中（即该应用在发布运行时，仍旧使用该依赖）。</p>
-<p>test：在运行main文件夹中的代码时，该依赖不会被加入到classpath中（即对程序不可见）；在运行test文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在打包时，该依赖不会被放入包中（即该应用在发布运行时，不再需要该依赖）。</p>
-<p>provided：在运行main文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在运行test文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在打包时，该依赖不会被放入包中（即该应用在发布运行时，不再使用该依赖，而是由外界提供）。</p>
-<p>runtime：在运行main文件夹中的代码时，该依赖不会被加入到classpath中（即对程序不可见）；在运行test文件夹中的代码时，该依赖会被加入到classpath中（即对程序可见）；在打包时，该依赖会被放入包中（即该应用在发布运行时，仍旧使用该依赖）。</p>
-<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml4668\wps2.jpg)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A</span><br><span class="line">└── B</span><br><span class="line">  └── C</span><br></pre></td></tr></table></figure>
-<p>上例中，A直接依赖于B，B直接依赖于C。</p>
-<p>Ø 当B的POM文件将依赖C配置为test和provided范围时，B和C之间的依赖传递将被阻断。此时A不再间接依赖于C。</p>
-<p>test：B只是用C来做测试，因此不需要将C添加到项目A中；</p>
-<p>provided：B要求由外界提供C，因此不需要将C添加到项目A中，而是让外界的A来提供。</p>
-<p>Ø 当B的POM文件将依赖C配置为compile和runtime范围时，C将会成为A的间接依赖，其范围值将被设置为与依赖B的范围值一致。</p>
-<p>例外：当B的POM文件将依赖C配置为runtime范围且A的POM文件将依赖B配置	为compile范围时，C的范围值将被设置为runtime</p>
-<p>\5. 可选依赖：我们可以通过如下POM配置来将当前项目的某个直接依赖设置为可选依赖。该设置将会阻断当前项目与该依赖间的依赖传递，使得其它项目无法通过当前项目而间接依赖于该依赖。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span> </span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>\6. 依赖排除：我们可以通过如下POM配置来删除当前项目的某个直接依赖中的间接依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span> </span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>\7. Dependency Management：我们可以通过在父项目中设置<dependencymanagement>标签来对其所有的子项目进行统一的依赖管理。</dependencymanagement></p>
-<p>父项目</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-a<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-a<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line">                ...</span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-b<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-b<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                ...</span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-c<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>war<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>子项目1：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-a<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-a<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-b<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-b<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>子项目2：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>group-c<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>artifact-c<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>war<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>子项目根据groupId, artifactId, type, classifier四个值来定位到父项目dependencyManagement中的依赖，并完全沿用父项目dependencyManagement中对该依赖的配置。若在子项目中仅指定了groupId=A，artifactId=B未指定type和classifier的值，则将会定位父项目中groupId=A，artifactId=B，type=jar，classifier=null的依赖。（暂无需理会classifier）</p>
-<p>二.可以将多个模块组合起来使用，而不再是单个的模块了；<br>
-1.创建一个工程,项目(project),名称为maven01(可以删除src目录)<br>
-2.创建模块module01</p>
-<p><img src="https://pic.imgdb.cn/item/649f9c401ddac507cc194238.jpg" alt></p>
-<p><img src="https://pic.imgdb.cn/item/649f9c4c1ddac507cc1972aa.jpg" alt></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当jdk版本为...时，将触发profile-1；--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-1<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdk</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当操作系统为...时，将触发profile2；--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-2<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">os</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">os</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当构建命令中带了environment=test参数时，将触发profile-3--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--（mvn &lt;build phase&gt; -Denvironment=test）；--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当构建命令中带了-P profile-x时，将触发profile-x--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--（mvn &lt;build phase&gt; -P profile-x）；--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-3<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">name</span>&gt;</span>environment<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">value</span>&gt;</span>test<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-4<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">file</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">exists</span>&gt;</span>file2.properties<span class="tag">&lt;/<span class="name">exists</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">missing</span>&gt;</span>file1.properties<span class="tag">&lt;/<span class="name">missing</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">file</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--当未触发任何一个build profile时，将默认触发profile-5。--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--多个build profile可被同时触发。对于发生冲突的配置，先触发的build profile中的内容会被后触发的build profile中的内容覆盖。--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>profile-5<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>若一个profile存在多个触发条件：</strong></p>
+<ol>
+<li>Maven 3.2.2 之前：满足第一个条件即可触发</li>
+<li>Maven 3.2.2 开始：需满足所有条件才能触发</li>
+</ol>
+<h3><span id="运行环境">运行环境</span></h3>
+<ul>
+<li>开发环境：供不同开发工程师开发的各个模块之间互相调用、访问；内部使用</li>
+<li>测试环境：供测试工程师对项目的各个模块进行功能测试；内部使用</li>
+<li>生产环境：供最终用户访问——所以这是正式的运行环境，对外提供服务</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/64a76b2f1ddac507cca1df6d.jpg" alt></p>
+<h3><span id="spring-boot-多环境">Spring Boot 多环境</span></h3>
+<p>在不同的环境中的配置可能不同，如数据源、日志文件</p>
+<p>为了避免部署不同环境下反复修改环境配置文件，可定义多个 profile对应不同的环境，从而达到不同环境使用不同配置信息的效果</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- profile对资源的操作 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 先排除所有环境相关的配置文件 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>application*.yml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 是否替换 @xx@ 表示的maven properties属性值 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--通过开启 filtering，maven 会将文件中的 @xx@ 替换 profile 中定义的 xx 变量/属性--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>application.yml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>application-$&#123;profileActive&#125;.yml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--多环境文件配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--开发环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--默认激活--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profileActive</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">profileActive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--测试环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>test<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profileActive</span>&gt;</span>test<span class="tag">&lt;/<span class="name">profileActive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--正式环境--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>prod<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profileActive</span>&gt;</span>prod<span class="tag">&lt;/<span class="name">profileActive</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>在application.yml 中配置spring.profiles.active= ‘@profileActive@’（或者dev、prod、test）指定使用的配置文件</li>
+<li>在 idea 右侧Maven栏中的Profiles中可以看到配置的多环境，可勾选指定环境打包</li>
+<li>SpringBoot 本身支持多环境配置，application-dev.yml、application-test.yml、application.prod.yml分别存放三个环境的配置</li>
+</ol>
 <p><img src="https://pic.imgdb.cn/item/649f9d401ddac507cc1c4579.jpg" alt></p>
+<h2><span id="maven在idea中的应用">Maven在IDEA中的应用</span></h2>
+<h3><span id="idea配置maven">IDEA配置Maven</span></h3>
+<p>File —&gt; Settings —&gt; Build, Execution, Deployment —&gt; Build Tools —&gt; Maven</p>
+<ol>
+<li>设置maven安装主目录</li>
+<li>maven的settings.xml文件和本地仓库所在位置</li>
+</ol>
+<p><img src="https://pic.imgdb.cn/item/64a67b131ddac507ccdd0129.jpg" alt></p>
+<h3><span id="idea创建maven版java工程">IDEA创建Maven版java工程</span></h3>
+<p>File–&gt;New–&gt;Module</p>
+<img src="https://pic.imgdb.cn/item/64a67b6d1ddac507ccddbfd7.jpg" style="zoom:67%;">
+<h3><span id="idea创建maven版web工程">IDEA创建Maven版web工程</span></h3>
+<p>File–&gt;New–&gt;Module</p>
+<img src="https://pic.imgdb.cn/item/64a67c441ddac507cce08cf8.jpg" style="zoom:67%;">
+<p>创建后的视图：</p>
+<img src="https://pic.imgdb.cn/item/64a67f1d1ddac507cce72c7c.jpg" style="zoom:67%;">
+<p>显然，按照maven archetype原型创建的maven web工程缺少maven项目的完整结构：src-main-<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/javase">java</a> / resources，src-test-java/resources，所以需要我们手动添加文件目录</p>
+<img src="https://pic.imgdb.cn/item/64a67faa1ddac507cce83aec.jpg" style="zoom:67%;">
+<p>File —&gt; Project  Structure —&gt; Modules</p>
+<p>给文件夹选择Mask as</p>
+<img src="https://pic.imgdb.cn/item/64a67ff01ddac507cce8c0a5.jpg" style="zoom:67%;">
+<h3><span id="idea中导入maven工程module">IDEA中导入Maven工程(module)</span></h3>
+<p>File —&gt; Project  Structure</p>
+<img src="https://pic.imgdb.cn/item/64a680961ddac507ccea59bb.jpg" style="zoom:67%;">
+<img src="https://pic.imgdb.cn/item/64a680cb1ddac507cceb1fe5.jpg" style="zoom:67%;">
+<h3><span id="idea中导入maven项目project">IDEA中导入Maven项目(Project)</span></h3>
+<p>File–&gt;New–&gt;Project from Existing Sources</p>
  
       <!-- reward -->
       
