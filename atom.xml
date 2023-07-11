@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-07T12:42:09.583Z</updated>
+  <updated>2023-07-11T09:23:00.433Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Servlet</title>
+    <link href="http://example.com/post/servlet/"/>
+    <id>http://example.com/post/servlet/</id>
+    <published>2023-07-10T02:51:46.743Z</published>
+    <updated>2023-07-11T09:23:00.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;web应用目录结构&quot;&gt;web应用目录结构&lt;/span&gt;&lt;/h2&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot</title>
+    <link href="http://example.com/post/Spring%20Boot/"/>
+    <id>http://example.com/post/Spring%20Boot/</id>
+    <published>2023-07-07T12:44:23.976Z</published>
+    <updated>2023-07-07T13:31:20.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>maven</title>
@@ -92,30 +139,6 @@
   </entry>
   
   <entry>
-    <title>ajax</title>
-    <link href="http://example.com/post/ajax/"/>
-    <id>http://example.com/post/ajax/</id>
-    <published>2023-06-15T09:37:35.693Z</published>
-    <updated>2023-06-15T09:59:12.631Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;导入jqueryminjs&quot;&gt;导入jquery.min.js&lt;/span&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight jsp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>SSM</title>
     <link href="http://example.com/post/SSM/"/>
     <id>http://example.com/post/SSM/</id>
@@ -132,21 +155,6 @@
 &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>同步与异步</title>
-    <link href="http://example.com/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/"/>
-    <id>http://example.com/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/</id>
-    <published>2023-06-15T06:20:27.742Z</published>
-    <updated>2023-06-15T11:04:53.195Z</updated>
-    
     
     
     

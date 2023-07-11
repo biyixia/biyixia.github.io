@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>同步与异步 |  biyixia</title>
+      <title>Spring Boot |  biyixia</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -57,7 +57,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-异步与同步"
+  id="post-Spring Boot"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -68,7 +68,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  同步与异步
+  Spring Boot
 </h1>
  
 
@@ -76,11 +76,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" class="article-date">
-  <time datetime="2023-06-15T06:20:27.742Z" itemprop="datePublished">2023-06-15</time>
+      <a href="/post/Spring%20Boot/" class="article-date">
+  <time datetime="2023-07-07T12:44:23.976Z" itemprop="datePublished">2023-07-07</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/">第三阶段</a>
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/">第四阶段</a>
   </div>
   
 <div class="word_count">
@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">708</span>
         </span>
     </span>
 
@@ -97,20 +97,66 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h2><span id="说明">说明</span></h2>
+<p>​	springboot作为引擎启动程序，不是一个新的框架，可以将ssm以更简洁的方式完成应用；<br>
+​	之前的ssm程序需要模块化，一堆配置，服务器等等，现在只需要使用springboot简化配置。<br>
+​</p>
+<p>使用springboot的前提:<br>
+1.需要搞定Spring Framework<br>
+2.更多的是处理web应用，需要搞定springMVC<br>
+3.程序可能需要数据库的支持，需要搞定JDBC体系(mybatis)<br>
+4.web应用需要服务器的支持，需要搞定服务器软件(tomcat)<br>
+springboot的特点:<br>
+1.可以快速的创建spring应用，快速启动(启动器)<br>
+2.可以快速加载第三方配置，简化程序的配置，以最少的内容快速启动</p>
+<p>注意：之前的配置现在依然是需要的，只不过之前是需要程序员自己定义，现在是将这些配置<br>
+全部交给springboot内部完成。</p>
+<h2><span id="创建springboot工程">创建springboot工程</span></h2>
+<ol>
+<li>Spring官方：<a target="_blank" rel="noopener" href="https://start.spring.io">https://start.spring.io</a></li>
+<li>阿里云：<a target="_blank" rel="noopener" href="https://start.aliyun.com">https://start.aliyun.com</a></li>
+<li>Spring Boot：<a target="_blank" rel="noopener" href="https://start.springboot.io">https://start.springboot.io</a></li>
+</ol>
+<p>注意:程序需要编译，打包等操作，可能会出现打包时有异常（跳过测试检查）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.22.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="工程结构">工程结构</span></h2>
+<p>​	static:springboot中专门存放页面的路径(webapp目录),名称是不能改变的。<br>
+​	application.properties：名称固定的配置文件,键值对模式的配置文件，<br>
+​						    之前的所有配置都可以在这个文件中，<br>
+​							使用的全部都是默认值。<br>
+​							还有一种配置文件是.yml文件。<br>
+​	注解扫描问题:<br>
+​		1.在启动器的类之上添加注解扫描(不推荐使用)<br>
+​				@ComponentScan(basePackages = {“com.bjpowernode.controller”,“com.bjpowernode.service”})<br>
+​		2.启动器所在的包，所有的注解都可以被自动识别，可以将所有的程序放在此位置，<br>
+​				注解就会被自动的识别。<br>
+​	注意：手动将程序中的所有内容打包时，可能会提示有问题:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-resources-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="视图层使用jsp">视图层使用jsp</span></h2>
+<p>官方不推荐</p>
+<p><strong>视图模块添加处理jsp页面的依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>配置jsp文件编译输出的路径</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>META-INF/resources<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.jsp<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>创建webapp文件夹为页面的根目录(可以放入jsp了),允许添加视图解析器</strong></p>
+<pre><code>    静态资源(图片,js,css.....)放在/resources/static
+</code></pre>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -180,7 +226,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E5%BC%82%E6%AD%A5%E4%B8%8E%E5%90%8C%E6%AD%A5/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/Spring%20Boot/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -191,19 +237,19 @@
    
   <nav class="article-nav">
     
-      <a href="/post/SSM/" class="article-nav-link">
+      <a href="/post/servlet/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            SSM
+            Servlet
           
         </div>
       </a>
     
     
-      <a href="/post/servlet%20url-pattern%E7%9A%84%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98/" class="article-nav-link">
+      <a href="/post/maven/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">关于配置servlet的url-pattern的问题</div>
+        <div class="article-nav-title">maven</div>
       </a>
     
   </nav>
