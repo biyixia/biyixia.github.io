@@ -313,74 +313,83 @@
 </tr>
 </tbody>
 </table>
-<h2><span id="httpsession和cookie">HttpSession和Cookie</span></h2>
-<h3><span id="httpsession">HttpSession</span></h3>
-<ul>
-<li>HttpSession拥有存储数据的能力【以KV方式存储对象，setAttribute方法】</li>
-<li>HttpSession对象里面存储的数据在 相同的客户端 相同的浏览器 范围内共享</li>
-</ul>
-<p><strong>生命周期</strong></p>
-<ul>
-<li>HttpSession对象生命周期为整个浏览器运行期间，浏览器运行结束，即浏览器关闭（所有页面关闭），HttpSession对象的生命周期结束</li>
-<li>不同品牌的浏览器HttpSession对象生命周期不一样</li>
-</ul>
-<p><strong>浏览器会话销毁</strong></p>
-<table>
-<thead>
-<tr>
-<th>方式</th>
-<th>HttpSession</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>浏览器关闭</td>
-<td>存在</td>
-<td>仅cookies销毁，浏览器无法传递上一次的SessionID</td>
-</tr>
-<tr>
-<td>httpSession.removeAttribute(K);</td>
-<td>存在</td>
-<td>仅HttpSession中的key删除</td>
-</tr>
-<tr>
-<td>tomcat的设置过期时间或者代码设置httpSession.setMaxInactiveInterval(单位是秒);</td>
-<td>销毁</td>
-<td>HttpSession对象立即GC清除</td>
-</tr>
-<tr>
-<td>tomcat重启</td>
-<td>销毁</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3><span id="tomcat管理httpsession">tomcat管理HttpSession</span></h3>
-<ul>
-<li>当浏览器首次使用httpSession的任意方法，tomcat会立即创建该浏览器的SessionID（Tomcat创建的是JSESSIONID），然后会把SessionID立即存储到浏览器的Cookies里面，浏览器可以通过Cookies携带的SessionID访问tomcat的HttpSession对象，获取键值对数据</li>
-<li>若浏览器没有使用httpSession的任意方法，则tomcat不会创建该浏览器的SessionID</li>
-</ul>
-<p>cookie:在浏览器中存储tomcat中的HttpSession对象的SessionID的值</p>
-<ul>
-<li>客户端浏览器中的cookies的SessionID丢失（手动删除），再次使用HttpSession任意方法，则Tomcat重新生成SessionID（重新创建一个HttpSession对象）存储到浏览器的cookie中</li>
-<li>客户端浏览器中禁止cookies，由于浏览器无法通过cookie访问tomcat中的HttpSession对象，每次使用HttpSession任意方法，Tomcat都会重新生成SessionID（重新创建一个HttpSession对象），此时可以通过url + &quot;;jsessionid=【sessionID】&quot;访问tomcat中的HttpSession对象</li>
-<li>若cookie未禁用且url带有不同的SessionID的方式访问tomcat中的HttpSession，则cookie传递优先级最高</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/64113030ebf10e5d5374df8a.jpg" alt></p>
-<ul>
-<li>HttpSession对象在服务端【tomcat】里面</li>
-<li>相同的客户端相同的浏览器对应一个HttpSession对象</li>
-<li>一个HttpSession对象可以有多个键值对数据</li>
-<li>当浏览器请求服务端的任意资源时，使用了HttpSession对象的任意方法，服务端将立即创建一个SessionID对应一个HttpSession对象</li>
-<li>浏览器通过cookie存储SessionID</li>
-</ul>
+<h2><span id="cookie和httpsession">Cookie和HttpSession</span></h2>
 <h3><span id="cookie">cookie</span></h3>
 <p>通过浏览器将键值对数据保存在客户端硬盘上（如商城的购物车、登录的记住密码或免登录）</p>
 <p><strong>保存键值对</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.需要实例化cookie对象，需要键值对参数</span></span><br><span class="line"><span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cookie</span>(id,name);</span><br><span class="line"><span class="comment">//2.设置cookie数据的有效时间，单位是秒</span></span><br><span class="line">cookie.setMaxAge(<span class="number">60</span>);</span><br><span class="line"><span class="comment">//3.利用响应对象将cookie数据保存在浏览器硬盘中</span></span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
 <p><strong>查看键值对</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过请求对象获取cookie对象数组</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="comment">//遍历cookies数组查看每个cookie的键值数据</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="keyword">if</span> (cookies != <span class="literal">null</span> &amp;&amp; cookies.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (Cookie cookie : cookies) &#123;</span><br><span class="line">        System.out.println(cookie.getName());</span><br><span class="line">        System.out.println(cookie.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="httpsession">HttpSession</span></h3>
+<p>可存储键值对数据（setAttribute），一般应用于登录功能</p>
+<p><img src="https://pic.imgdb.cn/item/64113030ebf10e5d5374df8a.jpg" alt></p>
+<ol>
+<li>HttpSession对象存储在服务器中（tomcat）</li>
+<li>相同客户端、相同浏览器对应一个HttpSession对象</li>
+<li>一个HttpSession对象可以存储多个键值对，且在该对象中共享（即同一客户端、同一浏览器范围内共享数据）</li>
+</ol>
+<p><strong>生命周期</strong></p>
+<ul>
+<li>HttpSession对象生命周期为整个浏览器运行期间，浏览器运行结束，即浏览器关闭（所有页面关闭），HttpSession对象的生命周期结束</li>
+<li>不同品牌的浏览器HttpSession对象生命周期不一样</li>
+</ul>
+<p><strong>实例化</strong></p>
+<p>当浏览器首次使用httpSession的任意方法，服务器会自动的创建一个session对象（先创建该客户端的该浏览器的JSESSIONID并存储到浏览器的Cookies中，浏览器可以通过Cookies携带的SessionID从服务器的HttpSession对象获取键值对数据）</p>
+<p>当浏览器中存储SessionID的Cookies丢失（手动删除），此时使用HttpSession任意方法，则服务器自动重新生成Session对象（重新存储JSESSIONID到新的Cookies）</p>
+<p>当浏览器禁用Cookies，由于浏览器无法通过Cookies访问服务器中的HttpSession对象，则每次使用HttpSession任意方法，服务器都会重新生成Session对象（此时可通过url找到之前的HttpSession）</p>
+<p><strong>客户端浏览器访问HttpSession的方式</strong></p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通过Cookies携带SessionID</td>
+<td>默认使用Cookies</td>
+</tr>
+<tr>
+<td>通过url携带SessionID（<code>url + &quot;;jsessionid=【sessionID】&quot;</code>）</td>
+<td>与Cookies同时使用时Cookies传递优先级更高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>销毁</strong></p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>HttpSession</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>浏览器关闭或手动删除Cookies</td>
+<td>仅cookies销毁，浏览器无法通过之前的SessionID找到HttpSession</td>
+<td>存在</td>
+</tr>
+<tr>
+<td><code>httpSession.removeAttribute(K);</code></td>
+<td>仅HttpSession中的key删除</td>
+<td>存在</td>
+</tr>
+<tr>
+<td><code>httpSession.setMaxInactiveInterval</code></td>
+<td>设置过期时间(单位是秒)，HttpSession对象将被GC清除</td>
+<td>销毁</td>
+</tr>
+<tr>
+<td>服务器重启或关闭</td>
+<td>tomcat重启或关闭</td>
+<td>销毁</td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求对象request获取HttpSession对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回关于该请求的当前会话。或者若该请求没有会话则就创建一个</span></span><br><span class="line">getSession();</span><br><span class="line"><span class="comment">//返回有关本请求的当前HttpSession，或者若该请求没有会话，且“创建”属性为真，则就创建一个</span></span><br><span class="line">getSession(<span class="type">boolean</span> create);</span><br></pre></td></tr></table></figure>
 <h2><span id="其他接口">其他接口</span></h2>
 <h3><span id="servletconfig接口">ServletConfig接口</span></h3>
 <table>
@@ -523,11 +532,11 @@
 <p>响应：<code>response.setContentType(&quot;text/html;charset=utf-8&quot;);</code> 处理响应的中文乱码</p>
 <h2><span id="servlet跳转">Servlet跳转</span></h2>
 <h3><span id="请求转发">请求转发</span></h3>
-<p><img src="https://pic.imgdb.cn/item/64abcf1d1ddac507cce9ef9e.jpg" alt></p>
+<img src="https://pic.imgdb.cn/item/64abcf1d1ddac507cce9ef9e.jpg" style="zoom: 50%;">
 <p>服务端在执行servlet执行到这个动作时发生的跳转</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取转发器对象,参数：目标的请求名称</span></span><br><span class="line"><span class="type">RequestDispatcher</span> <span class="variable">requestDispatcher</span> <span class="operator">=</span> request.getRequestDispatcher(<span class="string">&quot;【参数】&quot;</span>);</span><br><span class="line">requestDispatcher.forward(request,response);</span><br></pre></td></tr></table></figure>
 <h3><span id="响应重定向">响应重定向</span></h3>
-<p><img src="https://pic.imgdb.cn/item/64abcf331ddac507ccea4c66.jpg" alt></p>
+<img src="https://pic.imgdb.cn/item/64abcf331ddac507ccea4c66.jpg" style="zoom:50%;">
 <p>服务端通过HttpServletResponse去回复给客户端一个url，让客户端再去发请求给这个新的url</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参数：目标的请求名称</span></span><br><span class="line">response.sendRedirect(<span class="string">&quot;【参数】&quot;</span>);</span><br></pre></td></tr></table></figure>
 <table>
@@ -674,18 +683,36 @@
 <p>在jsp被服务器翻译前，该指令会被【路径】所指向文件内容所替换；然后被翻译为一个Servlet实现类（url所指向的文件不会被翻译成Servlet）</p>
 <hr>
 <h4><span id="脚本">脚本</span></h4>
-<p><strong>&lt;% … %&gt;：写Java代码（局部变量、循环、选择、方法体）</strong></p>
-<p>在JSP被翻译成Servlet时，被该符号括起来的内容将会作为Java代码直接放在__jspService（相当于service）方法中</p>
-<hr>
-<p><strong>&lt;%! … %&gt;：声明方法、成员变量、代码块、内部类</strong></p>
-<p>在JSP被翻译成Servlet时，声明在里面的方法将会被翻译成Servlet类的成员方法，声明在里面的变量将会被翻译成Servlet类的成员变量</p>
-<hr>
-<p><strong>&lt;%= … %&gt;：打印流输出到浏览器显示</strong></p>
-<hr>
-<p><strong>&lt;%-- … --%&gt;:jsp注释（推荐）</strong></p>
-<hr>
-<p><strong><!-- --> html注释</strong></p>
-<hr>
+<table>
+<thead>
+<tr>
+<th>脚本元素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;% ... %&gt;</code></td>
+<td>Java代码（局部变量、循环、选择、方法体），被服务器拼接到Servlet的service方法中</td>
+</tr>
+<tr>
+<td><code>&lt;%! ... %&gt;</code></td>
+<td>声明方法、成员变量、代码块、内部类，被服务器翻译成Servlet的成员方法、成员变量</td>
+</tr>
+<tr>
+<td><code>&lt;%= ... %&gt;</code></td>
+<td>打印流输出到浏览器显示</td>
+</tr>
+<tr>
+<td><code>&lt;%-- ... --%&gt;</code></td>
+<td>jsp注释（推荐）</td>
+</tr>
+<tr>
+<td><code>&lt;!-- --&gt;</code></td>
+<td>html注释</td>
+</tr>
+</tbody>
+</table>
 <h4><span id="动作">动作</span></h4>
 <p><strong>include</strong></p>
 <p>语法格式：&lt;jsp:include page=“XXX.jsp”/&gt;</p>
@@ -1083,6 +1110,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/post/Linux/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            linux
+          
+        </div>
+      </a>
     
     
       <a href="/post/Spring%20Boot/" class="article-nav-link">

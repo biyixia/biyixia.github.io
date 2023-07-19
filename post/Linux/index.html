@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>linux |  biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Linux"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  linux
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/Linux/" class="article-date">
+  <time datetime="2023-07-14T07:06:20.056Z" itemprop="datePublished">2023-07-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/">第四阶段</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.7k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">18 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1><span id="linux命令">Linux命令</span></h1>
+<p>服务器版的Linux是没有图形化界面的，只能通过在控制台输入Linux命令来操作系统，类似在windows下使用DOS命令。学习Linux，主要是学习Linux的各种命令。</p>
+<p>在学习命令之前，让我们先来了解一下Linux命令的格式，包含3个部分（[]表示可选）：</p>
+<p>Linux命令格式：<strong>command</strong> <strong>[options]</strong> <strong>[arguments]</strong></p>
+<p><strong>command：命令名称，必需的</strong></p>
+<p><strong>options：选项，可选的</strong></p>
+<p><strong>arguments：参数，可选的</strong></p>
+<p>命令名称、选项以及参数之间使用空格分隔，不同的命令完成不同的操作，关键是选项和参数（比较容易混淆）：</p>
+<p><strong>选项</strong><em><strong>options：*<strong>选项是调整命令行为的因素，选项不同决定了命令的结果不同。选项又分为</strong>长选项和短选项</strong>。<strong>短选项（<strong><strong>short options</strong></strong>）</strong>：1. 格式多为中划线+选项，选项多为单个字母或数字，当有多个短选项时，各选项之间使用空格隔开，例如-a，-b，-2，-c  -d等。2. 大多短选项可以组合，例如-a -b，可以简写为-ab3. 大多短选项都有与之对应的长选项，但如果有短选项，一般不使用长选项 短选项：-h  与之对应的长选项： --help <strong>长选项（long</strong> <strong>options</strong>**）</em><em>：1. 格式为两个中划线+选项，选项多为一个单词，例如–help，–list等2. 都是完整的单词，通常不能组合  <strong>参数</strong></em>**arguments：***参数表示命令的操作对象，例如，在Linux中，查看目录使用ls，不加参数时显示的是当前目录，也可以加参数，例如：ls /dev，则查看 /dev 目录</p>
+<p>简单总结：命令操作的对象叫参数，选项用来指定操作的方式。比如说杀猪，杀是命令，猪就是参数，而选项是杀猪的方式，可以是残忍的杀：一刀捅死，不死再来一刀；也可以是温柔的杀：让它吃到撑死，幸福的死去。。。</p>
+<p>Linux的命令成千上万，课程中不能一一涉及，也没有必要一一涉及，根据程序员在日常工作中的需求，总结出如下几种供学习使用。</p>
+<p>提示：Linux中很多（不是所有）命令对选项和参数的顺序没有要求，但通常选项在前，参数在后</p>
+<h2><span id="目录切换命令">目录切换命令</span></h2>
+<p>在windows中通过图形化界面和鼠标可以任意切换需要进入的目录，而Linux必须通过cd命令切换目录。</p>
+<p>目录结构</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml5020\wps1.jpg)</p>
+<p><strong>命令</strong>：cd 目录</p>
+<p><strong>说明</strong>：从当前目录，切换到其它目录</p>
+<p><strong>选项</strong>：无</p>
+<p><strong>参数</strong>：目标目录</p>
+<p><strong>示例</strong>：</p>
+<p>cd					切换到当前用户的主目录</p>
+<p>cd  /				切换到系统根目录</p>
+<p>cd  /usr			切换到根目录下的usr目录</p>
+<p>cd  demo		切换到当前目录下的demo目录</p>
+<p>cd  …			切换到当前目录的上一层目录</p>
+<p>cd ~				切换到用户主目录</p>
+<p>cd -				切换到上一个所在目录（上一个是指你上一个访问的路径，相当于http协议的来路）</p>
+<p><strong>小提示：输入<strong><strong>clear</strong></strong>命令清屏，或者是****Ctrl</strong> <strong>+ L</strong></p>
+<h2><span id="目录操作命令">目录操作命令</span></h2>
+<h3><span id="查看目录">查看目录★★★★★</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>选项</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls</td>
+<td>-a   -l</td>
+<td>目录路径，默认为当前目录</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：ls(list)，该命令用于查看指定目录中的文件和文件夹</p>
+<p><strong>选项</strong>：</p>
+<p>-a(all)	表示所有，包括隐藏的文件和文件夹，在Linux中，以点开头的文件都是隐藏文件</p>
+<p>-l(list)	使用详细格式列表</p>
+<p><strong>示例</strong>：</p>
+<p>ls			查看当前目录中的文件，不包含隐藏文件</p>
+<p>ls -a		查看当前目录下的所有文件，包括隐藏的</p>
+<p>ls -a -l	使用详细格式列表查看当前目录下的所有文件，选项还可以连着写：ls -al</p>
+<p>ls /			查看根目录/中的文件，不包含隐藏文件</p>
+<p>ls -al  /		使用详细格式列表查看根目录下的所有文件，选项和参数的顺序不影响结果，还可以这样写：ls / -al</p>
+<p>小提示：ls -l 可以缩写成ll</p>
+<h3><span id="创建目录">创建目录</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>mkdir</td>
+<td>(make directory)</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-p]</td>
+<td>(parents) 用于一次创建多级目录，避免上级目录不存在或已存在报错</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>(verbose) 显示创建信息</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>目录1 目录2 …</td>
+<td>创建目录，可以一次创建多个目录，多个目录之间使用空格</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mkdir demo</td>
+<td>在根目录下创建demo目录</td>
+</tr>
+<tr>
+<td>mkdir a b</td>
+<td>在当前目录下创建a和b两个目录</td>
+</tr>
+<tr>
+<td>mkdir -v /demo/c</td>
+<td>创建/demo/c目录，并显示创建信息</td>
+</tr>
+<tr>
+<td>mkdir -p /demo/d/a</td>
+<td>创建/demo/d/a，如果不加p选项，则a的上级目录不存在会报错</td>
+</tr>
+</tbody>
+</table>
+<p>在创建目录时，建议都加上选项-p，即使创建的目录已经存在，也不会发生错误</p>
+<h3><span id="改名和剪切移动">改名和剪切（移动）</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>mv</td>
+<td>(move)</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>原名 新名</td>
+<td>将源文件重命名</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>文件1 文件2… 目标目录</td>
+<td>将源文件移动到指定的目录</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mv a b</td>
+<td>如果b不存在，表示将a改名为b，如果b（目录）存在，表示将a移动到b</td>
+</tr>
+<tr>
+<td>mv a b c</td>
+<td>将a和b移动到c</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="复制目录">复制目录</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>cp</td>
+<td>(copy)</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>(verbose) 显示复制进度及详细信息</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-r]</td>
+<td>(recursive) 如果复制的是目录，则递归复制目录及其子目录内的所有内容</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>文件1  文件2 …  目标目录</td>
+<td>将多个指定的文件复制到目标目录</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cp -r a b c</td>
+<td>将a和b复制到c目录</td>
+</tr>
+<tr>
+<td>cp -vr /demo/c  b</td>
+<td>将/demo/c复制到b目录，并显示相关信息</td>
+</tr>
+<tr>
+<td>cp  1.txt  a</td>
+<td>复制1.txt到a目录下</td>
+</tr>
+<tr>
+<td>cp  1.txt  a/11.txt</td>
+<td>复制1.txt到a目录下，并改名为11.txt</td>
+</tr>
+</tbody>
+</table>
+<p>./  当前目录</p>
+<p>…/	上级目录</p>
+<h3><span id="删除目录">删除目录</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>rm</td>
+<td>(remove)</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-r]</td>
+<td>(recursive) 如果删除的是目录，则递归删除目录及其子目录内的所有内容</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-f]</td>
+<td>(force) 强制删除。忽略不存在的文件，并且在删除时不给出确认的提示信息</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>(verbose) 显示删除进度及详细信息</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>文件1 文件2 …</td>
+<td>将多个指定的文件复制到目标目录</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rm -r /demo/c</td>
+<td>删除/demo/c目录，删除过程中需要输入y以确认删除</td>
+</tr>
+<tr>
+<td>rm -rf /demo/b</td>
+<td>不要询问，强制删除demo/b目录</td>
+</tr>
+<tr>
+<td>rm -rf a b</td>
+<td>不要询问，强制删除a和b两个文件</td>
+</tr>
+<tr>
+<td>rm -rfv /demo/*</td>
+<td>删除/demo目录下的所有文件，并显示相关信息</td>
+</tr>
+</tbody>
+</table>
+<p>提示：为了方便记忆，无论删除任何目录或文件，都直接使用rm -rf 文件…</p>
+<h2><span id="文件操作命令">文件操作命令</span></h2>
+<h3><span id="创建文件">创建文件</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>touch</td>
+<td>/</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>文件1 文件2 …</td>
+<td>创建多个空文本文件</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>touch /demo/test</td>
+<td>在/demo目录下创建文件&quot;test&quot;，该文件是文本文件，只是没有后缀名</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="修改文件">修改文件★★★★★</span></h3>
+<ol>
+<li><code>vim 文件名</code>：进入“命令模式”，此时还不能编辑</li>
+<li>按下 <code>i</code>：从命令模式，进入“编辑模式”，对文件进行编辑</li>
+<li>编辑完成，按下<code>esc</code>从“编辑模式”回到“命令模式”</li>
+<li>输入<code>:wq</code>，从命令模式进入底行模式，保存并退出</li>
+</ol>
+<h4><span id="命令模式">命令模式</span></h4>
+<p>进入插入模式：</p>
+<table>
+<thead>
+<tr>
+<th>按键操作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i(insert)</td>
+<td>在光标前插入</td>
+</tr>
+<tr>
+<td>shift + i</td>
+<td>在光标当前行开始插入</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在光标后插入</td>
+</tr>
+<tr>
+<td>shift + a</td>
+<td>在光标当前行末尾插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标当前行的下一行插入新行</td>
+</tr>
+<tr>
+<td>shift + o</td>
+<td>在光标当前行的上一行插入新行</td>
+</tr>
+</tbody>
+</table>
+<p>进入底行模式：</p>
+<p>“:”或 “/”或 “?”</p>
+<p>其他操作：</p>
+<table>
+<thead>
+<tr>
+<th>按键操作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td>单行复制，复制光标所在的行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>多行复制，将光标移动到将要复制的首行处，复制n行，n是一个数字</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴，将光标移动到将要粘贴的行处</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>定位到文本的第一行</td>
+</tr>
+<tr>
+<td>shift + g</td>
+<td>到文本的最后一行</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除光标所在行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>删除从光标开始的n行</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="插入模式">插入模式</span></h4>
+<p>只有在该模式下，才可以做文字输入</p>
+<p>按「ESC」可以回到命令行模式。</p>
+<h4><span id="底行模式">底行模式</span></h4>
+<table>
+<thead>
+<tr>
+<th>按键操作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:q</td>
+<td>quit，退出vim（没有做任何修改时）</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出不保存</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>write，保存不退出</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存后退出</td>
+</tr>
+<tr>
+<td>/字符串</td>
+<td>从光标位置往后查找指定的字符串  按n查找下一个匹配的结果  Shift+n上一个匹配结果</td>
+</tr>
+<tr>
+<td>?字符串</td>
+<td>从光标位置往前查找指定的字符串</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="查看文件">查看文件</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>cat</td>
+<td>/</td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>tac</td>
+<td></td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>less</td>
+<td></td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>more</td>
+<td></td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>head</td>
+<td></td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>tail</td>
+<td></td>
+</tr>
+<tr>
+<td>参数</td>
+<td>文件</td>
+<td>每种方式都可以查看文件，但是查看的方式不同</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>head /etc/sudo.conf -n 10</code></td>
+<td>查看最前面10行(默认)，Ctrl+C结束</td>
+</tr>
+<tr>
+<td><code>tail /etc/sudo.conf -n 10</code></td>
+<td>查看最后面10行(默认)，Ctrl+C结束</td>
+</tr>
+<tr>
+<td><code>cat -n /etc/sudo.conf</code></td>
+<td>只能显示最后一屏内容，-n表示显示行号</td>
+</tr>
+<tr>
+<td><code>tac /etc/sudo.conf</code></td>
+<td>只能显示最前一屏内容，并且是倒着的</td>
+</tr>
+</tbody>
+</table>
+<p><code>less /etc/sudo.conf</code></p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>按键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向下一行</td>
+<td>回车或向下键</td>
+</tr>
+<tr>
+<td>向上一行</td>
+<td>向上键</td>
+</tr>
+<tr>
+<td>上下翻页</td>
+<td>PgUp和PgDn，或者ctrl+f(forward)向下翻页，ctrl+b(back)向上翻</td>
+</tr>
+<tr>
+<td>上下翻半页</td>
+<td>u (up)  d (down)</td>
+</tr>
+<tr>
+<td>进入编辑模式</td>
+<td>按 v (vim)</td>
+</tr>
+<tr>
+<td>退出</td>
+<td>按q (quit)</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>/ + 【搜索关键字】+回车</td>
+</tr>
+</tbody>
+</table>
+<p><code>more  /etc/sudo.conf</code></p>
+<p>查看内容，并显示已查看内容的百分比</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>按键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向下一行</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>向上一行</td>
+<td>无</td>
+</tr>
+<tr>
+<td>上下翻页</td>
+<td>ctrl+f(forward)向下翻页，ctrl+b(back)向上翻</td>
+</tr>
+<tr>
+<td>进入编辑模式</td>
+<td>按 v (vim)</td>
+</tr>
+<tr>
+<td>退出</td>
+<td>按q (quit) 或看完自动退出</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="删除文件-复制-改名-剪切">删除文件、复制、改名、剪切</span></h3>
+<p>见目录相关的操作</p>
+<h3><span id="压缩文件">压缩文件</span></h3>
+<p>windows的压缩文件的扩展名  .zip/.rar</p>
+<p>linux中的打包文件：.tar  把多个文件打包，体积不变</p>
+<p>linux中的压缩文件：.gz	 把多个文件压缩成一个文件，体积变小</p>
+<p>linux中打包并压缩的文件：.tar.gz</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>tar</td>
+<td>(make directory)</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-z]</td>
+<td>调用gzip压缩命令进行压缩</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-c]</td>
+<td>创建压缩文件</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>显示过程</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-f]</td>
+<td>指定压缩后的文件名</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>处理后的文件名 被处理的文件路径</td>
+<td>创建目录，可以一次创建多个目录，多个目录之间使用空格</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tar  -zcvf  xxx.tar.gz  /demo/*</td>
+<td>打包并压缩/demo下的所有文件，压缩后的压缩包指定名称为xxx.tar.gz</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="解压文件">解压文件</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>tar</td>
+<td>(make directory)</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-x]</td>
+<td>解压</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>显示过程</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-f]</td>
+<td>指定解压后的文件名</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>压缩文件 [-C 目录]</td>
+<td>C表示解压到哪个目录</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tar -xvf xxx.tar.gz</td>
+<td>将xxx.tar.gz解压到当前目录下</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="其他命令">其他命令</span></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看帮助</td>
+<td>(命令名称) --help</td>
+<td>mkdir --help</td>
+</tr>
+<tr>
+<td>显示当前位置</td>
+<td>pwd</td>
+<td></td>
+</tr>
+<tr>
+<td>显示所有的进程</td>
+<td>ps -ef</td>
+<td></td>
+</tr>
+<tr>
+<td>结束进程</td>
+<td>kill [-9] pid （9表示强制，pid是进程的id）</td>
+<td>kill -9 123，强制结束进程id为123的进程</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="关键字搜索">关键字搜索</span></h3>
+<p><code>grep -i (--color)</code>：  要搜索的字符串或文件，-i表示忽略大小写 --color表示高亮显示</p>
+<p>如搜索/etc/sudu.conf文件中包含字符串to的行：<code>grep -i  to /etc/sudo.conf (--color)</code></p>
+<h3><span id="管道命令">管道命令</span></h3>
+<p><code>命令1 | 命令2</code>：将前一个命令的输出作为后一个命令的输入（参数）</p>
+<p>如查看当前系统中所有的进程中包括Administ字符串的进程：<code>ps -ef | grep -i Administ</code></p>
+<p><img src="https://pic.imgdb.cn/item/64b1f22f1ddac507cce0b2f6.jpg" alt></p>
+<h3><span id="网络通信命令">网络通信命令</span></h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ifconfig</td>
+<td>查看当前系统的网卡信息</td>
+</tr>
+<tr>
+<td>ping 192.168.1.123</td>
+<td>查看与某台机器的连接情况</td>
+</tr>
+<tr>
+<td>netstat -nao</td>
+<td>查看当前系统的端口使用</td>
+</tr>
+<tr>
+<td>reboot</td>
+<td>重启命令</td>
+</tr>
+<tr>
+<td>halt</td>
+<td>立即关机</td>
+</tr>
+</tbody>
+</table>
+<h1><span id="文件上传-下载">文件上传、下载</span></h1>
+<h2><span id="sftp了解">sftp（了解）</span></h2>
+<ol>
+<li>
+<p>按Alt + p打开sftp窗口，在sftp窗口中，一样可以使用命令来操作Linux中的文件，例如：</p>
+</li>
+<li>
+<p>切换到根目录：cd /</p>
+<p>在根目录下创建abc目录：mkdir /abc</p>
+<p>查看当前所在的目录：pwd</p>
+<p>但是有些命令无法使用，例如软件安装命令rpm等，因此一般只使用sftp上传文件</p>
+</li>
+<li>
+<p>还可以像操作Linux那样来作本地文件，例如：</p>
+<p>切换到本地d盘：lcd d:/</p>
+<p>在d盘下创建abc目录：lmkdir d:/abc</p>
+<p>查看在本地的当前位置：lpwd</p>
+<p>规律就是在命令前加小写的l（唉偶。。。）</p>
+</li>
+<li>
+<p>新建目录/usr/soft，一般软件包都放在这，并进入该目录</p>
+</li>
+<li>
+<p>mkdir /usr/soft</p>
+<p>cd /usr/soft</p>
+</li>
+<li>
+<p>上传本地文件</p>
+</li>
+<li>
+<p>上传本地文件到Linux：put -r 文件…</p>
+<p>下载Linux文件到本地：get -r 文件…</p>
+</li>
+</ol>
+<p>可以先使用lcd命令进入要上传的文件所在的目录（过程中多使用Tab键提示，多使用lpwd查看本地当前所在的位置）</p>
+<p>然后输入命令：put -r 文件… 或者 put -r 文件全路径</p>
+<p>​	注意：如果上传或下载的文件中有文件夹，必须使用-r(递归)，如果只是文件，可以不加</p>
+<p>其它技巧：Ctrl+U  可以快速删除已输入的命令</p>
+<h2><span id="rzsz重点">rzsz（重点）</span></h2>
+<p>使用rz命令完成文件上传，默认没有rz命令，需要安装才能使用</p>
+<h3><span id="安装rzsz">安装rzsz</span></h3>
+<p>网络安装</p>
+<ol>
+<li>使用图形化界面工具将资料中的 “软件仓库文件/CentOS-Base.repo”上传到Linux的 /etc/yum.repos.d/ 目录下</li>
+<li>执行安装命令 yum install lrzsz</li>
+</ol>
+<p>文件上传：输入命令rz，回车，会弹出选择文件的窗口，双击要上传的文件，添加到上传列表，可以一次上传多个文件，点击OK开始上传</p>
+<p>文件下载：输入命令sz 文件…  回车即可</p>
+<p>文件上传和下载的默认位置（可选设置）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps1.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps2.jpg)</p>
+<h1><span id="软件安装命令">软件安装命令</span></h1>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>创建目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名称</td>
+<td>rpm</td>
+<td>/</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-i]</td>
+<td>安装指定的软件</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-e]</td>
+<td>删除指定的软件</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-U]</td>
+<td>升级指定的软件</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-q] 软件包</td>
+<td>查询指定软件包</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-a]</td>
+<td>查询所有软件包，需要配合选项q一起使用</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-h]</td>
+<td>显示指令执行过程</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[-v]</td>
+<td>显示安装进度</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[–nodeps]</td>
+<td>不验证软件包之间的依赖  a依赖b软件  直接安装a，不让安装</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[–nosignature]</td>
+<td>安装时，不进行签名验证</td>
+</tr>
+<tr>
+<td>选项</td>
+<td>[–replacepkgs]</td>
+<td>如果已经安装，则重新安装</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>软件包</td>
+<td>创建多个空文本文件</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rpm  -ivh  rpm文件</td>
+<td>安装</td>
+</tr>
+<tr>
+<td>rpm  -e  --nodeps  软件名</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>rpm  -Uvh  rpm文件</td>
+<td>升级</td>
+</tr>
+<tr>
+<td>rpm -qa | grep -i mysql</td>
+<td>查看</td>
+</tr>
+</tbody>
+</table>
+<h1><span id="安装jre">安装JRE</span></h1>
+<table>
+<thead>
+<tr>
+<th>jdk</th>
+<th>jre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开发工具和jre</td>
+<td>java软件的运行环境</td>
+</tr>
+</tbody>
+</table>
+<p>查看当前Linux系统是否已经安装java</p>
+<p><code>rpm -qa | grep -i java</code></p>
+<p>卸载查找到的openJDK</p>
+<p>rpm -e --nodeps java-XXX</p>
+<p>使用rz命令上传jre到linux，或者使用图形化界面，解压jdk到/usr/soft</p>
+<p>​	cd /usr/soft</p>
+<p>​	tar -xvf  jre-8u211-linux-x64.tar.gz</p>
+<ol start="5">
+<li>配置jdk环境变量</li>
+</ol>
+<p>​	编辑配置文件/etc/profile：vim /etc/profile</p>
+<p>​	Shift+g快速定位到该文件的最下方，然后按o，在当前行的下一行插入如下内容：jre1.8.0_211</p>
+<p>​	#set java environment</p>
+<p>​	JAVA_HOME=/usr/soft/jre1.8.0_211</p>
+<p>​	PATH=$JAVA_HOME/bin:$PATH</p>
+<p>​	CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+<p>​	export JAVA_HOME PATH CLASSPATH</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps5.jpg)</p>
+<ol start="6">
+<li>重新加载/etc/profile配置文件</li>
+</ol>
+<p>命令：. /etc/profile <strong>或</strong> source /etc/profile</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps6.jpg)</p>
+<p>\7. 测试安装： 输入 java</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps7.jpg)</p>
+<h1><span id="安装mysql">安装MySQL</span></h1>
+<p>步骤：</p>
+<p>\1. 查看CentOS自带的mysql</p>
+<p>命令：rpm -qa | grep -i mysql</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps8.jpg)</p>
+<p>\2. 将自带的mysql卸载</p>
+<p>命令：rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps9.jpg)</p>
+<p>\3. 使用rz命令上传MySQL到linux</p>
+<p>\4. 解压MySQL到/usr/soft/下的mysql目录</p>
+<p>cd /usr/soft</p>
+<p>mkdir mysql</p>
+<p>tar -xvf MySQL-5.6.36-1.el6.x86_64.rpm-bundle.tar -C mysql</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps10.jpg)</p>
+<p>\5. 在/usr/soft/mysql下安装mysql</p>
+<p>切换到mysql：cd /usr/soft/mysql</p>
+<p>安装服务器端：rpm -ivh MySQL-server-5.6.36-1.el6.x86_64.rpm --nosignature</p>
+<p>安装客户端：rpm -ivh MySQL-client-5.6.36-1.el6.x86_64.rpm --nosignature</p>
+<p>\6. 启动mysql</p>
+<p>service mysql start</p>
+<p>\7. 将mysql加到系统服务中并设置开机启动</p>
+<p>加入到系统服务：chkconfig --add mysql</p>
+<p>自动启动：chkconfig mysql on</p>
+<p>\8. 登录mysql</p>
+<p>mysql安装好后会生成一个临时随机密码，存储位置在，查看密码：head /root/.mysql_secret</p>
+<p>mysql -uroot -p密码 回车</p>
+<p>\9. 修改mysql的密码</p>
+<p>set password = password(‘123456’);</p>
+<p>\10. 开启mysql的远程登录权限</p>
+<p>默认情况下mysql为安全起见，不支持远程登录mysql，所以需要设置开启	远程登录mysql的权限</p>
+<p>登录mysql后输入如下命令：</p>
+<p>grant all privileges on <em>.</em> to ‘root’ @‘%’ identified by ‘123456’;</p>
+<p>flush privileges;</p>
+<p>此处的密码必须和步骤9中的一致！</p>
+<p>\11. 开放Linux的对外访问的端口3306</p>
+<p>/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save —将修改永久保存到防火墙中</p>
+<p>\12. 修改mysql的编码方式为utf8</p>
+<p>mysql默认使用的编码方式是：latin1，需要修改为utf8，当前编码方式可以执行如下<strong>SQL</strong>进行查看</p>
+<p>show variables like ‘character%’;</p>
+<p>show variables like ‘coll%’;</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps11.jpg)</p>
+<p>mysql的配置信息在/usr/my.cnf中，编辑该文件，添加如下配置：</p>
+<p>vim /usr/my.cnf</p>
+<p>[mysqld]</p>
+<p>…</p>
+<p>character_set_server=utf8</p>
+<p>sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</p>
+<p>[client]</p>
+<p>default-character-set=utf8</p>
+<p>如下图所示：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps12.jpg)</p>
+<p>编辑完成之后，按ESC，输入&quot;:wq&quot;保存并退出</p>
+<p>重启mysql服务器，service mysql restart</p>
+<p>再次执行<strong>SQL</strong>查看编码方式：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml1840\wps13.jpg)</p>
+<h1><span id="安装tomcat">安装Tomcat</span></h1>
+<ol>
+<li>
+<p>上传Tomcat到linux上</p>
+</li>
+<li>
+<p>解压Tomcat到/usr/soft下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/soft</span><br><span class="line">tar -xvf  apache-tomcat-9.0.65.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开放Linux的对外访问的端口8080</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">8080</span> -j ACCEPT</span><br><span class="line"></span><br><span class="line">/etc/rc.d/init.d/iptables save </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动tomcat，进入bin目录下 <code>./startup.sh</code></p>
+</li>
+<li>
+<p>关闭tomcat，进入bin目录下<code>./shutdown.sh</code></p>
+</li>
+</ol>
+<p>注意：在linux中执行某个文件时，一定要加&quot;./&quot;，不能直接文件名，否则会当做命令来执行</p>
+<h1><span id="项目部署">项目部署</span></h1>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/Linux/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/Docker%E8%AE%B2%E4%B9%89/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/servlet/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Servlet</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2023
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>
