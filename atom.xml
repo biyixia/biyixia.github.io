@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-19T06:47:15.290Z</updated>
+  <updated>2023-07-21T13:11:08.270Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nacos</title>
+    <link href="http://example.com/post/nacos/"/>
+    <id>http://example.com/post/nacos/</id>
+    <published>2023-07-21T13:09:39.203Z</published>
+    <updated>2023-07-21T13:11:08.270Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mybatis plus</title>
+    <link href="http://example.com/post/mybatis%20plus/"/>
+    <id>http://example.com/post/mybatis%20plus/</id>
+    <published>2023-07-21T13:06:55.475Z</published>
+    <updated>2023-07-21T13:50:17.492Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://baomidou.com/&quot;&gt;mybatis plus官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&quot;springboot-引入&quot;&gt;Springboot 引入&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试题</title>
+    <link href="http://example.com/post/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://example.com/post/%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <published>2023-07-21T01:04:01.036Z</published>
+    <updated>2023-07-21T06:35:50.749Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;java基础面试题&quot;&gt;Java基础面试题&lt;/span&gt;&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2&gt;&lt;span id=&quot;1-什么是jdbc&quot;&gt;1. 什么是JDBC？&lt;/span&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;JDBC的全称是Java DataBase</summary>
+        
+      
+    
+    
+    
+    <category term="第五阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -34,7 +109,7 @@
     <link href="http://example.com/post/vue/"/>
     <id>http://example.com/post/vue/</id>
     <published>2023-07-19T06:47:05.552Z</published>
-    <updated>2023-07-19T08:34:33.319Z</updated>
+    <updated>2023-07-20T13:31:06.113Z</updated>
     
     
       
@@ -418,77 +493,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     
     
     <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot统一异常处理与信息返回</title>
-    <link href="http://example.com/post/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%8E%E4%BF%A1%E6%81%AF%E8%BF%94%E5%9B%9E/"/>
-    <id>http://example.com/post/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E4%B8%8E%E4%BF%A1%E6%81%AF%E8%BF%94%E5%9B%9E/</id>
-    <published>2023-06-08T04:33:27.954Z</published>
-    <updated>2023-06-19T12:32:00.202Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;异常处理&quot;&gt;异常处理&lt;/span&gt;&lt;/h2&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>流程控制</title>
-    <link href="http://example.com/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
-    <id>http://example.com/post/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/</id>
-    <published>2023-06-08T04:33:27.953Z</published>
-    <updated>2022-12-14T10:42:08.006Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>树</title>
-    <link href="http://example.com/post/%E6%A0%91/"/>
-    <id>http://example.com/post/%E6%A0%91/</id>
-    <published>2023-06-08T04:33:27.952Z</published>
-    <updated>2023-01-28T11:47:44.944Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;二叉排序树&quot;&gt;二叉排序树&lt;/span&gt;&lt;/h1&gt;
-&lt;h2&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第二阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
