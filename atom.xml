@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-21T13:11:08.270Z</updated>
+  <updated>2023-07-22T02:28:48.982Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>反射</title>
+    <link href="http://example.com/post/%E5%8F%8D%E5%B0%84/"/>
+    <id>http://example.com/post/%E5%8F%8D%E5%B0%84/</id>
+    <published>2023-07-22T01:06:52.813Z</published>
+    <updated>2023-07-22T02:28:48.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;可以通过动态的方式完成一个类的操作，称之为是反射的方式。&lt;/p&gt;
+&lt;p&gt;正常方式：&lt;br&gt;
+new关键字实例化一个对象，通过对象调用类中的方法，属性&lt;br&gt;
+反射方式：&lt;br&gt;
+还是针对一个类操作，实例化，调用类中的方法，属性。&lt;/p&gt;
+&lt;p&gt;如果需要学习反射的使用，需要从</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>nacos</title>
@@ -92,14 +120,16 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>redis</title>
     <link href="http://example.com/post/redis/"/>
     <id>http://example.com/post/redis/</id>
     <published>2023-07-19T06:47:05.552Z</published>
-    <updated>2023-07-19T06:47:15.290Z</updated>
+    <updated>2023-07-22T02:33:47.988Z</updated>
     
     
     
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -130,11 +160,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Docker</title>
     <link href="http://example.com/post/Docker%E8%AE%B2%E4%B9%89/"/>
     <id>http://example.com/post/Docker%E8%AE%B2%E4%B9%89/</id>
     <published>2023-07-19T00:44:11.206Z</published>
-    <updated>2023-07-19T03:18:36.736Z</updated>
+    <updated>2023-07-22T02:33:28.633Z</updated>
     
     
       
@@ -157,6 +187,8 @@
       
     
     
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -453,42 +485,6 @@
 has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;p&gt;如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。&lt;br&gt;
 如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>类加载的初始化顺序</title>
-    <link href="http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
-    <id>http://example.com/post/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</id>
-    <published>2023-06-08T04:33:27.954Z</published>
-    <updated>2023-01-09T13:22:23.916Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;静态代码块&quot;&gt;静态代码块&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;随着类的加载而运行，只执行一次&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当出现多个静态代码块(包括静态属性赋值）时，按顺序执行&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    i = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;String[] args&lt;/span&gt;)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    System.&lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt;.println(Order.i);		&lt;span class=&quot;comment&quot;&gt;//1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;构造代码块&quot;&gt;构造代码块&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;随着对象的创建而运行，且先于构造函数的执行&lt;/li&gt;
-&lt;li&gt;有多个构造代码块时，也按顺序执行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;构造器&quot;&gt;构造器&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;与类名同名的，通过new运算符来新建一个类的实例的函数。可以同时拥有多个不同参数类型顺序的构造器&lt;/li&gt;
-&lt;li&gt;当未定义任何构造器时，编译器会默认提供一个无参的构造器&lt;/li&gt;
-&lt;/ul&gt;</summary>
     
     
     
