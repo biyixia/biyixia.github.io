@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-22T02:28:48.982Z</updated>
+  <updated>2023-07-26T07:31:42.551Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>axios</title>
+    <link href="http://example.com/post/axios/"/>
+    <id>http://example.com/post/axios/</id>
+    <published>2023-07-26T07:02:19.909Z</published>
+    <updated>2023-07-26T07:31:42.551Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;axios&quot;&gt;Axios&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span id=&quot;中文官网&quot;&gt;中文官网&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.axios-http.cn/docs/intro&quot;&gt;起步 | Axios</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>gateway</title>
+    <link href="http://example.com/post/gateway/"/>
+    <id>http://example.com/post/gateway/</id>
+    <published>2023-07-24T12:36:19.670Z</published>
+    <updated>2023-07-26T02:03:06.684Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/64be70e41ddac507ccce11f9.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;使用gateway&quot;&gt;使用gateway&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>反射</title>
@@ -49,14 +99,16 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
     <link href="http://example.com/post/nacos/"/>
     <id>http://example.com/post/nacos/</id>
     <published>2023-07-21T13:09:39.203Z</published>
-    <updated>2023-07-21T13:11:08.270Z</updated>
+    <updated>2023-07-26T08:36:34.262Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://nacos.io/zh-cn/docs/quick-start.html&quot;&gt;nacos官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;span id=&quot;cap原则&quot;&gt;CAP原则&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;CAP 原则又称 CAP</summary>
         
       
     
@@ -68,11 +120,11 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
   </entry>
   
   <entry>
-    <title>mybatis plus</title>
+    <title>mybatisPlus</title>
     <link href="http://example.com/post/mybatis%20plus/"/>
     <id>http://example.com/post/mybatis%20plus/</id>
     <published>2023-07-21T13:06:55.475Z</published>
-    <updated>2023-07-21T13:50:17.492Z</updated>
+    <updated>2023-07-26T04:04:38.838Z</updated>
     
     
       
@@ -445,46 +497,6 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
     
     
     <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="第一阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>编码与数制</title>
-    <link href="http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/"/>
-    <id>http://example.com/post/%E7%BC%96%E7%A0%81%E4%B8%8E%E6%95%B0%E5%88%B6/</id>
-    <published>2023-06-08T04:33:27.956Z</published>
-    <updated>2022-12-17T13:27:25.250Z</updated>
-    
-    
-    <summary type="html">&lt;h1&gt;引言&lt;/h1&gt;
-&lt;p&gt;1、2、3、4……，我们从小便学习这么计数，并使用到现在。但是这样的计数方式从何而来呢？又如何发展成如今计算机的计数方式？&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="计算机组成与原理" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E5%8E%9F%E7%90%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>继承</title>
-    <link href="http://example.com/post/%E7%BB%A7%E6%89%BF/"/>
-    <id>http://example.com/post/%E7%BB%A7%E6%89%BF/</id>
-    <published>2023-06-08T04:33:27.955Z</published>
-    <updated>2022-12-28T12:32:17.258Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;is a”代表的是类之间的继承关系，比如PC机是计算机，工作站也是计算机。PC机和工作站是两种不同类型的计算机，但都继承了计算机的共同特性。因此在用 Java语言实现时，应该将PC机和工作站定义成两种类，均继承计算机类。&lt;/p&gt;
-&lt;p&gt;“has a”代表的是对象和它的成员的从属关系。同一种类的对象，通过它们的属性的不同值来区别。比如一台PC机的操作系统是Windows，另一台PC机的操作系统是Linux。操作系统是PC机的一个成员变量，根据这一成员变量的不同值，可以区分不同的PC机对象。&lt;/p&gt;
-&lt;p&gt;is a 是如果A是B，那么B就是A的基类。比如：等边三角形是使是三角形，那么，三角形就是等边三角形的基类。&lt;br&gt;
-has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
-&lt;p&gt;如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。&lt;br&gt;
-如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。&lt;/p&gt;</summary>
     
     
     

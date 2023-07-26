@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">5</span>
+            <span class="post-count">2.8k</span>
         </span>
     </span>
 
@@ -97,13 +97,15 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">12 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
@@ -111,6 +113,470 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p><a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start.html">nacos官方文档</a></p>
+<h1><span id="cap原则">CAP原则</span></h1>
+<p>CAP 原则又称 CAP 定理，指的是在一个分布式系统中，</p>
+<p>一致性（Consistency）</p>
+<p>可用性（Availability）</p>
+<p>分区容错性（Partition tolerance）（这个特性是不可避免的），这三个要素最多只能同时实现两点，不可能三者兼顾</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一致性（C）</td>
+<td>在分布式系统中的所有数据备份，在同一时刻是否同样的值。（等同于所有节点访问同一份最新的数据副本）</td>
+</tr>
+<tr>
+<td>可用性（A）</td>
+<td>在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。（对数据更新具备高可用性）</td>
+</tr>
+<tr>
+<td>分区容错性（P）</td>
+<td>以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。</td>
+</tr>
+</tbody>
+</table>
+<p>在分布式系统中网络会存在脑裂的问题，部分Server与整个集群失去节点联系，无法组成一个群体。只有在AP和CP选择一个平衡点</p>
+<p><strong>分布式特征</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Nacos</th>
+<th>Zookeeper</th>
+<th>Eureka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据一致性</td>
+<td></td>
+<td>注重数据的一致性</td>
+<td>不是很注重数据的一致性！</td>
+</tr>
+<tr>
+<td>服务可用性Paxos（多数派）</td>
+<td></td>
+<td>若集群中的master挂了，则 zk 集群整体不对外提供服务了，需要选一个新的出来（120s</td>
+<td>注重服务的可用性，当 Eureka 集群只有一台活着，它就能对外提供服务</td>
+</tr>
+<tr>
+<td>分区容错性</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Zookeeper注重数据的一致性，Eureka注重服务的可用性</p>
+<h1><span id="版本依赖关系">版本依赖关系</span></h1>
+<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E#%E7%BB%84%E4%BB%B6%E7%89%88%E6%9C%AC%E5%85%B3%E7%B3%BB">版本说明 · alibaba/spring-cloud-alibaba Wiki · GitHub</a></p>
+<h2><span id="毕业版本依赖关系推荐使用">毕业版本依赖关系(推荐使用)</span></h2>
+<p>由于 Spring Boot 3.0，Spring Boot 2.7~2.4 和 2.4 以下版本之间变化较大，目前企业级客户老项目相关 Spring Boot 版本仍停留在 Spring Boot 2.4 以下，为了同时满足存量用户和新用户不同需求，社区以 Spring Boot 3.0 和 2.4 分别为分界线，同时维护 2022.x、2021.x、2.2.x 三个分支迭代。如果不想跨分支升级，如需使用新特性，请升级为对应分支的新版本。 为了规避相关构建过程中的依赖冲突问题，我们建议可以通过 <a target="_blank" rel="noopener" href="https://start.aliyun.com/">云原生应用脚手架</a> 进行项目创建。</p>
+<h3><span id="2022x-分支">2022.x 分支</span></h3>
+<p>适配 Spring Boot 3.0，Spring Cloud 2022.x 版本及以上的 Spring Cloud Alibaba 版本按从新到旧排列如下表（最新版本用标记）： (注意，该分支 Spring Cloud Alibaba 版本命名方式进行了调整，未来将对应 Spring Cloud 版本，前三位为 Spring Cloud 版本，最后一位为扩展版本，比如适配 Spring Cloud 2022.0.0 版本对应的 Spring Cloud Alibaba 第一个版本为：2022.0.0.0，第个二版本为：2022.0.0.1，依此类推)</p>
+<table>
+<thead>
+<tr>
+<th>Spring Cloud Alibaba Version</th>
+<th>Spring Cloud Version</th>
+<th>Spring Boot Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022.0.0.0-RC2*</td>
+<td>Spring Cloud 2022.0.0</td>
+<td>3.0.2</td>
+</tr>
+<tr>
+<td>2022.0.0.0-RC1</td>
+<td>Spring Cloud 2022.0.0</td>
+<td>3.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="2021x-分支">2021.x 分支</span></h3>
+<p>适配 Spring Boot 2.4，Spring Cloud 2021.x 版本及以上的 Spring Cloud Alibaba 版本按从新到旧排列如下表（最新版本用*标记）：</p>
+<table>
+<thead>
+<tr>
+<th>Spring Cloud Alibaba Version</th>
+<th>Spring Cloud Version</th>
+<th>Spring Boot Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021.0.5.0*</td>
+<td>Spring Cloud 2021.0.5</td>
+<td>2.6.13</td>
+</tr>
+<tr>
+<td>2021.0.4.0</td>
+<td>Spring Cloud 2021.0.4</td>
+<td>2.6.11</td>
+</tr>
+<tr>
+<td>2021.0.1.0</td>
+<td>Spring Cloud 2021.0.1</td>
+<td>2.6.3</td>
+</tr>
+<tr>
+<td>2021.1</td>
+<td>Spring Cloud 2020.0.1</td>
+<td>2.4.2</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="22x-分支">2.2.x 分支</span></h3>
+<p>适配 Spring Boot 为 2.4，Spring Cloud Hoxton 版本及以下的 Spring Cloud Alibaba 版本按从新到旧排列如下表（最新版本用*标记）：</p>
+<table>
+<thead>
+<tr>
+<th>Spring Cloud Alibaba Version</th>
+<th>Spring Cloud Version</th>
+<th>Spring Boot Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.2.10-RC1*</td>
+<td>Spring Cloud Hoxton.SR12</td>
+<td>2.3.12.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.9.RELEASE</td>
+<td>Spring Cloud Hoxton.SR12</td>
+<td>2.3.12.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.8.RELEASE</td>
+<td>Spring Cloud Hoxton.SR12</td>
+<td>2.3.12.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.7.RELEASE</td>
+<td>Spring Cloud Hoxton.SR12</td>
+<td>2.3.12.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.6.RELEASE</td>
+<td>Spring Cloud Hoxton.SR9</td>
+<td>2.3.2.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.1.RELEASE</td>
+<td>Spring Cloud Hoxton.SR3</td>
+<td>2.2.5.RELEASE</td>
+</tr>
+<tr>
+<td>2.2.0.RELEASE</td>
+<td>Spring Cloud Hoxton.RELEASE</td>
+<td>2.2.X.RELEASE</td>
+</tr>
+<tr>
+<td>2.1.4.RELEASE</td>
+<td>Spring Cloud Greenwich.SR6</td>
+<td>2.1.13.RELEASE</td>
+</tr>
+<tr>
+<td>2.1.2.RELEASE</td>
+<td>Spring Cloud Greenwich</td>
+<td>2.1.X.RELEASE</td>
+</tr>
+<tr>
+<td>2.0.4.RELEASE(停止维护，建议升级)</td>
+<td>Spring Cloud Finchley</td>
+<td>2.0.X.RELEASE</td>
+</tr>
+<tr>
+<td>1.5.1.RELEASE(停止维护，建议升级)</td>
+<td>Spring Cloud Edgware</td>
+<td>1.5.X.RELEASE</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="组件版本关系">组件版本关系</span></h2>
+<p>每个 Spring Cloud Alibaba 版本及其自身所适配的各组件对应版本如下表所示（注意，Spring Cloud Dubbo 从 2021.0.1.0 起已被移除出主干，不再随主干演进）：</p>
+<table>
+<thead>
+<tr>
+<th>Spring Cloud Alibaba Version</th>
+<th>Sentinel Version</th>
+<th>Nacos Version</th>
+<th>RocketMQ Version</th>
+<th>Dubbo Version</th>
+<th>Seata Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022.0.0.0-RC2</td>
+<td>1.8.6</td>
+<td>2.2.1</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.7.0-native-rc2</td>
+</tr>
+<tr>
+<td>2021.0.5.0</td>
+<td>1.8.6</td>
+<td>2.2.0</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.6.1</td>
+</tr>
+<tr>
+<td>2.2.10-RC1</td>
+<td>1.8.6</td>
+<td>2.2.0</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.6.1</td>
+</tr>
+<tr>
+<td>2022.0.0.0-RC1</td>
+<td>1.8.6</td>
+<td>2.2.1-RC</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.6.1</td>
+</tr>
+<tr>
+<td>2.2.9.RELEASE</td>
+<td>1.8.5</td>
+<td>2.1.0</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.5.2</td>
+</tr>
+<tr>
+<td>2021.0.4.0</td>
+<td>1.8.5</td>
+<td>2.0.4</td>
+<td>4.9.4</td>
+<td>~</td>
+<td>1.5.2</td>
+</tr>
+<tr>
+<td>2.2.8.RELEASE</td>
+<td>1.8.4</td>
+<td>2.1.0</td>
+<td>4.9.3</td>
+<td>~</td>
+<td>1.5.1</td>
+</tr>
+<tr>
+<td>2021.0.1.0</td>
+<td>1.8.3</td>
+<td>1.4.2</td>
+<td>4.9.2</td>
+<td>~</td>
+<td>1.4.2</td>
+</tr>
+<tr>
+<td>2.2.7.RELEASE</td>
+<td>1.8.1</td>
+<td>2.0.3</td>
+<td>4.6.1</td>
+<td>2.7.13</td>
+<td>1.3.0</td>
+</tr>
+<tr>
+<td>2.2.6.RELEASE</td>
+<td>1.8.1</td>
+<td>1.4.2</td>
+<td>4.4.0</td>
+<td>2.7.8</td>
+<td>1.3.0</td>
+</tr>
+<tr>
+<td>2021.1 or 2.2.5.RELEASE or 2.1.4.RELEASE or 2.0.4.RELEASE</td>
+<td>1.8.0</td>
+<td>1.4.1</td>
+<td>4.4.0</td>
+<td>2.7.8</td>
+<td>1.3.0</td>
+</tr>
+<tr>
+<td>2.2.3.RELEASE or 2.1.3.RELEASE or 2.0.3.RELEASE</td>
+<td>1.8.0</td>
+<td>1.3.3</td>
+<td>4.4.0</td>
+<td>2.7.8</td>
+<td>1.3.0</td>
+</tr>
+<tr>
+<td>2.2.1.RELEASE or 2.1.2.RELEASE or 2.0.2.RELEASE</td>
+<td>1.7.1</td>
+<td>1.2.1</td>
+<td>4.4.0</td>
+<td>2.7.6</td>
+<td>1.2.0</td>
+</tr>
+<tr>
+<td>2.2.0.RELEASE</td>
+<td>1.7.1</td>
+<td>1.1.4</td>
+<td>4.4.0</td>
+<td>2.7.4.1</td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td>2.1.1.RELEASE or 2.0.1.RELEASE or 1.5.1.RELEASE</td>
+<td>1.7.0</td>
+<td>1.1.4</td>
+<td>4.4.0</td>
+<td>2.7.3</td>
+<td>0.9.0</td>
+</tr>
+<tr>
+<td>2.1.0.RELEASE or 2.0.0.RELEASE or 1.5.0.RELEASE</td>
+<td>1.6.3</td>
+<td>1.1.1</td>
+<td>4.4.0</td>
+<td>2.7.3</td>
+<td>0.7.1</td>
+</tr>
+</tbody>
+</table>
+<h1><span id="微服务注册">微服务注册</span></h1>
+<h2><span id="导入依赖">导入依赖</span></h2>
+<table>
+<thead>
+<tr>
+<th>SpringBoot</th>
+<th>SpringCloud</th>
+<th>SpringCloudAlibaba</th>
+<th>Nacos</th>
+<th>Sentinel</th>
+<th>Seata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>2.3.12.RELEASE</code></td>
+<td><code>Hoxton.SR12</code></td>
+<td><code>2.2.9.RELEASE</code></td>
+<td><code>2.1.0</code></td>
+<td><code>1.8.5</code></td>
+<td><code>1.5.2</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.12.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>Hoxton.SR12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.9.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>User模块中添加如下配置</strong></p>
+<p>nacos 注册中心、配置中心依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Spring Boot web启动、测试依赖</p>
+<p>mybatisPlus依赖</p>
+<p>mysql连接java依赖</p>
+<h2><span id="填写配置">填写配置</span></h2>
+<p>在application.yml中配置如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 端口号</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">2001</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 微服务名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">crm-user</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 注册中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">localhost:8848</span></span><br><span class="line">        <span class="comment"># 命名空间，默认是public，不用写</span></span><br><span class="line"><span class="comment">#        namespace:</span></span><br><span class="line">        <span class="comment"># 注册的群组名称</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span></span><br><span class="line">        <span class="comment"># Nacos用户名和密码</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span></span><br></pre></td></tr></table></figure>
+<p><strong>数据源配置</strong></p>
+<p><strong>MybatisPlus配置</strong></p>
+<h2><span id="引导类添加注解">引导类添加注解</span></h2>
+<p><code>@EnableDiscoveryClient</code>：将当前微服务注册到注册中心</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将当前微服务注册到注册中心中</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="comment">//MybatisPlus的mapper包扫描</span></span><br><span class="line"><span class="meta">@MapperScan(basePackages = &#123;&quot;com.bjpowernode.mapper&quot;&#125;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserApplication</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(UserApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="查看微服务">查看微服务</span></h2>
+<p>进入本地nacos <code>http://localhost:8848/nacos</code>，输入用户名、密码</p>
+<p>在服务管理下的服务列表中可以看到注册的微服务<img src="https://pic.imgdb.cn/item/64bf3ebc1ddac507cc641da5.jpg" alt></p>
+<h1><span id="远程调用">远程调用</span></h1>
+<h2><span id="resttemplate"><code>RestTemplate</code></span></h2>
+<p>不同微服务之间可通过RestTemplate进行调用</p>
+<h3><span id="注入spring容器">注入Spring容器</span></h3>
+<p>在引导类中将RestTemplate交给Spring管理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(basePackages = &#123;&quot;com.bjpowernode.mapper&quot;&#125;)</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ActivityApplication</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RestTemplate <span class="title function_">restTemplate</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(ActivityApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;activity&quot;)</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ActivityController</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> RestTemplate restTemplate;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="resttemplate的api">RestTemplate的API</span></h3>
+<p><strong><code>T getForObject(url,T ResponseType,uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>ResponseType：响应字节码类型</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+<li>直接返回T类型的结果</li>
+</ol>
+<p><strong><code>ResponseEntity&lt;T&gt; getForEntity(url,T ResponseType,uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>ResponseType：响应字节码类型</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+<li>返回<code>ResponseEntity&lt;T&gt;</code>封装的结果</li>
+</ol>
+<p><strong><code>T postForObject(url,Object request, T ResponseType,uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>request：请求体封装的参数</li>
+<li>ResponseType：响应字节码类型</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+<li>直接返回T类型的结果</li>
+</ol>
+<p><strong><code>ResponseEntity&lt;T&gt; postForEntity(url,Object request, T ResponseType,uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>request：请求体封装的参数</li>
+<li>ResponseType：响应字节码类型</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+<li>返回<code>ResponseEntity&lt;T&gt;</code>封装的结果</li>
+</ol>
+<p><strong><code>void put(url,Object request, uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>ResponseType：响应字节码类型</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+</ol>
+<p><strong><code>void delete(url,uriVariables)</code></strong></p>
+<ol>
+<li>url：请求地址</li>
+<li>uriVariables：若地址栏占位符有参数，则代表地址栏占位符封装的Map集合</li>
+</ol>
+<p>exchange：可以指定发送的请求及请求头的信息，并获取返回值</p>
+<h2><span id="openfeign"><code>OpenFeign</code></span></h2>
+<p>直接根据微服务名称进行负载均衡请求调用，使用方式类似一个控制器</p>
+<p>请求参数的接收上：<br>
+get/delete请求方式接收参数：<br>
+url/111 -&gt; @PathVariable<br>
+url?id=111 -&gt; @RequestParam<br>
+post/put请求方式接收参数：<br>
+传递的都是json数据，封装到请求体中 -&gt; @RequestBody<br>
+怎么进行接收的参数，我就怎么传递！！！<br>
+实现：</p>
+<h3><span id="导入依赖">导入依赖</span></h3>
+<p>引入pom.xml起步依赖</p>
+<h3><span id="添加注解">添加注解</span></h3>
+<p>引导类上添加新的注解，开启Feign远程调用，@EnableFeignClients</p>
+<h3><span id="创建接口">创建接口</span></h3>
+<ol>
+<li>创建一个接口，作为Feign的调用接口<br>
+SpringBoot会扫描到Feign的接口，并创建它的代理对象，交给Spring容器进行管理</li>
+<li>在接口中声明控制器方法，没有方法体，根据注解来进行决定发送的请求地址及请求方式</li>
+</ol>
+<h1><span id="负载均衡">负载均衡</span></h1>
+<h2><span id="idea创建集群">IDEA创建集群</span></h2>
+<p><img src="https://pic.imgdb.cn/item/64c0d7da1ddac507cceb3960.jpg" alt></p>
+<p>选中要复制的微服务，点击复制</p>
+<p><img src="https://pic.imgdb.cn/item/64c0d88c1ddac507cced1fac.jpg" alt></p>
+<p>点击编辑选项<code>Modify options</code>，添加<code>VM Options</code>选项</p>
+<p><img src="https://pic.imgdb.cn/item/64c0d8d01ddac507ccedca09.jpg" alt></p>
+<p>在添加的选项中输入 <code>-Dserver.port=2001</code>为主机分配端口后，集群分配端口号同理</p>
+<p><img src="https://pic.imgdb.cn/item/64c0d93b1ddac507ccee8560.jpg" alt></p>
+<p><img src="https://pic.imgdb.cn/item/64c0d9fc1ddac507ccf00d86.jpg" alt></p>
+<p>在Nacos页面中可以看到 crm-user 微服务下有两个实例</p>
+<p><img src="https://pic.imgdb.cn/item/64c0da401ddac507ccf08540.jpg" alt></p>
+<h2><span id="resttemplate"><code>RestTemplate</code></span></h2>
+<p>Ribbon实现</p>
+<h3><span id="添加注解">添加注解</span></h3>
+<p>在注入RestTemplate方法上添加<code>@LoadBalanced</code>注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3><span id="远程调用">远程调用</span></h3>
+<p>在远程调用的地址上将localhost:2001改为微服务的名称，负载均衡请求调用，将请求均衡的分配到每个节点中</p>
+<h2><span id="openfeign"><code>OpenFeign</code></span></h2>
  
       <!-- reward -->
       
@@ -204,7 +670,7 @@
     
       <a href="/post/mybatis%20plus/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">mybatis plus</div>
+        <div class="article-nav-title">mybatisPlus</div>
       </a>
     
   </nav>
