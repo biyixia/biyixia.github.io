@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>elasticsearch |  biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-elasticsearch"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  elasticsearch
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/elasticsearch/" class="article-date">
+  <time datetime="2023-07-27T07:15:40.395Z" itemprop="datePublished">2023-07-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/">第四阶段</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">17 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1><span id="倒排索引重点">倒排索引【重点】</span></h1>
+<h2><span id="正排索引">正排索引</span></h2>
+<p>正排索引根据id 找到对应的一组数据  （B+tree 聚簇索引） <img src="https://pic.imgdb.cn/item/64c259fb1ddac507cc6a541c.jpg" style="zoom:50%;"></p>
+<h2><span id="倒排索引">倒排索引</span></h2>
+<p>非聚簇索引：给一个字段建立索引，查询的时候 根据这个字段查到这行数据对应的id</p>
+<p>回表  再根据id 去查 聚簇索引 从而拿到一行数据</p>
+<img src="https://pic.imgdb.cn/item/64c25a101ddac507cc6a77d8.jpg" style="zoom:50%;"> 
+<p>一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的 Term 列表</p>
+<h1><span id="分词">分词</span></h1>
+<p>就是按照一定的规则，将一句话分成组合的单词</p>
+<h1><span id="elasticsearch核心概念重点">Elasticsearch核心概念【重点】</span></h1>
+<h2><span id="结构说明">结构说明</span></h2>
+<table>
+<thead>
+<tr>
+<th>Elasticsearch</th>
+<th>Mysql</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index(索引库)</td>
+<td>Database(数据库)</td>
+</tr>
+<tr>
+<td>Type（_doc）</td>
+<td>Table(表)</td>
+</tr>
+<tr>
+<td>Document(文档)</td>
+<td>Row(行)</td>
+</tr>
+<tr>
+<td>Field(字段)</td>
+<td>Column(列)</td>
+</tr>
+<tr>
+<td>mappings</td>
+<td>列的类型约束(int,varchar…)</td>
+</tr>
+</tbody>
+</table>
+<p>这里的Type概念从ES6.x以后被弱化，官方将在ES8.0以后正式剔除他</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>索引库（indices）</td>
+<td>把数据写入elasticsearch 时，会在里面建立索引，索引库里面存储索引，一个index 对应一个database</td>
+</tr>
+<tr>
+<td>文档（document）</td>
+<td>就是一条数据，一般使用json 表示，和数据库对比，就是一行数据，在java 里面就是一个一个对象</td>
+</tr>
+<tr>
+<td>字段（field）</td>
+<td>一个对象的属性，对应数据库就是一列</td>
+</tr>
+<tr>
+<td>节点</td>
+<td>一台运行elasticsearch的服务器，被称为一个节点</td>
+</tr>
+<tr>
+<td>集群</td>
+<td>多个节点组成一个集群</td>
+</tr>
+<tr>
+<td>分片</td>
+<td>一个索引可以存储在多个主分片上，有负载均衡的作用，还有从分片是主分片的一个副本</td>
+</tr>
+<tr>
+<td>副本</td>
+<td>一份数据可以有多个副本，做数据冗余（安全），一般放在从分片里面</td>
+</tr>
+</tbody>
+</table>
+<img src="https://pic.imgdb.cn/item/64c25e161ddac507cc73505e.jpg" style="zoom:50%;"> 
+<h1><span id="elasticsearch安装">Elasticsearch安装</span></h1>
+<h2><span id="拉取镜像">拉取镜像</span></h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull elasticsearch:7.6.2</span><br></pre></td></tr></table></figure>
+<h2><span id="运行镜像">运行镜像</span></h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e <span class="string">&quot;discovery.type=single-node&quot;</span> -e ES_JAVA_OPTS=<span class="string">&quot;-Xms256m -Xmx256m&quot;</span>  elasticsearch:7.6.2</span><br></pre></td></tr></table></figure>
+<h2><span id="测试访问-ip9200">测试访问 ip:9200</span></h2>
+<p>异常：<code>max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</code></p>
+<p>运行<code>sysctl -w vm.max_map_count=262144</code> ，再重启容器</p>
+<h1><span id="elasticsearch目录">Elasticsearch目录</span></h1>
+<p><img src="https://pic.imgdb.cn/item/64c25a7d1ddac507cc6b37fc.jpg" alt></p>
+<ol>
+<li>bin：启动脚本</li>
+<li>config:
+<ol>
+<li>elasticsearch.yml，ES的集群信息、对外端口、内存锁定、数据目录、跨域访问等属性的配置</li>
+<li>jvm.options，ES使用Java写的，此文件用于设置JVM相关参数，如最大堆、最小堆</li>
+<li>log4j2.properties，ES使用log4j作为其日志框架</li>
+</ol>
+</li>
+<li>data：数据存放目录（索引数据）</li>
+<li>plugins: ES的可扩展插件存放目录，如可以将ik中文分词插件放入此目录，ES启动时会自动加载</li>
+</ol>
+<h1><span id="ik分词的安装重点">IK分词的安装【重点】</span></h1>
+<p>以插件的形式安装</p>
+<h2><span id="官网下载">官网下载</span></h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/medcl/elasticsearch-analysis-ik/releases">IK分词下载</a>  （7.6.2版本）</p>
+<h2><span id="拷贝至docker">拷贝至Docker</span></h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> elasticsearch-analysis-ik-7.6.2.zip 【容器名称】:/usr/share/elasticsearch/plugins</span><br></pre></td></tr></table></figure>
+<h2><span id="解压">解压</span></h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip elasticsearch-analysis-ik-7.6.2.zip -d </span><br></pre></td></tr></table></figure>
+<p>删除原zip文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf elasticsearch-analysis-ik-7.6.2.zip</span><br></pre></td></tr></table></figure>
+<h2><span id="重启es测试">重启ES测试</span></h2>
+<table>
+<thead>
+<tr>
+<th>Ik分词方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ik_smart</td>
+<td>分词的粒度较小，也叫智能分词</td>
+</tr>
+<tr>
+<td>ik_max_word</td>
+<td>分词的粒度较大，也叫最大力度分词</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:9200/_analyze</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;analyzer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ik_max_word&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我有个女朋友&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>ik_smart</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;tokens&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;有&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">1</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;个&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">2</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;女朋友&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">6</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_WORD&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">3</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>ik_max_word</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;tokens&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;有&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">1</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;个&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_CHAR&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">2</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;女朋友&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">6</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_WORD&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">3</span></span><br><span class="line">		<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;朋友&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;start_offset&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;end_offset&quot;</span><span class="punctuation">:</span> <span class="number">6</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CN_WORD&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;position&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span> </span><br></pre></td></tr></table></figure>
+<h1><span id="elasticsearch基本使用重点">Elasticsearch基本使用【重点】</span></h1>
+<p>Elasticsearch 是基于restful风格的http应用，即使用http动词形式对url资源进行操作（GET,POST,PUT,DELETE…）</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip:port/索引名/_doc/文档id</span><br><span class="line">&#123;请求体&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="操作索引-mappings">操作索引、mappings</span></h2>
+<p>相当于MySQL建库建表约束</p>
+<h3><span id="新增索引">新增索引</span></h3>
+<p>新建一个student索引，给定几个字段约束</p>
+<p>索引只能增删，不能修改</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT http://localhost:9200/student</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mappings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;properties&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;birthDay&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;date&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;price&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;double&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="查询索引">查询索引</span></h3>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET http://localhost:9200/student</span><br></pre></td></tr></table></figure>
+<h3><span id="查询索引mappings">查询索引mappings</span></h3>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET http://localhost:9200/student/_mappings </span><br></pre></td></tr></table></figure>
+<h3><span id="删除索引">删除索引</span></h3>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE http://localhost:9200/student </span><br></pre></td></tr></table></figure>
+<h2><span id="操作document">操作Document</span></h2>
+<h3><span id="新增数据">新增数据</span></h3>
+<p><strong>PUT方式（需指定id）</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT http://localhost:9200/【索引名】/_doc/1</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;超人&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;birthDay&quot;</span><span class="punctuation">:</span><span class="string">&quot;2023-01-01&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;price&quot;</span><span class="punctuation">:</span><span class="number">100</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://pic.imgdb.cn/item/64c262311ddac507cc7e0291.jpg" alt></p>
+<p><strong>POST方式（自动生成id）</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://localhost:9200/【索引名】/_doc</span><br></pre></td></tr></table></figure>
+<h3><span id="查询数据">查询数据</span></h3>
+<p>es中的查询叫 DSL查询语法 表现形式就是放在发送的请求体里面</p>
+<p><strong>查询单个数据</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET http://localhost:9200/【索引名】/_doc/1 </span><br></pre></td></tr></table></figure>
+<p><strong>查询全部数据</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET http://localhost:9200/【索引名】/_doc/_search </span><br></pre></td></tr></table></figure>
+<h3><span id="修改数据">修改数据</span></h3>
+<p><strong>PUT方式（覆盖）</strong></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT http://localhost:9200/【索引名】/_doc/1</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">30</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>对于没有赋值的字段会被空值覆盖（相当于清除），因此该修改方式不安全</p>
+<p><strong>POST方式（保留）</strong></p>
+ <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://localhost:9200/【索引名】/_doc/1/_update </span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;doc&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">30</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>对于没有赋值的字段会保留，因此该修改方式安全</p>
+<h3><span id="删除数据">删除数据</span></h3>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE http://localhost:9200/【索引名】/_doc/1 </span><br></pre></td></tr></table></figure>
+<h1><span id="spring-boot使用es重点">Spring Boot使用ES【重点】</span></h1>
+<h2><span id="导入依赖">导入依赖</span></h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以及Spring Boot、nacos注册中心、nacos配置中心依赖</p>
+<h2><span id="添加配置">添加配置</span></h2>
+<p>在 <code>application.yml</code>中添加如下配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">elasticsearch:</span></span><br><span class="line">    <span class="attr">rest:</span></span><br><span class="line">      <span class="comment"># es的连接地址</span></span><br><span class="line">      <span class="attr">uris:</span> <span class="string">http://localhost:9200</span></span><br></pre></td></tr></table></figure>
+<h2><span id="测试连接">测试连接</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ElasticsearchDemoApplicationTests</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ElasticsearchRestTemplate elasticsearchRestTemplate;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//测试连接</span></span><br><span class="line">        System.out.println(elasticsearchRestTemplate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="操作实体类">操作实体类</span></h2>
+<p>对索引的操作 ==&gt; 使用实体类操作</p>
+<p><strong><code>@Document</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>createIndex</td>
+<td>启动时是否创建</td>
+</tr>
+<tr>
+<td>indexName</td>
+<td>索引名称</td>
+</tr>
+<tr>
+<td>shards</td>
+<td>分片个数</td>
+</tr>
+<tr>
+<td>replicas</td>
+<td>副本个数</td>
+</tr>
+<tr>
+<td>refreshInterval</td>
+<td>数据导入到索引里面，最多几秒搜索到</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>@Id</code></strong></p>
+<p>默认使用keyword关键字模式，不进行分词</p>
+<p><code> @Field</code></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>analyzer</td>
+<td>导入时使用的分词</td>
+</tr>
+<tr>
+<td>searchAnalyzer</td>
+<td>搜索时使用的分词</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@Accessors(chain = true)</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * es注解</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Document(createIndex = true,indexName = &quot;clue&quot;,shards = 1,replicas = 2,refreshInterval = &quot;1s&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Clue</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span> <span class="comment">//默认使用keyword关键字模式，不进行分词</span></span><br><span class="line">    <span class="meta">@Field</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * analyzer:导入时使用的分词</span></span><br><span class="line"><span class="comment">     * searchAnalyzer：搜索时使用的分词</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text,searchAnalyzer = &quot;ik_max_word&quot;,analyzer = &quot;ik_smart&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String company;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text,searchAnalyzer = &quot;ik_max_word&quot;,analyzer = &quot;ik_smart&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String fullname;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String createTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String website;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String owner;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String job;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String createBy;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String contactSummary;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String editTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String mphone;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String appellation;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String editBy;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String source;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String nextContactTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Field(type = FieldType.Text)</span></span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="创建索引和mappings约束">创建索引和mappings约束</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">InitDataConfig</span> <span class="keyword">implements</span> <span class="title class_">CommandLineRunner</span> &#123;</span><br><span class="line">    <span class="comment">//注入es</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ElasticsearchRestTemplate elasticsearchRestTemplate;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">//根据实体类的注解创建es索引</span></span><br><span class="line">        <span class="type">IndexOperations</span> <span class="variable">operations</span> <span class="operator">=</span> elasticsearchRestTemplate.indexOps(Clue.class);</span><br><span class="line">        <span class="comment">//根据实体类的注解创建映射关系</span></span><br><span class="line">        <span class="type">Document</span> <span class="variable">mapping</span> <span class="operator">=</span> operations.createMapping(Clue.class);</span><br><span class="line">        <span class="comment">//执行mapping</span></span><br><span class="line">        operations.putMapping(mapping);</span><br><span class="line">        <span class="comment">//从索引里面获取mappings</span></span><br><span class="line">        System.out.println(operations.getMapping());</span><br><span class="line">        <span class="comment">//初始化es数据并导入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="操作文档">操作文档</span></h2>
+<h3><span id="创建cluerepository">创建ClueRepository</span></h3>
+<p>类似通用Dao，封装了CRUD方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ClueRepository</span> <span class="keyword">extends</span> <span class="title class_">ElasticsearchRepository</span>&lt;Goods, Integer&gt; &#123;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3><span id="新增数据">新增数据</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> ClueRepository clueRepository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">savaAllClue</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//新增商品数据100条</span></span><br><span class="line">    ArrayList&lt;Clue&gt; clues = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">        clues.add(</span><br><span class="line">            Clue.builder()</span><br><span class="line">            .id(i)</span><br><span class="line">            .fullname(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .appellation(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .owner(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .company(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .job(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .email(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .phone(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .website(<span class="string">&quot;XXX&quot;</span>)</span><br><span class="line">            .build()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//批量新增</span></span><br><span class="line">    clueRepository.saveAll(clues);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="根据id查询数据">根据id查询数据</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">findClue</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(clueRepository.findById(<span class="number">1000</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="查询所有数据">查询所有数据</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">findAllClue</span><span class="params">()</span> &#123;</span><br><span class="line">    clueRepository.findAll().forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="修改数据覆盖">修改数据(覆盖)</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">UpdateClue</span><span class="params">()</span>&#123;</span><br><span class="line">    clueRepository.save(</span><br><span class="line">        Clue.builder().id(<span class="number">1000</span>).fullname(<span class="string">&quot;XXX&quot;</span>).build()</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="删除数据">删除数据</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">delClue</span><span class="params">()</span>&#123;</span><br><span class="line">    clueRepository.deleteById(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="复杂的查询操作重点">复杂的查询操作【重点】</span></h1>
+<table>
+<thead>
+<tr>
+<th>注意</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>match</td>
+<td>会通过分词器去模糊匹配 例如：华为电脑，会把包含‘华为’，‘电脑’，都查出来</td>
+</tr>
+<tr>
+<td>term</td>
+<td>精确查找你的关键字,一般使用keywords的约束，使用term</td>
+</tr>
+<tr>
+<td>matchPhrase</td>
+<td>不分词查询，弥补了match和term</td>
+</tr>
+<tr>
+<td>rang</td>
+<td>范围查询</td>
+</tr>
+<tr>
+<td>match、rang 同时出现</td>
+<td>需要组合bool查询分页，排序是通用的查询，不需要通过bool组合使用，直接nativeSearchQueryBuilder使用</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="查询常用类">查询常用类</span></h2>
+<table>
+<thead>
+<tr>
+<th>查询常用类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>QueryBuilders</code></td>
+<td>构造条件对象，例如matchQuery，rangeQuery，boolQuery等</td>
+</tr>
+<tr>
+<td><code>NativeSearchQueryBuilder</code></td>
+<td>组合条件对象，组合后使用build构建查询对象</td>
+</tr>
+<tr>
+<td><code>HighlightBuilder</code></td>
+<td>高亮的查询类，注意使用它的Field静态内部类</td>
+</tr>
+<tr>
+<td><code>FunctionScoreQueryBuilder</code></td>
+<td>权重类，注意它的FilterFunctionBuilder静态内部类</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="关键字范围分页排序">关键字，范围，分页，排序</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFuZaSearch</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//关键字，“华为” ，范围，分页，排序</span></span><br><span class="line">    <span class="type">MatchQueryBuilder</span> <span class="variable">matchQueryBuilder</span> <span class="operator">=</span> QueryBuilders.matchQuery(<span class="string">&quot;goodsName&quot;</span>, <span class="string">&quot;华为&quot;</span>);</span><br><span class="line">    <span class="type">RangeQueryBuilder</span> <span class="variable">rangeQueryBuilder</span> <span class="operator">=</span> QueryBuilders.rangeQuery(<span class="string">&quot;goodsStock&quot;</span>).from(<span class="number">700</span>).to(<span class="number">750</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用bool组合这两个查询</span></span><br><span class="line">    <span class="type">BoolQueryBuilder</span> <span class="variable">boolQueryBuilder</span> <span class="operator">=</span> QueryBuilders.boolQuery().must(matchQueryBuilder).must(rangeQueryBuilder);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建组合器</span></span><br><span class="line">    <span class="type">NativeSearchQueryBuilder</span> <span class="variable">nativeSearchQueryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NativeSearchQueryBuilder</span>();</span><br><span class="line">    <span class="comment">//去build()构建查询对象</span></span><br><span class="line">    <span class="type">NativeSearchQuery</span> <span class="variable">nativeSearchQuery</span> <span class="operator">=</span> nativeSearchQueryBuilder</span><br><span class="line">            .withQuery(boolQueryBuilder)</span><br><span class="line">            .withPageable(PageRequest.of(<span class="number">0</span>, <span class="number">20</span>))    <span class="comment">//注意范围和分页有关系，可能查出来了，但是当前分页没有</span></span><br><span class="line">            .withSort(SortBuilders.fieldSort(<span class="string">&quot;goodsPrice&quot;</span>).order(SortOrder.ASC))</span><br><span class="line">            .build();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用es查询 得到结果集</span></span><br><span class="line">    SearchHits&lt;Goods&gt; searchHits = elasticsearchRestTemplate.search(nativeSearchQuery, Goods.class);</span><br><span class="line">    searchHits.forEach(goodsSearchHit -&gt; &#123;</span><br><span class="line">        <span class="comment">//循环结果集，答应结果</span></span><br><span class="line">        System.out.println(goodsSearchHit.getContent());</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="高亮查询">高亮查询</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testHighlight</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//华为，模糊匹配</span></span><br><span class="line">    <span class="type">MatchQueryBuilder</span> <span class="variable">matchQueryBuilder</span> <span class="operator">=</span> QueryBuilders.matchQuery(<span class="string">&quot;goodsName&quot;</span>, <span class="string">&quot;华为&quot;</span>);</span><br><span class="line"></span><br><span class="line">    HighlightBuilder.<span class="type">Field</span> <span class="variable">goodsName</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HighlightBuilder</span>.Field(<span class="string">&quot;goodsName&quot;</span>).preTags(<span class="string">&quot;&lt;span style=&#x27;color:red&#x27;&gt;&quot;</span>).postTags(<span class="string">&quot;&lt;/span&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">NativeSearchQueryBuilder</span> <span class="variable">nativeSearchQueryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NativeSearchQueryBuilder</span>();</span><br><span class="line"></span><br><span class="line">    <span class="type">NativeSearchQuery</span> <span class="variable">nativeSearchQuery</span> <span class="operator">=</span> nativeSearchQueryBuilder</span><br><span class="line">        .withQuery(matchQueryBuilder)</span><br><span class="line">        .withHighlightFields(goodsName)</span><br><span class="line">        .build();</span><br><span class="line">    <span class="comment">//得到结果集 我们需要手动组装高亮字段</span></span><br><span class="line">    SearchHits&lt;Goods&gt; searchHits = elasticsearchRestTemplate.search(nativeSearchQuery, Goods.class);</span><br><span class="line"></span><br><span class="line">    List&lt;Goods&gt; goodsArrayList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    searchHits.forEach(goodsSearchHit -&gt; &#123;</span><br><span class="line">        <span class="comment">//得到goods对象,但是这里面额goodsName属性不是高亮的，所以要改</span></span><br><span class="line">        <span class="type">Goods</span> <span class="variable">goods</span> <span class="operator">=</span> goodsSearchHit.getContent();</span><br><span class="line">        List&lt;String&gt; highlightField = goodsSearchHit.getHighlightField(<span class="string">&quot;goodsName&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">highlight</span> <span class="operator">=</span> highlightField.get(<span class="number">0</span>);</span><br><span class="line">        goods.setGoodsName(highlight);</span><br><span class="line">        goodsArrayList.add(goods);</span><br><span class="line">    &#125;);</span><br><span class="line">    System.out.println(JSON.toJSONString(goodsArrayList));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="权重查询">权重查询</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testWeight</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//手机名称 和卖点 都有的情况下，设置权重查询</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">keyWords</span> <span class="operator">=</span> <span class="string">&quot;华为&quot;</span>;</span><br><span class="line">    <span class="comment">//创建权重数组</span></span><br><span class="line">    FunctionScoreQueryBuilder.FilterFunctionBuilder[] functionBuilders = <span class="keyword">new</span> <span class="title class_">FunctionScoreQueryBuilder</span>.FilterFunctionBuilder[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置权重</span></span><br><span class="line">    functionBuilders[<span class="number">0</span>] = (<span class="keyword">new</span> <span class="title class_">FunctionScoreQueryBuilder</span>.FilterFunctionBuilder(</span><br><span class="line">        QueryBuilders.matchQuery(<span class="string">&quot;goodsName&quot;</span>, keyWords),</span><br><span class="line">        ScoreFunctionBuilders.weightFactorFunction(<span class="number">10</span>)<span class="comment">//给名称设置10的权重大小</span></span><br><span class="line">    ));</span><br><span class="line">    functionBuilders[<span class="number">1</span>] = (</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">FunctionScoreQueryBuilder</span>.FilterFunctionBuilder(</span><br><span class="line">            QueryBuilders.matchQuery(<span class="string">&quot;goodsBrief&quot;</span>, keyWords),</span><br><span class="line">            ScoreFunctionBuilders.weightFactorFunction(<span class="number">4</span>)<span class="comment">//给卖点设置4的权重</span></span><br><span class="line">        ));</span><br><span class="line"></span><br><span class="line">    <span class="type">FunctionScoreQueryBuilder</span> <span class="variable">functionScoreQueryBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FunctionScoreQueryBuilder</span>(functionBuilders);</span><br><span class="line"></span><br><span class="line">    functionScoreQueryBuilder.setMinScore(<span class="number">2</span>) <span class="comment">//设置最小分数</span></span><br><span class="line">        .scoreMode(FunctionScoreQuery.ScoreMode.FIRST);<span class="comment">//设置计分方式</span></span><br><span class="line"></span><br><span class="line">    <span class="type">NativeSearchQuery</span> <span class="variable">nativeSearchQuery</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NativeSearchQueryBuilder</span>().withQuery(functionScoreQueryBuilder).build();</span><br><span class="line">    SearchHits&lt;Goods&gt; searchHits = elasticsearchRestTemplate.search(nativeSearchQuery, Goods.class);</span><br><span class="line">    searchHits.forEach(goodsSearchHit -&gt; &#123;</span><br><span class="line">        <span class="comment">//循环结果集，答应结果</span></span><br><span class="line">        System.out.println(goodsSearchHit.getContent());</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="es总结面试">Es总结面试</span></h1>
+<h2><span id="为什么使用es结合项目业务来说">为什么使用es（结合项目业务来说）</span></h2>
+<p>商城中的数据，将来会非常多，所以采用以往的模糊查询，模糊查询前置配置，会放弃索引，（%name%）导致商品查询是全表扫描，在百万级别的数据库中，效率非常低下，而我们使用ES做一个全文索引，我们将经常查询的商品的某些字段，比如说商品名，描述、价格还有id这些字段我们放入我们索引库里，可以提高查询速度。 (数据量过大，而且用户经常使用查询的场景，对用户体验很好)</p>
+<h2><span id="es用来做什么场景重点">es用来做什么（场景）重点</span></h2>
+<p>\1. 商品存放 （业务数据的存放） 每个商品都是一个对象</p>
+<p>\2. 日志统计 （整个应用的日志非常多，都要收集起来，方便后期做日志分析，数据回溯）</p>
+<p>\3. 数据分析（大数据）（只要是电商，就要和tb，jd等对比价格，做数据分析等）</p>
+<p>你做一个电商项目 你卖鞋子 衣服  你怎么 定价  鞋子 199 599 398</p>
+<p>你写个爬虫（jsoup） 定期采集tb jd的数据库 做数据比对分析 做 竞品 分析</p>
+<p>业务  商业</p>
+<p>定期的做数据采集和分析 数据采集系统 定时任务去采集别的大型电商网站的数据，进行价格分析，从而定价，后期还要做竞品分析</p>
+<h2><span id="什么是倒排索引">什么是倒排索引</span></h2>
+<p>通常正排索引是通过id映射到对应的数据</p>
+<p>倒排索引是将分词建立索引，通过分词映射到id，在通过id找到数据</p>
+<p>详见文档4.2</p>
+<h2><span id="es的存储数据的过程">es的存储数据的过程</span></h2>
+<p>先写内存</p>
+<p>当缓冲页满了或者时间到了就refresh操作将数据刷新到分片去 （这个操作使得搜索可见了）</p>
+<p>分片有flush操作  将数据持久化到磁盘</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml9648\wps1.jpg)</p>
+<p>1：写入请求，分发节点。</p>
+<p>2：数据写入****同时写入内存和translog各一份****，tanslog为保证数据不丢失，每 5 秒，或每次请求操作结束前，会强制刷新 translog 日志到磁盘上</p>
+<p>3：确定数据给那个分片，<em><strong>*refresh 刷新内存中数据到分片的segment*</strong></em>，默认1秒刷新一次，为了提高吞吐量可以增大60s。参数refresh_interval（<em><strong>*refresh操作使得写入文档搜索可见*</strong></em>）</p>
+<p>4：<em><strong>*通过flush操作将segment刷新到磁盘中完成持久化，保存成功清除translog*</strong></em>，新版本es的 translog 不会在 segment 落盘就删，而是会保留，默认是512MB，保留12小时。每个分片。所以分片多的话 ，要考虑 translog 会带来的额外存储开销（<em><strong>*flush操作使得filesystem cache写入磁盘，以达到持久化的目的*</strong></em>） （<em><strong>*refresh之前搜索不可见*</strong></em>）</p>
+<p>5：segment过多会进行合并merge为大的segment，消耗大量的磁盘io和网络io （方便数据整理和磁盘优化）</p>
+<h2><span id="es的搜索过程">es的搜索过程</span></h2>
+<p>1、搜索被执行成一个****两阶段过程****，我们称之为 <em><strong>*Query*</strong></em> Then <em><strong>*Fetch*</strong></em>；</p>
+<p>2、在初始查询阶段时，查询会广播到索引中每一个分片拷贝（主分片或者副本分</p>
+<p>片）。 每个分片在本地执行搜索并构建一个匹配文档的大小为 from + size 的</p>
+<p>优先队列。</p>
+<p>注意：在搜索的时候是会查询 Filesystem Cache 的，但是有部分数据还在 Memory</p>
+<p>Buffer，所以搜索是****接********近实时****的。</p>
+<p>3、每个分片返回各自优先队列中所有文档的 ID 和排序值给协调节点（主节点），它合并</p>
+<p>这些值到自己的优先队列中来产生一个全局排序后的结果列表。</p>
+<p>4、接下来就是 取回阶段，协调节点辨别出哪些文档需要被取回并****向相关的分片****</p>
+<p><em><strong>*提交多个 GET 请求*</strong></em>。每个分片加载并 丰富 文档，如果有需要的话，接着返回</p>
+<p>文档给协调节点。一旦所有的文档都被取回了，协调节点返回结果给客户端。</p>
+<p><em><strong>*通俗的将就是：*</strong></em></p>
+<p><em><strong>*每个分片先拿到id和排序值，然后整合成一个全局列表*</strong></em></p>
+<p><em><strong>*然后通过判断找到相应的节点提交多个get请求，组装数据返回*</strong></em></p>
+<p>5、补充：Query Then Fetch 的搜索类型在文档相关性打分的时候参考的是本分</p>
+<p>片的数据（score），这样在文档数量较少的时候可能不够准确，DFS Query Then Fetch 增</p>
+<p>加了一个****预查询****的处理，询问 Term 和 Document frequency，这个评分更准确，</p>
+<p>但是性能会变差。</p>
+<p><em><strong>*搜索因为有分片的存在 是有局限性的  每个分片都自己判断*</strong></em></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/elasticsearch/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/sentinel/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            sentinel
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/axios/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">axios</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2023
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>
