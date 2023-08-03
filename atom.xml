@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-08-01T03:00:55.703Z</updated>
+  <updated>2023-08-03T13:34:58.460Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/post/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/"/>
+    <id>http://example.com/post/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/</id>
+    <published>2023-08-03T13:34:31.854Z</published>
+    <updated>2023-08-03T13:34:58.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一、Collectors.toList()&lt;br&gt;
+  现在有个集合：&lt;/p&gt;
+&lt;p&gt;List&lt;user&gt; users =</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>rabbitMQ</title>
@@ -44,7 +67,7 @@
     <link href="http://example.com/post/SpringSecurity%E4%B8%8Eoauth2/"/>
     <id>http://example.com/post/SpringSecurity%E4%B8%8Eoauth2/</id>
     <published>2023-07-31T01:14:06.647Z</published>
-    <updated>2023-08-03T09:31:36.573Z</updated>
+    <updated>2023-08-03T13:49:37.981Z</updated>
     
     
       
@@ -478,31 +501,6 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
     <summary type="html">&lt;h2&gt;&lt;span id=&quot;下载与安装&quot;&gt;下载与安装&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomcat.apache.org/download-90.cgi&quot;&gt;Tomcat官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SSM</title>
-    <link href="http://example.com/post/SSM/"/>
-    <id>http://example.com/post/SSM/</id>
-    <published>2023-06-15T09:16:32.595Z</published>
-    <updated>2023-06-17T08:26:13.718Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;环境搭建&quot;&gt;环境搭建&lt;/span&gt;&lt;/h2&gt;
-&lt;h3&gt;&lt;span id=&quot;导入依赖&quot;&gt;导入依赖&lt;/span&gt;&lt;/h3&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
