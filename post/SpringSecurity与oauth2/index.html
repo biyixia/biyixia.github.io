@@ -479,7 +479,7 @@
 <p><strong>发送请求获取token令牌</strong></p>
 <p>无需登录，直接根据请求中的用户名密码(第三方)，来获取令牌</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST http://localhost:2222/oauth/token?username=kunkun&amp;password=123&amp;grant_type=password</span><br></pre></td></tr></table></figure>
-<p>username和password是数据库中的用户名密码，认证的用户名密码</p>
+<p>username和password是数据库中的用户名密码（数据库中的密码必须经过加密），认证的用户名密码</p>
 <p>请求头</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Authorization</span>=<span class="string">Basic Ympwb3dlcm5vZGU6Ympwb3dlcm5vZGUtc2VjcmV0 (bjpowernode:bjpowernode-secret)</span></span><br></pre></td></tr></table></figure>
 <p>响应体token数据</p>
@@ -699,7 +699,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2022-2023
+        2022-2024
         <i class="ri-heart-fill heart_icon"></i> biyixia
       </li>
     </ul>

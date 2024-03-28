@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">19.9k</span>
         </span>
     </span>
 
@@ -97,20 +97,1072 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">80 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1><span id="nosql介绍">NoSQL介绍</span></h1>
+<p>NoSQL(Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库</p>
+<h2><span id="为什么需要nosql">为什么需要NoSQL</span></h2>
+<p>随着互联网Web2.0（Ajax）网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS（Social Networking Services，即社会性网络服务）类型的Web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，例如：</p>
+<ol>
+<li>
+<p>High performance — 对数据库高并发读写的需求</p>
+<p>Web2.0网站要根据用户个性化信息来实时生成动态页面和提供动态信息，所以基本上无法使用动态页面静态化技术，因此数据库并发负载非常高，往往要达到每秒上万次读写请求。关系数据库应付上万次SQL查询还勉强顶得住，但是应付上万次SQL写数据请求，硬盘IO就已经无法承受了。其实对于普通的BBS网站，往往也存在对高并发写请求的需求，例如网站的实时统计在线用户状态，记录热门帖子的点击次数，投票计数等，因此这是一个相当普遍的需求。</p>
+</li>
+<li>
+<p>Huge Storage — 对海量数据的高效率存储和访问的需求</p>
+<p>类似Facebook，twitter，Friendfeed这样的SNS网站，每天用户产生海量的用户动态，以Friendfeed为例，一个月就达到了2.5亿条用户动态，对于关系数据库来说，在一张2.5亿条记录的表里面进行SQL查询，效率是极其低下乃至不可忍受的。再例如大型web网站的用户登录系统，例如腾讯、盛大，动辄（zhé）数以亿计的帐号，关系数据库也很难应付。</p>
+</li>
+<li>
+<p>High Scalability &amp;&amp; High Availability — 对数据库的高可扩展性和高可用性的需求。</p>
+<p>在基于web的架构当中，数据库是最难进行横向扩展的，当一个应用系统的用户量和访问量与日俱增的时候，你的数据库却没有办法像web server和app server那样简单的通过添加更多的硬件和服务节点来扩展性能和负载能力。对于很多需要提供24小时不间断服务的网站来说，对数据库系统进行升级和扩展是非常痛苦的事情，往往需要停机维护和数据迁移，为什么数据库不能通过不断的添加服务器节点来实现扩展呢？</p>
+</li>
+</ol>
+<p>NoSQL数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题。</p>
+<h2><span id="nosql特点">NoSQL特点</span></h2>
+<p>在大数据存取上具备关系型数据库无法比拟的性能优势：</p>
+<ol>
+<li>
+<p>大数据量，高性能</p>
+<p>NoSQL数据库都具有非常高的读写性能，尤其在大数据量下，同样表现优秀。这得益于它的无关系性，数据库的结构简单。</p>
+<p>绝大多数NoSQL数据库都是基于内存存储的！</p>
+</li>
+<li>
+<p>易扩展</p>
+<p>NoSQL数据库种类繁多，但是一个共同的特点都是去掉关系数据库的关系型特性。数据之间无关系，这样就非常容易扩展。也无形之间，在架构的层面上带来了可扩展的能力。</p>
+</li>
+<li>
+<p>灵活的数据模型</p>
+<p>NoSQL无需事先为要存储的数据建立字段，随时可以存储自定义的数据格式。而在关系数据库里，增删字段是一件非常麻烦的事情。如果是非常大数据量的表，增加字段简直就是一个噩梦。这点在大数据量的Web2.0时代尤其明显。</p>
+</li>
+<li>
+<p>高可用</p>
+<p>NoSQL在不太影响性能的情况，就可以方便的实现高可用的架构。高可用：通过特殊手段减少不能提供服务的时间！</p>
+</li>
+</ol>
+<p>综上所述，NoSQL的非关系特性使其成为了后Web2.0时代的宠儿，助力大型Web2.0网站的再次起飞，是一项全新的数据库革命性运动。</p>
+<h2><span id="主流nosql产品">主流NoSQL产品</span></h2>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps1.jpg)</p>
+<p>NoSQL数据库的四大分类如下：</p>
+<p>n 键值(Key-Value)存储数据库</p>
+<p>相关产品： Tokyo Cabinet/Tyrant、Redis、Voldemort、Berkeley DB</p>
+<p>典型应用： 内容缓存，主要用于处理大量数据的高访问负载。</p>
+<p>数据模型： 一系列键值对</p>
+<p>优势： 快速查询</p>
+<p>劣势： 存储的数据缺少结构化</p>
+<p>n 列存储数据库</p>
+<p>相关产品：Cassandra, HBase, Riak</p>
+<p>典型应用：分布式的文件系统</p>
+<p>数据模型：以列簇式存储，将同一列数据存在一起</p>
+<p>优势：查找速度快，可扩展性强，更容易进行分布式扩展</p>
+<p>劣势：功能相对局限</p>
+<p>n 文档型数据库</p>
+<p>相关产品：CouchDB、MongoDB</p>
+<p>典型应用：Web应用（与Key-Value类似，Value是结构化的）</p>
+<p>数据模型： 一系列键值对</p>
+<p>优势：数据结构要求不严格</p>
+<p>劣势： 查询性能不高，而且缺乏统一的查询语法</p>
+<p>n 图形(Graph)数据库</p>
+<p>相关数据库：Neo4J、InfoGrid、Infinite Graph</p>
+<p>典型应用：社交网络</p>
+<p>数据模型：图结构</p>
+<p>优势：利用图结构相关算法。</p>
+<p>劣势：需要对整个图做计算才能得出结果，不容易做分布式的集群方案。</p>
+<h1><span id="redis介绍">Redis介绍</span></h1>
+<h2><span id="redis由来">Redis由来</span></h2>
+<p>2008年，意大利的一家创业公司Merzia推出了一款基于MySQL的网站实时统计系统LLOOGG，然而没过多久，该公司的创始人Salvatore Sanfilippo便对MySQL的性能感到失望，于是他决定亲自为LLOOGG量身定做一个数据库，并于2009年开发完成，这个数据库就是Redis。不过Salvatore Sanfilippo并不满足只将Redis用于LLOOGG这一款产品，而是希望更多的人使用它，于是在同一年Salvatore Sanfilippo将Redis开源发布，并开始和Redis的另一名主要的代码贡献者Pieter Noordhuis一起继续着Redis的开发，直到今天。</p>
+<p>Salvatore Sanfilippo自己也没有想到，短短的几年时间，Redis就拥有了庞大的用户群体。Hacker News在2012年发布了一份数据库的使用情况调查，结果显示有近12%的公司在使用 Redis。国内如新浪、网易、知乎，国外如GitHub、Stack Overflow、Flickr等都是Redis的用户。VMware公司从2010年开始赞助Redis的开发， Salvatore Sanfilippo和Pieter Noordhuis也分别在3月和5月加入VMware，全职开发Redis。</p>
+<h2><span id="什么是redis">什么是Redis</span></h2>
+<p>Redis(Remote Dictionary Server)，即远程词典服务器，通常被称为数据结构服务器。</p>
+<p>Redis是使用C语言编写的、开源的、高性能的（基于内存亦可持久化）、键值对（key-value）数据库。</p>
+<p>Redis还提供多种语言的API，当然也包括Java，这意味着我们可以使用Java来操作Redis数据库。</p>
+<p>官方提供测试数据：50个并发执行100000个请求，读的速度是110000次/s，写的速度是81000次/s 。</p>
+<p>数据仅供参考，根据服务器配置会有不同结果。</p>
+<h2><span id="redis的应用场景">Redis的应用场景</span></h2>
+<ul>
+<li>缓存（数据查询、短连接、新闻内容、商品内容等等）（使用最多）</li>
+<li>聊天室的在线好友列表</li>
+<li>任务队列（秒杀、抢购、12306等等）</li>
+<li>应用排行榜</li>
+<li>网站访问统计</li>
+<li>数据过期处理（可以精确到毫秒）</li>
+<li>分布式集群架构中的session分离</li>
+</ul>
+<h1><span id="redis安装和使用">Redis安装和使用</span></h1>
+<h2><span id="搭建环境">搭建环境</span></h2>
+<p>前提：搭建虚拟机、Linux以及Linux远程连接工具</p>
+<p>redis建议安装在linux服务器上运行，官方并未提供windows版的redis</p>
+<p>但是微软开发了基于windows的redis，用法和Linux的redis一样</p>
+<h2><span id="在centos中安装redis">在CentOS中安装Redis</span></h2>
+<h3><span id="安装redis的编译环境">安装redis的编译环境</span></h3>
+<p>Redis是C语言开发，安装redis前需要先将官网下载的源码进行编译，需要安装编译环境，gcc-c++：</p>
+<p>安装命令：yum install gcc-c++</p>
+<p>如果安装时出错，原因是软件仓库地址过时了！</p>
+<p>解决方案：</p>
+<p>cd /etc/yum.repos.d/</p>
+<p>使用资料中的CentOS-Base.repo替换到该位置下的同名文件</p>
+<p><strong>rpm和yum的区别</strong>：</p>
+<p>rpm是由红帽公司开发的软件包管理方式，使用rpm可以方便的进行软件的安装、卸载、升级、查询等工作。但是rpm软件包之间可能有依赖关系，处理这些依赖性问题往往会很繁琐。例如使用rpm安装gcc环境时，首先要有gcc的rpm包，如果没有则需要先下载gcc的软件包并上传到Linux服务器，但是在安装gcc-c++时，会出现如下错误提示：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps2.jpg)</p>
+<p>意思是gcc-c++环境需要依赖gcc、libmpfr、libstdc这3个包，费了九牛二虎之力从网上找到这3个包并上传到服务进行安装，但是！在安装这3个包时，又会出现新的类似的错误提示，然后接下来：下载、安装、看到错误提示、下载、安装、看到错误提示、下载、安装……最后终于搞定了！</p>
+<p>整个过程安装了N个软件包，而且需要按照一定的顺序安装，显然你的内心是崩溃的！</p>
+<p>YUM（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。</p>
+<h3><span id="安装redis">安装Redis</span></h3>
+<p>步骤：</p>
+<p>1、 上传redis到Linux服务器</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps3.jpg)</p>
+<p>2、 解压文件：tar -xvf redis-4.0.0.tar.gz</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps4.jpg)</p>
+<p>3、 编译redis(将.c文件编译为.o文件)</p>
+<p>cd redis-4.0.0</p>
+<p>make</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps5.jpg)</p>
+<p>4、 安装redis</p>
+<p>make PREFIX=/usr/soft/redis install</p>
+<p>PREFIX=/usr/soft/redis的意思是将redis安装到/usr/soft/redis目录下</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps6.jpg)</p>
+<p>安装完成！在/usr/soft目录下，会有一个redis目录</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps7.jpg)</p>
+<p>进入redis目录，下面有个bin目录，bin目录下有几个可执行文件</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps8.jpg)</p>
+<p>redis-benchmark		----性能测试工具</p>
+<p>redis-check-aof			----AOF文件修复工具</p>
+<p>redis-check-dump		----RDB文件检查工具（快照持久化文件）</p>
+<p>redis-cli						----命令行客户端</p>
+<p>redis-server				----启动redis服务器命令</p>
+<h2><span id="redis的启动和停止">Redis的启动和停止</span></h2>
+<h3><span id="前端模式启动">前端模式启动</span></h3>
+<p>进入到/usr/soft/redis/bin目录下，执行redis-server</p>
+<p>cd /usr/soft/redis/bin</p>
+<p>./redis-server</p>
+<p>此种方式启动，我们习惯称为前端模式启动，前端模式启动的缺点是启动完成后，不能再进行其他操作，</p>
+<p>如果要操作必须使用ctrl+c，此时redis-server程序结束，不推荐使用此方法。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps9.jpg)</p>
+<p>使用Ctrl + C 停止前端启动模式</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps10.jpg)</p>
+<h3><span id="后端模式启动">后端模式启动</span></h3>
+<p>后端启动方式，需要使用redis的配置文件redis.conf，该文件的位置：/usr/soft/redis-6.2.6/redis.conf，在这个配置文件中，</p>
+<p>可以修改端口号等信息，为了方便使用，将该配置文件copy一份到redis的bin目录下</p>
+<p>cp /usr/soft/redis-6.2.6/redis.conf  /usr/soft/redis/bin</p>
+<p>然后修改该配置文件中的daemonize no为daemonize yes</p>
+<p>vim /usr/soft/redis/bin/redis.conf，先不进入编辑模式，内容太多，需要搜索，在命令模式下输入/daemonize no，回车。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps11.jpg)</p>
+<p>然后再按 Shift + A，进入编辑模式并将光标定位在当前行的末尾，将no改为yes</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps12.jpg)</p>
+<p>启动redis服务器：</p>
+<p>cd /usr/soft/redis/bin</p>
+<p>./redis-server  redis.conf</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps13.jpg)</p>
+<p>提示：或者在启动服务时： ./redis-server &amp;</p>
+<h3><span id="停止redis">停止Redis</span></h3>
+<p>l 强制结束程序，可能会导致redis持久化数据丢失！企业中禁止使用！</p>
+<p>查看redis进程端口占用：ps -ef | grep -i redis</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps14.jpg)</p>
+<p>强制杀死进程：kill -9 31123</p>
+<p>l 正确停止Redis的方式应该是向Redis发送SHUTDOWN命令：</p>
+<p>cd /usr/sfot/redis/bin</p>
+<p>./redis-cli shutdown</p>
+<p>​</p>
+<p>​</p>
+<h2><span id="redis的简单使用">Redis的简单使用</span></h2>
+<p>使用客户端连接服务器：</p>
+<p>cd /usr/soft/redis/bin</p>
+<p>./redis-cli</p>
+<p><strong>ping</strong> [message]：测试客户端与Redis服务的连接是否正常，如果连接正常会收到回复PONG（如果指定message，则原样回复）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps15.jpg)</p>
+<p><strong>set/get</strong>**：**向redis数据库中存取字符串类型的数据</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps16.jpg)</p>
+<p>取中文时不能正常显示，实际上保存进去的的确是中文，不能正常显示跟redis的编解码有关系。</p>
+<p>解决方式是：./redis-cli --raw  raw的意思是未经过加工（编码）的</p>
+<p>windows版客户端同样存在该问题，在运行客户端的时候，通过dos命令运行：在redis客户端</p>
+<p>所在的目录中，在地址栏中输入cmd，回车，输入redis-cli --raw</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps17.jpg)</p>
+<h2><span id="key的常用操作">key的常用操作</span></h2>
+<p>l keys pattern：查看所有与pattern匹配的key。pattern中 * 表示任意多个字符，?表示任意一个字符</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps18.jpg)</p>
+<p>l del key…：删除指定的key</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps19.jpg)</p>
+<p>l exists key…：判断指定的key是否存在，0代表不存在，大于0表示存在</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps20.jpg)</p>
+<p>l rename oldkeyname newkeyname：为当前的key重命名</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps21.jpg)</p>
+<p>l expire key ：设置过期时间，单位：秒</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps22.jpg)</p>
+<p>l ttl key：获取该key所剩的超时时间，如果没有设置，返回-1，返回-2 表示key本身不存在。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps23.jpg)</p>
+<p>l type key：获取指定的key对应数据的类型：string、hash、list、set或zset，如果key不存在返回none。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps24.jpg)</p>
+<p>清除所有数据：flushdb</p>
+<h1><span id="redis的数据结构">Redis的数据结构</span></h1>
+<p>Redis是一种高级的key-value的存储系统</p>
+<p>l 关于key的定义，需要注意的几点：</p>
+<p>\1. key不要太长，最好不要超过1024个字节，这不仅会消耗内存还会降低查找效率</p>
+<p>\2. key不要太短，如果太短会降低key的可读性，而且容易发生key冲突</p>
+<p>\3. 在项目中，key最好有统一的命名规范</p>
+<p>目前最流行、最通用的命名方式为: key由多个部分(单词)组成，多个部分使用冒号分开，例如：</p>
+<p>code:register:18105185234</p>
+<p>code:register:18105185235</p>
+<p>code:register:18105185236</p>
+<p>code:login:18105185234</p>
+<p>code:login:18105185235</p>
+<p>code:login:18105185236</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps25.jpg)</p>
+<p>l value支持五种基本数据类型。</p>
+<p>\1. 字符串（String）  最基础、最常用！</p>
+<p>\2. 哈希（hash）</p>
+<p>\3. 列表（list）</p>
+<p>\4. 集合（set）</p>
+<p>\5. 有序集合（sorted set）</p>
+<h1><span id="五种数据类型">五种数据类型</span></h1>
+<h2><span id="string重要">String(重要！)</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>字符串类型是Redis中最基础最常用的数据类型，Value最多可以容纳的数据长度是512M</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<p><strong>赋值命令</strong>：set key value，如果该key存在则进行覆盖操作</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps26.jpg)</p>
+<p>正常情况下，为一个key指定值的时候，可以不加引号（单引号和双引号都可以用来表示字符串）</p>
+<p>三种特殊情况：</p>
+<p>\1. 如果值中包含空格等特殊符号时，必须在值的两端使用单引号或双引号，如果不确定有哪些特殊字符必须使用引号，可以都添加引号</p>
+<p>\2. 如果字符串中有单引号，则值必须放在双引号中</p>
+<p>\3. 如果字符串中有双引号，则值必须放在单引号中</p>
+<p>\4. 如果字符串中既有单引号，又有双引号</p>
+<p>a) 如果字符串两端使用单引号，则值中的单引号需要使用\进行转义</p>
+<p>b) 如果字符串两端使用双引号，则值中的双引号需要使用\进行转义</p>
+<p><strong>取值命令</strong>：get key，根据key获取值</p>
+<p>注意：如果存在该key，但是对应的value不是String类型，将返回错误信息，</p>
+<p>因为get命令只能用于获取String value，如果该key不存在，返回(nil)，即“无”。</p>
+<p><strong>取值并赋值命令</strong>：getset key  value：先获取该key的值，然后再设置该key的值。没有setget！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps27.jpg)</p>
+<p><strong>删除命令</strong>**：**del key1 key2 key3…  返回的数字表示删除成功的个数</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps28.jpg)</p>
+<p>数值递增：incr key</p>
+<p>将指定的key对应的value递增1，如果该key不存在，其初始值为0，在incr之后其值为1。</p>
+<p>如果value的值不能转成整型，如hello，该操作将执行失败并返回相应的错误信息。</p>
+<p>数值递减：decr key</p>
+<p>将指定的key的value递减1.如果该key不存在，其初始值为0，在incr之后其值为-1。</p>
+<p>如果value的值不能转成整型，如hello，该操作将执行失败并返回相应的错误信息。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps29.jpg)</p>
+<p>**数值增加：**incrby  key  increment</p>
+<p>将指定的key的value增加increment，如果该key不存在，则初始值为0，在incrby之后，该值为increment。如果该值不能转成整型，如hello，该操作将执行失败并返回相应的错误信息。</p>
+<p>**数值减少：**decrby key  decrment</p>
+<p>将指定的 key 的value减少decrement，如果该key不存在，器初始值为0，在decrby之后，该值为-decrement。如果该值不能转成整型，如hello，该操作将执行失败并返回相应的错误信息。</p>
+<p><em><strong>*注意：如果希望操作小数，可以使用命令：incrbyfloat  ，没有decrbyfloat，可以使用正数表示增加，负数表示减少*</strong></em></p>
+<p>**字符串拼接：**append key value</p>
+<p>如果该key存在，则在原有的value后追加该值；如果该key不存在，则重新创建一个key/value</p>
+<p>返回值为追加后的长度！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps30.jpg)</p>
+<h2><span id="hash">Hash</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>Redis中的Hash类型可以看成具有String Key和String Value的map容器。所以该类型非常适合于存储值对象的信息。如Username、Password和Age等。每一个Hash可以存储4294967295个键值对。</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<h4><span id="赋值">赋值</span></h4>
+<p>hset key field value：为指定的key设定field/value对（键值对）。</p>
+<p>hmset key field value [field2 value2 …]：设置key中的多个filed/value</p>
+<p>m: multiple</p>
+<h4><span id="取值">取值</span></h4>
+<p>hget key field：返回指定的key中的field的值</p>
+<p>hmget key fileds：获取key中的多个filed的值</p>
+<p>hgetall key：获取key中的所有filed-vaule</p>
+<p>multiple</p>
+<h4><span id="删除">删除</span></h4>
+<p>hdel key field [field … ] ：可以删除一个或多个字段，返回值是被删除的字段个数</p>
+<p>del key ：删除整个hash</p>
+<h4><span id="增加数字">增加数字</span></h4>
+<p>hincrby key field increment：设置key中filed的值增加increment，如：age增加20</p>
+<p>hincrbyfloat key field increment: 设置key中filed的值增加increment，如：age增加20，与hincrby的区别在可以对浮点型数据进行操作！</p>
+<p>没有hdcriby和hdecrbyfloag，如果需要进行减法操作，给一个负数即可</p>
+<h3><span id="其它命令">其它命令</span></h3>
+<p>hexists key field：判断指定的key中的filed是否存在</p>
+<p>hlen key：获取key所包含的field的数量</p>
+<p>hkeys key ：获得所有的key</p>
+<p>hvals key：获得所有的value</p>
+<p>更多Redis学习参考菜鸟教程：<a target="_blank" rel="noopener" href="http://www.runoob.com/redis/redis-tutorial.html">http://www.runoob.com/redis/redis-tutorial.html</a></p>
+<p>该网站还有很多其他技术的基础教程，仅供参考！</p>
+<h2><span id="list">List</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>在Redis中，List类型是按照插入顺序排序的字符串链表。和数据结构中的普通链表一样，我们可以在其头部(left)和尾部(right)添加新的元素。在插入时，如果该键并不存在，Redis将为该键创建一个新的链表。与此相反，如果链表中所有的元素均被移除，那么该键也将会被从数据库中删除。List中可以包含的最大元素数量是4294967295。从元素插入和删除的效率视角来看，如果我们是在链表的****两头****插入或删除元素，这将会是非常高效的操作，即使链表中已经存储了百万条记录，该操作也可以在很短的时间内完成。然而需要说明的是，如果元素插入或删除操作是作用于链表中间，那将会是非常低效的。相信对于有良好数据结构基础的开发者而言，这一点并不难理解。</p>
+<p>\1. ArrayList 使用数组方式存储数据，所以根据索引查询数据速度快，而新增或者删除元素时需要设计到位移操作，所以比较慢。</p>
+<p>\2. LinkedList使用双向链接方式存储数据，每个元素都记录前后元素的指针，所以插入、删除数据时只是更改前后元素的指针指向即可，速度非常快，然后通过下标查询元素时需要从头开始索引，所以比较慢。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps31.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps32.jpg)</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<p><strong>两端插入：</strong></p>
+<p>lpush key value…：在list的头部插入所有给定的值，如果该key不存在，则自动创建新list再操作，返回所有元素的个数。</p>
+<p>rpush key value…：在list的尾部插入所有给定的值，如果该key不存在，则自动创建新list再操作，返回所有元素的个数。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps33.jpg)</p>
+<p><strong>查看列表：</strong></p>
+<p>lrange key start end：获取列表中索引在指定区间内的元素（包括start和end）。</p>
+<p>索引：从0开始，0表示第一个，1表示第二个，以此类推；而最后一个使用-1表示，倒数第二个使用-2表示，以此类推。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps34.jpg)</p>
+<p><strong>两端弹出：</strong></p>
+<p>lpop key [count]：弹出并返回list中第一个元素，如果该key不存在，返回(nil)。,count表示弹出几个，默认为1</p>
+<p>rpop key [count]：弹出并返回list中最后一个元素，如果该key不存在，返回(nil)。,count表示弹出几个，默认为1</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps35.jpg)</p>
+<p><strong>获取长度：</strong></p>
+<p>llen key：返回指定的key关联的链表中的元素的数量，如果list不存在，返回0</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps36.jpg)</p>
+<p>l lpushx key value [value…]：将给定的值插入到已存在的列表头部，如果列表不存在，则不插入。</p>
+<p>l rpushx key value [value…]：将给定的值插入到已存在的列表尾部，如果列表不存在，则不插入。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps37.jpg)</p>
+<p>l lrem key count value：删除count个值为value的元素，count 的值可以是以下几种：</p>
+<p>count &gt; 0 : 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count。</p>
+<p>count &lt; 0 : 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值。</p>
+<p>count = 0 : 移除表中所有与 value 相等的值。</p>
+<p>准备数据：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps38.jpg)</p>
+<p>从头开始删除2个3</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps39.jpg)</p>
+<p>从尾开始删除2个1</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps40.jpg)</p>
+<p>删除所有的2</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps41.jpg)</p>
+<p>l lset key index value：设置链表中索引为index的元素值，0表示第一个，-1表示最后一个，索引不存在则抛异常。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps42.jpg)</p>
+<p>l linsert key before|after pivot value：在pivot元素前或者后插入值。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps43.jpg)</p>
+<p>l rpoplpush resource destination：移除resource列表的最后一个元素，并将该元素添加到destination列表的头部</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps44.jpg)</p>
+<p>将mylist5右端弹出，压入到mylist6左边。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps45.jpg)</p>
+<p>将mylist6右端数据弹出，压入到左端</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps46.jpg)</p>
+<p><strong>rpoplpush的使用场景：</strong></p>
+<p>Redis链表经常会被用于消息队列的服务，以完成多程序之间的消息交换。假设一个应用程序正在执行LPUSH操作向链表中添加新的元素，我们通常将这样的程序称之为&quot;生产者(Producer)“，而另外一个应用程序正在执行RPOP操作从链表中取出元素，我们称这样的程序为&quot;消费者(Consumer)”。如果此时，消费者程序在取出消息元素后立刻崩溃，由于该消息已经被取出且没有被正常处理，那么我们就可以认为该消息已经丢失，由此可能会导致业务数据丢失，或业务状态的不一致等现象的发生。然而通过使用RPOPLPUSH命令，消费者程序在从主消息队列中取出的消息会自动插入到备份队列中，直到消费者程序完成正常的处理逻辑后再将该消息从备份队列中删除。同时我们还可以提供一个守护进程，当发现备份队列中的消息过期时，可以重新将其再放回到主消息队列中，以便其它的消费者程序继续处理。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps47.jpg)</p>
+<h2><span id="set">Set</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>在Redis中，我们可以将Set类型看作为没有排序的字符集合，和List类型一样，我们也可以在该类型的数据值上执行添加、删除或判断某一元素是否存在等操作。Set可包含的最大元素数量是4294967295。</p>
+<p>和List类型不同的是，Set集合中不允许出现重复的元素，这一点和java中的set容器是完全相同的。换句话说，如果多次添加相同元素，Set中将仅保留该元素的一份拷贝。和List类型相比，Set类型在功能上还存在着一个非常重要的特性，即在服务器端完成多个Sets之间的<strong>聚合计算</strong>操作，如求并集、交集和差集。由于这些操作均在服务端完成，因此效率极高，而且也节省了大量的网络IO开销。</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<p><strong>添加/删除元素：</strong></p>
+<p>l sadd key value…	：向Set中添加值，如果值已存在则不添加，返回添加成功的元素个数</p>
+<p>l srem key value…	：删除Set中指定的值，返回移除元素的个数</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps48.jpg)</p>
+<p>l smembers key：获得集合中的所有元素</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps49.jpg)</p>
+<p>l sismember key member：判断Set中是否存在指定的值，1表示存在，0表示不存在或者该key本身就不存在。</p>
+<p>如果希望准确判断到底是key本身不存在，还是key对应的set中的值不存在，可以结合exists key先判断key对应的set是否存在（返回0表示key对应的set不存在），从而得出准确结论。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps50.jpg)</p>
+<p>l sdiff key1 key2…：只在key1中存在的元素，称为“差集”。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps51.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps52.jpg)</p>
+<p>l sinter key1 key2…：在key1和key2中都存在的元素，称为“交集”。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps53.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps54.jpg)</p>
+<p>l sunion key1 key2…：在key1和key2中的所有元素（去重），称为“并集”。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps55.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps56.jpg)</p>
+<p>l scard key：获取set中成员的数量</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps57.jpg)</p>
+<p>l srandmember key：随机返回set中的一个成员，可以用于抽取幸运用户！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps58.jpg)</p>
+<p>l sdiffstore destination key1 key2…：将key1、key2相差的成员存储在destination上</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps59.jpg)</p>
+<p>l sinterstore destination key[key…]：将返回的交集存储在destination上</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps60.jpg)</p>
+<p>l sunionstore destination key[key…]：将返回的并集存储在destination上</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps61.jpg)</p>
+<h3><span id="使用场景">使用场景</span></h3>
+<p>\1. 利用Set数据类型的特性，来确保数据的唯一性，比如访问某一博客的IP地址信息。对于此场景，我们仅需在每次访问该博客时将访问者的IP存入Redis中，Set数据类型会自动保证IP地址的唯一性。</p>
+<p>\2. 利用Set数据类型聚合操作方便、高效的特性，可以用来做数据统计。比如所有购买某一产品的客户ID被存储在一个指定的Set中，而购买另一产品的客户ID被存储在另外一个Set中，如果此时我们想获取有哪些客户同时购买了这两种产品时，Set的intersections命令就可以充分发挥它的方便和效率的优势了。</p>
+<p>奖品：</p>
+<p>特等奖（1名）：iPhone 13 pro max</p>
+<p>一等奖（2名）：iPhone 13</p>
+<p>二等奖（10名）：xxx</p>
+<p>三等奖（100名）：xxx</p>
+<p>t</p>
+<p>one1</p>
+<p>one2</p>
+<p>two1</p>
+<p>two2</p>
+<p>…</p>
+<p>two10</p>
+<p>three1</p>
+<p>three2</p>
+<p>…</p>
+<p>three100</p>
+<h2><span id="sorted-set">Sorted Set</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>Sorted-Set和Set类型极为相似，它们都是字符串的集合，都不允许重复的成员出现在一个Set中。它们之间的主要差别是Sorted-Set中的每一个成员都会有一个分数(score)与之关联，Redis正是通过分数来为集合中的成员进行从小到大的排序。然而需要额外指出的是，尽管Sorted-Set中的成员必须是唯一的，但是分数(score)却是可以重复的。</p>
+<p>在Sorted-Set中添加、删除或更新一个成员都是非常快速的操作，由于Sorted-Set中的成员在集合中的位置是有序的，因此，即便是访问位于集合中部的成员也仍然是非常高效的。事实上，Redis所具有的这一特征在很多其它类型的数据库中是很难实现的，换句话说，在该点上要想达到和Redis同样的高效，在其它数据库中进行建模是非常困难的。例如：游戏排名、微博热点话题等使用场景。</p>
+<h3><span id="常用命令">常用命令</span></h3>
+<p><strong>添加元素</strong>**：**</p>
+<p>l zadd key score member score2 member2 …：将所有成员以及该成员的分数存放到sorted-set中。如果该元素已经存在则会用新的分数替换原有的分数。返回值是新加入到集合中的元素个数，不包含之前已经存在的元素。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps62.jpg)</p>
+<p><strong>获得元素</strong>**：**</p>
+<p>l zscore key member：返回指定成员的分数</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps63.jpg)</p>
+<p>l zcard key：获取集合中的成员数量</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps64.jpg)</p>
+<p>l zrange key start stop [withscores]：获取集合中脚标(索引)为start-stop的成员，[withscores]参数表明返回的成员包含其分数。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps65.jpg)</p>
+<p>l zrevrange key start stop [withscores]：按分数从大到小的顺序返回索引从start到stop之间的所有元素（包含两端的元素）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps66.jpg)</p>
+<p><strong>删除元素</strong>**：**</p>
+<p>l zrem key member [member…]：移除集合中指定的成员，可以指定多个成员。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps67.jpg)</p>
+<p>l zremrangebyrank key start stop: 按照索引范围删除元素，最低分的索引是0</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps68.jpg)</p>
+<p>l zremrangebyscore key min max：按照分数范围删除元素</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps69.jpg)</p>
+<p>l zremrangebylex key min max：按照字典（元素）范围删除元素</p>
+<p>该命令的使用前提是所有元素的分数必须一致！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps70.jpg)</p>
+<p>l zrangebyscore key min max [withscores] [limit offset count]：返回分数在[min,max]的成员并按照分数从低到高排序。[withscores]：显示分数；</p>
+<p>[limit offset count]：offset，索引从offset开始的count个元素，类似mysql的limit start, count</p>
+<p>可以使用-inf和+inf表示最小最大值</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps71.jpg)</p>
+<p>l zincrby key increment member：给指定的成员增加指定的分数。返回值是更改后的分数。</p>
+<p>该命令常用于投票，或者点击某个微博标题增加热度的时候使用！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps72.jpg)</p>
+<p>l zcount key min max：获取分数在[min,max]之间的成员</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps73.jpg)</p>
+<p>l zrank key member：返回成员在集合中的排名。（从小到大）</p>
+<p>l zrevrank key member：返回成员在集合中的排名。（从大到小）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps74.jpg)</p>
+<h1><span id="三种特殊数据类型">三种特殊数据类型</span></h1>
+<h2><span id="bitmaps">bitmaps</span></h2>
+<p>位图：一般用于完成类似打卡这样的操作。</p>
+<p>记录一周的打卡状态。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps75.jpg)</p>
+<h2><span id="hyperloglogs">hyperloglogs</span></h2>
+<p>用于基数（集合中不重复元素的个数）统计。</p>
+<p>{1,2,3,4,5,4,6}  基数：6</p>
+<p>特点：不管有多少个元素，只需要占用12KB的内存！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps76.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps77.jpg)</p>
+<p>在使用hyperloglogs做基数统计时，可能会存在0.81%的误差，如果这个误差在可接收的范围内，</p>
+<p>那么使用hyperloglogs将是一个非常不错的选择，如果对于一些特殊需求不允许出现任何误差，</p>
+<p>那么就可以考虑使用set数据结构来完成，区别在于set会占用更多的内存空间！而hyperloglogs</p>
+<p>只会占用固定的12KB内存！</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps78.jpg)</p>
+<h2><span id="geospatial">geospatial</span></h2>
+<p>geospatial可以用地理空间位置的计算，例如计算两地之间的距离、某一地理位置指定半径范围内的所有地理位置等。。</p>
+<p>城市经纬度查询：<a target="_blank" rel="noopener" href="http://www.jsons.cn/lngcode/">http://www.jsons.cn/lngcode/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.jsons.cn/">http://www.jsons.cn/</a>  大量的查询、转换等工具。</p>
+<p>添加北京和上海的地理位置：</p>
+<p>geoadd geo1 116.405285 39.904989 beijing 121.472644 31.231706 shanghai</p>
+<p>获取北京到上海的直线距离：</p>
+<p>geodist geo1 beijing shanghai km</p>
+<p>返回一个地理位置的geohash字符串，可以访问 <a target="_blank" rel="noopener" href="http://geohash.org/hash%E5%AD%97%E7%AC%A6%E4%B8%B2">http://geohash.org/hash字符串</a> 来查询对应地理空间的经纬度，一般不使用</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps79.jpg)</p>
+<p>返回指定地理位置的经纬度（和添加时的经纬度有细微的区别）：</p>
+<p>geopos geo1 shanghai</p>
+<p>以给定的经纬度为中心， 返回与中心的距离不超过给定最大距离的所有位置元素。</p>
+<p>GEORADIUS geo1 121.472644 31.231706 2000 km</p>
+<p>如果希望获取指定的地理位置指定半径内的所有元素，可以先使用geopos先获取到指定地理位置的经纬度。</p>
+<p>或者使用下面的命令：</p>
+<p>GEORADIUSBYMEMBER geo1 shanghai 2000 km</p>
+<h1><span id="redis高级话题">Redis高级话题</span></h1>
+<h2><span id="多数据库">多数据库</span></h2>
+<h3><span id="概念">概念</span></h3>
+<p>一个redis实例包括16个数据库，下标从0到15，客户端默认连接第0号数据库。</p>
+<h3><span id="多数据库操作命令">多数据库操作命令</span></h3>
+<p>l select index：切换到指定的库，索引范围为0-15</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps80.jpg)</p>
+<p>l move key index：将当前库指定的key移植到指定的库</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps81.jpg)</p>
+<p>l dbsize：返回当前数据库中 key 的数目。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps82.jpg)</p>
+<p>l flushdb：删除当前选择数据库中的所有key。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps83.jpg)</p>
+<p>l flushall：删除所有数据库中的所有key。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps84.jpg)</p>
+<h2><span id="redis事务">redis事务</span></h2>
+<h3><span id="概念">概念</span></h3>
+<p>和众多其它数据库一样，Redis作为NoSQL数据库也同样提供了事务机制。在Redis中，MULTI/EXEC/DISCARD/这三个命令是我们实现事务的基石。</p>
+<h3><span id="redis事务特征">redis事务特征</span></h3>
+<p>\1. 在事务中的所有命令都将会被<strong>串行化</strong>的顺序执行，<strong>事务执行期间，Redis不会再为其它客户端的请求提供任何服务（<strong><strong>接收请求，但暂不进行处理</strong></strong>）</strong>，从而保证了事物中的所有命令被原子的执行。</p>
+<p>\2. 和关系型数据库中的事务相比，<strong>在Redis事务中如果有某一条命令执行失败，其后的命令仍然会被继续执行</strong>**，并且可以执行成功！**</p>
+<p>\3. 我们可以通过MULTI命令开启一个事务，有关系型数据库开发经验的人可以将其理解为&quot;BEGIN TRANSACTION&quot;语句。在该语句之后执行的命令都将被视为事务之内的操作，最后我们可以通过执行EXEC/DISCARD命令来提交/回滚该事务内的所有操作。这两个Redis命令可被视为等同于关系型数据库中的COMMIT/ROLLBACK语句。</p>
+<p>\4. 在事务开启之前，如果客户端与服务器之间出现通讯故障并导致网络断开，其后所有待执行的语句都将不会被服务器执行。然而如果网络中断事件是发生在客户端执行EXEC命令之后，那么该事务中的所有命令都会被服务器执行。</p>
+<p>\5. 当使用Append-Only模式时，Redis会通过调用系统函数write将该事务内的所有写操作在本次调用中全部写入磁盘。然而如果在写入的过程中出现系统崩溃，如电源故障导致的宕(dàng)机，那么此时也许只有部分数据被写入到磁盘，而另外一部分数据却已经丢失。Redis服务器会在重新启动时执行一系列必要的一致性检测，一旦发现类似问题，就会立即退出并给出相应的错误提示。此时，我们就要充分利用Redis工具包中提供的redis-check-aof工具，该工具可以帮助我们定位到数据不一致的错误，并将已经写入的部分数据进行回滚。修复之后我们就可以再次重新启动Redis服务器了。</p>
+<h3><span id="命令解释">命令解释</span></h3>
+<p>l multi：开启事务用于标记事务的开始，<strong>其后执行的命令都将被存入命令队列</strong>，直到执行EXEC时，这些命令才会被原子的执行。</p>
+<p>l exec：提交事务</p>
+<p>l discard：事务回滚</p>
+<h3><span id="测试事务">测试事务</span></h3>
+<p><strong>正常执行事务</strong>**：**</p>
+<p>l 步骤1：在窗口1，设置num，并获取num</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps85.jpg)</p>
+<p>l 步骤2：在窗口2，递增num，并获取num</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps86.jpg)</p>
+<p>l 步骤3：在窗口1，获取num</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps87.jpg)</p>
+<p>l 步骤4：在窗口1，开启事务，然后递增num。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps88.jpg)</p>
+<p>l 步骤5：在窗口2，获取num</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps89.jpg)</p>
+<p>l 步骤6：在窗口1，提交事务</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps90.jpg)</p>
+<p>l 步骤7：再次在窗口2，获取num</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps91.jpg)</p>
+<p><strong>回滚****事务：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps92.jpg)</p>
+<p><strong>事务中的异常：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps93.jpg)</p>
+<h3><span id="redis实现乐观锁">redis实现乐观锁</span></h3>
+<p>悲观锁：认为操作时一定会出现问题，因此在操作之前都会对数据进行上锁，效率低下。</p>
+<p>乐观锁(本质不是锁！)：认为操作时一定不会出现问题，只在提交时通过查询来确保操作是否可以正常执行，效率高。</p>
+<p>mysql实现乐观锁：在表中添加一个version字段，在执行事务之前，查询出version的值，</p>
+<p>在最终提交时，检查version字段是否发生了改变，如果没有改变，则操作执行成功，否则不执行（不满足where条件）</p>
+<p>悲观锁：</p>
+<p>select * from xxx where id=1 for update; // 数据必然上锁（其它线程无法对该数据进行任何操作），比较悲观</p>
+<p>user</p>
+<p>id  name  age  sex  version</p>
+<p>1  张三  20  男   1</p>
+<p>select * from xxx where id=1; version=1</p>
+<p>update user set age=21,version=version+1 where id=1 and version=1</p>
+<p>// 购物扣款流程：</p>
+<p>//1. 查询账户余额  balance=500</p>
+<p>// 2. 判断账户余额是否大于商品金额</p>
+<p>if (balance &gt;= 产品金额） {</p>
+<p>// 线程的”时间片“到期，CPU线程切换（切换的这个线程可能影响金额，导致上面if不再满足）</p>
+<p>// 扣除账户余额—余额为负数！</p>
+<p>}</p>
+<p>// 解决方案1：悲观锁，对数据进行上锁！  不推荐–影响效率</p>
+<p>// 解决方案2：乐观锁</p>
+<p>update xx set balance=balance-产品金额 where uid=xx and balance&gt;=产品金额</p>
+<p>redis中，通过watch命令，来对某个要在事务中操作的数据进行监视，如果在最终执行的时候，发现监视的数据已经被修改了，则自动放弃事务对监视数据的改变。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps94.jpg)</p>
+<h2><span id="消息订阅与发布">消息订阅与发布</span></h2>
+<p>l subscribe channel：订阅频道，例：subscribe mychat，订阅mychat这个频道</p>
+<p>l psubscribe channel*：订阅的频道支持模式（pattern），可以进行批量订阅频道，例：psubscribe s*，订阅以&quot;s&quot;开头的频道</p>
+<p>l publish channel content：在指定的频道中发布消息，如 publish mychat  “Today is the weekend”</p>
+<p>演示步骤：</p>
+<p>1、在第一个窗口中，订阅mychannel频道，此时如果没有人“发布”消息，当前窗口处于等待状态。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps95.jpg)</p>
+<p>2、打开第二个窗口，在mychannel频道中发布消息“hello”</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps96.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps97.jpg)</p>
+<p>3、打开第三个窗口，批量订阅以my开头的所有频道。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps98.jpg)</p>
+<p>4、在第二个窗口中，分别在mychannel和mychannel2频道发布消息</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps99.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps100.jpg)</p>
+<h2><span id="redis持久化">redis持久化</span></h2>
+<h3><span id="概述">概述</span></h3>
+<p>Redis的高性能是由于其将所有数据都存储在了内存中，为了使Redis在重启之后仍能保证数据不丢失，需要将数据从内存中同步到硬盘中，这一过程就是持久化。Redis支持两种方式的持久化，一种是RDB方式，一种是AOF方式。可以单独使用其中一种或将二者结合使用。</p>
+<p>\1. RDB持久化（默认支持，无需配置）</p>
+<p>该机制是以指定的时间间隔内将内存中的数据集快照写入磁盘。</p>
+<p>\2. AOF持久化</p>
+<p>该机制将以日志的形式记录服务器所处理的每一个写操作(对数据产生改变的操作)，在Redis服务器启动之初会读取该文件来重新构建数据库，以保证启动后数据库中的数据是完整的。</p>
+<p>\3. redis可以同时使用RDB和AOF</p>
+<p>\4. 无持久化</p>
+<p>我们可以通过配置的方式禁用Redis服务器的持久化功能，这样我们就可以将Redis视为一个功能加强版的memcached了。</p>
+<h3><span id="rdb持久化">RDB持久化</span></h3>
+<h4><span id="优势">优势</span></h4>
+<p>\1. 一旦采用该方式，那么你的整个Redis数据库将只包含一个文件，这对于文件备份而言是非常完美的。比如，你可能打算每个小时归档一次最近24小时的数据，同时还要每天归档一次最近30天的数据。通过这样的备份策略，一旦系统出现灾难性故障，我们可以非常容易的进行恢复。</p>
+<p>\2. 对于灾难恢复而言，RDB是非常不错的选择。因为我们可以非常轻松的将一个单独的文件压缩后再转移到其它存储介质上</p>
+<p>\3. 性能最大化。对于Redis的服务进程而言，在开始持久化时，它唯一需要做的只是fork（分叉）出子进程，之后再由子进程完成这些持久化的工作，这样就可以极大的避免服务进程执行IO操作了。</p>
+<p>\4. 相比于AOF机制，如果数据集很大，RDB的启动效率会更高。</p>
+<h4><span id="劣势">劣势</span></h4>
+<p>\1. 如果你想保证数据的高可用性，即最大限度的避免数据丢失，那么RDB将不是一个很好的选择。因为系统一旦在定时持久化之前出现宕机现象，此前没有来得及写入磁盘的数据都将丢失。</p>
+<p>\2. 由于RDB是通过fork子进程来协助完成数据持久化工作的，因此，如果当数据集较大时，可能会导致整个服务器停止服务几百毫秒，甚至是1秒钟</p>
+<h4><span id="snapshotting快照配置说明">Snapshotting（快照）配置说明</span></h4>
+<p><strong>持久化时间设置：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps101.jpg)</p>
+<p>l save 900 1 		#每900秒(15分钟)，至少有1个key发生变化时，才持久化内存快照。</p>
+<p>l save 300 10 		#每300秒(5分钟)，至少有10个key发生变化时，才持久化内存快照。</p>
+<p>l save 60 10000 	#每60秒(1分钟)，至少有10000个key发生变化时，才持久化内存快照。</p>
+<p>另外，当客户端调用shutdown命令时，在redis服务器在关闭之前，会自动持久化内存中的数据到磁盘，</p>
+<p>除非在关闭redis时不进行持久化：shutdown <strong>nosave</strong>，或者强制杀死redis进程：kill -9  进程id</p>
+<p>1分钟</p>
+<p><strong>保存位置设置</strong>**：**</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps102.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps103.jpg)</p>
+<h3><span id="aof持久化">AOF持久化</span></h3>
+<h4><span id="优势">优势</span></h4>
+<p>\1. 该机制可以带来更高的数据安全性，即数据持久性。Redis中提供了3种同步策略，即<strong>每秒同步、<strong><strong>每修改同步</strong></strong>和不同步</strong>。事实上，每秒同步也是异步完成的，其效率也是非常高的，不好的地方是一旦系统出现宕机现象，那么这一秒钟之内修改的数据将会丢失。而每修改同步，我们可以将其视为同步持久化，即每次发生的数据变化都会被立即记录到磁盘中。可以预见，这种方式在效率上是最低的。至于无同步，无需多言，我想大家都能正确的理解它。</p>
+<p>\2. 由于该机制对日志文件的写入操作采用的是append模式，因此在写入过程中即使出现宕机现象，也不会破坏日志文件中已经存在的内容。然而如果我们本次操作只是写入了一半数据就出现了系统崩溃问题，可以在Redis下一次启动之前，通过redis-check-aof工具来帮助我们解决数据一致性的问题。</p>
+<p>\3. 如果日志过大，Redis可以自动启用rewrite机制。即Redis以append模式不断的将修改数据写入到老的磁盘文件中，同时Redis还会创建一个新的文件用于记录此期间有哪些修改命令被执行。因此在进行rewrite切换时可以更好的保证数据安全性。</p>
+<p>\4. AOF包含一个格式清晰、易于理解的日志文件用于记录所有的修改操作。事实上，我们也可以通过该文件完成数据的重建。</p>
+<h4><span id="劣势">劣势</span></h4>
+<p>\1. 对于相同数量的数据集而言，AOF文件通常要大于RDB文件。</p>
+<p>\2. 根据同步策略的不同，AOF在运行效率上往往会慢于RDB。</p>
+<h4><span id="配置aof">配置AOF</span></h4>
+<p><strong>开启AOF持久化：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps104.jpg)</p>
+<p><strong>同步策略配置：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps105.jpg)</p>
+<p>l always			#只要有数据改变时都会写入AOF文件。</p>
+<p>l everysec		#每秒钟同步一次，默认策略。</p>
+<p>l no    		#从不同步。</p>
+<p>手动重写同步命令：<strong>bgrewriteaof</strong>，执行一个 AOF文件 重写操作。重写会创建一个当前 AOF 文件的体积优化版本。即使 BGREWRITEAOF 执行失败，也不会有任何数据丢失，因为旧的 AOF 文件在 BGREWRITEAOF 成功之前不会被修改。</p>
+<p><strong>数据恢复演示</strong>**：**</p>
+<p>\1. 开启AOF</p>
+<p>\2. 清空数据库：flushall</p>
+<p>\3. 设置一些数据</p>
+<p>\4. 关闭redis：shutdown nosave</p>
+<p>\5. 启动redis，并查看数据</p>
+<h2><span id="启动多个redis">启动多个Redis</span></h2>
+<p>l 方法1：启动时指定端口（多个Redis实例）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps106.jpg)</p>
+<p>l 方式2：复制redis.conf文件，修改端口【推荐使用】</p>
+<p>\1) cp redis.conf redis6380.conf</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps107.jpg)</p>
+<p>\2) 修改redis6380.conf中的启动端口为6380</p>
+<p>vim redis6380.conf</p>
+<p>输入/port 回车</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps108.jpg)</p>
+<p>\3) 启动redis时，指定配置文件redis6380.conf</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps109.jpg)</p>
+<p>关闭指定端口redis： ./redis-cli -p 6380 shutdown</p>
+<h2><span id="主从复制">主从复制</span></h2>
+<h3><span id="主从复制读写分离">主从复制–读写分离</span></h3>
+<p>通过持久化功能，Redis 保证了即使在服务器重启的情况下也不会丢失（或少量丢失）数据，但是由于数据是存储在一台服务器上的，如果这台服务器出现故障，比如硬盘坏了，也会导致数据丢失。</p>
+<p>为了避免单点故障，我们需要将数据复制多份部署在多台不同的服务器上，即使有一台服务器出现故障其他服务器依然可以继续提供服务。</p>
+<p>这就要求当一台服务器上的数据更新后，自动将更新的数据同步到其他服务器上，那该怎么实现呢？Redis的主从复制。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps110.jpg)</p>
+<p>Redis 提供了复制（replication）功能来自动实现多台 redis 服务器的数据同步（每天19 点新闻联播，基本从 cctv1-8,各大卫视都会播放）我们可以通过部署多台 redis，并在配置文件中指定这几台 redis 之间的主从关系，主负责写入数据，同时把写入的数据实时同步到从机器，这种模式叫做主从复制，即master/slave，并且 redis 默认 master 用于写，slave 用于读，向 slave 写数据会导致错误</p>
+<p>（1） Redis 主从复制实现（master/salve）</p>
+<p>修改配置文件，启动时，服务器读取配置文件，并自动成为指定服务器的从服务器，从而构成主从复制的关系</p>
+<p>实现步骤：</p>
+<p>模拟多 Reids 服务器，在一台已经安装 Redis 的机器上，运行多个 Redis 应用模拟多个 Reids 服务器。一个 Master，两个 Slave.</p>
+<p>\1. 新建三个 Redis 的配置文件</p>
+<p>如果 Redis 启动，先停止。</p>
+<p>作为 Master 的 Redis 端口是 6380</p>
+<p>作为 Slaver 的 Redis 端口分别是 6382 , 6384</p>
+<p>从原有的 redis.conf 拷贝三份，分别命名为 redis6380.conf, redis6382.conf , redis6384.conf</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps111.jpg)</p>
+<p>\2. 编辑 Master 配置文件</p>
+<p>编辑 Master 的配置文件 redis6380.conf : 在空文件加入如下内容</p>
+<p><em><strong>*include /usr/local/redis-4.0.13/redis.conf*</strong></em></p>
+<p><em><strong>*daemonize yes*</strong></em></p>
+<p><em><strong>*port 6380*</strong></em></p>
+<p><em><strong>*pidfile /var/run/redis_6380.pid*</strong></em></p>
+<p><em><strong>*logfile 6380.log*</strong></em></p>
+<p><em><strong>*dbfilename dump6380.rdb*</strong></em></p>
+<p>配置项说明：</p>
+<p>include ：包含原来的配置文件内容。/usr/local/ redis-4.0.13/redis.conf 按照自己的目录设置。</p>
+<p>daemonize：yes 后台启动应用，相当于 ./redis-server &amp; 的作用。</p>
+<p>port : 自定义的端口号</p>
+<p>pidfile : 自定义的文件，表示当前程序的 pid ,进程 id。</p>
+<p>logfile：日志文件名</p>
+<p>dbfilename：持久化的 rdb 文件名</p>
+<p>\3. 编辑 Slave 配置文件</p>
+<p>编辑 Slave 的配置文件 redis6382.conf 和 redis6384.conf: 在空文件加入如下内容</p>
+<p>①：redis6382.conf：</p>
+<p><em><strong>*include /usr/local/redis-4.0.13/redis.conf*</strong></em></p>
+<p><em><strong>*daemonize yes*</strong></em></p>
+<p><em><strong>*port 6382*</strong></em></p>
+<p><em><strong>*pidfile /var/run/redis_6382.pid*</strong></em></p>
+<p><em><strong>*logfile 6382.log*</strong></em></p>
+<p><em><strong>*dbfilename dump6382.rdb*</strong></em></p>
+<p><em><strong>*slaveof 127.0.0.1 6380*</strong></em></p>
+<p>配置项说明：</p>
+<p>slaveof ：表示当前 Redis 是谁的从。当前是 127.0.0.0 端口 6380 这个 Master 的从。</p>
+<p>②：redis6384.conf：</p>
+<p><em><strong>*include /usr/local/redis-4.0.13/redis.conf*</strong></em></p>
+<p><em><strong>*daemonize yes*</strong></em></p>
+<p><em><strong>*port 6384*</strong></em></p>
+<p><em><strong>*pidfile /var/run/redis_6384.pid*</strong></em></p>
+<p><em><strong>*logfile 6384.log*</strong></em></p>
+<p><em><strong>*dbfilename dump6384.rdb*</strong></em></p>
+<p><em><strong>*slaveof 127.0.0.1 6380*</strong></em></p>
+<p>\4. 启动服务器 Master/Slave 都启动</p>
+<p>启动方式 ./redis-server 配置文件</p>
+<p>启动 Redis,并查看启动进程</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps112.jpg)</p>
+<p>\5. 查看配置后的服务信息</p>
+<p>命令：</p>
+<p>①： Redis 客户端使用指定端口连接 Redis 服务器</p>
+<p>./redis-cli -p 端口</p>
+<p>②：查看服务器信息</p>
+<p>info replication</p>
+<p>登录到 Master：6380</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps113.jpg)</p>
+<p>查看当前服务信息</p>
+<p>在客户端的 Redis 内执行命令 info replication</p>
+<p>Master 服务的查看结果:</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps114.jpg)</p>
+<p>在新的 Xshell 窗口分别登录到 6382 ，6384 查看信息</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps115.jpg)</p>
+<p>6384 也登录内容同 6382.</p>
+<p>\6. 向 Master 写入数据</p>
+<p>在 6380 执行 flushall 清除数据，避免干扰的测试数据。生产环境避免使用。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps116.jpg)</p>
+<p>\7. 在从 Slave 读数据</p>
+<p>6382,6384 都可以读主 Master 的数据，不能写</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps117.jpg)</p>
+<p>Slave 写数据失败</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps118.jpg)</p>
+<p>--------------------------------------------------------------------------------------------------------------------</p>
+<p>（2） 容灾处理</p>
+<p>当 Master 服务出现故障，需手动将 slave 中的一个提升为 master，剩下的 slave 挂至新的</p>
+<p>master 上（冷处理：机器挂掉了，再处理）</p>
+<p>命令：</p>
+<p>①：slaveof no one，将一台 slave 服务器提升为 Master （提升某 slave 为 master）</p>
+<p>②：slaveof 127.0.0.1 6382 （将 slave 挂至新的 master 上）</p>
+<p>执行步骤：</p>
+<p>\1. 将 Master:6380 停止（模拟挂掉）</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps119.jpg)</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps120.jpg)</p>
+<p>\2. 选择一个 Slave 升到 Master，其它的 Slave 挂到新提升的 Master</p>
+<p><em><strong>*在6382客户端执行slaveof no one*</strong></em></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps121.jpg)</p>
+<p>\3. 将其他 Slave 挂到新的 Master</p>
+<p><em><strong>*在 Slave 6384 上执行：slaveof 127.0.0.1 6382*</strong></em></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps122.jpg)</p>
+<p>现在的主从（Master/Slave）关系：Master 是 6382， Slave 是 6384</p>
+<p>查看 6382：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps123.jpg)</p>
+<p>\4. 原来的服务器重新添加到主从结构中</p>
+<p>6380 的服务器修改后，从新工作，需要把它添加到现有的 Master/Slave 中</p>
+<p>先启动 6380 的 Redis 服务</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps124.jpg)</p>
+<p>连接到 6380 端口</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps125.jpg)</p>
+<p>当前服务挂到 Master 上</p>
+<p><em><strong>*在 Slave 6380 上执行：slaveof 127.0.0.1 6382*</strong></em></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps126.jpg)</p>
+<p>\5. 查看新的 Master 信息</p>
+<p>在 6382 执行：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps127.jpg)</p>
+<p>现在的 Master/Slaver 关系是： Master: 6382</p>
+<p>Slave: 6380、6384</p>
+<p>（3） 操作命令</p>
+<p>进入客户端需指定端口：./redis-cli -p 6380</p>
+<p>不配置启动默认都是主 master</p>
+<p>info replication 查看 redis 服务器所处角色</p>
+<p>（4） 总结</p>
+<p>1、一个 master 可以有多个 slave</p>
+<p>2、slave 下线，读请求的处理性能下降</p>
+<p>3、master 下线，写请求无法执行</p>
+<p>4、当 master 发生故障，需手动将其中一台 slave 使用 slaveof no one 命令提升为 master，其它 slave 执行 slaveof 命令指向这个新的 master，从新的 master 处同步数据</p>
+<p>5、主从复制模式的故障转移需要手动操作，要实现自动化处理，这就需要 Sentinel 哨兵，实现故障自动转移。</p>
+<h3><span id="高可用哨兵sentine">高可用哨兵Sentine</span></h3>
+<p>Sentinel 哨兵是 redis 官方提供的高可用方案，可以用它来监控多个 Redis 服务实例的运行情况。Redis Sentinel 是一个运行在特殊模式下的 Redis 服务器。Redis Sentinel 是在多个Sentinel 进程环境下互相协作工作的。</p>
+<p>Sentinel 系统有三个主要任务：</p>
+<p>Ø 监控：Sentinel 不断的检查主服务和从服务器是否按照预期正常工作。</p>
+<p>Ø 提醒：被监控的 Redis 出现问题时，Sentinel 会通知管理员或其他应用程序。</p>
+<p>Ø 自动故障转移：监控的主 Redis 不能正常工作，Sentinel 会开始进行故障迁移操作。将一个从服务器升级新的主服务器。让其他从服务器挂到新的主服务器。同时向客户端提供新的主服务器地址。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps128.jpg)</p>
+<p>（1） Sentinel 配置</p>
+<p>1）Sentinel 配置文件</p>
+<p>在/usr/soft/redis/bin下：新建3个哨兵配置文件：</p>
+<p>touch sentinel26380.conf sentinel26382.conf sentinel26384.conf</p>
+<p>Sentinel 系统默认 port 是 26379 。三个配置 port 分别设置为 26380 , 26382 , 26384。</p>
+<p>编辑3个哨兵配置，内容如下：</p>
+<p><strong>include /usr/soft/redis-6.2.6/sentinel.conf</strong></p>
+<p><em><strong>*daemonize yes*</strong></em></p>
+<p><strong>port 2638****0</strong></p>
+<p><strong>logfile 26380.log</strong></p>
+<p><strong>sentinel monitor</strong> <strong>m****6380</strong> <strong>127.0.0.1 638****0</strong> <strong>2</strong></p>
+<p>修改完成之后，启动3个哨兵进程：</p>
+<p><strong>./redis-</strong> <strong>sentinel</strong> <strong>sentinel26380.conf</strong></p>
+<p><strong>./redis-</strong> <strong>sentinel</strong> <strong>sentinel2638<strong><strong>2</strong></strong>.conf</strong></p>
+<p><strong>./redis-</strong> <strong>sentinel</strong> <strong>sentinel2638<strong><strong>4</strong></strong>.conf</strong></p>
+<p>手动干掉master，稍等1分钟，再次查看当前master/slave情况，最后再把之前的master启动，查看新的主从关系</p>
+<p>（2） 三份 sentinel 配置文件修改：</p>
+<p>1、修改 port 26380、 port 26382、 port 26384</p>
+<p>2、修改 sentinel monitor mymaster 127.0.0.1 6382 2</p>
+<p>格式：sentinel monitor <name> <masterip> <masterport> &lt;Quorum 投票数&gt;</masterport></masterip></name></p>
+<p>Sentinel监控主(Master)Redis, Sentinel根据Master的配置自动发现Master的Slave,Sentinel</p>
+<p>默认端口号为26379。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps129.jpg)</p>
+<p>sentinel26380.conf</p>
+<p>\1) 修改 port</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps130.jpg)</p>
+<p>2）修改监控的 master 地址</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps131.jpg)</p>
+<p><strong>mymaster必须修改！</strong></p>
+<p>sentinel26382.conf 修改port 26382 , master的port 6382</p>
+<p>sentinel26384.conf 修改port 26384 , master的port 6382</p>
+<p>（3） 启动主从（Master/Slave）Redis</p>
+<p>启动 Reids</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps132.jpg)</p>
+<p>查看 Master 的配置信息</p>
+<p>连接到 6382 端口</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps133.jpg)</p>
+<p>使用 info 命令查看 Master/Slave</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps134.jpg)</p>
+<p>（4） 启动 Sentinel</p>
+<p>redis安装时make编译后就产生了redis-sentinel程序文件，可以在一个redis中运行多个sentinel进程。</p>
+<p>启动一个运行在Sentinel模式下的Redis服务实例语法：</p>
+<p>./redis-sentinel  sentinel配置文件</p>
+<p>在 XShell 开启三个窗口分别执行：</p>
+<p>执行以下三条命令，将创建三个监视主服务器的Sentinel实例：</p>
+<p><em><strong>*第一个窗口：*</strong></em><em><strong>*./redis-sentinel …/sentinel26380.conf*</strong></em></p>
+<p><em><strong>*第二个窗口：*</strong></em><em><strong>*./redis-sentinel …/sentinel26382.conf*</strong></em></p>
+<p><em><strong>*第三个窗口：*</strong></em><em><strong>*./redis-sentinel …/sentinel26384.conf*</strong></em></p>
+<p>（5） 主 Redis 不能工作</p>
+<p>让 Master 的 Redis 停止服务，执行 shutdown</p>
+<p>先执行 info replication 确认 Master 的 Redis，再执行 shutdown</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps135.jpg)</p>
+<p>查看当前 Redis 的进程情况</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps136.jpg)</p>
+<p>（6） Sentinel 的起作用</p>
+<p>在 Master 执行 shutdown 后，稍微等一会 Sentinel 要进行投票计算，从可用的 Slave 选举新的 Master。</p>
+<p>查看 Sentinel 日志，三个 Sentinel 窗口的日志是一样的。</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps137.jpg)</p>
+<p>查看新的 Master</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps138.jpg)</p>
+<p>查看原 Slave 的变化</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps139.jpg)</p>
+<p>（7） 新的 Redis 加入 Sentinel 系统，自动加入 Master</p>
+<p>重新启动 6382</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps140.jpg)</p>
+<p>查看 6384 的信息</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps141.jpg)</p>
+<p>测试数据：在 Master 写入数据</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps142.jpg)</p>
+<p>在 6382 上读取数据，不能写入</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps143.jpg)</p>
+<p>（8） 监控</p>
+<p>1）Sentinel 会不断检查 Master 和 Slave 是否正常</p>
+<p>2）如果 Sentinel 挂了，就无法监控，所以需要多个哨兵，组成 Sentinel 网络，一个健康的Sentinel 至少有 3 个 Sentinel 应用。彼此在独立的物理机器或虚拟机。</p>
+<p>3）监控同一个 Master 的 Sentinel 会自动连接，组成一个分布式的 Sentinel 网络，互相通信并交换彼此关于被监控服务器的信息</p>
+<p>4）当一个 Sentinel 认为被监控的服务器已经下线时，它会向网络中的其它 Sentinel 进行确认，判断该服务器是否真的已经下线</p>
+<p>5）如果下线的服务器为主服务器，那么 Sentinel 网络将对下线主服务器进行自动故障转移，通过将下线主服务器的某个从服务器提升为新的主服务器，并让其从服务器转移到新的主服务器下，以此来让系统重新回到正常状态</p>
+<p>6）下线的旧主服务器重新上线，Sentinel 会让它成为从，挂到新的主服务器下</p>
+<p>（9） 总结</p>
+<p>主从复制，解决了读请求的分担，从节点下线，会使得读请求能力有所下降，Master 下线，写请求无法执行</p>
+<p>Sentinel 会在 Master 下线后自动执行故障转移操作，提升一台 Slave 为 Master，并让其它Slave 成为新 Master 的 Slave</p>
+<h2><span id="安全设置">安全设置</span></h2>
+<p>（1） 设置密码</p>
+<p>访问 Redis 默认是没有密码的，这样不安全，任意用户都可以访问。可以启用使用密码才能访问 Redis。设置 Redis 的访问密码，修改 redis.conf 中这行 requirepass 密码。密码要比较复杂，不容易破解，而且需要定期修改。因为 redis 速度相当快，所以在一台比较好的服务器下，一个外部的用户可以在一秒钟进行 150K 次的密码尝试，需要指定非常非常强大的密码来防止暴力破解。</p>
+<p>\1. 开启访问密码设置</p>
+<p>修改 redis.conf , 使用 vim 命令。找到 requirepass 行去掉注释，requirepass 空格后就是密码。</p>
+<p>例 1：设置访问密码是 123456 ,这是练习使用，生产环境要设置复杂密码</p>
+<p>修改 redis.conf 原始内容：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps144.jpg)</p>
+<p>修改后：</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps145.jpg)</p>
+<p>\2. 访问有密码的 Redis</p>
+<p>如果 Redis 已经启动，关闭后，重新启动。</p>
+<p>访问有密码的 Redis 两种方式：</p>
+<p>①：在连接到客户端后，使用命令 auth 密码，命令执行成功后，可以正常使用 Redis</p>
+<p>②：在连接客户端时使用 -a 密码。例如 ./redis-cli -h ip -p port -a password</p>
+<p>启动 Redis</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps146.jpg)</p>
+<p>使用①访问</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps147.jpg)</p>
+<p>输入命令 auth 密码</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps148.jpg)</p>
+<p>使用②方式</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps149.jpg)</p>
+<p>（2） 修改默认端口</p>
+<p>修改 redis 的端口，这一点很重要，使用默认的端口很危险，redis.conf 中修改 port 6379</p>
+<p>将其修改为自己指定的端口（可随意），端口 1024 是保留给操作系统使用的。用户可以使用</p>
+<p>的范围是 1024-65535</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps150.jpg)</p>
+<p>使用 -p 参数指定端口，例如：./redis-cli -p 新设置端口</p>
+<h1><span id="redis的使用场景了解">Redis的使用场景（了解）</span></h1>
+<p>\1. <strong>取最新N个数据的操作</strong></p>
+<p>比如典型的取你网站的最新文章，通过下面方式，我们可以将最新的5000条评论的ID放在Redis的List集合中，并将超出集合部分从数据库获取</p>
+<p>(1)使用LPUSH latest.comments <id>命令，向list集合中插入数据</id></p>
+<p>(2)插入完成后再用LTRIM latest.comments 0 5000命令使其永远只保存最近5000个ID</p>
+<p>(3)然后我们在客户端获取某一页评论时可以用下面的逻辑（伪代码）</p>
+<p># 伪代码</p>
+<p>FUNCTION get_latest_comments(start, num_items):</p>
+<p>id_list = redis.lrange(“latest.comments”, start, start+num_items-1)</p>
+<p>IF id_list.length &lt; num_items</p>
+<p>​    id_list = SQL_DB(“SELECT … ORDER BY time LIMIT …”)</p>
+<p>END</p>
+<p>RETURN id_list</p>
+<p>END</p>
+<p>如果你还有不同的筛选维度，比如某个分类的最新N条，那么你可以再建一个按此分类的List，只存ID的话，Redis是非常高效的。</p>
+<p>\2. <strong>排行榜应用，取TOP N操作</strong></p>
+<p>这个需求与上面需求的不同之处在于，前面操作以时间为权重，这个是以某个条件为权重，比如按顶的次数排序，这时候就需要我们的sorted set出马了，将你要排序的值设置成sorted set的score，将具体的数据设置成相应的value，每次只需要执行一条ZADD命令即可。</p>
+<p>\3. <strong>需要精准设定过期时间的应用</strong></p>
+<p>比如你可以把上面说到的sorted set的score值设置成过期时间的时间戳，那么就可以简单地通过过期时间排序，定时清除过期数据了，不仅是清除Redis中的过期数据，你完全可以把 Redis里这个过期时间当成是对数据库中数据的索引，用Redis来找出哪些数据需要过期删除，然后再精准地从数据库中删除相应的记录。</p>
+<p>\4. <strong>计数器应用</strong></p>
+<p>Redis的命令都是原子性的，你可以轻松地利用INCR，DECR命令来构建计数器系统。</p>
+<p>\5. <strong>Uniq操作，获取某段时间所有数据排重值</strong></p>
+<p>这个使用Redis的set数据结构最合适了，只需要不断地将数据往set中扔就行了，set意为集合，所以会自动排重。</p>
+<p>\6. <strong>实时系统，反垃圾系统</strong></p>
+<p>通过上面说到的set功能，你可以知道一个终端用户是否进行了某个操作，可以找到其操作的集合并进行分析统计对比等。没有做不到，只有想不到。</p>
+<p>\7. <strong>Pub/Sub构建实时消息系统</strong></p>
+<p>Redis的Pub/Sub系统可以构建实时的消息系统，比如很多用Pub/Sub构建的实时聊天系统的例子。</p>
+<p>\8. <strong>构建队列系统</strong></p>
+<p>使用list可以构建队列系统，使用sorted set甚至可以构建有优先级的队列系统。</p>
+<h1><span id="jedis-入门">Jedis 入门</span></h1>
+<h2><span id="jedis介绍">Jedis介绍</span></h2>
+<p>​	Redis不仅可以使用命令来操作，现在基本上主流的语言都有客户端支持，比如java、C、C#、C++、php、Node.js、Go等。</p>
+<p>在官方网站里列一些Java的客户端，有Jedis、Redisson、Jredis、JDBC-Redis等，其中官方推荐使用Jedis和Redisson。</p>
+<p>在企业中用的最多的就是Jedis，下面我们就重点学习下Jedis。</p>
+<p>Jedis同样也是托管在github上，地址：<a target="_blank" rel="noopener" href="https://github.com/xetorthio/jedis">https://github.com/xetorthio/jedis</a></p>
+<h2><span id="java连接redis">Java连接Redis</span></h2>
+<p>pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="jedis单实例连接">Jedis单实例连接</span></h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testJedis</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 1、设置ip地址和端口(不指定时，默认6379)</span></span><br><span class="line">    <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jedis</span>(<span class="string">&quot;192.168.125.129&quot;</span>, <span class="number">6379</span>);</span><br><span class="line">    <span class="comment">// 2、设置数据</span></span><br><span class="line">    jedis.set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    <span class="comment">// 3、获得数据</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> jedis.get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">    System.out.println(name);</span><br><span class="line">    <span class="comment">// 4、释放资源</span></span><br><span class="line">    jedis.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Jedis连接池</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testJedisPool</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 1、创建连接池配置对象</span></span><br><span class="line">    <span class="type">JedisPoolConfig</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JedisPoolConfig</span>();</span><br><span class="line">    <span class="comment">// 1.1、 最大连接数</span></span><br><span class="line">    config.setMaxTotal(<span class="number">20</span>);</span><br><span class="line">    <span class="comment">// 1.2、最大空闲连接数</span></span><br><span class="line">    config.setMaxIdle(<span class="number">10</span>);</span><br><span class="line">    <span class="comment">// 2、连接池对象</span></span><br><span class="line">    <span class="type">JedisPool</span> <span class="variable">pool</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// 3、核心对象</span></span><br><span class="line">    <span class="type">Jedis</span> <span class="variable">jedis</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 4、初始化连接池</span></span><br><span class="line">        pool = <span class="keyword">new</span> <span class="title class_">JedisPool</span>(config, <span class="string">&quot;192.168.125.129&quot;</span>, <span class="number">6379</span>);</span><br><span class="line">        <span class="comment">// 5、获取连接</span></span><br><span class="line">        jedis = pool.getResource();</span><br><span class="line">        <span class="comment">// 6、设置数据</span></span><br><span class="line">        jedis.sadd(<span class="string">&quot;myset&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);</span><br><span class="line">        <span class="comment">// 7、获取数据</span></span><br><span class="line">        Set&lt;String&gt; smembers = jedis.smembers(<span class="string">&quot;myset&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String m : smembers) &#123;</span><br><span class="line">            System.out.println(m);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">// 将连接返回给连接池</span></span><br><span class="line">        <span class="keyword">if</span> (jedis != <span class="literal">null</span>) &#123;</span><br><span class="line">            jedis.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 销毁连接池，释放资源，一般在程序关闭时调用</span></span><br><span class="line">        <span class="keyword">if</span> (pool != <span class="literal">null</span>) &#123;</span><br><span class="line">            pool.destroy();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="springboot-集成-redis">SpringBoot 集成 Redis</span></h1>
+<p>pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">	<span class="attr">port:</span> <span class="number">1111</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">	<span class="attr">application:</span></span><br><span class="line">		<span class="attr">name:</span> <span class="string">spring-boot-redis-test</span></span><br><span class="line">	<span class="attr">redis:</span></span><br><span class="line">		<span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">		<span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">		<span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">		<span class="attr">database:</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<h2><span id="注入redis模板类"><strong>注入redis模板类</strong></span></h2>
+<ul>
+<li>RedisTemplate，操作类型是Object，以二进制的方式将数据存储到Redis中</li>
+<li>StringRedisTemplate，操作类型是String，将数据存储到Redis中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(stringRedisTemplate);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="string类型">String类型</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testOpsString</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//获取String类型的ops对象</span></span><br><span class="line">    ValueOperations&lt;String, String&gt; operations = stringRedisTemplate.opsForValue();</span><br><span class="line">    <span class="comment">//新增数据</span></span><br><span class="line">    operations.set(<span class="string">&quot;username&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    operations.set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;lisi&quot;</span>, <span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">    <span class="comment">//单独设置过期时间</span></span><br><span class="line">    stringRedisTemplate.expire(<span class="string">&quot;username&quot;</span>, <span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">    <span class="comment">//批量查询值</span></span><br><span class="line">    operations.multiGet(</span><br><span class="line">        Arrays.asList(</span><br><span class="line">            <span class="string">&quot;name&quot;</span>,</span><br><span class="line">            <span class="string">&quot;username&quot;</span></span><br><span class="line">        )</span><br><span class="line">    ).forEach(System.out::println);</span><br><span class="line">    System.out.println(stringRedisTemplate.getExpire(<span class="string">&quot;username&quot;</span>));</span><br><span class="line">    stringRedisTemplate.delete(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="list类型">List类型</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testOpsList</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//获取list的ops对象</span></span><br><span class="line">    ListOperations&lt;String, String&gt; listOperations = stringRedisTemplate.opsForList();</span><br><span class="line">    <span class="comment">//左圧栈，先进后出，后进先出</span></span><br><span class="line">    listOperations.leftPushAll(<span class="string">&quot;nameList&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>, <span class="string">&quot;lisi&quot;</span>, <span class="string">&quot;wangwu&quot;</span>, <span class="string">&quot;zhaoliu&quot;</span>);</span><br><span class="line">    <span class="comment">//右压栈，先进先出，后进后出</span></span><br><span class="line">    listOperations.rightPushAll(<span class="string">&quot;usernameList&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>, <span class="string">&quot;lisi&quot;</span>, <span class="string">&quot;wangwu&quot;</span>, <span class="string">&quot;zhaoliu&quot;</span>);</span><br><span class="line">    <span class="comment">//查询数据列表</span></span><br><span class="line">    listOperations.range(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    listOperations.range(<span class="string">&quot;usernameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">//设置过期时间</span></span><br><span class="line">    stringRedisTemplate.expire(<span class="string">&quot;nameList&quot;</span>, <span class="number">5</span>, TimeUnit.MINUTES);</span><br><span class="line">    System.out.println(<span class="string">&quot;--------------------------------------------------------------------&quot;</span>);</span><br><span class="line">    <span class="comment">//删除指定元素</span></span><br><span class="line">    listOperations.remove(<span class="string">&quot;nameList&quot;</span>, <span class="number">2</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    <span class="comment">//查询列表数据</span></span><br><span class="line">    listOperations.range(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    listOperations.range(<span class="string">&quot;usernameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    System.out.println(<span class="string">&quot;--------------------------------------------------------------------&quot;</span>);</span><br><span class="line">    <span class="comment">//替换头部元素</span></span><br><span class="line">    listOperations.set(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    <span class="comment">//查询列表数据</span></span><br><span class="line">    listOperations.range(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    listOperations.range(<span class="string">&quot;usernameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="hash类型">Hash类型</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testOpsHash</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//获取ops的hash对象</span></span><br><span class="line">    HashOperations&lt;String, Object, Object&gt; hashOperations = stringRedisTemplate.opsForHash();</span><br><span class="line">    <span class="comment">//设置hash的键值对</span></span><br><span class="line">    hashOperations.put(<span class="string">&quot;user&quot;</span>, <span class="string">&quot;loginAct&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    hashOperations.put(<span class="string">&quot;user&quot;</span>, <span class="string">&quot;loginPwd&quot;</span>, <span class="string">&quot;123123&quot;</span>);</span><br><span class="line">    hashOperations.put(<span class="string">&quot;user&quot;</span>, <span class="string">&quot;address&quot;</span>, <span class="string">&quot;深圳市&quot;</span>);</span><br><span class="line">    <span class="comment">//查询列表数据并输出到控制台</span></span><br><span class="line">    <span class="comment">//查询所有key及value集合</span></span><br><span class="line">    Set&lt;Object&gt; user = hashOperations.keys(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">    user.forEach(</span><br><span class="line">        field -&gt;</span><br><span class="line">        System.out.println(</span><br><span class="line">            <span class="string">&quot;field:&quot;</span> + field + <span class="string">&quot;,value:&quot;</span> + hashOperations.get(<span class="string">&quot;user&quot;</span>, field)</span><br><span class="line">        )</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//获取所有的field和value的map集合</span></span><br><span class="line">    hashOperations.entries(<span class="string">&quot;user&quot;</span>).entrySet().forEach(</span><br><span class="line">        entry -&gt; System.out.println(<span class="string">&quot;field:&quot;</span> + entry.getKey() + <span class="string">&quot;,value:&quot;</span> + entry.getValue())</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//删除集合中的元素</span></span><br><span class="line">    hashOperations.delete(<span class="string">&quot;user&quot;</span>,<span class="string">&quot;address&quot;</span>);</span><br><span class="line">    <span class="comment">//删除集合.</span></span><br><span class="line">    stringRedisTemplate.delete(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="set类型">Set类型</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testOpsSet</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//获取set集合的ops对象</span></span><br><span class="line">    <span class="comment">//set集合是无序、唯一的</span></span><br><span class="line">    SetOperations&lt;String, String&gt; setOperations = stringRedisTemplate.opsForSet();</span><br><span class="line">    <span class="comment">//新增操作</span></span><br><span class="line">    setOperations.add(<span class="string">&quot;userList&quot;</span>, <span class="string">&quot;zhangsan&quot;</span>, <span class="string">&quot;lisi&quot;</span>, <span class="string">&quot;wangwu&quot;</span>, <span class="string">&quot;zhaoliu&quot;</span>);</span><br><span class="line">    <span class="comment">//查询数据</span></span><br><span class="line">    setOperations.members(<span class="string">&quot;userList&quot;</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">//弹出操作</span></span><br><span class="line">    System.out.println(setOperations.pop(<span class="string">&quot;userList&quot;</span>));</span><br><span class="line">    <span class="comment">//查询集合长度</span></span><br><span class="line">    System.out.println(setOperations.size(<span class="string">&quot;userList&quot;</span>));</span><br><span class="line">    <span class="comment">//查询value是否存在</span></span><br><span class="line">    System.out.println(setOperations.isMember(<span class="string">&quot;userList&quot;</span>, <span class="string">&quot;lisi&quot;</span>));</span><br><span class="line">    <span class="comment">//随机返回集合中的元素（不删除该元素）</span></span><br><span class="line">    System.out.println(setOperations.randomMember(<span class="string">&quot;userList&quot;</span>));</span><br><span class="line">    <span class="comment">//删除集合中的元素</span></span><br><span class="line">    setOperations.remove(<span class="string">&quot;userList&quot;</span>, <span class="string">&quot;lisi&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="zset类型">ZSet类型</span></h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testOpsZSet</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="comment">//获取zset集合的ops对象</span></span><br><span class="line">    ZSetOperations&lt;String, String&gt; zSetOperations = stringRedisTemplate.opsForZSet();</span><br><span class="line">    Set&lt;ZSetOperations.TypedTuple&lt;String&gt;&gt; zSet = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">    zSet.add(<span class="keyword">new</span> <span class="title class_">DefaultTypedTuple</span>&lt;String&gt;(<span class="string">&quot;zhangsan&quot;</span>, <span class="number">100.00</span>));</span><br><span class="line">    zSet.add(<span class="keyword">new</span> <span class="title class_">DefaultTypedTuple</span>&lt;String&gt;(<span class="string">&quot;lisi&quot;</span>, <span class="number">200.00</span>));</span><br><span class="line">    zSet.add(<span class="keyword">new</span> <span class="title class_">DefaultTypedTuple</span>&lt;String&gt;(<span class="string">&quot;wangwu&quot;</span>, <span class="number">300.00</span>));</span><br><span class="line">    zSet.add(<span class="keyword">new</span> <span class="title class_">DefaultTypedTuple</span>&lt;String&gt;(<span class="string">&quot;zhaoliu&quot;</span>, <span class="number">400.00</span>));</span><br><span class="line">    <span class="comment">//新增操作</span></span><br><span class="line">    zSetOperations.add(<span class="string">&quot;nameList&quot;</span>, zSet);</span><br><span class="line">    <span class="comment">//查询并输出(升序)</span></span><br><span class="line">    zSetOperations.range(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">//降序</span></span><br><span class="line">    zSetOperations.reverseRange(<span class="string">&quot;nameList&quot;</span>, <span class="number">0</span>, -<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line">    System.out.println(<span class="string">&quot;---------------------------------&quot;</span>);</span><br><span class="line">    <span class="comment">//查询并升序输出指定分数内的集合数据</span></span><br><span class="line">    zSetOperations.rangeByScore(<span class="string">&quot;nameList&quot;</span>, <span class="number">100</span>, <span class="number">200</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">//查询并升序输出指定分数内的集合</span></span><br><span class="line">    zSetOperations.rangeByScoreWithScores(<span class="string">&quot;nameList&quot;</span>, <span class="number">100</span>, <span class="number">200</span>).forEach(</span><br><span class="line">        stringTypedTuple -&gt; System.out.println(stringTypedTuple.getValue() + <span class="string">&quot;,&quot;</span> + stringTypedTuple.getScore())</span><br><span class="line">    );</span><br><span class="line">    System.out.println(<span class="string">&quot;---------------------------------&quot;</span>);</span><br><span class="line">    <span class="comment">//查询并降序输出指定分数内的集合数据</span></span><br><span class="line">    zSetOperations.reverseRangeByScore(<span class="string">&quot;nameList&quot;</span>, <span class="number">100</span>, <span class="number">200</span>).forEach(System.out::println);</span><br><span class="line">    <span class="comment">//查询并降序输出指定分数内的集合</span></span><br><span class="line">    zSetOperations.reverseRangeByScoreWithScores(<span class="string">&quot;nameList&quot;</span>, <span class="number">100</span>, <span class="number">200</span>).forEach(</span><br><span class="line">        stringTypedTuple -&gt; System.out.println(stringTypedTuple.getValue() + <span class="string">&quot;,&quot;</span> + stringTypedTuple.getScore())</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1><span id="附录">附录</span></h1>
+<h2><span id="redisconf-配置详情">redis.conf 配置详情</span></h2>
+<p>Redis 支持很多的参数，但都有默认值。</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>daemonize</td>
+<td>默认情况下，redis 不是在后台运行的，如果需要在后台运行，把该项的值更改为yes</td>
+</tr>
+<tr>
+<td>pidfile</td>
+<td>当Redis 在后台运行的时候，Redis 默认会把pid 文件放在/var/run/redis.pid，你可以配置到其他地址。当运行多个redis 服务时，需要指定不同的pid 文件和端口</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>指定Redis 只接收来自于该IP 地址的请求，如果不进行设置，那么将处理所有请求，在生产环境中最好设置该项</td>
+</tr>
+<tr>
+<td>port</td>
+<td>监听端口，默认为6379</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置客户端连接时的超时时间，单位为秒。当客户端在这段时间内没有发出任何指令，那么关闭该连接</td>
+</tr>
+<tr>
+<td>loglevel</td>
+<td>log 等级分为4 级，debug, verbose, notice, 和warning。生产环境下一般开启notice</td>
+</tr>
+<tr>
+<td>logfile</td>
+<td>配置log 文件地址，默认使用标准输出，即打印在命令行终端的窗口上</td>
+</tr>
+<tr>
+<td>databases</td>
+<td>设置数据库的个数，可以使用SELECT <dbid>命令来切换数据库。默认使用的数据库是0</dbid></td>
+</tr>
+<tr>
+<td>save</td>
+<td>设置Redis 进行数据库镜像的频率。if(在60 秒之内有10000 个keys 发生变化时){进行镜像备份}else if(在300 秒之内有10 个keys 发生了变化){进行镜像备份}else if(在900 秒之内有1 个keys 发生了变化){进行镜像备份}</td>
+</tr>
+<tr>
+<td>rdbcompression</td>
+<td>在进行镜像备份时，是否进行压缩</td>
+</tr>
+<tr>
+<td>dbfilename</td>
+<td>镜像备份文件的文件名</td>
+</tr>
+<tr>
+<td>dir</td>
+<td>数据库镜像备份的文件放置的路径。这里的路径跟文件名要分开配置是因为Redis 在进行备份时，先会将当前数据库的状态写入到一个临时文件中，等备份完成时，再把该该临时文件替换为上面所指定的文件，而这里的临时文件和上面所配置的备份文件都会放在这个指定的路径当中</td>
+</tr>
+<tr>
+<td>slaveof</td>
+<td>设置该数据库为其他数据库的从数据库</td>
+</tr>
+<tr>
+<td>masterauth</td>
+<td>当主数据库连接需要密码验证时，在这里指定</td>
+</tr>
+<tr>
+<td>requirepass</td>
+<td>设置客户端连接后进行任何其他指定前需要使用的密码。警告：因为redis 速度相当快，所以在一台比较好的服务器下，一个外部的用户可以在一秒钟进行150K 次的密码尝试，这意味着你需要指定非常非常强大的密码来防止暴力破解。</td>
+</tr>
+<tr>
+<td>maxclients</td>
+<td>限制同时连接的客户数量。当连接数超过这个值时，redis 将不再接收其他连接请求，客户端尝试连接时将收到error 信息。</td>
+</tr>
+<tr>
+<td>maxmemory</td>
+<td>设置redis 能够使用的最大内存。当内存满了的时候，如果还接收到set 命令，redis 将先尝试剔除设置过expire 信息的key，而不管该key 的过期时间还没有到达。在删除时，将按照过期时间进行删除，最早将要被过期的key 将最先被删除。如果带有expire 信息的key 都删光了，那么将返回错误。这样，redis 将不再接收写请求，只接收get 请求。maxmemory 的设置比较适合于把redis 当作于类似memcached 的缓存来使用。</td>
+</tr>
+<tr>
+<td>appendonly</td>
+<td>默认情况下，redis 会在后台异步的把数据库镜像备份到磁盘，但是该备份是非常耗时的，而且备份也不能很频繁，如果发生诸如拉闸限电、拔插头等状况，那么将造成比较大范围的数据丢失。所以redis 提供了另外一种更加高效的数据库备份及灾难恢复方式。开启append only 模式之后，redis 会把所接收到的每一次写操作请求都追加到appendonly.aof 文件中，当redis 重新启动时，会从该文件恢复出之前的状态。但是这样会造成appendonly.aof 文件过大，所以redis 还支持了BGREWRITEAOF 指令，对appendonly.aof 进行重新整理。所以我认为推荐生产环境下的做法为关闭镜像，开启appendonly.aof，同时可以选择在访问较少的时间每天对appendonly.aof 进行重写一次。</td>
+</tr>
+<tr>
+<td>appendfsync</td>
+<td>设置对appendonly.aof 文件进行同步的频率。always 表示每次有写操作都进行同步，everysec 表示对写操作进行累积，每秒同步一次。这个需要根据实际业务场景进行配置</td>
+</tr>
+<tr>
+<td>vm-enabled</td>
+<td>是否开启虚拟内存支持。因为redis 是一个内存数据库，而且当内存满的时候，无法接收新的写请求，所以在redis 2.0 中，提供了虚拟内存的支持。但是需要注意的是，redis中，所有的key 都会放在内存中，在内存不够时，只会把value 值放入交换区。这样保证了虽然使用虚拟内存，但性能基本不受影响，同时，你需要注意的是你要把vm-max-memory 设置到足够来放下你的所有的key</td>
+</tr>
+<tr>
+<td>vm-swap-file</td>
+<td>设置虚拟内存的交换文件路径</td>
+</tr>
+<tr>
+<td>vm-max-memory</td>
+<td>这里设置开启虚拟内存之后，redis 将使用的最大物理内存的大小。默认为0，redis 将把他所有的能放到交换文件的都放到交换文件中，以尽量少的使用物理内存。在生产环境下，需要根据实际情况设置该值，最好不要使用默认的0</td>
+</tr>
+<tr>
+<td>vm-page-size</td>
+<td>设置虚拟内存的页大小，如果你的value 值比较大，比如说你要在value 中放置博客、新闻之类的所有文章内容，就设大一点，如果要放置的都是很小的内容，那就设小一点。</td>
+</tr>
+<tr>
+<td>vm-pages</td>
+<td>设置交换文件的总的page 数量，需要注意的是，page table 信息会放在物理内存中，每8 个page 就会占据RAM 中的1 个byte。总的虚拟内存大小 ＝ vm-page-size * vm-pages</td>
+</tr>
+<tr>
+<td>vm-max-threads</td>
+<td>设置VM IO 同时使用的线程数量。因为在进行内存交换时，对数据有编码和解码的过程，所以尽管IO 设备在硬件上本上不能支持很多的并发读写，但是还是如果你所保存的vlaue 值比较大，将该值设大一些，还是能够提升性能的</td>
+</tr>
+<tr>
+<td>glueoutputbuf</td>
+<td>把小的输出缓存放在一起，以便能够在一个TCP packet 中为客户端发送多个响应，具体原理和真实效果我不是很清楚。所以根据注释，你不是很确定的时候就设置成yes</td>
+</tr>
+<tr>
+<td>hash-max-zipmap-entries</td>
+<td>在redis 2.0 中引入了hash 数据结构。当hash 中包含超过指定元素个数并且最大的元素没有超过临界时，hash 将以一种特殊的编码方式（大大减少内存使用）来存储，这里可以设置这两个临界值</td>
+</tr>
+<tr>
+<td>activerehashing</td>
+<td>开启之后，redis 将在每100 毫秒时使用1 毫秒的CPU 时间来对redis 的hash 表进行重新hash，可以降低内存的使用。当你的使用场景中，有非常严格的实时性需要，不能够接受Redis 时不时的对请求有2 毫秒的延迟的话，把这项配置为no。如果没有这么严格的实时性要求，可以设置为yes，以便能够尽可能快的释放内存</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="远程连接redis设置"><em><strong>*远程连接Redis设置*</strong></em></span></h2>
+<p><strong>连接超时错误：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps151.jpg)</p>
+<p>开放Linux的对外访问的端口6379：</p>
+<p>/sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT</p>
+<p>/etc/rc.d/init.d/iptables save</p>
+<p><strong>连接被拒绝错误：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps152.jpg)</p>
+<p>redis默认只允许本机连接，修改redis.conf，找到bind 127.0.0.1，将其注释掉：</p>
+<p>vim redis.conf</p>
+<p>输入/bind 127.0.0.1 回车，找到下图位置</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps153.jpg) ![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps154.jpg)</p>
+<p><strong>访问再次被拒：</strong></p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps155.jpg)</p>
+<p>redis默认开启了保护模式，修改redis.conf，找到protected-mode yes，将yes改为no</p>
+<p>![img](file:///C:\Users\Administrator\AppData\Local\Temp\ksohtml14104\wps156.jpg)</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -246,7 +1298,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2022-2023
+        2022-2024
         <i class="ri-heart-fill heart_icon"></i> biyixia
       </li>
     </ul>
