@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-SQL刷题记录"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/post/SQL%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2023-06-08T04:33:27.940Z" itemprop="datePublished">2023-06-08</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">7 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <hr>
+<h2><span id>{}</span></h2>
+<h2><span id="特殊窗口函数">特殊窗口函数</span></h2>
+<p><strong>用户在某天刷题后第二天还会再来刷题的平均概率</strong></p>
+<p>示例：question_practice_detail</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>device_id</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2138</td>
+<td>2021-05-03</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3214</td>
+<td>2021-05-09</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3214</td>
+<td>2021-06-15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>6543</td>
+<td>2021-08-13</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2315</td>
+<td>2021-08-13</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2315</td>
+<td>2021-08-14</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2315</td>
+<td>2021-08-15</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用外连接（笛卡尔积）查询添加列时，会重复添加不需要的数据，连接后还要去重</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> a.device_id,a.date,b.date)<span class="operator">/</span><span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> a.device_id,a.date) avg_ret</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	question_practice_detail a <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> </span><br><span class="line">	question_practice_detail b </span><br><span class="line">	<span class="keyword">ON</span> DATE_ADD(a.date,<span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>) <span class="operator">=</span> b.date</span><br><span class="line">	<span class="keyword">AND</span> a.device_id <span class="operator">=</span> b.device_id</span><br><span class="line">	</span><br><span class="line"><span class="comment">-- lead函数添加列不会重复添加不需要的数据，可以在使用前去重</span></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">AVG</span>(IF(DATE_ADD(<span class="type">date</span>,<span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>) <span class="operator">=</span> ranking,<span class="number">1</span>,<span class="number">0</span>))</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> device_id,<span class="type">date</span>,</span><br><span class="line">		<span class="built_in">LEAD</span>(<span class="type">date</span>,<span class="number">1</span>) <span class="keyword">OVER</span>(					<span class="comment">-- 将第一天后的刷题日期加到新列上</span></span><br><span class="line">			<span class="keyword">PARTITION</span> <span class="keyword">BY</span> device_id</span><br><span class="line">			<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="type">date</span></span><br><span class="line">		)ranking</span><br><span class="line">	<span class="keyword">FROM</span>(<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> device_id,<span class="type">date</span>		<span class="comment">-- 每个用户id的第一天刷题日期</span></span><br><span class="line">		<span class="keyword">FROM</span> question_practice_detail)b</span><br><span class="line">)a</span><br></pre></td></tr></table></figure>
+<h2><span id="聚合函数作为窗口函数">聚合函数作为窗口函数</span></h2>
+<p><strong>请输出自从有用户作答记录以来，每月的试卷作答记录中月活用户数、新增用户数、截止当月的单月最大新增用户数、截止当月的累积用户数。结果按月份升序输出。</strong></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>uid</th>
+<th>exam_id</th>
+<th>start_time</th>
+<th>submit_time</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1001</td>
+<td>9001</td>
+<td>2020-01-01 09:01:01</td>
+<td>2020-01-01 09:21:59</td>
+<td>90</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1002</td>
+<td>9001</td>
+<td>2020-01-20 10:01:01</td>
+<td>2020-01-20 10:10:01</td>
+<td>89</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1002</td>
+<td>9001</td>
+<td>2020-02-01 12:11:01</td>
+<td>2020-02-01 12:31:01</td>
+<td>83</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1003</td>
+<td>9001</td>
+<td>2020-03-01 19:01:01</td>
+<td>2020-03-01 19:30:01</td>
+<td>75</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1004</td>
+<td>9001</td>
+<td>2020-03-01 12:01:01</td>
+<td>2020-03-01 12:11:01</td>
+<td>60</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1003</td>
+<td>9001</td>
+<td>2020-03-01 12:01:01</td>
+<td>2020-03-01 12:41:01</td>
+<td>90</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1002</td>
+<td>9001</td>
+<td>2020-05-02 19:01:01</td>
+<td>2020-05-02 19:32:00</td>
+<td>90</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1001</td>
+<td>9002</td>
+<td>2020-01-02 19:01:01</td>
+<td>2020-01-02 19:59:01</td>
+<td>69</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1004</td>
+<td>9002</td>
+<td>2020-02-02 12:01:01</td>
+<td>2020-02-02 12:20:01</td>
+<td>99</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1003</td>
+<td>9002</td>
+<td>2020-02-02 12:01:01</td>
+<td>2020-02-02 12:31:01</td>
+<td>68</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1001</td>
+<td>9002</td>
+<td>2020-01-02 19:01:01</td>
+<td>2020-02-02 12:43:01</td>
+<td>81</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1001</td>
+<td>9002</td>
+<td>2020-03-02 12:11:01</td>
+<td>(NULL)</td>
+<td>(NULL)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>每个用户的首次登录日期</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">MIN</span>(start_time)<span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid) <span class="keyword">AS</span> new_user_day <span class="comment">-- 第一天登录		不改变列长，为每个用户找到最早刷题日期</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>标记新用户登录</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span>,</span><br><span class="line">	IF(<span class="built_in">MIN</span>(start_time) <span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid)<span class="operator">=</span> start_time,<span class="number">1</span>,<span class="number">0</span>) add_uv</span><br><span class="line"><span class="keyword">FROM</span> exam_record</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	DATE_FORMAT(start_time,<span class="string">&#x27;%Y%m&#x27;</span>) start_month,</span><br><span class="line">	<span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> uid),</span><br><span class="line">	<span class="built_in">SUM</span>(add_uv) month_add_uv,						<span class="comment">-- 每月新增用户</span></span><br><span class="line">	<span class="built_in">MAX</span>(<span class="built_in">SUM</span>(add_uv)) <span class="keyword">OVER</span>(							<span class="comment">-- 截止当月的单月最大新增用户数</span></span><br><span class="line">		<span class="keyword">ORDER</span> <span class="keyword">BY</span> DATE_FORMAT(start_time,<span class="string">&#x27;%Y%m&#x27;</span>)</span><br><span class="line">	)max_month_add_uv,</span><br><span class="line">	<span class="built_in">SUM</span>(<span class="built_in">SUM</span>(add_uv)) <span class="keyword">OVER</span>(							<span class="comment">-- 截止当月的累积用户数</span></span><br><span class="line">		<span class="keyword">ORDER</span> <span class="keyword">BY</span> DATE_FORMAT(start_time,<span class="string">&#x27;%Y%m&#x27;</span>)</span><br><span class="line">	)</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span>,</span><br><span class="line">        IF(<span class="built_in">MIN</span>(start_time) <span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid)<span class="operator">=</span> start_time,<span class="number">1</span>,<span class="number">0</span>) add_uv</span><br><span class="line">    <span class="keyword">FROM</span> exam_record</span><br><span class="line">)a</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> start_month</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">By</span> start_month</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/fe24c93008b84e9592b35faa15755e48?tpId=268&amp;tqId=2285342&amp;ru=%2Fpractice%2F0226c7b2541c41e59c3b8aec588b09ff&amp;qru=%2Fta%2Fsql-factory-interview%2Fquestion-ranking&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">每篇文章同一时刻最大在看人数_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/aef5adcef574468c82659e8911bb297f?tpId=268&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">连续签到领金币_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="operator">*</span>,</span><br><span class="line">	IF(DATEDIFF(<span class="type">DATE</span>(<span class="built_in">LEAD</span>(in_time,<span class="number">1</span>,<span class="keyword">NULL</span>) <span class="keyword">OVER</span>(</span><br><span class="line">           <span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid</span><br><span class="line">           <span class="keyword">ORDER</span> <span class="keyword">BY</span> in_time</span><br><span class="line">       )),<span class="type">DATE</span>(in_time))<span class="operator">=</span><span class="number">1</span> <span class="keyword">AND</span> sign_in <span class="operator">=</span> <span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>)b</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	tb_user_log</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	DATE_FORMAT(in_time,<span class="string">&#x27;%Y%m&#x27;</span>) <span class="keyword">BETWEEN</span> <span class="string">&#x27;202107&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;202110&#x27;</span></span><br><span class="line">	<span class="keyword">AND</span> artical_id <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">	<span class="keyword">AND</span> sign_in</span><br><span class="line">	</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		<span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span>(</span><br><span class="line">               <span class="keyword">PARTITION</span> <span class="keyword">BY</span> dt_tmp,uid  <span class="comment">-- 没写uid</span></span><br><span class="line">               <span class="keyword">ORDER</span> <span class="keyword">BY</span> dt</span><br><span class="line">           )ranking</span><br><span class="line">	<span class="keyword">FROM</span>(</span><br><span class="line">           <span class="keyword">SELECT</span></span><br><span class="line">           <span class="keyword">DISTINCT</span> </span><br><span class="line">           uid,</span><br><span class="line">           <span class="type">DATE</span>(in_time)dt,</span><br><span class="line">           <span class="built_in">DENSE_RANK</span>() <span class="keyword">OVER</span>(</span><br><span class="line">               <span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid</span><br><span class="line">               <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="type">DATE</span>(in_time)</span><br><span class="line">           )rn,</span><br><span class="line">           <span class="type">DATE</span>(in_time)<span class="operator">-</span>(	<span class="built_in">ROW_NUMBER</span>() <span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="type">DATE</span>(in_time))) dt_tmp</span><br><span class="line">           <span class="keyword">FROM</span></span><br><span class="line">           tb_user_log</span><br><span class="line">           <span class="keyword">WHERE</span></span><br><span class="line">           <span class="type">DATE</span>(in_time) <span class="keyword">BETWEEN</span> <span class="string">&#x27;2021-07-07&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;2021-10-31&#x27;</span></span><br><span class="line">           <span class="keyword">AND</span> artical_id <span class="operator">=</span> <span class="number">0</span></span><br><span class="line">           <span class="keyword">AND</span> sign_in <span class="operator">=</span><span class="number">1</span></span><br><span class="line">       )a</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/65de67f666414c0e8f9a34c08d4a8ba6?tpId=268&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">某店铺的各商品毛利率及店铺整体毛利率_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	product_id1 product_id,</span><br><span class="line">	CONCAT(profit_rate,<span class="string">&#x27;%&#x27;</span>)profit_rate</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="built_in">COALESCE</span>(product_id,<span class="string">&#x27;店铺汇总&#x27;</span>) product_id1,</span><br><span class="line">		ROUND((<span class="number">1</span><span class="operator">-</span><span class="built_in">SUM</span>(in_price<span class="operator">*</span>cnt)<span class="operator">/</span><span class="built_in">SUM</span>(price<span class="operator">*</span>cnt))<span class="operator">*</span><span class="number">100</span>,<span class="number">1</span>)profit_rate</span><br><span class="line">	<span class="keyword">FROM</span></span><br><span class="line">		tb_order_detail <span class="keyword">JOIN</span> tb_product_info <span class="keyword">USING</span>(product_id)</span><br><span class="line">		<span class="keyword">JOIN</span> tb_order_overall <span class="keyword">USING</span>(order_id)</span><br><span class="line">	<span class="keyword">WHERE</span> shop_id <span class="operator">=</span> <span class="number">901</span></span><br><span class="line">		<span class="keyword">AND</span> DATE_FORMAT(event_time,<span class="string">&#x27;%Y%m&#x27;</span>) <span class="operator">&gt;=</span> <span class="string">&#x27;202110&#x27;</span></span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> product_id <span class="keyword">WITH</span> <span class="keyword">ROLLUP</span></span><br><span class="line">	<span class="keyword">HAVING</span> profit_rate <span class="operator">&gt;</span> <span class="number">24.9</span> <span class="keyword">OR</span> product_id <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="comment">-- 百分比不能直接字符判断，还要判断产品ID空值</span></span><br><span class="line">	<span class="keyword">ORDER</span> <span class="keyword">BY</span> product_id</span><br><span class="line">)a</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/9c175775e7ad4d9da41602d588c5caf3?tpId=268&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">零食类商品中复购率top3高的商品_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	product_id,</span><br><span class="line">	ROUND(<span class="built_in">SUM</span>(repurchase)<span class="operator">/</span><span class="built_in">COUNT</span>(uid),<span class="number">3</span>)repurchase_rate</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		product_id,</span><br><span class="line">		uid,</span><br><span class="line">		IF(<span class="built_in">COUNT</span>(event_time)<span class="operator">&gt;=</span><span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>)repurchase     <span class="comment">--没有分组</span></span><br><span class="line">	<span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			product_id,uid,event_time,</span><br><span class="line">			DATEDIFF(<span class="built_in">MAX</span>(event_time) <span class="keyword">OVER</span>(			<span class="comment">-- 当天为最大日期</span></span><br><span class="line">			),event_time) recently</span><br><span class="line">		<span class="keyword">FROM</span></span><br><span class="line">			tb_order_detail <span class="keyword">JOIN</span> tb_order_overall <span class="keyword">USING</span>(order_id)</span><br><span class="line">			<span class="keyword">JOIN</span> tb_product_info <span class="keyword">USING</span>(product_id)</span><br><span class="line">		<span class="keyword">WHERE</span> </span><br><span class="line">			tag <span class="operator">=</span> <span class="string">&#x27;零食&#x27;</span></span><br><span class="line">	)a</span><br><span class="line">	<span class="keyword">WHERE</span> recently <span class="keyword">BETWEEN</span> <span class="number">0</span> <span class="keyword">AND</span> <span class="number">89</span></span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> uid,product_id</span><br><span class="line">)b</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> product_id</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> repurchase_rate <span class="keyword">DESC</span>,product_id</span><br><span class="line">LIMIT <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/d15ee0798e884f829ae8bd27e10f0d64?tpId=268&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">10月的新户客单价和获客成本_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    ROUND(<span class="built_in">AVG</span>(total_amount), <span class="number">1</span>) avg_amount,</span><br><span class="line">    ROUND(<span class="built_in">AVG</span>(raw_amount <span class="operator">-</span> total_amount), <span class="number">1</span>) avg_cost</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">    <span class="keyword">SELECT</span></span><br><span class="line">        uid,total_amount,raw_amount</span><br><span class="line">    <span class="keyword">FROM</span>(</span><br><span class="line">        <span class="keyword">SELECT</span></span><br><span class="line">            <span class="operator">*</span>,</span><br><span class="line">            IF(event_time <span class="operator">=</span> <span class="built_in">MIN</span>(event_time) <span class="keyword">OVER</span>(</span><br><span class="line">                    <span class="keyword">PARTITION</span> <span class="keyword">BY</span> uid</span><br><span class="line">            ),<span class="number">1</span>,<span class="number">0</span>)new_user</span><br><span class="line">        <span class="keyword">FROM</span></span><br><span class="line">            tb_order_overall <span class="keyword">JOIN</span>(</span><br><span class="line">                    <span class="keyword">SELECT</span> order_id,<span class="built_in">SUM</span>(price<span class="operator">*</span>cnt) raw_amount</span><br><span class="line">                    <span class="keyword">FROM</span> tb_order_detail</span><br><span class="line">                    <span class="keyword">GROUP</span> <span class="keyword">BY</span> order_id</span><br><span class="line">            )a <span class="keyword">USING</span>(order_id)</span><br><span class="line">    )b</span><br><span class="line">    <span class="keyword">WHERE</span> new_user <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">AND</span> DATE_FORMAT(event_time,<span class="string">&#x27;%Y%m&#x27;</span>) <span class="operator">=</span> <span class="string">&#x27;202110&#x27;</span>   </span><br><span class="line">) c</span><br><span class="line"><span class="comment">-- 新用户首单可能不在10月份，因此要先选出新用户首单，再选出10月的订单</span></span><br><span class="line"><span class="comment">-- 否则会过滤掉不在10月份的信用户首单，所有新用户首单都在10月，不符合实践情况</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/e7837f66e8fb4b45b694d24ea61f0dc9?tpId=268&amp;tags=&amp;title=&amp;difficulty=0&amp;judgeStatus=0&amp;rp=0&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">店铺901国庆期间的7日动销率和滞销率_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	dt,ROUND(<span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> a.product_id)<span class="operator">/</span><span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> b.product_id),<span class="number">3</span>)sale_rate,</span><br><span class="line">	<span class="number">1</span><span class="operator">-</span>(ROUND(<span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> a.product_id)<span class="operator">/</span><span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> b.product_id),<span class="number">3</span>))unsale_rate</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		dt,product_id</span><br><span class="line">	<span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			<span class="keyword">DISTINCT</span> <span class="type">DATE</span>(event_time) dt</span><br><span class="line">		<span class="keyword">FROM</span> tb_order_overall</span><br><span class="line">		<span class="keyword">WHERE</span> <span class="type">DATE</span>(event_time) <span class="keyword">BETWEEN</span> <span class="string">&#x27;2021-10-01&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;2021-10-03&#x27;</span></span><br><span class="line">	)t1 <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_order_overall t2 <span class="keyword">ON</span> DATEDIFF(t1.dt,t2.event_time) <span class="keyword">BETWEEN</span> <span class="number">0</span> <span class="keyword">AND</span> <span class="number">6</span></span><br><span class="line">		<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> (</span><br><span class="line">			<span class="keyword">SELECT</span> product_id,order_id</span><br><span class="line">			<span class="keyword">FROM</span> tb_product_info <span class="keyword">JOIN</span> tb_order_detail <span class="keyword">USING</span>(product_id) <span class="keyword">WHERE</span> shop_id <span class="operator">=</span> <span class="number">901</span></span><br><span class="line">		)b <span class="keyword">USING</span>(order_id)	</span><br><span class="line">)a	<span class="keyword">JOIN</span> tb_product_info b <span class="keyword">ON</span> <span class="type">DATE</span>(release_time) <span class="operator">&lt;=</span> dt <span class="keyword">AND</span> shop_id <span class="operator">=</span> <span class="number">901</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> dt</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> dt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/63ac3be0e4b44cce8dd2619d2236c3bf?tpId=268&amp;tqId=2285906&amp;ru=%2Fpractice%2F715dd44c994f45cb871afa98f1b77538&amp;qru=%2Fta%2Fsql-factory-interview%2Fquestion-ranking&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">某宝店铺连续2天及以上购物的用户及其对应的天数_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> user_id,<span class="built_in">MAX</span>(ranking)days_count</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> user_id,sales_date,<span class="built_in">DENSE_RANK</span>() <span class="keyword">OVER</span>(<span class="keyword">PARTITION</span> <span class="keyword">BY</span> user_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> sales_date)ranking</span><br><span class="line">	<span class="keyword">FROM</span> sales_tb</span><br><span class="line">)a</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> user_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">MAX</span>(ranking) <span class="operator">&gt;=</span> <span class="number">2</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/d69677e41f9a4bf3b3ed7a42573e9490?tpId=268&amp;tqId=2286245&amp;ru=%2Fpractice%2F0cab547df4f0430b93042128f445d899&amp;qru=%2Fta%2Fsql-factory-interview%2Fquestion-ranking&amp;sourceUrl=%2Fexam%2Foj%3Fpage%3D1%26tab%3DSQL%E7%AF%87%26topicId%3D268">牛客直播各科目同时在线人数_牛客题霸_牛客网 (nowcoder.com)</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	course_id,</span><br><span class="line">	course_name,</span><br><span class="line">	<span class="built_in">MAX</span>(sum_diff)max_num</span><br><span class="line"><span class="keyword">FROM</span>(</span><br><span class="line">	<span class="keyword">SELECT</span></span><br><span class="line">		<span class="operator">*</span>,</span><br><span class="line">		<span class="built_in">SUM</span>(diff) <span class="keyword">OVER</span>(</span><br><span class="line">			<span class="keyword">PARTITION</span> <span class="keyword">BY</span> course_id</span><br><span class="line">			<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="type">time</span>,user_id </span><br><span class="line">		)sum_diff</span><br><span class="line">	<span class="keyword">FROM</span>(</span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			course_id,user_id,in_datetime <span class="type">time</span>,<span class="string">&#x27;1&#x27;</span>diff</span><br><span class="line">		<span class="keyword">FROM</span></span><br><span class="line">			attend_tb</span><br><span class="line">		<span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">		<span class="keyword">SELECT</span></span><br><span class="line">			course_id,user_id,out_datetime <span class="type">time</span>,<span class="string">&#x27;-1&#x27;</span>diff</span><br><span class="line">		<span class="keyword">FROM</span></span><br><span class="line">			attend_tb</span><br><span class="line">	)a</span><br><span class="line">)b <span class="keyword">JOIN</span> course_tb <span class="keyword">USING</span>(course_id)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> course_id,course_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> course_id</span><br></pre></td></tr></table></figure>
+<p>168 169</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/SQL%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/static%E3%80%81final%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E4%BB%A3%E7%A0%81%E5%9D%97/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            static、final关键字、代码块
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/SpringMVC%E6%8B%A6%E6%88%AA%E5%99%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">SpringMVC拦截器</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>

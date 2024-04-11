@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.3k</span>
+            <span class="post-count">1.6k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">8 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -112,94 +112,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2><span id="执行原理">执行原理</span></h2>
-<p>编程人员编写.Java源文件，经过编译器编译(javac)成.class字节码文件，字节码文件通过JVM的类加载器加载至执行引擎，执行引擎执行(java)字节码文件并与操作系统交互。</p>
-<span id="more"></span>
-<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
-<h3><span id="编译阶段">编译阶段</span></h3>
-<p>D:\下创建test01.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<p>在当前目录下进行编译，并在当前目录下生成test01.class字节码文件</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/130bf3bc382780ee.png" alt></p>
-</li>
-<li>
-<p>在其他路径下通过绝对路径进行编译，仍在源码文件所在目录下生成字节码文件</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/782b383f69589ba7.png" alt></p>
-</li>
-<li>
-<p>在1、2的基础上，使用-d 指定字节码文件生成目录</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/af54a909625867df.png" alt></p>
-</li>
-</ol>
-<h3><span id="运行阶段">运行阶段</span></h3>
-<ol>
-<li>
-<p>一般情况下，在当前目录下编译后会同时生成字节码文件，可通过当前路径执行</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/7f4e27cb96dcc047.png" alt></p>
-</li>
-<li>
-<p>无法通过绝对路径找到类文件并执行</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/b2dce9cb62d3b626.png" alt></p>
-</li>
-</ol>
-<h3><span id="执行不同路径下且存在调用的两个源文件">执行不同路径下且存在调用的两个源文件</span></h3>
-<p>D:\下创建test01.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        test02.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>D:\test\下创建test02.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test02</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<p>无论是通过绝对路径还是当前路径都无法独立编译test01.java</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/caf29fba40fbf402.png" alt></p>
-</li>
-<li>
-<p>可通过两个文件的绝对路径同时进行编译（不适用声明了包的情况）</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/80e02d460eefa549.png" alt></p>
-</li>
-<li>
-<p>配置CLASSPATH环境变量为两个文件的路径后，可以在不同路径下找到字节码文件并执行（不适用声明了包的情况）</p>
-</li>
-</ol>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/6e6926b3fc5f7887.png" alt></p>
-<p><strong>package与import</strong></p>
-<ol>
-<li>
-<p>package：从项目路径到当前文件夹，文件夹间由 . 隔开</p>
-</li>
-<li>
-<p>import：从项目路径到调用的类文件，（不在同一文件夹下的的源文件调用需要导入）</p>
-<blockquote>
-<p>不建议用*表示某个文件夹下的所有文件,当导入的包数量过多时，使用*容易发生类名冲突</p>
-</blockquote>
-</li>
-<li>
-<p>导入声明和包的声明必须从同一个项目路径开始</p>
-</li>
-</ol>
-<p>在Test02.java中声明包，项目路径为包含了src的文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> src.main;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test02</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在Test01.java中导入Test02</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> src;</span><br><span class="line"><span class="keyword">import</span> src.main.Test02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test02.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<p>必须在指定的项目路径下，通过绝对路径编译Test01.java（自动编译导入的文件）</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/8870e5d31d536773.png" alt></p>
-</li>
-<li>
-<p>运行时在指定的项目路径下，通过包名.类名执行</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/2bf77240219f1aa9.png" alt></p>
-</li>
-<li>
-<p>也可以通过-cp指定到项目路径下，通过包名.类名执行</p>
-<p><img src="/post/Java%E5%8A%A0%E8%BD%BD%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%8E%9F%E7%90%86/C:%5CUsers%5Cmomo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230202151851177.png" alt="image-20230202151851177"></p>
-</li>
-</ol>
-<p><strong>静态导入</strong></p>
-<p>访问不同路径下的源文件的静态成员，一般使用 类名.方法名或类名.属性名，使用静态导入即可直接使用方法名或属性名</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> src;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> src.main.Test02;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        show();	<span class="comment">//直接通过方法名访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="类加载的过程">类加载的过程</span></h2>
+  <h2><span id="类加载的过程">类加载的过程</span></h2>
 <p><img src="https://pic.imgdb.cn/item/63d672baface21e9ef12a400.jpg" alt></p>
 <p>加载、验证、准备、解析和初始化5个阶段</p>
 <h3><span id="加载">加载</span></h3>
@@ -355,19 +268,19 @@
    
   <nav class="article-nav">
     
-      <a href="/post/Java%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/" class="article-nav-link">
+      <a href="/post/JVM%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Java文档注释
+            JVM内存结构
           
         </div>
       </a>
     
     
-      <a href="/post/IDEA%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/" class="article-nav-link">
+      <a href="/post/html%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">常用模板</div>
+        <div class="article-nav-title">html学习</div>
       </a>
     
   </nav>

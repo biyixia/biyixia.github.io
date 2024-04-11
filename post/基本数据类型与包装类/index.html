@@ -88,7 +88,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.3k</span>
+            <span class="post-count">2.7k</span>
         </span>
     </span>
 
@@ -97,7 +97,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">12 min</span>
+            <span class="post-count">10 min</span>
         </span>
     </span>
 </div>
@@ -120,115 +120,7 @@
 <p>注意:为什么要保留基本数据类型？Java种创建的对象都是存储在堆里的，使用的时候需要通过栈中的引用， 所以常用的基本数据类型，不需要使用new在堆上创建，而是直接在栈内存中存储不创建对象，就会比较高效。</p>
 <span id="more"></span>
 <h1><span id="基本数据类型">基本数据类型</span></h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">占用字节</th>
-<th style="text-align:center">表数范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">-128~127(-2<sup>7</sup> ~2<sup>7</sup> -1 )</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">-32768~32767(-2<sup>15</sup> ~ 2<sup>15</sup>-1 )</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center"><strong>4</strong></td>
-<td style="text-align:center">约21亿(-2<sup>31</sup> ~ 2<sup>31</sup> -1)</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-2<sup>63</sup> ~ 2<sup>63</sup> -1</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">范围大于long(-3.403E38 ~ 3.403E38)</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">-1.798E308 ~ 1.798E308</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">true,false</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">0~65535</td>
-</tr>
-</tbody>
-</table>
-<p><strong>byte</strong></p>
-<ul>
-<li>byte类型占用1个字节（B）即8位（bit），一共可以表示2的八次方个数即256个，其中首位为符号位，因此可以表示最大最小的数分别为：0111 1111(127)、1111 1111(-127)，从-127到127只有255个数，其中还有1000 0000（-0）表示成-128</li>
-</ul>
-<p><strong>float、double</strong></p>
-<ul>
-<li>浮点类型不能精确表示数据</li>
-<li>浮点类型表数范围大于long类型，3.404*10<sup>38</sup>&gt;8<sup>38</sup>&gt;2<sup>114</sup>&gt;2<sup>63</sup>-1</li>
-</ul>
-<p><strong>boolean</strong></p>
-<p>boolean类型数据不能参与运算，不过Java虚拟机中没有任何供boolean值专用的字节码指令，Java语言表达所操作的boolean值，在编译之后都 使用java虚拟机中的int数据类型来代替：true用1表示，false用0表示。</p>
-<p><strong>char</strong></p>
-<p>三种表示：</p>
-<ol>
-<li>
-<p>单引号括起的单个字符 ‘a’</p>
-</li>
-<li>
-<p>转义字符： \</p>
-<blockquote>
-<p>Java中存在一些无法直接表示的特殊字符，如：换行(\n),	Unicode编码(\u4e2d)</p>
-</blockquote>
-</li>
-<li>
-<p>直接使用Unicode编码’\u000a’</p>
-</li>
-</ol>
-<p><strong>使用转义字符来表示这些特殊的字符,那么如何输出“\”本身呢？</strong></p>
-<ul>
-<li>
-<p>“\”本身由“\\”表示,同理“\\”由“\\\\”表示，“\u”由“\\u”表示，将“\\”看作一个整体</p>
-</li>
-<li>
-<p>如果出现“\\\”多出一个转义字符无法形成新的整体，则会报错</p>
-</li>
-</ul>
-<h2><span id="基本数据类型的转换">基本数据类型的转换</span></h2>
-<ul>
-<li>自动转换：表数范围小的数据类型变量转换成表述范围大的数据类型变量（小水杯的水倒入大水桶，水不会溢出）</li>
-<li>强制转换：表数范围大的数据类型变量转换成表述范围小的数据类型变量（小水杯中的水可能无法装下大水桶中的水，即发生数据溢出）</li>
-</ul>
-<h2><span id="字面量的类型">字面量的类型</span></h2>
-<ul>
-<li>整数
-<ol>
-<li>默认为int类型</li>
-<li>L结尾为long类型，建议大写，小写不好区分</li>
-</ol>
-</li>
-<li>小数
-<ol>
-<li>默认为double类型</li>
-<li>F或f结尾为float类型</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000</span>; <span class="comment">//int类型</span></span><br><span class="line"><span class="number">3300L</span>; <span class="comment">//long类型</span></span><br><span class="line"><span class="number">123.56f</span>;<span class="comment">//float类型</span></span><br><span class="line"><span class="number">3.14</span>;<span class="comment">//double类型</span></span><br></pre></td></tr></table></figure>
-<h2><span id="字面量赋值">字面量赋值</span></h2>
+<h4><span id="使用字面量">使用字面量</span></h4>
 <ol>
 <li>
 <p>字面量类型必须与变量类型匹配或能自动转换成变量类型</p>
@@ -632,9 +524,9 @@
       </a>
     
     
-      <a href="/post/%E5%8F%98%E9%87%8F/" class="article-nav-link">
+      <a href="/post/%E5%86%85%E9%83%A8%E7%B1%BB/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">变量</div>
+        <div class="article-nav-title">内部类</div>
       </a>
     
   </nav>

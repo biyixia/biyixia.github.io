@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-08-22T09:07:46.722Z</updated>
+  <updated>2024-04-11T20:03:56.042Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,11 +18,23 @@
   
   <entry>
     <title></title>
-    <link href="http://example.com/post/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/"/>
-    <id>http://example.com/post/%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8/</id>
-    <published>2023-08-22T09:07:46.722Z</published>
-    <updated>2023-08-22T09:07:46.722Z</updated>
+    <link href="http://example.com/post/Java%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/post/Java%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-04-11T19:59:20.341Z</published>
+    <updated>2024-04-11T20:03:56.042Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;第1章-java语言基础&quot;&gt;第1章-Java语言基础&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;span id=&quot;什么是java语言&quot;&gt;什么是Java语言&lt;/span&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;是Sun Microsystems 公司的James</summary>
+        
+      
     
     
     
