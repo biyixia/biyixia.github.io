@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-11T20:03:56.042Z</updated>
+  <updated>2024-04-27T13:11:23.304Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,22 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/post/Java%E5%9F%BA%E7%A1%80/"/>
-    <id>http://example.com/post/Java%E5%9F%BA%E7%A1%80/</id>
-    <published>2024-04-11T19:59:20.341Z</published>
-    <updated>2024-04-11T20:03:56.042Z</updated>
+    <title>基础</title>
+    <link href="http://example.com/post/%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/post/%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-04-18T02:33:55.743Z</published>
+    <updated>2024-04-27T13:11:23.304Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;第1章-java语言基础&quot;&gt;第1章-Java语言基础&lt;/span&gt;&lt;/h2&gt;
-&lt;h3&gt;&lt;span id=&quot;什么是java语言&quot;&gt;什么是Java语言&lt;/span&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;是Sun Microsystems 公司的James</summary>
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;标识符&quot;&gt;标识符&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span</summary>
         
       
     
@@ -239,34 +236,6 @@
   </entry>
   
   <entry>
-    <title>反射</title>
-    <link href="http://example.com/post/%E5%8F%8D%E5%B0%84/"/>
-    <id>http://example.com/post/%E5%8F%8D%E5%B0%84/</id>
-    <published>2023-07-22T01:06:52.813Z</published>
-    <updated>2023-07-22T02:28:48.982Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;可以通过动态的方式完成一个类的操作，称之为是反射的方式。&lt;/p&gt;
-&lt;p&gt;正常方式：&lt;br&gt;
-new关键字实例化一个对象，通过对象调用类中的方法，属性&lt;br&gt;
-反射方式：&lt;br&gt;
-还是针对一个类操作，实例化，调用类中的方法，属性。&lt;/p&gt;
-&lt;p&gt;如果需要学习反射的使用，需要从</summary>
-        
-      
-    
-    
-    
-    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>nacos</title>
     <link href="http://example.com/post/nacos/"/>
     <id>http://example.com/post/nacos/</id>
@@ -312,33 +281,6 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
     
     
     <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>面试题</title>
-    <link href="http://example.com/post/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>http://example.com/post/%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
-    <published>2023-07-21T01:04:01.036Z</published>
-    <updated>2024-03-12T14:29:31.120Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;java基础面试题&quot;&gt;Java基础面试题&lt;/span&gt;&lt;/h1&gt;
-&lt;hr&gt;
-&lt;h2&gt;&lt;span id=&quot;1-什么是jdbc&quot;&gt;1. 什么是JDBC？&lt;/span&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;JDBC的全称是Java DataBase</summary>
-        
-      
-    
-    
-    
-    <category term="第五阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%BA%94%E9%98%B6%E6%AE%B5/"/>
     
     
   </entry>
@@ -511,6 +453,57 @@ new关键字实例化一个对象，通过对象调用类中的方法，属性&l
         
     <summary type="html">&lt;p&gt;&lt;a href=&quot;http://maven.apache.org/&quot;&gt;Maven官网&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git</title>
+    <link href="http://example.com/post/git/"/>
+    <id>http://example.com/post/git/</id>
+    <published>2023-06-29T08:24:56.021Z</published>
+    <updated>2023-07-05T10:58:05.110Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;git&quot;&gt;Git&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;Git是分布式代码版本管理系统，其分为客户端和服务端两个部分&lt;/p&gt;
+&lt;p&gt;服务器端：大家共同存储的一个终端，可以自己搭建，也可以选择别的公司更好的的处理&lt;/p&gt;
+&lt;p&gt;本地机：</summary>
+        
+      
+    
+    
+    
+    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat安装与配置</title>
+    <link href="http://example.com/post/Tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://example.com/post/Tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</id>
+    <published>2023-06-25T06:10:04.262Z</published>
+    <updated>2023-06-23T14:41:01.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;下载与安装&quot;&gt;下载与安装&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://tomcat.apache.org/download-90.cgi&quot;&gt;Tomcat官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
         
       
     
