@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-27T13:11:23.304Z</updated>
+  <updated>2024-05-06T08:03:12.054Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多线程</title>
+    <link href="http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
+    <published>2024-05-06T08:12:04.213Z</published>
+    <updated>2024-05-06T08:03:12.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;为什么引入进程的概念&quot;&gt;为什么引入进程的概念？&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;- 从理论角度看，是对正在运行的程序过程的抽象】&lt;br&gt;
+ -</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>基础</title>
@@ -479,31 +502,6 @@
 &lt;p&gt;Git是分布式代码版本管理系统，其分为客户端和服务端两个部分&lt;/p&gt;
 &lt;p&gt;服务器端：大家共同存储的一个终端，可以自己搭建，也可以选择别的公司更好的的处理&lt;/p&gt;
 &lt;p&gt;本地机：</summary>
-        
-      
-    
-    
-    
-    <category term="第三阶段" scheme="http://example.com/categories/%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Tomcat安装与配置</title>
-    <link href="http://example.com/post/Tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/post/Tomcat%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</id>
-    <published>2023-06-25T06:10:04.262Z</published>
-    <updated>2023-06-23T14:41:01.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2&gt;&lt;span id=&quot;下载与安装&quot;&gt;下载与安装&lt;/span&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://tomcat.apache.org/download-90.cgi&quot;&gt;Tomcat官网&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
         
       
     
