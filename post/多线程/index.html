@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">19.6k</span>
+            <span class="post-count">19.7k</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">70 min</span>
+            <span class="post-count">71 min</span>
         </span>
     </span>
 </div>
@@ -109,27 +109,30 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2><span id="为什么引入进程的概念">为什么引入进程的概念？</span></h2>
-<p>- 从理论角度看，是对正在运行的程序过程的抽象】<br>
+<p>- 从理论角度看，是对正在运行的程序过程的抽象<br>
  - 从实现角度看，是一种数据结构，目的在于清晰地刻画动态系统的内在规律，有效管理和调度进入计算机系统主存储器运行的程序</p>
+<h2><span id="什么是程序">什么是程序？</span></h2>
+<ul>
+<li>程序是用于完成某个指定任务的指令集合</li>
+<li>是一段静态的代码</li>
+</ul>
 <h2><span id="什么是进程">什么是进程？</span></h2>
 <ul>
-<li>狭义定义：进程就是一段程序的执行过程</li>
-<li>广义定义：进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是操作系统动态执行的基本单元，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元</li>
+<li>进程就是一段程序的执行过程（内存中正在运行的应用程序）</li>
 </ul>
 <h2><span id="进程有怎么样的特征">进程有怎么样的特征？</span></h2>
 <ul>
-<li>动态性：进程的实质是程序在多道程序系统中的一次执行过程，进程是动态产生，动态消亡的</li>
-<li>并发性：任何进程都可以同其他进程一起并发执行</li>
-<li>独立性：进程是一个能独立运行的基本单位，同时也是系统分配资源和调度的独立单位</li>
-<li>异步性：由于进程间的相互制约，使进程具有执行的间断性，即进程按各自独立的、不可预知的速度向前推进</li>
-<li>结构特征：进程由程序、数据和进程控制块三部分组成</li>
+<li>动态性：相比于静态的程序，进程是一段程序的执行过程，包括了进程从创建、运行到消亡的过程（生命周期）</li>
+<li>独立性：进程是操作系统调度和资源分配的最小单位（系统运行的基本单位），系统在运行时为每个进程分配不同的内存（进程间的内存不共享导致相互数据交换和通信的成本高）</li>
+<li>并发性：任何进程都可以同其他进程一起并发执行，现代操作系统大多都支持多进程</li>
 <li>多个不同的进程可以包含相同的程序：一个程序在不同的数据集里就构成不同的进程，能得到不同的结果； 但是执行过程中，程序不能发生改变</li>
 </ul>
 <h2><span id="什么是线程">什么是线程？</span></h2>
-<p>线程是进程中执行运算的最小单位，是进程中的一个实体</p>
-<p>线程自己不拥有系统资源，只拥有一点在运行中必不可少的资源（程序计数器(PC)、虚拟机栈和本地方法栈），但它可与同属一个进程的其它线程共享进程所拥有的全部资源</p>
+<p>进程进一步细化为线程，是程序内部的一条执行路径，一个进程中至少有一个线程</p>
+<p>是CPU调度和执行的最小单位</p>
+<p>线程自己不拥有系统资源，只拥有一点在运行中必不可少的资源（程序计数器(PC)、虚拟机栈和本地方法栈），但它可与同属一个进程的其它线程共享进程所拥有的全部资源（内存单元）</p>
+<p><img src="https://pic.imgdb.cn/item/665193bbd9c307b7e9992370.png" alt></p>
 <p>一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行</p>
-<p>一个进程中至少有一个线程</p>
 <h2><span id="进程和线程的区别">进程和线程的区别？</span></h2>
 <ul>
 <li>进程是正在运行中的程序，是系统进行资源调度和分配的的基本单位；线程是进程的子任务，是任务调度和执行的基本单位</li>
@@ -140,10 +143,23 @@
 <li>系统开销：在创建或撤消进程时，由于系统都要为之分配和回收资源，导致系统的开销明显大于创建或撤消线程时的开销</li>
 <li>每个正在系统上运行的程序都是一个进程。每个进程包含一到多个线程。进程也可能是整个程序或者是部分程序的动态执行。线程是一组指令的集合，或者是程序的特殊段，它可以在程序里独立执行。也可以把它理解为代码运行的上下文</li>
 </ul>
+<hr>
+<h2><span id="什么是并行-并发">什么是并行、并发？</span></h2>
+<ul>
+<li>
+<p>并行：两个或以上的事件在同一时刻发生（在同一时刻有多条CPU指令在多个CPU上同时执行）</p>
+<p><img src="https://pic.imgdb.cn/item/66519c89d9c307b7e9a40d34.png" alt></p>
+</li>
+<li>
+<p>并发：两个或以上的事件在同一时间段内发生（在一段时间内有多条CPU指令在一个CPU上快速轮换、交替），宏观上具有多个进程同时执行的效果</p>
+<p><img src="https://pic.imgdb.cn/item/66519ca5d9c307b7e9a432d3.png" alt></p>
+</li>
+</ul>
+<hr>
 <h2><span id="什么是多进程-多线程">什么是多进程、多线程？</span></h2>
 <ul>
 <li>多进程是指操作系统能同时运行多个任务（程序）</li>
-<li>多线程是指在同一程序中有多个顺序流在执行</li>
+<li>多线程是指在同一程序中有多个顺序流在执行（一个进程同一时间并行执行多个线程）</li>
 </ul>
 <p>那什么是多线程？提到多线程这里要说两个概念，就是串行和并行</p>
 <p>所谓串行，其实是相对于单条线程来执行多个任务来说的，我们就拿下载文件来举个例子：当我们下载多个文件时，在串行中它是按照一定的顺序去进行下载的，也就是说，必须等下载完A之后才能开始下载B，它们在时间上是不可能发生重叠的。</p>
@@ -224,7 +240,7 @@
 <li>线程在执行过程中，需要协作同步。不同进程的线程间要利用消息通信的办法实现同步。线程是指进程内的一个执行单元,也是进程内的可调度实体</li>
 </ul>
 <hr>
-<h2><span id="1-为什么要使用多线程呢">1. 为什么要使用多线程呢?</span></h2>
+<h2><span id="为什么要使用多线程呢">为什么要使用多线程呢?</span></h2>
 <p>我们现在所使用操作系统都是多任务操作系统(早期使用的DOS操作系统为单任务操作系统)，多任务操作指在同一时刻可以同时做多件事(可以同时执行多个程序)。<br>
 多进程:每个程序都是一个进程，在操作系统中可以同时执行多个程序,多进程的目的是为了有效的使用CPU资源，每开一个进程系统要为该进程分配相关的系统资源(内存资源)；<br>
 多线程:线程是进程内部比进程更小的执行单元(执行流|程序片段),每个线程完成一个任务,每个进程内部包含了多个线程每个线程做自己的事情，在进程中的所有线程共享该进程的资源；<br>
@@ -248,9 +264,20 @@
 在一些等待的任务实现上如用户输入、文件读写和网络收发数据等，线程就比较有用了。在这种情况下可以释放一些珍贵的资源如内存占用等等。<br>
 多线程技术在IOS软件开发中也有举足轻重的位置。<br>
 多线程的缺点</p>
+<ul>
+<li>提高应用程序的响应。如图形化界面，可增强用户的体验</li>
+<li>提高计算机CPU的利用率</li>
+<li>改善程序结构。将既长又复杂的进程分为多个线程独立运行，利于理解和修改</li>
+</ul>
 <hr>
 <h2><span id="使用多线程可能带来什么问题">使用多线程可能带来什么问题?</span></h2>
 <p>如果有大量的线程可能会降低程序的运行速度，可能发生内存泄露、死锁、线程不安全等等问题</p>
+<hr>
+<h2><span id="多核cpu的效率会是单核cpu的倍数吗">多核CPU的效率会是单核CPU的倍数吗？</span></h2>
+<ul>
+<li>多个和核心有其他共享资源的限制：如cache、寄存器没有同步扩充</li>
+<li>多核CPU之间的协调管理损耗</li>
+</ul>
 <hr>
 <h2><span id="创建线程的几种方式">创建线程的几种方式？</span></h2>
 <ul>
@@ -275,9 +302,21 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadPool</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//3.提供指定线程数量的线程池</span></span><br><span class="line">        <span class="type">ThreadPoolExecutor</span> <span class="variable">service</span> <span class="operator">=</span> (ThreadPoolExecutor) Executors.<span class="keyword">new</span> <span class="title class_">FixedThreadPool</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="comment">//设置线程的属性</span></span><br><span class="line">        service.setCorePoolSize(<span class="number">15</span>);</span><br><span class="line">        <span class="comment">//4.创建实现类的对象</span></span><br><span class="line">        <span class="type">NumberThread1</span> <span class="variable">thread1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NumberThread1</span>();</span><br><span class="line">        <span class="comment">//5.执行指定的线程操作</span></span><br><span class="line">        service.execute(thread1);<span class="comment">//适合用与Runnalbe</span></span><br><span class="line">        <span class="comment">//6.关闭线程</span></span><br><span class="line">        service.shutdown();</span><br><span class="line">        service.submit(<span class="keyword">new</span> <span class="title class_">NumberThread2</span>());<span class="comment">//适合用于Callable</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2><span id="创建线程用runnable还是thread">创建线程用Runnable还是Thread？</span></h2>
+<p>共同点：</p>
 <ul>
-<li>虽然都能通过二者创建线程，但是由于Java只支持单继承，继承了Thread就无法继承其他父类</li>
-<li>而实现Runnable没有这样的限制，因此使用Runnalbe更好</li>
+<li>启动线程使用的都是Thread类中定义的start()方法</li>
+<li>创建线程的对象，都是Thread的子类或Thread的实现类</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>一个是继承类，一个是实现接口</li>
+<li>相比与Java只支持单继承，实现Runnable没有单继承的局限</li>
+<li>实现Runnable更适合处理有共享数据的问题</li>
+<li>实现Runnbale能够分离代码和数据</li>
+</ul>
+<p>联系：</p>
+<ul>
+<li>public class Thread implements Runnable  （代理模式）</li>
 </ul>
 <hr>
 <h2><span id="实现runnable接口和callable接口的区别">实现Runnable接口和Callable接口的区别？</span></h2>
@@ -343,8 +382,10 @@
 <p>使用时调用线程的 start() 方法后，线程处于可运行状态，此时它可以由 JVM 调度并执行，这并不意味着线程就会立即运行;<br>
 run() 方法是线程运行时由 JVM 回调的方法，无需手动写代码调用</p>
 <hr>
-<h2><span id="10-说说线程的生命周期和状态">10. 说说线程的生命周期和状态?</span></h2>
+<h2><span id="说说线程的生命周期和状态">说说线程的生命周期和状态?</span></h2>
+<p><img src="https://pic.imgdb.cn/item/66521814d9c307b7e93bce26.png" alt></p>
 <p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220830/1661828121@6f4fc75b826c73cf923e44f0f1abfd3d.jpg" alt="img"></p>
+<p><img src="https://pic.imgdb.cn/item/6652183fd9c307b7e93bfa6a.png" alt></p>
 <ul>
 <li>
 <p>创建状态（New）：新创建了一个线程对象</p>
@@ -404,44 +445,24 @@ ps:有人可能会问怎么没有列举线程调用自己的实例方法来yield
 </thead>
 <tbody>
 <tr>
-<td>setName(String)</td>
-<td>设置线程的名称</td>
-</tr>
-<tr>
-<td>String getName()</td>
-<td>返回线程的名称</td>
-</tr>
-<tr>
 <td>start()</td>
-<td>启动线程，并执行对象的 run() 方法</td>
+<td>启动线程，并执行线程的 run() 方法</td>
 </tr>
 <tr>
 <td>run()</td>
 <td>线程在被调度时执行的方法，子线程执行的业务逻辑放在该方法体中</td>
 </tr>
 <tr>
-<td>Thread currentThread()</td>
+<td>currentThread()</td>
 <td>返回当前线程 。在Thread子类中就是this ，通常用于主线程和Runnable 实现类</td>
 </tr>
 <tr>
-<td>getPriority()</td>
-<td>获取当前线程优先值</td>
+<td>setName(String)</td>
+<td>设置线程的名称</td>
 </tr>
 <tr>
-<td>setPriority (int newPriority)</td>
-<td>设置当前线程优先级<br>线程优先级高，被CPU调度的概率大，但不代表一定会运行，还有小概率运行优先级低的线程。</td>
-</tr>
-<tr>
-<td>interrupt()</td>
-<td>中断线程，由运行状态到死亡状态</td>
-</tr>
-<tr>
-<td>isAlive()</td>
-<td>测试线程是否处于活动状态，线程调用start后，即处于活动状态</td>
-</tr>
-<tr>
-<td>join(long millis)</td>
-<td>等待该线程终止的时间最长为 millis 毫秒。join()方法会使当前线程等待调用 join() 方法的线程结束后才能继续执行。注意该方法也需要捕捉异常（等待线程终止）</td>
+<td>String getName()</td>
+<td>返回线程的名称</td>
 </tr>
 <tr>
 <td>sleep(long millis)</td>
@@ -452,8 +473,24 @@ ps:有人可能会问怎么没有列举线程调用自己的实例方法来yield
 <td>暂停当前正在执行的线程对象，并执行其他线程（线程让步）</td>
 </tr>
 <tr>
-<td>stop()</td>
-<td>强制线程生命周期结束，已经废止</td>
+<td>join(long millis)</td>
+<td>等待该线程终止的时间最长为 millis 毫秒。join()方法会使当前线程等待调用 join() 方法的线程结束后才能继续执行。注意该方法也需要捕捉异常（等待线程终止）</td>
+</tr>
+<tr>
+<td>isAlive()</td>
+<td>测试线程是否处于活动状态，线程调用start后，即处于活动状态</td>
+</tr>
+<tr>
+<td>getPriority()</td>
+<td>获取当前线程优先值（优先级取值范围[1,10]，默认为5）</td>
+</tr>
+<tr>
+<td>setPriority (int newPriority)</td>
+<td>设置当前线程优先级<br>线程优先级高，被CPU调度的概率大，但不代表一定会运行，还有小概率运行优先级低的线程。</td>
+</tr>
+<tr>
+<td>interrupt()</td>
+<td>中断线程，由运行状态到死亡状态</td>
 </tr>
 <tr>
 <td>wait()</td>
@@ -466,6 +503,25 @@ ps:有人可能会问怎么没有列举线程调用自己的实例方法来yield
 <tr>
 <td>notifyAll()</td>
 <td>一旦执行此方法，就会唤醒所有被wait的线程（所有线程继续执行）</td>
+</tr>
+</tbody>
+</table>
+<p>过时的方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stop()</td>
+<td>强制线程生命周期结束，已经废止</td>
+</tr>
+<tr>
+<td>suspend()/resume()</td>
+<td>可能死锁，已经废止</td>
 </tr>
 </tbody>
 </table>
@@ -520,19 +576,18 @@ Callable和Future通常一起使用，通过submit方法提交Callable任务给E
 <h2><span id="线程调度策略有哪些">线程调度策略有哪些？</span></h2>
 <p><strong>抢占式调度(Preemptive Scheduling)</strong></p>
 <ul>
-<li>Java运行时系统的线程调度算法采用抢占式调度策略</li>
-<li>Java运行时系统支持一种简单的固定优先级的调度算法。如果一个优先级比其他任何处于可运行状态的线程都高的线程进入就绪状态，那么运行时系统就会选择该线程运行。新的优先级较高的线程抢占了其他线程</li>
-<li>但是Java运行时系统并不抢占同优先级的线程。换句话说，Java运行时系统不是分时的。然而，基于Java Thread类的实现系统可能是支持分时的，因此编写代码时不要依赖分时。当系统中的处于就绪状态的线程都具有相同优先级时，线程调度程序采用一种简单的、非抢占式的轮转的调度顺序</li>
+<li>Java运行时系统采用抢占式调度策略</li>
+<li>Java运行时系统让优先级高的线程以较大的概率使用CPU，如果线程优先级相同则随机选择（简单的、非抢占式的轮转的调度顺序）</li>
 </ul>
-<p>这是一种常见的线程调度算法，操作系统根据线程的优先级和时间片来决定当前运行的线程。当时间片用完或更高优先级的线程就绪时，当前线程会被抢占并让出CPU资源</p>
+<p>操作系统根据线程的优先级和时间片来决定当前运行的线程。当时间片用完或更高优先级的线程就绪时，当前线程会被抢占并让出CPU资源</p>
 <p><strong>时间片轮转调度(Round-Robin Scheduling)</strong></p>
 <ul>
-<li>有些系统的线程调度采用时间片轮转调度策略</li>
+<li>所有线程轮流使用CPU，并且平均分配每个线程占用CPU的时间</li>
 <li>从所有处于就绪状态的线程中选择优先级最高的线程分配一定的CPU时间运行。该时间过后再选择其他线程运行</li>
 <li>只有当线程运行结束、放弃(yield)CPU或由于某种原因进入阻塞状态，低优先级的线程才有机会执行</li>
 <li>如果有两个优先级相同的线程都在等待CPU，则调度程序以轮转的方式选择运行的线程</li>
 </ul>
-<p>这是一种抢占式调度算法的变体。在时间片轮转调度中，每个线程被分配一个固定的时间片(通常是几毫秒)，线程在该时间片内运行。当时间片用完后，操作系统会将当前线程放到就绪队列的尾部，并选择下一个就绪线程执行</p>
+<p>每个线程被分配一个固定的时间片(通常是几毫秒)，线程在该时间片内运行。当时间片用完后，操作系统会将当前线程放到就绪队列的尾部，并选择下一个就绪线程执行</p>
 <p><strong>优先级调度(Priority Scheduling)</strong></p>
 <ul>
 <li>根据线程的优先级来决定线程的调度顺序</li>
@@ -1080,6 +1135,15 @@ ExecutorService接口继承了Executor接口并进行了扩展，提供了更多
 
    
   <nav class="article-nav">
+    
+      <a href="/post/%E9%AB%98%E5%B9%B6%E5%8F%91/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            高并发
+          
+        </div>
+      </a>
     
     
       <a href="/post/%E5%9F%BA%E7%A1%80/" class="article-nav-link">

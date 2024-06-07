@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">18.9k</span>
+            <span class="post-count">19.7k</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">71 min</span>
+            <span class="post-count">74 min</span>
         </span>
     </span>
 </div>
@@ -108,16 +108,54 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1><span id="标识符">标识符</span></h1>
+  <h1><span id="java语言概述">Java语言概述</span></h1>
 <h2><span id="一个java源文件中是否可以包含多个类不是内部类有什么限制">一个“.java”源文件中是否可以包含多个类（不是内部类）有什么限制?</span></h2>
-<p>可以；必须只有一个类名与文件名相同。</p>
+<p>一个&quot;.java&quot;源文件中可以包含多个类</p>
+<p>但是最多只能有一个类使用public声明，并且要求声明public类的类名与源文件名相同</p>
+<hr>
+<h2><span id="java语言的优势">Java语言的优势</span></h2>
+<ul>
+<li>跨平台性</li>
+<li>安全性高</li>
+<li>高性能</li>
+<li>面向对象</li>
+<li>健壮性</li>
+<li>社区繁荣（开源框架多）</li>
+</ul>
+<hr>
+<h2><span id="java中是否存在内存溢出-内存泄露如何解决举例说明">Java中是否存在内存溢出、内存泄露，如何解决？举例说明</span></h2>
+<p><strong>内存溢出（Memory Overflow）</strong></p>
+<p>当Java应用程序请求更多内存资源时，如果没有足够的可用内存，就会发生内存溢出。这通常是由于创建过多的对象或者持有大对象而耗尽了可用内存</p>
+<p>解决方法：</p>
+<p>检查代码中是否存在对象创建过多的问题，可以通过使用对象池或者缓存来重用对象，避免不必要的对象创建。<br>
+避免在循环中频繁创建大对象，可以将其移到循环外部，或者使用更低内存占用的数据结构。<br>
+优化算法或数据结构，减少内存消耗。<br>
+增加JVM堆内存大小，通过调整-Xmx和-Xms参数来增加可用内存空间</p>
+<p><strong>内存泄漏（Memory Leak）</strong></p>
+<p>内存泄漏指的是对象在不再需要时无法被垃圾回收器释放，导致内存占用不断增加。常见的内存泄漏情况包括未正确关闭I/O资源、静态集合类持有对象导致无法被回收等。</p>
+<p>解决方法：</p>
+<p>确保及时关闭文件、数据库连接、网络连接等资源，在不再使用时及时释放。可以使用try-with-resources语句或者在适当的地方显式关闭资源。<br>
+避免静态集合类持有对象，并定期检查并清理这些集合，确保不再需要的对象能够被及时释放。<br>
+使用合适的数据结构来存储数据，避免造成过多的对象引用和占用过多的内存空间。<br>
+使用内存分析工具（如VisualVM、MAT等）来检测和分析内存泄漏问题。<br>
+举例说明： 一个常见的内存泄漏案例是未正确关闭文件流，导致资源无法释放。例如下面的代码片段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">(String filePath)</span> &#123;</span><br><span class="line">    <span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        reader = <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(filePath));</span><br><span class="line">        <span class="comment">// 读取文件内容</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="comment">// 错误处理</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (reader != <span class="literal">null</span>) &#123;</span><br><span class="line">                reader.close(); <span class="comment">// 关闭文件流</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="comment">// 错误处理</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，如果在读取文件时发生异常，reader对象可能无法正常关闭，导致资源泄漏。为了解决这个问题，可以使用try-with-resources语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">readFile</span><span class="params">(String filePath)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> (<span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(filePath))) &#123;</span><br><span class="line">        <span class="comment">// 读取文件内容</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="comment">// 错误处理</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>try-with-resources</code>语句可以确保文件流会在代码块执行完毕后自动关闭，避免了手动关闭资源的繁琐，同时也避免了资源泄漏的问题</p>
 <hr>
 <h2><span id="一个java源文件可以有名称相同大小写不同的两个类吗">一个java源文件可以有名称相同，大小写不同的两个类吗?</span></h2>
 <p>Java源文件可以有名称相同，大小写不同的两个类；</p>
 <p>因为Java标识符严格区分大小写</p>
 <p>不过在编译过程中，由于window系统不区分大小写，windows将前后编译生成的字节码文件视为同一个（即使这两个文件的命名一个是大写，一个是小写），后编译的类产生的字节码文件将替换掉先编译的类产生的字节码文件</p>
+<hr>
 <h2><span id="java可不可以使用中文命名">java可不可以使用中文命名?</span></h2>
 <p>可以 因为jdk使用的是unicode编码(全球统一编码),能够识别中文</p>
+<hr>
+<h2><span id="如何看待java是一门半编译半解释型语言">如何看待Java是一门半编译半解释型语言？</span></h2>
+<p><img src="https://pic.imgdb.cn/item/66501f4fd9c307b7e92ca8ec.png" alt></p>
+<hr>
+<h1><span id="标识符">标识符</span></h1>
 <h2><span id="java源文件可以不可以数字开头">java源文件可以不可以数字开头?</span></h2>
 <p>可以 java源文件不用遵循命名规则（public的类不行）</p>
 <h1><span id="基本数据类型">基本数据类型</span></h1>

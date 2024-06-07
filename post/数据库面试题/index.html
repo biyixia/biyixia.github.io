@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>数据库 |  biyixia</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="biyixia" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-数据库面试题"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  数据库
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time datetime="2024-05-08T14:08:48.290Z" itemprop="datePublished">2024-05-08</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">4.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">14 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1><span id="数据库面试题">数据库面试题</span></h1>
+<hr>
+<h2><span id="数据-数据库-数据库管理系统和数据库系统概念">数据、数据库、数据库管理系统和数据库系统概念?</span></h2>
+<p><strong>数据</strong></p>
+<ul>
+<li>是数据库中存储的基本对象</li>
+<li>在计算机中的概念是广义的，描述事物的符号记录称为数据</li>
+<li>比如你手机里的音乐、文档和图形都是数据</li>
+</ul>
+<p><strong>数据库</strong></p>
+<p>长期存储在计算机内，有组织、可共享的大量数据集合</p>
+<p><strong>数据库管理系统</strong></p>
+<p>位于用户与操作系统之间的一层数据管理软件，用来定义数据，管理数据</p>
+<p><strong>数据库系统</strong></p>
+<p>由数据、数据库、数据库管理系统（及其开发应用工具）、应用程序和数据库管理员（DBA）组成的存储、管理、处理和维护数据的系统</p>
+<p>通常把它简称为数据库</p>
+<hr>
+<h2><span id="数据模型的分类有哪些">数据模型的分类有哪些？</span></h2>
+<ul>
+<li>物理模型：是对数据最底层的抽象，它描述数据在系统内部的表示方式和存取方法，或在磁盘或磁带上的存储方式和存储方法，是面向计算机系统的</li>
+<li>概念模型：是现实世界到机器世界的一个中间层次，用于信息世界的建模，是现实世界到信息世界的第一层抽象</li>
+<li>逻辑模型：按计算机系统的观点对数据建模，主要用于数据库管理系统的实现。常用的逻辑模型主要有层次模型、网状模型、关系模型、面向对象数据模型、对象关系数据模型和半结构化数据模型</li>
+</ul>
+<hr>
+<h2><span id="概念模型中有一些基本术语">概念模型中有一些基本术语</span></h2>
+<ul>
+<li>实体：客观存在且可以相互区别的事物</li>
+<li>属性：实体所具有的某一种特性</li>
+<li>码：唯一表示实体的属性集</li>
+<li>实体型：实体名及其属性名集合抽象成的同类实体</li>
+<li>实体集：同一类型的实体集合</li>
+<li>联系：事物之间和事物内部都具有联系（一对一、一对多、多对多）</li>
+</ul>
+<hr>
+<h2><span id="简述关系型与非关系型数据库的区别">简述关系型与非关系型数据库的区别？</span></h2>
+<p><strong>关系型数据库</strong></p>
+<ul>
+<li>依据关系模型来创建的数据库</li>
+<li>关系模型就是“一对一”、“一对多”、“对多对”等</li>
+<li>常见的关系型数据库有Oracle、MySQL、SQL Server等</li>
+</ul>
+<p><strong>非关系型数据库</strong></p>
+<ul>
+<li>基于“非关系型模型”</li>
+<li>非关系型模型有：列模型、键值对模型、文档类模型。比如redis属于键值对模型</li>
+</ul>
+<hr>
+<h2><span id="关系型数据库的优点和缺点">关系型数据库的优点和缺点？</span></h2>
+<p><strong>优点</strong></p>
+<ul>
+<li>易于维护：都是使用表结构，格式一致。</li>
+<li>使用方便：SQL语言通用，可用于复杂查询。</li>
+<li>复杂操作：支持SQL，可用于一个表以及多个表之间非常复杂的查询。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>读写性能比较差，尤其是海量数据的高效率读写。</li>
+<li>固定的表结构，灵活度稍欠。</li>
+<li>高并发读写需求，传统关系型数据库来说，硬盘I/O是一个很大的瓶颈。</li>
+</ul>
+<hr>
+<h2><span id="非关系型数据库的优点和缺点">非关系型数据库的优点和缺点？</span></h2>
+<p><strong>优点</strong></p>
+<ul>
+<li>格式灵活：存储数据的格式可以是key,value形式、文档形式、图片形式等，使用灵活，应用场景广泛，而关系型数据库则只支持基础类型。</li>
+<li>速度快：nosql可使用硬盘或者随机存储器作为载体，关系型数据库只能使用硬盘。</li>
+<li>高拓展性</li>
+<li>成本低：nosql数据库部署简单，基本都是开源软件。</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>不提供sql支持，学习和使用成本较高。</li>
+<li>无事务处理</li>
+<li>数据结构相对复杂，复杂查询方面稍欠。</li>
+</ul>
+<hr>
+<h2><span id="e-r模型是什么">E-R模型是什么？</span></h2>
+<p>使用E-R图来描述现实世界的概念模型，是描述概念模型的有力工具</p>
+<hr>
+<h2><span id="两个实体之间的关系">两个实体之间的关系？</span></h2>
+<ul>
+<li>1对1（1:1），比如一个客户只有一个会员卡，一个会员卡属于一个客户</li>
+<li>1对多（1:n），比如一个系有多个班级，一个班级属于一个系</li>
+<li>多对多（n:m） ，比如一个学生可以选修多门课程，一门课程可以支持多名同学参加</li>
+</ul>
+<hr>
+<h2><span id="数据库设计三范式">数据库设计三范式？</span></h2>
+<p>为了减少数据的冗余。但在实际的开发中，我们以满足客户的需求为目的，有的时候也会拿冗余来换取速度</p>
+<ul>
+<li>
+<p>第一范式：每个表都应该有<strong>主键</strong>，并且<strong>每个字段要求原子性</strong>不可再分<br>
+以下表存在可再分项（高级职称），所以不满足第一范式</p>
+<p><img src="https://pic.imgdb.cn/item/663b87f00ea9cb1403db8c89.png" alt></p>
+</li>
+<li>
+<p>第二范式：建立在第一范式基础之上，所有<strong>非主键字段必须完全依赖主键，不能产生部分依赖</strong><br>
+举例如关系模型（职工号，姓名，职称，项目号，项目名称）中，职工号-&gt;姓名，职工号-&gt;职称，而项目号-&gt;项目名称。显然依赖关系不满足第二范式</p>
+<p>常用的解决办法是差分表格，比如拆分为职工信息表和项目信息表</p>
+</li>
+<li>
+<p>第三范式：建立在第二范式基础之上，所有<strong>非主键字段必须直接依赖主键，不能产生传递依赖</strong><br>
+比如Student表（学号，姓名，年龄，性别，所在院校，院校地址，院校电话）这样一个表结构，就存在上述关系。 学号–&gt; 所在院校 --&gt; (院校地址，院校电话)。我们应该拆开来，如下：(学号，姓名，年龄，性别，所在院校）–（所在院校，院校地址，院校电话）</p>
+</li>
+</ul>
+<hr>
+<h2><span id="mysql和oracle的区别">MySQL和Oracle的区别？</span></h2>
+<ul>
+<li>MySQL是一个轻量级的关系型数据库（开源），Oracle是一个重量级的关系型数据库（收费）</li>
+<li>MySQL支持自增主键（auto increment），而Oracle支持序列</li>
+<li>MySQL占内存小，Oracle占内存大</li>
+<li>MySQL字符串用双引号，Oracle用单引号</li>
+<li>MySQL分页用limit，Oacle使用rownum表名位置，而且只能用小于</li>
+<li>MySQL用0、1判断真假，Oracle用true、false</li>
+<li>MySQL的事务级别是repeatable read，oracle的事务隔离性是read committed</li>
+</ul>
+<hr>
+<h2><span id="左连接-右连接-笛卡尔积-全连接和内连接的区别">左连接、右连接、笛卡尔积、全连接和内连接的区别?</span></h2>
+<ul>
+<li>左连接（左外连接）：以左表作为基准进行查询，左表数据会全部显示出来，右表如果和左表数据不匹配则显示为null。</li>
+<li>右连接（右外连接）：以右表作为基准进行查询，右表数据会全部显示出来，左表如果和右表的数据不匹配则显示为null。</li>
+<li>全连接：先以左表进行左外连接，再以右表进行右外连接。</li>
+<li>内连接：显示表之间有连接匹配的所有行。</li>
+<li>笛卡尔积也叫交叉连接</li>
+</ul>
+<hr>
+<h2><span id="sql语言包括哪些类型">SQL语言包括哪些类型？</span></h2>
+<ul>
+<li>数据定义：Create Table,Alter Table,Drop/Truncate Table, Create/Drop Index</li>
+<li>数据操纵：Select ,Insert,Update,Delete</li>
+<li>数据控制：Grant,Revoke</li>
+</ul>
+<hr>
+<h2><span id="sql-约束有哪几种">SQL 约束有哪几种？</span></h2>
+<ul>
+<li>NOT NULL: 用于控制字段的内容一定不能为空（NULL）。</li>
+<li>UNIQUE: 控件字段内容不能重复，一个表允许有多个 Unique 约束。</li>
+<li>PRIMARY KEY: 也是用于控件字段内容不能重复，但它在一个表只允许出现一个。</li>
+<li>FOREIGN KEY: 用于预防破坏表之间连接的动作，也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。</li>
+<li>CHECK: 用于控制字段的值范围。</li>
+</ul>
+<hr>
+<h2><span id="事务的概念">事务的概念？</span></h2>
+<ul>
+<li>事务是逻辑上的一组操作，要么都执行，要么都不执行</li>
+<li>事务最经典的例子就是转账了。假如小明要给小红转账1000元，这个转账会涉及到两个关键操作就是：将小明的余额减少1000元，将小红的余额增加1000元。万一在这两个操作之间突然出现错误比如银行系统崩溃，导致小明余额减少而小红的余额没有增加</li>
+</ul>
+<hr>
+<h2><span id="事务的特征">事务的特征？</span></h2>
+<p>数据库事务transanction正确执行的四个基本要素ACID</p>
+<ul>
+<li>原子性(Atomicity)：事务是最小的执行单位，不允许分割。整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节</li>
+<li>一致性(Correspondence)：在事务开始之前和事务结束以后，数据库的完整性没有被破坏</li>
+<li>隔离性(Isolation)：并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的</li>
+<li>持久性(Durability)：在事务完成以后，该事务对数据库中数据的改变是持久的。即使数据库发生故障也不应该对其有任何影响</li>
+</ul>
+<hr>
+<h2><span id="事务的隔离级别">事务的隔离级别？</span></h2>
+<ul>
+<li>数据库的隔离级别越高，并发性就越差，性能就越低</li>
+<li>oracle的隔离级别默认是READ COMMITED；mysql的隔离级别默认是REPEATABLE READ，mysql下的事务默认是自动提交的</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>解决脏写</th>
+<th>解决脏读</th>
+<th>解决不可重复读</th>
+<th>解决幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读未提交 READ COMMITTED</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>读已提交 READ COMMITTED</td>
+<td>√</td>
+<td>√</td>
+<td>×</td>
+<td>×</td>
+</tr>
+<tr>
+<td>可重复度 REPEATABLE READ</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>×</td>
+</tr>
+<tr>
+<td>串行化 SERIALIZABLE</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>读未提交：事务A在事务B未提交前读取数据，如果事务B撤销了修改，那么A会读取到脏数据。因为事务B提交前的数据在缓存中</li>
+<li>读已提交：事务A分别在事务B提交前和提交后读取数据，出现不可重复读。因为事务B提交前的数据在缓存，事务B提交后的数据在硬盘，而事务A一直读取的都是硬盘的数据从而导致不能够重复读的问题</li>
+<li>可重复读：事务A在事务B添加一条数据提交后，事务A读取记录数的时候不一致出现幻读。不可重复读的重点在于Update和Delete，而幻读在于Insert</li>
+</ul>
+<hr>
+<h2><span id="并发事务带来的问题">并发事务带来的问题？</span></h2>
+<p>在典型的应用程序中，如果多个事务并发运行可能会导致以下的问题</p>
+<table>
+<thead>
+<tr>
+<th>事务A</th>
+<th>事务B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动事务，查询得到值1</td>
+<td>启动事务</td>
+</tr>
+<tr>
+<td></td>
+<td>查询得到值1</td>
+</tr>
+<tr>
+<td></td>
+<td>将1改成2</td>
+</tr>
+<tr>
+<td>查询得到值v1</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>提交事务B</td>
+</tr>
+<tr>
+<td>查询得到值v2</td>
+<td></td>
+</tr>
+<tr>
+<td>提交事务A</td>
+<td></td>
+</tr>
+<tr>
+<td>查询得到值V3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>在不同的隔离级别下，V值分别如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>读未提交</th>
+<th>读已提交</th>
+<th>可重复读</th>
+<th>串行化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>V2</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>V3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>与标准的SQL隔离级别不同的是，InnoDB在可重复读级别下，利用Next-Key Lock解决了幻读问题，能够完全保证事务的隔离性，达到了串行化级别</p>
+<hr>
+<h2><span id="索引的优缺点什么时候使用索引什么时候不能使用索引">索引的优缺点，什么时候使用索引，什么时候不能使用索引</span></h2>
+<ul>
+<li>索引最大的好处是提高查询速度</li>
+<li>缺点是更新数据时效率低，因为要同时更新索引</li>
+<li>对数据进行频繁查询进建立索引，如果要频繁更改数据不建议使用索引</li>
+</ul>
+<hr>
+<h2><span id="简述什么是聚簇索引与非聚簇索引">简述什么是聚簇索引与非聚簇索引？</span></h2>
+<ul>
+<li>**聚簇索引：**将数据存储与索引放到了一块，找到索引也就找到了数据</li>
+<li>**非聚簇索引：**将数据存储于索引分开结构，索引结构的叶子节点指向了数据的对应行，MyISAM通过key_buffer把索引先缓存到内存中，当需要访问数据时（通过索引访问数据），在内存中直接搜索索引，然后通过索引找到磁盘相应数据，这也就是为什么索引不在key buffer命中时，速度慢的原因</li>
+</ul>
+<hr>
+<h2><span id="主键索引是聚集索引还是非聚集索引">主键索引是聚集索引还是非聚集索引？</span></h2>
+<ul>
+<li>聚集索引决定了数据库的物理存储结构，而主键只是确定表格逻辑组织方式。这两者不可混淆！</li>
+<li>在InnoDB下主键索引是聚集索引，在MyISAM下主键索引是非聚集索引。</li>
+</ul>
+<hr>
+<h2><span id="存储过程和函数的区别">存储过程和函数的区别？</span></h2>
+<ul>
+<li>存储过程是用户定义的一系列sql语句的集合，涉及特定表或其它对象的任务，用户可以调用存储过程</li>
+<li>而函数通常是数据库已定义的方法，它接收参数并返回某种类型的值并且不涉及特定用户表</li>
+</ul>
+<hr>
+<h2><span id="什么是存储过程有哪些优缺点">什么是存储过程？有哪些优缺点？</span></h2>
+<ul>
+<li>用户定义的一系列sql语句的集合（给语句块定义一个名字，使用时调用即可）</li>
+<li>优点：存储过程是一个预编译的代码块，执行效率比较高；存储过程在服务器端运行，减少客户端的压力；允许模块化程序设计，只需要创建一次过程，以后在程序中就可以调用该过程任意次，类似方法的复用；一个存储过程替代大量T_SQL语句 ，可以降低网络通信量，提高通信速率；可以一定程度上确保数据安全</li>
+<li>缺点：调试麻烦、可移植性不灵活、重新编译问题</li>
+</ul>
+<hr>
+<h2><span id="什么是触发器触发器的使用场景有哪些">什么是触发器？触发器的使用场景有哪些？</span></h2>
+<ul>
+<li>触发器，指一段代码，当触发某个事件时，自动执行这些代码</li>
+<li>使用场景：可以通过数据库中的相关表实现级联更改；实时监控某张表中的某个字段的更改而需要做出相应的处理</li>
+</ul>
+<hr>
+<h2><span id="什么叫视图">什么叫视图？</span></h2>
+<ul>
+<li>视图是一种虚拟的表，具有和物理表相同的功能</li>
+<li>可以对视图进行增，改，查，操作</li>
+<li>视图通常是有一个表或者多个表的行或列的子集</li>
+<li>对视图的修改不影响基本表。它使得我们获取数据更容易，相比多表查询</li>
+</ul>
+<hr>
+<h2><span id="什么是游标">什么是游标？</span></h2>
+<ul>
+<li>是对查询出来的结果集作为一个单元来有效的处理</li>
+<li>游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改</li>
+<li>需要逐条处理数据的时使用游标</li>
+</ul>
+<hr>
+<h2><span id="视图的作用以及视图可以更新数据吗">视图的作用？以及视图可以更新数据吗？</span></h2>
+<ul>
+<li>使用视图可以简化复杂的sql操作，隐藏具体的细节，保护数据</li>
+<li>视图不能被索引，也不能有关联的触发器或默认值，如果视图本身内有order by则对视图再次order by将被覆盖</li>
+<li>对于某些视图，例如，未使用联结子查询分组聚集函数Distinct Union等，是可以对其更新的，对视图的更新将对基表进行更新；但是视图主要用于简化检索，保护数据，并不用于更新，而且大部分视图都不可以更新。</li>
+</ul>
+<hr>
+<h2><span id="什么是数据库连接池为什么需要数据库连接池呢">什么是数据库连接池?为什么需要数据库连接池呢?</span></h2>
+<ul>
+<li>数据库连接是一种关键的有限的昂贵的资源，对数据库连接的管理能显著影响到整个应用程序的伸缩性和健壮性，影响到程序 的性能指标</li>
+<li>数据库连接池正是针对这个问题提出来的，能明显提高对数据库操作的性能</li>
+<li>数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是重新建立一个</li>
+<li>释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏</li>
+<li>数据库连接池在初始化时将创建一定数量的数据库连接放到连接池中，这些数据库连接的数量是由最小数据库连接数来设定的。无论这些数据库连接是否被使用，连接池都将一直保证至少拥有这么多的连接数量。连接池的最大数据库连接数量限定了 这个连接池能占有的最大连接数，当应用程序向连接池请求的连接数超过最大连接数量时，这些请求将被加入到等待队列中</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/post/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9D%A2%E8%AF%95%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/post/Web%E5%90%8E%E7%AB%AF/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Web后端
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">并发编程</div>
+      </a>
+    
+  </nav>
+
+  
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.css">
+
+
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '3cdc50fed141dacb5545',
+    clientSecret: 'efa362468591880b87d44cbe3e1c41428af53b94',
+    repo: 'gitalk',
+    owner: 'biyixia',
+    admin: ['biyixia'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2022-2024
+        <i class="ri-heart-fill heart_icon"></i> biyixia
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="biyixia"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+
+    
+    
+<script>
+  const password = "momo";
+  const lock_password = window.sessionStorage.getItem("lock_password");
+  console.log(password, lock_password);
+  if (lock_password !== password) {
+    Swal.fire({
+      title: "Please enter password",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: false,
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      confirmButtonText: "Ok",
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        console.log(password);
+        if (result.value === password) {
+          window.sessionStorage.setItem("lock_password", result.value);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Incorrect password, please try again",
+            confirmButtonText: "Ok",
+            allowOutsideClick: false,
+          }).then(() => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  }
+</script>
+
+
+  </div>
+</body>
+
+</html>
