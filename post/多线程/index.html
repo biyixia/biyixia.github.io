@@ -1053,7 +1053,7 @@ ExecutorService接口继承了Executor接口并进行了扩展，提供了更多
 <ul>
 <li>如果ThreadLocal没有外部强引用，那么在发生垃圾回收的时候，ThreadLocal就必定会被回收</li>
 <li>而ThreadLocal又作为Map中的key，ThreadLocal被回收就会导致一个key为null的entry，外部就无法通过key来访问这个entry，垃圾回收也无法回收，这就造成了内存泄漏</li>
-<li>解决方案：每次使用完ThreadLocal都调用它的remove()方法清除数据，或者按照JDK建议将ThreadLocal变量定义成private static，这样就一直存在ThreadLocal的强引用，也就能保证任何时候都能通过ThreadLocal的弱引用访问到Entry的value值，进而清除掉</li>
+<li>解决方案：每次使用完ThreadLocal都调用它的remove()方法清除数据，或者按照JDK建议将ThreadLocal变量定义成private static，这样就一直存在ThreadLocal的强引用，也就能保证任何时候都能通过ThreadLocal的弱引用访问到Entry的value值，进</li>
 </ul>
  
       <!-- reward -->

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-06-07T14:37:43.121Z</updated>
+  <updated>2024-07-05T15:27:13.617Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <published>2024-07-05T15:27:55.676Z</published>
+    <updated>2024-07-05T15:27:13.617Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;java多线程相关面试题&quot;&gt;Java多线程相关面试题&lt;/span&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;span id=&quot;1线程的基础知识&quot;&gt;1.线程的基础知识&lt;/span&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;span id=&quot;11-线程和进程的区别&quot;&gt;1.1</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -185,7 +208,7 @@
     <link href="http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     <id>http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
     <published>2024-05-06T08:12:04.213Z</published>
-    <updated>2024-05-25T16:56:40.863Z</updated>
+    <updated>2024-06-20T16:14:07.914Z</updated>
     
     
       
@@ -462,31 +485,6 @@
     <summary type="html">&lt;p&gt;&lt;a href=&quot;https://baomidou.com/&quot;&gt;mybatis plus官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;span id=&quot;springboot-引入&quot;&gt;Springboot 引入&lt;/span&gt;&lt;/h2&gt;
 &lt;h3&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>redis</title>
-    <link href="http://example.com/post/redis/"/>
-    <id>http://example.com/post/redis/</id>
-    <published>2023-07-19T06:47:05.552Z</published>
-    <updated>2024-02-26T12:31:14.136Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;nosql介绍&quot;&gt;NoSQL介绍&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;NoSQL(Not Only SQL)，意即“不仅仅是SQL”，是一项全新的数据库理念，泛指非关系型的数据库&lt;/p&gt;
-&lt;h2&gt;&lt;span</summary>
         
       
     
