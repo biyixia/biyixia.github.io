@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-05-12T16:13:06.297Z</updated>
+  <updated>2024-09-13T01:19:04.040Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    <id>http://example.com/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</id>
+    <published>2024-09-13T01:17:08.328Z</published>
+    <updated>2024-09-13T01:19:04.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -66,7 +87,7 @@
     <link href="http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>http://example.com/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2024-07-05T15:27:55.676Z</published>
-    <updated>2024-07-19T22:06:59.727Z</updated>
+    <updated>2024-08-29T13:48:36.860Z</updated>
     
     
       
@@ -230,7 +251,7 @@
     <link href="http://example.com/post/%E5%9F%BA%E7%A1%80/"/>
     <id>http://example.com/post/%E5%9F%BA%E7%A1%80/</id>
     <published>2024-04-18T02:33:55.743Z</published>
-    <updated>2024-05-24T07:30:34.855Z</updated>
+    <updated>2024-09-13T10:43:15.037Z</updated>
     
     
       
@@ -252,233 +273,130 @@
     <link href="http://example.com/post/Java%E5%9F%BA%E7%A1%80/"/>
     <id>http://example.com/post/Java%E5%9F%BA%E7%A1%80/</id>
     <published>2024-04-11T19:59:20.341Z</published>
-    <updated>2024-07-13T00:59:54.501Z</updated>
+    <updated>2024-09-23T09:07:32.561Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;第1章-Java语言基础&quot;&gt;第1章-Java语言基础&lt;/h2&gt;
 &lt;h3 id=&quot;什么是Java语言&quot;&gt;什么是Java语言&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;是Sun Microsystems 公司的James Gosling 在1990 年创建的，于1995 年公布于世（一般说Java 诞生于1995 年）&lt;/li&gt;
-&lt;li&gt;是一门&lt;strong&gt;面向对象&lt;/strong&gt;的编程语言，吸收了C&lt;ins&gt;语言的各种优点，并摒弃了 C&lt;/ins&gt;里难以理解的多继承、指针等概念&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;是一门&lt;strong&gt;面向对象&lt;/strong&gt;的编程语言，吸收了C&lt;ins&gt;语言的各种优点，并摒弃了 C&lt;/ins&gt;里难以理解的多继承、指针等概念&lt;/p&gt;
 &lt;h3 id=&quot;Java语言发展历程&quot;&gt;Java语言发展历程&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;最早，由是美国Sun公司（Stanford University Network）在1995年推出&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;之后，于2009年，Sun公司被甲骨文公司收购，所以我们现在访问oracle官网即可下载相关资源和工具，地址：&lt;a href=&quot;https://www.oracle.com&quot;&gt;https://www.oracle.com&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;并且，随着产业的发展，以及编程语言思维的持续演进，也在持续进行版本迭代，最新的版本是19.0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;现在企业中广泛应用的版本是&lt;strong&gt;JDK8.0&lt;/strong&gt;（1.8）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;LTS&lt;/strong&gt;（long-term support）：长期支持版本&lt;/p&gt;
+&lt;li&gt;1990 年由Sun Microsystems 公司的James Gosling 在创建&lt;/li&gt;
+&lt;li&gt;1995 年由美国Sun公司（Stanford University Network）公布于世（一般说Java 诞生于1995 年）&lt;/li&gt;
+&lt;li&gt;2009 年Sun公司被甲骨文公司收购&lt;/li&gt;
+&lt;li&gt;随着产业的发展，以及编程语言思维的持续演进，也在持续进行版本迭代，最新的版本是19.0&lt;/li&gt;
+&lt;li&gt;现在企业中广泛应用的版本是&lt;strong&gt;JDK8.0&lt;/strong&gt;（1.8）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LTS&lt;/strong&gt;（long-term support）：长期支持版本&lt;/li&gt;
+&lt;/ul&gt;
 &lt;img src=&quot;https://pic.imgdb.cn/item/66176f8868eb9357131380fb.png&quot; style=&quot;zoom: 67%;&quot;&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&quot;Java平台分类&quot;&gt;Java平台分类&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Java是一门编程语言，也是系列技术的统称&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在后续的发展中，根据不同的应用场景，产生了3个不同，但各有侧重的平台&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Java SE&lt;/strong&gt;( (Java Standard Edition )，标准版本，旧称J2SE&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;多用于服务器、桌面、嵌入式环境和实时环境中使用的Java应用程序&lt;/li&gt;
-&lt;li&gt;包含了支持Java Web服务开发的类，并为Java EE提供基础支持&lt;/li&gt;
-&lt;li&gt;主要包含Java基础语法、核心技术等功能，是&lt;strong&gt;基础阶段学习的重点&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Java EE&lt;/strong&gt; (Java Enterprise Edition) ，企业版本，旧称J2SE&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java应用程序&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;是在Java SE的基础上构建的，它提供Web服务、组件模型、管理和通信API，可以用来实现企业级的面向服务体系结构（service-orientedarchitecture，SOA）和Web2.0应用程序&lt;/li&gt;
-&lt;li&gt;Jakarta EE
-&lt;ul&gt;
-&lt;li&gt;2017 年，Oracle 公司决定将 Java EE 移交给开源组织 Eclipse Foundation（Eclipse 基金会），但Oracle 公司要求，被移交后的 Java EE 不能使用与 Java 相关的商标，于是Eclipse 基金会对 Java EE 进行改名，叫Jakarta EE&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;主要包含服务器开发、Web开发等面向企业级应用所需的基础技术，是一项得到广泛认可的工作标准；但也有一些优秀的第三方平台或框架，如Spring、Spring Boot等，会更多的应用在企业级项目中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Java ME&lt;/strong&gt;( Java Micro Edition )，嵌入式版本， 旧称J2ME&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;支持java在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行&lt;/li&gt;
-&lt;li&gt;包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持&lt;/li&gt;
-&lt;li&gt;基于Java ME规范的应用程序只需编写一次，就可以用于许多设备，而且可以利用每个设备的本机功能&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;根据不同的应用场景分为3个各有侧重的平台&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Java SE（J2SE）&lt;/th&gt;
+&lt;th&gt;Java EE（J2EE）&lt;/th&gt;
+&lt;th&gt;Java ME（J2ME）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;标准版本&lt;/td&gt;
+&lt;td&gt;企业版本&lt;/td&gt;
+&lt;td&gt;嵌入式版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;包含Java基础语法、核心技术等&lt;/td&gt;
+&lt;td&gt;包含服务器开发、Web开发等面向企业级应用所需的基础技术&lt;/td&gt;
+&lt;td&gt;包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对连网和离线应用程序的丰富支持&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;多用于服务器、桌面、嵌入式环境和实时环境中使用的Java应用程序&lt;/td&gt;
+&lt;td&gt;多用于开发服务器端Java应用程序，是在Java SE的基础上构建的，&lt;/td&gt;
+&lt;td&gt;多用于移动设备和嵌入式设备上运行的Java应用程序&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617717368eb935713161dea.png&quot; alt&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Java语言特点&quot;&gt;Java语言特点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;解释型语言&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;本身是解释型语言， JVM将.class文件解释成操作系统指令执行，执行效率相对较低&lt;/li&gt;
-&lt;li&gt;也具备编译型语言的特性，借助JIT，将热点代码编译了操作系统的指令，加速程序执行效率&lt;/li&gt;
+&lt;li&gt;也具备编译型语言的特性，借助JIT（即时编译器Just In Time Compiler），将热点代码编译了操作系统的指令，加速程序执行效率&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;简单易用&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Java 语言底层采用C&lt;ins&gt;语言实现，相对于C&lt;/ins&gt;编程来说，使用Java语言编程更简单&lt;/li&gt;
-&lt;li&gt;Java语言&lt;strong&gt;摈弃了C++中指针的操作&lt;/strong&gt;，开发人员不需要再操作复杂的指针&lt;/li&gt;
+&lt;li&gt;Java 语言底层采用C&lt;ins&gt;语言实现，但相对于C&lt;/ins&gt;编程来说，Java语言&lt;strong&gt;摈弃了C++中指针的操作&lt;/strong&gt;，开发人员不需要再操作复杂的指针&lt;/li&gt;
 &lt;li&gt;面向对象的继承方面，也放弃了C++对多继承的支持，是&lt;strong&gt;只支持单继承&lt;/strong&gt;，使得类间继承层次更直观&lt;/li&gt;
-&lt;li&gt;另外，在编程语言的很多方面都进行了简化&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;面向对象&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;针对面向对象的设计与开发思想：封装、继承和多态，Java都提供了完整的语法支持&lt;/li&gt;
-&lt;li&gt;是一门语法严谨的、完全的面向对象的编程语言&lt;/li&gt;
+&lt;li&gt;为封装、继承和多态提供了完整的语法支持&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;健壮性&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;彻底解决了C++语言开发过程中，极容易产生的内存分配后，未释放，导致程序奔溃问题&lt;/li&gt;
-&lt;li&gt;Java语言不再需要开发人员主动分配、释放内容，Java本身预留一条线程监测内存并自动申请或释放（GC机制）&lt;/li&gt;
-&lt;li&gt;Java语言中引入了GC（ Garbage Collection ，垃圾回收）,由JVM自动进行对象资源分配、回收和生命周期管理，让开发人员更加关注于业务&lt;/li&gt;
+&lt;li&gt;C++语言在开发过程中易产生内存分配后未释放从而导致程序奔溃问题，Java语言无需关注内存分配释放&lt;/li&gt;
+&lt;li&gt;Java本身预留一条线程监测内存并自动申请或释放（GC机制）（ Garbage Collection ，垃圾回收）&lt;/li&gt;
+&lt;li&gt;由JVM自动进行对象资源分配、回收和生命周期管理，让开发人员更加关注于业务&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;多线程&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;用于满足实际的企业业务中多个同时进行任务的并发工作，支持&lt;strong&gt;多条线程并发进行&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;并提供线程的安全机制&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;跨平台&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;基于强大的不同平台的JVM&lt;/li&gt;
 &lt;li&gt;编写的Java源代码不依赖特定的操作系统平台（如Linux、Windows等），真正实现不依赖特定平台，Write Once,Run Anywhere&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617733868eb935713172da2.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&quot;Java基础概念&quot;&gt;Java基础概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;JDK&lt;/strong&gt;（Java Development Kit）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Java开发工具包，主要供Java开发人员使用，安装于开发机器&lt;/li&gt;
-&lt;li&gt;包含了JRE&lt;/li&gt;
-&lt;li&gt;集成了很多开发、运维、监控工具，方便开发人员进行程序开发&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;JRE&lt;/strong&gt;（Java Runtime Environment）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Java运行环境，主要用于部署Java软件包&lt;/li&gt;
-&lt;li&gt;可满足运行Java应用程序的需求，提供了Java软件基础的运行环境、基础依赖包等&lt;/li&gt;
-&lt;li&gt;包括JVM以及一些Java基本类库&lt;/li&gt;
-&lt;li&gt;多安装于生产、测试环境机器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;JVM&lt;/strong&gt;（Java Virtual Machine）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Java虚拟机，是一种规范，类似于虚拟出一台计算设备，仿真进行各种运算，并实现软件功能&lt;/li&gt;
-&lt;li&gt;Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行&lt;/li&gt;
-&lt;li&gt;常见的虚拟机为HotSpot，通过java -version查看&lt;/li&gt;
-&lt;li&gt;是一个运行时状态，一般一个Java软件的运行称之为一个JVM进程&lt;/li&gt;
-&lt;li&gt;是Java跨平台的关键&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;JDK&lt;/strong&gt;（Java Development Kit）&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;JRE&lt;/strong&gt;（Java Runtime Environment）&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;JVM&lt;/strong&gt;（Java Virtual Machine）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Java开发工具&lt;/td&gt;
+&lt;td&gt;Java运行环境&lt;/td&gt;
+&lt;td&gt;Java虚拟机&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;供Java开发人员使用，安装于开发机器&lt;/td&gt;
+&lt;td&gt;用于部署Java软件包，安装于生产、测试环境机器&lt;/td&gt;
+&lt;td&gt;是一种规范，类似于虚拟出一台计算设备，仿真进行各种运算，并实现软件功能，  Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JRE+开发、运维、监控工具&lt;/td&gt;
+&lt;td&gt;包括JVM以及一些Java基本类库&lt;/td&gt;
+&lt;td&gt;常见的虚拟机为HotSpot，通过java -version查看 是一个运行时状态，一般一个Java软件的运行称之为一个JVM进程 是Java跨平台的关键&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;JDK、JRE、JVM之间的关系&lt;/strong&gt;&lt;/p&gt;
 &lt;img src=&quot;https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png&quot; style=&quot;zoom:50%;&quot;&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;JVM如何实现Java跨平台运行？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;JVM如何实现Java跨平台运行？&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;对于不同的系统环境，提供了相对应的Java虚拟机&lt;/li&gt;
 &lt;li&gt;JVM接收源代码编译后的字节码，屏蔽了操作系统下的底层运行原理&lt;/li&gt;
 &lt;/ul&gt;
 &lt;img src=&quot;https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png&quot; alt=&quot;JVM实现原理&quot; style=&quot;zoom: 50%;&quot;&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;JIT&lt;/strong&gt;：即时编译器(Just In Time Compiler)，对于热点代码编译为本地代码，提高执行效率；主要用于弥补Java语言是解释型语言，执行效率低的不足&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;javac命令&lt;/strong&gt;：将.java源文件编译中.class字节码文件，如：javac com/bjpowernode/demo/HelloWorld.java&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;在当前目录下进行编译，并在当前目录下生成test01.class字节码文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/02/130bf3bc382780ee.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在其他路径下通过绝对路径进行编译，仍在源码文件所在目录下生成字节码文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/02/782b383f69589ba7.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在1、2的基础上，使用-d 指定字节码文件生成目录&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/02/af54a909625867df.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;java命令&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;基于JRE在操作系统解释执行.class字节码文件，如java com.bjpowernode.demo.HelloWorld&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;一般情况下，在当前目录下编译后会同时生成字节码文件，可通过当前路径执行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/02/7f4e27cb96dcc047.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;无法通过绝对路径找到类文件并执行&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.bmp.ovh/imgs/2023/02/02/b2dce9cb62d3b626.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h4 id=&quot;DOS&quot;&gt;DOS&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;磁盘操作系统（ Disk Operating System ），体积小，提供命令式的交互&lt;/li&gt;
-&lt;li&gt;部分资源以一定形式保存在硬盘中，通常称为&lt;strong&gt;文件&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;具备很多交互命令，一般的软件开发人员需要掌握常用的，&lt;/li&gt;
-&lt;li&gt;在企业级应用中，服务器多为Linux系列，只提供命令式的交互，需要学习常用的Linux使用，与DOS命令方式类似；熟悉DOS命令，为以后学习Linux命令打下基础&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;文件名与扩展名&quot;&gt;文件名与扩展名&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;文件是以计算机硬盘为载体，存储在计算机上的信息集合，文件可以是文本、图片、音频、视频、程序等&lt;/li&gt;
-&lt;li&gt;文件名称主要由主文件名和扩展名组成，主文件名用于描述特征，扩展名用于划分文件类别，如：张三简历.pdf、工资表.xlsx、备忘.txt、hello.java、hello.class等&lt;/li&gt;
-&lt;li&gt;Java开发过程中，源代码文件必须是.java，编译后的字节码文件将会是.class&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;Windows中使用命令行模式&quot;&gt;Windows中使用命令行模式&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;方式1：按住Win键+R，在运行窗口中输出cmd，会进入命令提示符窗口（一般Win键在键盘左下角Ctrl和Alt之间）&lt;/li&gt;
-&lt;li&gt;方式2：点击开始菜单-&amp;gt;所有应用-&amp;gt;Windows系统-&amp;gt;命令提示符，进入命令提示符窗口&lt;/li&gt;
-&lt;li&gt;方式3：在资源管理器目录上输入cmd命令，也能快速进入命令提示符窗口，且当前目录为输入cmd命令时的目录&lt;/li&gt;
+&lt;li&gt;是Microsoft公司在Windows之前推出的一个操作系统，是单用户、单任务（即只能执行一个任务）的操作系统&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;常用的DOS命令&quot;&gt;常用的DOS命令&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows系统下常用的可作为命令有系统命令、.exe（可执行文件）、.bat（批处理文件）等&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;注意&lt;/strong&gt;：要把系统默认隐藏扩展名的去掉&lt;/li&gt;
-&lt;li&gt;路径（目录）相关概念
-&lt;ul&gt;
 &lt;li&gt;绝对路径，从盘符开始的路径，如c:\windows\system32\regedit32.exe、d:\temp\hello.java&lt;/li&gt;
 &lt;li&gt;相对路径，从当前路径（.）开始的路径，如当前路径（目录）是d:\，hello.java文件是相对路径为.\temp\hello.java&lt;/li&gt;
 &lt;li&gt;.，表示当前目录&lt;/li&gt;
 &lt;li&gt;…，表示上一级目录&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -638,6 +556,68 @@
 &lt;p&gt;一般而言，对于要编译运行的代码会在当前路径进行，因此，CLASSPATH一般不需要配置&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;CLASSPATH中为什么要有当前路径&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;因为未配置CLASSPATH会从当前目录下找字节码文件，而&lt;strong&gt;配置了CLASSPATH后只会从CLASSPATH的路径下寻找&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Java基本语法规则&quot;&gt;Java基本语法规则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;源代码文件扩展名为.java，字节码文件扩展名为.class&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个源代码文件中，最少有一个类，建议&lt;strong&gt;类名与文件名相同&lt;/strong&gt;，&lt;strong&gt;且为public&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;代码以行为单位执行**，&lt;strong&gt;每行代码以分号&amp;quot;;&amp;quot;结尾&lt;/strong&gt;**&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一般的项目都有一个启动类，即该类有一个main方法；此main方法必须与下面的代码一模一样&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行程序时，直接使用java命令运行main方法所在的类即可&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;常见的输出语句&quot;&gt;常见的输出语句&lt;/h3&gt;
+&lt;p&gt;向控制台（命令行）输出内容&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//输出内容，并换行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.out.println(输出内容);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//输出内容，完毕后不做任何处理&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;System.out.print(输出内容);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;开发第一个Java程序&quot;&gt;开发第一个Java程序&lt;/h3&gt;
+&lt;h4 id=&quot;HelloWorld类&quot;&gt;HelloWorld类&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Java源代码编写完成后，并不能直接运行，需要使用&lt;strong&gt;javac&lt;/strong&gt;命令编译成.class文件后，才能使用&lt;strong&gt;java&lt;/strong&gt;命令运行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png&quot; alt=&quot;执行过程&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;编译&lt;/strong&gt;，使用javac命令进行编译（编译源文件），编译成功，会在.java文件目录生成一个字节码文件HelloWorld.class，失败会提示编译时异常信息&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;编译.java源代码文件，会输出同名的.class字节码文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javac HelloWorld.java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;如果编译时报乱码异常，可以带-encoding UTF-8指定编码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;javac HelloWorld.java -encoding UTF-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;【一般情况下，编译后会在源文件所在的位置生成字节码文件，也可以使用-d 指定字节码文件生成目录】&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;运行&lt;/strong&gt;，使用java命令进行运行（运行的是类）运行成功，输出期待的内容”你好，世界！“运行失败，会提示运行时异常信息&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;运行类，该类在编译后的.class字节码文件中，必须具有main方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;运行时，JVM会从CLASS_PATH中配置的路径查找指定的字节码文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java HelloWorld&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;查看结果&lt;/strong&gt;，如果运行成功，将会输出如下信息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d27e68eb935713c74ca0.png&quot; alt&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;带包和参数的Java程序&quot;&gt;带包和参数的Java程序&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在后续的应用中，类都会规划在包中，其作用类似于目录（文件夹），并且有要求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;包层次与目录层次相匹配&lt;/strong&gt;，如定义的包为&lt;strong&gt;com.bjpowernode.demo&lt;/strong&gt;，则.class字节码文件目录必须在目录&lt;strong&gt;com\bjpowernode\demo&lt;/strong&gt;下&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;java命令执行要求&lt;/strong&gt;，执行时必须在包对应目录外，并且类前要带包名；如上图，执行时，需要在d:\temp目录下运行类&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例代码&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;HelloWorldForParam&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String [] args)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//标准输出，表示从运行程序的控制台输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//可以传递参数给main方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(args[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(args[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;编译和运行命令，注意目录&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;编译，将.java源代码文件编译成.class字节码文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javac .\com\bjpowernode\demo\HelloWorldForParam.java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;运行，运行.class字节码文件中类（带main入口方法的类）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java com.bjpowernode.demo.HelloWorldForParam&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;输出结果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d58768eb935713ca3aee.png&quot; alt&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？&lt;/strong&gt;【扩展】&lt;/p&gt;
 &lt;p&gt;D:\com\dbc下创建Test1.java&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Test1&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;11111111&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -675,226 +655,19 @@
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; com.dbc.test;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; com.dbc.Test1.show;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Test01&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        show();	&lt;span class=&quot;comment&quot;&gt;//直接通过方法名访问&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;开发第一个Java程序&quot;&gt;开发第一个Java程序&lt;/h3&gt;
-&lt;h4 id=&quot;1、编写HelloWorld-java源代码&quot;&gt;1、编写HelloWorld.java源代码&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;新建一个Java源文件HelloWorld.java，要注意：Java源代码文件的扩展名为.java，并且是一个文本文件（即与.txt文件一样）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;HelloWorld&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String [] args)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//标准输出，表示从运行程序的控制台输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;代码解释：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;public: 访问控制修饰符，public表示任意地方都可以访问&lt;/li&gt;
-&lt;li&gt;class：声明类的关键字&lt;/li&gt;
-&lt;li&gt;HelloWorld: 类名&lt;/li&gt;
-&lt;li&gt;static: 静态特性修饰符，修改方法表示静态方法&lt;/li&gt;
-&lt;li&gt;void: 表示无返回值&lt;/li&gt;
-&lt;li&gt;main: java程序或应用的入口方法（函数），一般的非组件类型的项目，都会有一个main入口方法&lt;/li&gt;
-&lt;li&gt;String [ ] args：参数数组&lt;/li&gt;
-&lt;li&gt;System.out.println：打印到控制台的方法&lt;/li&gt;
-&lt;li&gt;“Hello World”：打印字符串&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;2、运行HelloWorld类&quot;&gt;2、运行HelloWorld类&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Java源代码编写完成后，并不能直接运行，需要使用&lt;strong&gt;javac&lt;/strong&gt;命令编译成.class文件后，才能使用&lt;strong&gt;java&lt;/strong&gt;命令运行&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;具体的过程如下图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d26168eb935713c71cdb.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;编译&lt;/strong&gt;，使用javac命令进行编译（编译源文件），编译成功，会在.java文件目录生成一个字节码文件HelloWorld.class，失败会提示编译时异常信息&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;编译.java源代码文件，会输出同名的.class字节码文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javac HelloWorld.java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;如果编译时报乱码异常，可以带-encoding UTF-8指定编码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;javac HelloWorld.java -encoding UTF-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;运行&lt;/strong&gt;，使用java命令进行运行（运行的是类）运行成功，输出期待的内容”你好，世界！“运行失败，会提示运行时异常信息&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;运行类，该类在编译后的.class字节码文件中，必须具有main方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java HelloWorld&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;查看结果&lt;/strong&gt;，如果运行成功，将会输出如下信息&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d27e68eb935713c74ca0.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;带包和参数的Java程序&quot;&gt;带包和参数的Java程序&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;在后续的应用中，类都会规划在包中，其作用类似于目录（文件夹），并且有要求：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;包层次与目录层次相匹配&lt;/strong&gt;，如定义的包为&lt;strong&gt;com.bjpowernode.demo&lt;/strong&gt;，则.class字节码文件目录必须在目录&lt;strong&gt;com\bjpowernode\demo&lt;/strong&gt;下；如下图的.java源代码文件中指定了com.bjpowernode.demo包，则需要将.class字节码文件放置于绕圈所在目录下&lt;/p&gt;
-&lt;img src=&quot;images/第一个Java程序-带包和参数的Java程序-目录要求.jpg&quot;&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;java命令执行要求&lt;/strong&gt;，执行时必须在包对应目录外，并且类前要带包名；如上图，执行时，需要在d:\temp目录下运行类&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;同时，运行程序的时候，还可以传递参数给到main方法&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;示例代码&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;HelloWorldForParam&lt;/span&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String [] args)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//标准输出，表示从运行程序的控制台输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(args[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(args[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;编译和运行命令，注意目录&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;编译，将.java源代码文件编译成.class字节码文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javac .\com\bjpowernode\demo\HelloWorldForParam.java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta prompt_&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;language-bash&quot;&gt;运行，运行.class字节码文件中类（带main入口方法的类）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java com.bjpowernode.demo.HelloWorldForParam&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;输出结果&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d58768eb935713ca3aee.png&quot; alt&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Java程序执行过程&quot;&gt;Java程序执行过程&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;需要&lt;strong&gt;先安装JDK或JRE&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;分&lt;strong&gt;编译阶段&lt;/strong&gt;和&lt;strong&gt;运行阶段&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Java程序的&lt;strong&gt;源代码&lt;/strong&gt;都写&lt;strong&gt;在以.java作为扩展名的源代码文件中&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;编写好的.java源代码文件，并不能直接运行；需要使用&lt;strong&gt;javac命令将.java源代码文件编译成.class字节码文件&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;然后，使用java命令运行.class字节&lt;strong&gt;码文件中的入口类&lt;/strong&gt;（带main方法的类）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png&quot; alt=&quot;执行过程&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Java基本语法规则&quot;&gt;Java基本语法规则&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;源代码文件扩展名为.java，字节码文件扩展名为.class&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一个源代码文件中，最少有一个类，建议&lt;strong&gt;类名与文件名相同&lt;/strong&gt;，&lt;strong&gt;且为public&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代码以行为单位执行**，每行代码以分号&amp;quot;;&amp;quot;结尾**&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一般的&lt;strong&gt;项目都有一个启动类&lt;/strong&gt;，即该类有一个&lt;strong&gt;main方法&lt;/strong&gt;；此main方法必须与下面的代码一模一样&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;运行程序时，直接使用java命令运行main方法所在的类即可&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;System-out&quot;&gt;System.out&lt;/h3&gt;
-&lt;p&gt;标准输出流，用于向控制台（命令行）输出内容&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;方法&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;println&lt;/td&gt;
-&lt;td&gt;输出一行文本，并换行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;print&lt;/td&gt;
-&lt;td&gt;输出文本，不换行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h2 id=&quot;第3章-IntelliJ-IDEA&quot;&gt;第3章-IntelliJ IDEA&lt;/h2&gt;
-&lt;h3 id=&quot;IDE简介&quot;&gt;IDE简介&lt;/h3&gt;
+&lt;h3 id=&quot;IDE（Integrated-Development-Environment）&quot;&gt;IDE（Integrated Development Environment）&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;IDE（Integrated Development Environment），集成开发环境， 是用于工程化的软件开发的工具&lt;/li&gt;
-&lt;li&gt;在开发中大型的多人协同的项目时，一个项目可能有几十、上百个各类文件需要开发和管理，普通的文本编辑器，不足以胜任这类项目的开发，需要专业的IDE，常见的IDE有IntelliJ IDEA、Eclipse、VS Code等&lt;/li&gt;
-&lt;li&gt;一般的IDE都提供或集成丰富的功能，以加速开发人员的效率，包括项目管理、源代码管理、自动备份、自动补全、语法检查等&lt;/li&gt;
+&lt;li&gt;集成开发环境， 是用于工程化的软件开发的工具（项目管理、源代码管理、自动备份、自动补全、语法检查等功能）&lt;/li&gt;
+&lt;li&gt;在开发中大型的多人协同的项目时，一个项目可能有几十、上百个各类文件需要开发和管理&lt;/li&gt;
+&lt;li&gt;常见的IDE有IntelliJ IDEA、Eclipse、VS Code等&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;IntelliJ-IDEA简介&quot;&gt;IntelliJ IDEA简介&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为开发人员提供丰富的功能，包括各类项目模板、智能代码助手、代码自动提示、重构、Java EE支持、各类版本工具集成(git、svn等)、代码分析、 创新的GUI设计等方面&lt;/li&gt;
-&lt;li&gt;为后续的各类项目学习提供模板支持，如Spring、Spring Boot等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;IntelliJ-IDEA安装&quot;&gt;IntelliJ IDEA安装&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;付费&lt;/li&gt;
-&lt;li&gt;版本更新迭代快&lt;/li&gt;
-&lt;li&gt;官网：&lt;a href=&quot;https://www.jetbrains.com/idea/&quot;&gt;https://www.jetbrains.com/idea/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;IntelliJ-IDEA创建一个新项目&quot;&gt;IntelliJ IDEA创建一个新项目&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;打开IntelliJ IDEA，第一次打开，会进入欢迎界面，同时提示是创建还是打开项目；后续打开，则会直接进入IDEA主界面；然后，点击”Create New Project&amp;quot;按钮&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入新项目界面，可以选择JDK版本、项目模板、额外的依赖包和框架，其中会将本地安装的JDK版本都列出来，此时，可配置如下选项；选择好后，点击“Next”按钮&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;选择JDK版本，在顶部Project SDK使用1.8版本即可&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;选择左侧项目类型，基础阶段选择Java，也可以选择Empty Project&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;根据选择的项目类型，还可以添加额外的依赖包和框架，不选择&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入选择模板界面，勾选“Create project from template”，并选中模板列表中的”Command Line App“；此模板会创建一个默认的Main类，类中会带一个入口的main方法；选择好后，点击”Next“&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;进入项目信息输入界面，分别输入如下内容；输入好后，点击”Finish&amp;quot;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;项目名称，输入一个符合需求的项目名称，如my-first-project&lt;/li&gt;
-&lt;li&gt;项目路径，规划一个合理的项目文件存放位置，并使用项目名称做为项目的根目录，如在d:\project\java目录下创建项目，完成的项目代码放置于d:\project\java\my-first-project目录下&lt;/li&gt;
-&lt;li&gt;包，规划一个合理的包，一般用域名的倒置，加上项目名称；后面会讲&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d98868eb935713d3910f.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;此时，一个工程化的命令行项目就已经创建完成；其中左侧就列出了项目的所有工程化的内容&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;src目录，主要的开发目录，一般规划有包，包下面规划有类，如自动生成的Main类&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;.idea目录，IDEA项目辅助目录，不要修改&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;my-first-project.iml文件，项目或模块信息，不要修改或删除&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;External Libraries项，列出了当前项目的所有第三方依赖信息&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617d9b768eb935713d3bf67.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;IntelliJ-IDEA-编写代码&quot;&gt;IntelliJ IDEA 编写代码&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;在打开的Main.java文件中，已经生成了一个模板，包含main入口方法&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在main方法中，可编写Java代码，如写入如下代码&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; com.bjpowernode.demo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Main&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;// write your code here&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;IntelliJ-IDEA运行代码&quot;&gt;IntelliJ IDEA运行代码&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;IDEA中对于带有main方法的入口类，都会在类上标识一个可运行箭头，直接右键选择&amp;quot;Run…&amp;quot;，即可运行&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;运行后，将会在底部的运行窗口，输出：“你好，世界！”&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如果提示”&lt;span style=&quot;color:red;&quot;&gt;Error:java: 无效的源发行版: 11&lt;/span&gt;“错误，点击File-&amp;gt;Project Structure…菜单，在弹窗中，修改指定项目的Project language level为8&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/6617da7768eb935713d51f82.png&quot; alt&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;此过程相当于执行了javac、java两个命令&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;注意：观察源代码目录中的如下内容：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;src目录，包与目录层次匹配特点&lt;/li&gt;
-&lt;li&gt;out目录，运行时，会动态生成该目录，以及目录下的.class字节码文件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;IntelliJ-IDEA主要界面&quot;&gt;IntelliJ IDEA主要界面&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;作为开发过程经持续使用的工具，熟悉主要界面和常用功能，十分重要&lt;/p&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;主要由菜单区、项目文件区、代码编写区和辅助功能区组成，提供一个高效的项目开发工具&lt;/p&gt;
 &lt;ul&gt;
@@ -1212,32 +985,25 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&quot;第4章-Java基础语法&quot;&gt;第4章-Java基础语法&lt;/h2&gt;
+&lt;h3 id=&quot;Java-API文档&quot;&gt;Java API文档&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;API （Application Programming Interface，应用程序编程接口）是 Java 提供的基本编程接口（即为JDK使用说明书、帮助文档）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/&quot;&gt;在线看&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&quot;注释&quot;&gt;注释&lt;/h3&gt;
-&lt;h4 id=&quot;概述&quot;&gt;概述&lt;/h4&gt;
+&lt;p&gt;在源文件中用于解释、说明程序的文字&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;注释是一个项目重要的组成部分，增加代码的可阅读性、可维护性&lt;/li&gt;
-&lt;li&gt;在重要的类、方法、变量、代码块前面，优秀的开发人员都会添加注释&lt;/li&gt;
 &lt;li&gt;注释并不是越多越好，先争取使用代码就能表达相应的需求，再辅助以注释&lt;/li&gt;
-&lt;li&gt;只用于程序源代码，不会带入.class字节码，更不会影响程序逻辑&lt;/li&gt;
+&lt;li&gt;只用于程序源代码，不会带入.class字节码，进而不会被JVM（java虚拟机）解释执行&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&quot;注释分类&quot;&gt;注释分类&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;文档注释/类注释&lt;/strong&gt;，用于描述整个文件或类；以/**开始，以*/结尾&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&lt;span class=&quot;doctag&quot;&gt;@author&lt;/span&gt;	指定java程序的作者&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&lt;span class=&quot;doctag&quot;&gt;@version&lt;/span&gt; 指定源文件的版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&lt;span class=&quot;doctag&quot;&gt;@since&lt;/span&gt; 自从哪个版本号开始就存在了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Main&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。&lt;/p&gt;
-&lt;p&gt;操作方式&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;javadoc –d mydoc –author –version FileName.java&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;多行注释&lt;/strong&gt;，用于解释一段代码的作用；以/*开始，以*/结尾（多行注释中不能有多行注释嵌套）&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Main&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;          下面一段代码主要是做控制台输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;           比如会输出“你好，世界！”&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;           --多行注释&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;         */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;单行注释&lt;/strong&gt;，用于解释一行代码的作用，可置于一行的前面或代码的后面；以//开始&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Main&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//输出“你好，世界！”--单行注释&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;你好，世界！&amp;quot;&lt;/span&gt;);       &lt;span class=&quot;comment&quot;&gt;//输出“你好，世界！”--单行注释&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;单行注释&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//注释文字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;多行注释&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;注释文字1 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;注释文字2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;注释文字3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;文档注释/类注释&lt;/strong&gt;，用于描述整个文件或类；以/**开始，以*/结尾（不能有多行注释嵌套）&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;  &lt;span class=&quot;doctag&quot;&gt;@author&lt;/span&gt;  指定java程序的作者&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;  &lt;span class=&quot;doctag&quot;&gt;@version&lt;/span&gt;  指定源文件的版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;  &lt;span class=&quot;doctag&quot;&gt;@since&lt;/span&gt; 自从哪个版本号开始就存在了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;*/&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;javadoc –d mydoc –author –version FileName.java&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;关键字&quot;&gt;关键字&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;被Java语言赋予特殊含义的字符串（或单词）&lt;/li&gt;
@@ -1458,17 +1224,6 @@
 &lt;p&gt;&lt;strong&gt;整数类型&lt;/strong&gt;：byte、short、int、long&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;byte类型占用1个字节（B）即8位（bit），一共可以表示2的八次方个数即256个，其中首位为符号位，因此可以表示最大最小的数分别为：0111 1111(127)、1111 1111(-127)，从-127到127只有255个数，其中还有1000 0000（-0）表示成-128&lt;/li&gt;
-&lt;li&gt;补充：
-&lt;ul&gt;
-&lt;li&gt;字节（Byte），计算机存储容量的最小单位，一个字节等于8bit&lt;/li&gt;
-&lt;li&gt;位（bit），数据存储的最小单位，二进制数系统中，每个位可以表示1个 0 或 1&lt;/li&gt;
-&lt;li&gt;8 bit = 1 Byte&lt;/li&gt;
-&lt;li&gt;1024 Byte = 1KB&lt;/li&gt;
-&lt;li&gt;1024 KB = 1MB&lt;/li&gt;
-&lt;li&gt;1024 MB = 1GB&lt;/li&gt;
-&lt;li&gt;1024 GB = 1 TB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;浮点类型&lt;/strong&gt;：float、double&lt;/p&gt;
 &lt;ul&gt;
@@ -1893,7 +1648,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&quot;数组&quot;&gt;数组&lt;/h3&gt;
-&lt;h4 id=&quot;概述-2&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;用于在内存中的连续空间存放一组相同类型的数据，是Java中常见的数据结构和存储结构之一&lt;/li&gt;
 &lt;li&gt;使用**[]&lt;strong&gt;，并结合&lt;/strong&gt;new**做为定义关键符号和关键字&lt;/li&gt;
@@ -2694,7 +2449,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&quot;方法调用栈-span-style-font-weight-bold-color-lightgreen-【扩展】-span&quot;&gt;方法调用栈&lt;span style=&quot;font-weight:bold;color:lightgreen;&quot;&gt;【扩展】&lt;/span&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;概述-3&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-2&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;实际项目中，多个方法往往会协同合作，有层次性的被嵌套调用，以完成业务&lt;/p&gt;
@@ -2773,7 +2528,7 @@
 &lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;：下面的代码，会出现什么问题？&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; com.bjpowernode.demo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * 递归方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;RecurionDemo&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;     * 入口方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;     * &lt;span class=&quot;doctag&quot;&gt;@param&lt;/span&gt; args&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//调用跳舞方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        RecurionDemo.dance();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;     * 跳舞&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;     */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;dance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;一起跳舞一起嗨...&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        RecurionDemo.dance();    &lt;span class=&quot;comment&quot;&gt;//递归调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;嗨完继续喝起来。&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;答&lt;/strong&gt;：递归方法使用不当，耗尽JVM中栈资源，产生StackOverflowError异常，程序崩溃。&lt;/p&gt;
-&lt;h4 id=&quot;概述-4&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-3&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;递归方法一般是自己调用自己&lt;/li&gt;
 &lt;li&gt;在实际项目中，有极少部分的业务中需要使用递归形式的方法调用&lt;/li&gt;
@@ -3001,7 +2756,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;构造方法&quot;&gt;构造方法&lt;/h3&gt;
-&lt;h4 id=&quot;概述-5&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-4&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;构造方法是一种&lt;strong&gt;特殊的方法&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;主要&lt;strong&gt;用于创建对象时调用&lt;/strong&gt;，做一些对象必要的&lt;strong&gt;初始化操作&lt;/strong&gt;，多用于给属性设置初始值；就如女娲造人，模子一样，捏人的时候都，基本都是有胳膊有腿的&lt;/li&gt;
@@ -3470,7 +3225,7 @@ System.out.println(“我是Yi_ding的方法”);&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;第9章-封装&quot;&gt;第9章-封装&lt;/h2&gt;
-&lt;h3 id=&quot;概述-6&quot;&gt;概述&lt;/h3&gt;
+&lt;h3 id=&quot;概述-5&quot;&gt;概述&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;在使用面向对象的思想进行抽象的过程，也就是按照业务特性&lt;strong&gt;定义类的过程，就是封装&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;封装主要目的是&lt;strong&gt;隐藏类的细节&lt;/strong&gt;，&lt;strong&gt;暴露出想要展现的方法&lt;/strong&gt;&lt;/li&gt;
@@ -3607,7 +3362,7 @@ System.out.println(“我是Yi_ding的方法”);&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;this&quot;&gt;this&lt;/h3&gt;
-&lt;h4 id=&quot;概述-7&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-6&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;在对象内部存在，&lt;strong&gt;指代当前对象&lt;/strong&gt;的一个关键字&lt;/p&gt;
@@ -3940,7 +3695,7 @@ System.out.println(“我是Yi_ding的方法”);&lt;/p&gt;
 has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;p&gt;如果你确定两件对象之间是is-a的关系，那么此时你应该使用继承；比如菱形、圆形和方形都是形状的一种，那么他们都应该从形状类继承而不是聚合。&lt;br&gt;
 如果你确定两件对象之间是has-a的关系，那么此时你应该使用聚合；比如电脑是由显示器、CPU、硬盘等组成的，那么你应该把显示器、CPU、硬盘这些类聚合成电脑类，而不是从电脑类继承。&lt;/p&gt;
-&lt;h4 id=&quot;概述-8&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-7&quot;&gt;概述&lt;/h4&gt;
 &lt;p&gt;如果多个类有着共同的属性和方法,并且类之间符合is a 的关系，可以将共性的抽取到一个类中,作为父类,&lt;/p&gt;
 &lt;p&gt;别的类通过使用extends继承它已有的类的属性和方法(处理构造器)，无需重复定义共同的属性和方法&lt;/p&gt;
 &lt;p&gt;且继承后的类能扩展新的属性和方法&lt;/p&gt;
@@ -4395,7 +4150,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&quot;多态&quot;&gt;多态&lt;/h3&gt;
-&lt;h4 id=&quot;概述-9&quot;&gt;概述&lt;/h4&gt;
+&lt;h4 id=&quot;概述-8&quot;&gt;概述&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;在Java语言中，&lt;strong&gt;同一系列的对象（具有共同的父类），执行同一个方法表现出不同的行为，就称为多态&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4565,7 +4320,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;p&gt;在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象时，这样的类往往被称为抽象类。&lt;/p&gt;
 &lt;p&gt;抽象类是为了把&lt;strong&gt;相同的但不确定&lt;/strong&gt;的东西的提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象方法。&lt;/p&gt;
 &lt;p&gt;当然，随着继承层次中一个个新子类的定义，类变得越来越具体，而父类则更一般，更通用。父类足够抽象时，以至于它没有具体的实例&lt;/p&gt;
-&lt;h3 id=&quot;概述-10&quot;&gt;概述&lt;/h3&gt;
+&lt;h3 id=&quot;概述-9&quot;&gt;概述&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;为了规范所有子类（后代类）行为而抽象出来的类，但自身的这类行为并不具备实际能力的类，就是抽象类&lt;/li&gt;
 &lt;li&gt;铲屎官投喂的宠物Pet，是个更高层次抽象的概念，其并不能确定”吃“的具体行为内涵，而是由具体的子类狗、猫、猪等来实现其行为内涵&lt;/li&gt;
@@ -4713,7 +4468,7 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
 &lt;h2 id=&quot;第13章-接口&quot;&gt;第13章-接口&lt;/h2&gt;
 &lt;p&gt;有时必须从几个类中抽象出共同的行为特征，继承它们所有的属性和方法。但是，Java不支持多重继承。这时，使用接口可以达到多重继承的效果。 例如：鼠标、键盘、打印机、扫描 仪、摄像头、充电器、MP3机、手机、数码相机、移动硬盘等都支持USB连接。&lt;/p&gt;
 &lt;p&gt;接口就是规范，定义的是一组规则，体现了现实世界中“如果你是/要…则必须 能…”的思想。继承是一个&amp;quot;是不是&amp;quot;的关系，而接口实现则是 &amp;quot;能不能&amp;quot;的关系。&lt;/p&gt;
-&lt;h3 id=&quot;概述-11&quot;&gt;概述&lt;/h3&gt;
+&lt;h3 id=&quot;概述-10&quot;&gt;概述&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;在实际的应用过程中，有一些&lt;strong&gt;特定的单一行为&lt;/strong&gt;，是&lt;strong&gt;跨多个不同风格的系列类&lt;/strong&gt;，如克隆、系列化、比较、迭代等&lt;/li&gt;
 &lt;li&gt;针对这种行为，&lt;strong&gt;可定义为接口&lt;/strong&gt;，并在&lt;strong&gt;需要的地方实现这个接口&lt;/strong&gt;即可让实现的类具备该行为&lt;/li&gt;
@@ -5074,31 +4829,6 @@ has a 是如果A中有B，那么，B就是A的组成部分&lt;/p&gt;
     <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pic.imgdb.cn/item/64be70e41ddac507ccce11f9.jpg&quot; alt&gt;&lt;/p&gt;
 &lt;h1&gt;&lt;span id=&quot;使用gateway&quot;&gt;使用gateway&lt;/span&gt;&lt;/h1&gt;
 &lt;h2&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="第四阶段" scheme="http://example.com/categories/%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>nacos</title>
-    <link href="http://example.com/post/nacos/"/>
-    <id>http://example.com/post/nacos/</id>
-    <published>2023-07-21T13:09:39.203Z</published>
-    <updated>2023-08-03T01:57:11.143Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://nacos.io/zh-cn/docs/quick-start.html&quot;&gt;nacos官方文档&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;span id=&quot;cap原则&quot;&gt;CAP原则&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;CAP 原则又称 CAP</summary>
         
       
     

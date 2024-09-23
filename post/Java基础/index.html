@@ -84,7 +84,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">94.6k</span>
+            <span class="post-count">93.1k</span>
         </span>
     </span>
 
@@ -93,7 +93,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">379 min</span>
+            <span class="post-count">374 min</span>
         </span>
     </span>
 </div>
@@ -110,228 +110,125 @@
        
   <h2><span id="第1章-java语言基础">第1章-Java语言基础</span></h2>
 <h3><span id="什么是java语言">什么是Java语言</span></h3>
-<ul>
-<li>是Sun Microsystems 公司的James Gosling 在1990 年创建的，于1995 年公布于世（一般说Java 诞生于1995 年）</li>
-<li>是一门<strong>面向对象</strong>的编程语言，吸收了C<ins>语言的各种优点，并摒弃了 C</ins>里难以理解的多继承、指针等概念</li>
-</ul>
+<p>是一门<strong>面向对象</strong>的编程语言，吸收了C<ins>语言的各种优点，并摒弃了 C</ins>里难以理解的多继承、指针等概念</p>
 <h3><span id="java语言发展历程">Java语言发展历程</span></h3>
 <ul>
-<li>
-<p>最早，由是美国Sun公司（Stanford University Network）在1995年推出</p>
-</li>
-<li>
-<p>之后，于2009年，Sun公司被甲骨文公司收购，所以我们现在访问oracle官网即可下载相关资源和工具，地址：<a target="_blank" rel="noopener" href="https://www.oracle.com">https://www.oracle.com</a></p>
-</li>
-<li>
-<p>并且，随着产业的发展，以及编程语言思维的持续演进，也在持续进行版本迭代，最新的版本是19.0</p>
-</li>
-<li>
-<p>现在企业中广泛应用的版本是<strong>JDK8.0</strong>（1.8）</p>
-</li>
-<li>
-<p><strong>LTS</strong>（long-term support）：长期支持版本</p>
+<li>1990 年由Sun Microsystems 公司的James Gosling 在创建</li>
+<li>1995 年由美国Sun公司（Stanford University Network）公布于世（一般说Java 诞生于1995 年）</li>
+<li>2009 年Sun公司被甲骨文公司收购</li>
+<li>随着产业的发展，以及编程语言思维的持续演进，也在持续进行版本迭代，最新的版本是19.0</li>
+<li>现在企业中广泛应用的版本是<strong>JDK8.0</strong>（1.8）</li>
+<li><strong>LTS</strong>（long-term support）：长期支持版本</li>
+</ul>
 <img src="https://pic.imgdb.cn/item/66176f8868eb9357131380fb.png" style="zoom: 67%;">
-</li>
-</ul>
 <h3><span id="java平台分类">Java平台分类</span></h3>
-<ul>
-<li>
-<p>Java是一门编程语言，也是系列技术的统称</p>
-</li>
-<li>
-<p>在后续的发展中，根据不同的应用场景，产生了3个不同，但各有侧重的平台</p>
-</li>
-<li>
-<p><strong>Java SE</strong>( (Java Standard Edition )，标准版本，旧称J2SE</p>
-<ul>
-<li>多用于服务器、桌面、嵌入式环境和实时环境中使用的Java应用程序</li>
-<li>包含了支持Java Web服务开发的类，并为Java EE提供基础支持</li>
-<li>主要包含Java基础语法、核心技术等功能，是<strong>基础阶段学习的重点</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>Java EE</strong> (Java Enterprise Edition) ，企业版本，旧称J2SE</p>
-<ul>
-<li><strong>帮助开发和部署可移植、健壮、可伸缩且安全的服务器端Java应用程序</strong></li>
-<li>是在Java SE的基础上构建的，它提供Web服务、组件模型、管理和通信API，可以用来实现企业级的面向服务体系结构（service-orientedarchitecture，SOA）和Web2.0应用程序</li>
-<li>Jakarta EE
-<ul>
-<li>2017 年，Oracle 公司决定将 Java EE 移交给开源组织 Eclipse Foundation（Eclipse 基金会），但Oracle 公司要求，被移交后的 Java EE 不能使用与 Java 相关的商标，于是Eclipse 基金会对 Java EE 进行改名，叫Jakarta EE</li>
-</ul>
-</li>
-<li>主要包含服务器开发、Web开发等面向企业级应用所需的基础技术，是一项得到广泛认可的工作标准；但也有一些优秀的第三方平台或框架，如Spring、Spring Boot等，会更多的应用在企业级项目中</li>
-</ul>
-</li>
-<li>
-<p><strong>Java ME</strong>( Java Micro Edition )，嵌入式版本， 旧称J2ME</p>
-<ul>
-<li>支持java在移动设备和嵌入式设备（比如手机、PDA、电视机顶盒和打印机）上运行</li>
-<li>包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持</li>
-<li>基于Java ME规范的应用程序只需编写一次，就可以用于许多设备，而且可以利用每个设备的本机功能</li>
-</ul>
-</li>
-</ul>
+<p>根据不同的应用场景分为3个各有侧重的平台</p>
+<table>
+<thead>
+<tr>
+<th>Java SE（J2SE）</th>
+<th>Java EE（J2EE）</th>
+<th>Java ME（J2ME）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准版本</td>
+<td>企业版本</td>
+<td>嵌入式版本</td>
+</tr>
+<tr>
+<td>包含Java基础语法、核心技术等</td>
+<td>包含服务器开发、Web开发等面向企业级应用所需的基础技术</td>
+<td>包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对连网和离线应用程序的丰富支持</td>
+</tr>
+<tr>
+<td>多用于服务器、桌面、嵌入式环境和实时环境中使用的Java应用程序</td>
+<td>多用于开发服务器端Java应用程序，是在Java SE的基础上构建的，</td>
+<td>多用于移动设备和嵌入式设备上运行的Java应用程序</td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://pic.imgdb.cn/item/6617717368eb935713161dea.png" alt></p>
 <h3><span id="java语言特点">Java语言特点</span></h3>
-<ul>
-<li>
 <p><strong>解释型语言</strong></p>
 <ul>
 <li>本身是解释型语言， JVM将.class文件解释成操作系统指令执行，执行效率相对较低</li>
-<li>也具备编译型语言的特性，借助JIT，将热点代码编译了操作系统的指令，加速程序执行效率</li>
+<li>也具备编译型语言的特性，借助JIT（即时编译器Just In Time Compiler），将热点代码编译了操作系统的指令，加速程序执行效率</li>
 </ul>
-</li>
-<li>
 <p><strong>简单易用</strong></p>
 <ul>
-<li>Java 语言底层采用C<ins>语言实现，相对于C</ins>编程来说，使用Java语言编程更简单</li>
-<li>Java语言<strong>摈弃了C++中指针的操作</strong>，开发人员不需要再操作复杂的指针</li>
+<li>Java 语言底层采用C<ins>语言实现，但相对于C</ins>编程来说，Java语言<strong>摈弃了C++中指针的操作</strong>，开发人员不需要再操作复杂的指针</li>
 <li>面向对象的继承方面，也放弃了C++对多继承的支持，是<strong>只支持单继承</strong>，使得类间继承层次更直观</li>
-<li>另外，在编程语言的很多方面都进行了简化</li>
 </ul>
-</li>
-<li>
 <p><strong>面向对象</strong></p>
 <ul>
-<li>针对面向对象的设计与开发思想：封装、继承和多态，Java都提供了完整的语法支持</li>
-<li>是一门语法严谨的、完全的面向对象的编程语言</li>
+<li>为封装、继承和多态提供了完整的语法支持</li>
 </ul>
-</li>
-<li>
 <p><strong>健壮性</strong></p>
 <ul>
-<li>彻底解决了C++语言开发过程中，极容易产生的内存分配后，未释放，导致程序奔溃问题</li>
-<li>Java语言不再需要开发人员主动分配、释放内容，Java本身预留一条线程监测内存并自动申请或释放（GC机制）</li>
-<li>Java语言中引入了GC（ Garbage Collection ，垃圾回收）,由JVM自动进行对象资源分配、回收和生命周期管理，让开发人员更加关注于业务</li>
+<li>C++语言在开发过程中易产生内存分配后未释放从而导致程序奔溃问题，Java语言无需关注内存分配释放</li>
+<li>Java本身预留一条线程监测内存并自动申请或释放（GC机制）（ Garbage Collection ，垃圾回收）</li>
+<li>由JVM自动进行对象资源分配、回收和生命周期管理，让开发人员更加关注于业务</li>
 </ul>
-</li>
-<li>
 <p><strong>多线程</strong></p>
 <ul>
 <li>用于满足实际的企业业务中多个同时进行任务的并发工作，支持<strong>多条线程并发进行</strong></li>
 <li>并提供线程的安全机制</li>
 </ul>
-</li>
-<li>
 <p><strong>跨平台</strong></p>
 <ul>
 <li>基于强大的不同平台的JVM</li>
 <li>编写的Java源代码不依赖特定的操作系统平台（如Linux、Windows等），真正实现不依赖特定平台，Write Once,Run Anywhere</li>
 </ul>
 <p><img src="https://pic.imgdb.cn/item/6617733868eb935713172da2.png" alt></p>
-</li>
-</ul>
 <h3><span id="java基础概念">Java基础概念</span></h3>
-<ul>
-<li>
-<p><strong>JDK</strong>（Java Development Kit）</p>
-<ul>
-<li>Java开发工具包，主要供Java开发人员使用，安装于开发机器</li>
-<li>包含了JRE</li>
-<li>集成了很多开发、运维、监控工具，方便开发人员进行程序开发</li>
-</ul>
-</li>
-<li>
-<p><strong>JRE</strong>（Java Runtime Environment）</p>
-<ul>
-<li>Java运行环境，主要用于部署Java软件包</li>
-<li>可满足运行Java应用程序的需求，提供了Java软件基础的运行环境、基础依赖包等</li>
-<li>包括JVM以及一些Java基本类库</li>
-<li>多安装于生产、测试环境机器</li>
-</ul>
-</li>
-<li>
-<p><strong>JVM</strong>（Java Virtual Machine）</p>
-<ul>
-<li>Java虚拟机，是一种规范，类似于虚拟出一台计算设备，仿真进行各种运算，并实现软件功能</li>
-<li>Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行</li>
-<li>常见的虚拟机为HotSpot，通过java -version查看</li>
-<li>是一个运行时状态，一般一个Java软件的运行称之为一个JVM进程</li>
-<li>是Java跨平台的关键</li>
-</ul>
-</li>
-<li>
+<table>
+<thead>
+<tr>
+<th><strong>JDK</strong>（Java Development Kit）</th>
+<th><strong>JRE</strong>（Java Runtime Environment）</th>
+<th><strong>JVM</strong>（Java Virtual Machine）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java开发工具</td>
+<td>Java运行环境</td>
+<td>Java虚拟机</td>
+</tr>
+<tr>
+<td>供Java开发人员使用，安装于开发机器</td>
+<td>用于部署Java软件包，安装于生产、测试环境机器</td>
+<td>是一种规范，类似于虚拟出一台计算设备，仿真进行各种运算，并实现软件功能，  Java源代码经过编译后生成的字节码需要通过Java虚拟机才能在不同的操作系统环境下运行</td>
+</tr>
+<tr>
+<td>JRE+开发、运维、监控工具</td>
+<td>包括JVM以及一些Java基本类库</td>
+<td>常见的虚拟机为HotSpot，通过java -version查看 是一个运行时状态，一般一个Java软件的运行称之为一个JVM进程 是Java跨平台的关键</td>
+</tr>
+</tbody>
+</table>
 <p><strong>JDK、JRE、JVM之间的关系</strong></p>
 <img src="https://pic.imgdb.cn/item/6391e28cb1fccdcd363743c4.png" style="zoom:50%;">
-</li>
-<li>
-<p>JVM如何实现Java跨平台运行？</p>
+<p><strong>JVM如何实现Java跨平台运行？</strong></p>
 <ul>
 <li>对于不同的系统环境，提供了相对应的Java虚拟机</li>
 <li>JVM接收源代码编译后的字节码，屏蔽了操作系统下的底层运行原理</li>
 </ul>
 <img src="https://pic.imgdb.cn/item/6391d2a8b1fccdcd361c1520.png" alt="JVM实现原理" style="zoom: 50%;">
-</li>
-<li>
-<p><strong>JIT</strong>：即时编译器(Just In Time Compiler)，对于热点代码编译为本地代码，提高执行效率；主要用于弥补Java语言是解释型语言，执行效率低的不足</p>
-</li>
-<li>
-<p><strong>javac命令</strong>：将.java源文件编译中.class字节码文件，如：javac com/bjpowernode/demo/HelloWorld.java</p>
-<ul>
-<li>
-<p>在当前目录下进行编译，并在当前目录下生成test01.class字节码文件</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/130bf3bc382780ee.png" alt></p>
-</li>
-<li>
-<p>在其他路径下通过绝对路径进行编译，仍在源码文件所在目录下生成字节码文件</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/782b383f69589ba7.png" alt></p>
-</li>
-<li>
-<p>在1、2的基础上，使用-d 指定字节码文件生成目录</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/af54a909625867df.png" alt></p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>java命令</strong>：</p>
-<ul>
-<li>
-<p>基于JRE在操作系统解释执行.class字节码文件，如java com.bjpowernode.demo.HelloWorld</p>
-<ol>
-<li>
-<p>一般情况下，在当前目录下编译后会同时生成字节码文件，可通过当前路径执行</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/7f4e27cb96dcc047.png" alt></p>
-</li>
-<li>
-<p>无法通过绝对路径找到类文件并执行</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/02/02/b2dce9cb62d3b626.png" alt></p>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
 <h4><span id="dos">DOS</span></h4>
 <ul>
 <li>磁盘操作系统（ Disk Operating System ），体积小，提供命令式的交互</li>
-<li>部分资源以一定形式保存在硬盘中，通常称为<strong>文件</strong></li>
-<li>具备很多交互命令，一般的软件开发人员需要掌握常用的，</li>
-<li>在企业级应用中，服务器多为Linux系列，只提供命令式的交互，需要学习常用的Linux使用，与DOS命令方式类似；熟悉DOS命令，为以后学习Linux命令打下基础</li>
-</ul>
-<h4><span id="文件名与扩展名">文件名与扩展名</span></h4>
-<ul>
-<li>文件是以计算机硬盘为载体，存储在计算机上的信息集合，文件可以是文本、图片、音频、视频、程序等</li>
-<li>文件名称主要由主文件名和扩展名组成，主文件名用于描述特征，扩展名用于划分文件类别，如：张三简历.pdf、工资表.xlsx、备忘.txt、hello.java、hello.class等</li>
-<li>Java开发过程中，源代码文件必须是.java，编译后的字节码文件将会是.class</li>
-</ul>
-<h4><span id="windows中使用命令行模式">Windows中使用命令行模式</span></h4>
-<ul>
-<li>方式1：按住Win键+R，在运行窗口中输出cmd，会进入命令提示符窗口（一般Win键在键盘左下角Ctrl和Alt之间）</li>
-<li>方式2：点击开始菜单-&gt;所有应用-&gt;Windows系统-&gt;命令提示符，进入命令提示符窗口</li>
-<li>方式3：在资源管理器目录上输入cmd命令，也能快速进入命令提示符窗口，且当前目录为输入cmd命令时的目录</li>
+<li>是Microsoft公司在Windows之前推出的一个操作系统，是单用户、单任务（即只能执行一个任务）的操作系统</li>
 </ul>
 <h4><span id="常用的dos命令">常用的DOS命令</span></h4>
 <ul>
 <li>Windows系统下常用的可作为命令有系统命令、.exe（可执行文件）、.bat（批处理文件）等</li>
-<li><strong>注意</strong>：要把系统默认隐藏扩展名的去掉</li>
-<li>路径（目录）相关概念
-<ul>
 <li>绝对路径，从盘符开始的路径，如c:\windows\system32\regedit32.exe、d:\temp\hello.java</li>
 <li>相对路径，从当前路径（.）开始的路径，如当前路径（目录）是d:\，hello.java文件是相对路径为.\temp\hello.java</li>
 <li>.，表示当前目录</li>
 <li>…，表示上一级目录</li>
-</ul>
-</li>
 </ul>
 <table>
 <thead>
@@ -491,6 +388,68 @@
 <p>一般而言，对于要编译运行的代码会在当前路径进行，因此，CLASSPATH一般不需要配置</p>
 <p><strong>CLASSPATH中为什么要有当前路径</strong></p>
 <p>因为未配置CLASSPATH会从当前目录下找字节码文件，而<strong>配置了CLASSPATH后只会从CLASSPATH的路径下寻找</strong></p>
+<h3><span id="java基本语法规则">Java基本语法规则</span></h3>
+<ul>
+<li>
+<p>源代码文件扩展名为.java，字节码文件扩展名为.class</p>
+</li>
+<li>
+<p>一个源代码文件中，最少有一个类，建议<strong>类名与文件名相同</strong>，<strong>且为public</strong></p>
+</li>
+<li>
+<p>代码以行为单位执行**，<strong>每行代码以分号&quot;;&quot;结尾</strong>**</p>
+</li>
+<li>
+<p>一般的项目都有一个启动类，即该类有一个main方法；此main方法必须与下面的代码一模一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>运行程序时，直接使用java命令运行main方法所在的类即可</p>
+</li>
+</ul>
+<h3><span id="常见的输出语句">常见的输出语句</span></h3>
+<p>向控制台（命令行）输出内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出内容，并换行</span></span><br><span class="line">System.out.println(输出内容);</span><br><span class="line"><span class="comment">//输出内容，完毕后不做任何处理</span></span><br><span class="line">System.out.print(输出内容);</span><br></pre></td></tr></table></figure>
+<h3><span id="开发第一个java程序">开发第一个Java程序</span></h3>
+<h4><span id="helloworld类">HelloWorld类</span></h4>
+<ul>
+<li>Java源代码编写完成后，并不能直接运行，需要使用<strong>javac</strong>命令编译成.class文件后，才能使用<strong>java</strong>命令运行</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
+<ol>
+<li>
+<p><strong>编译</strong>，使用javac命令进行编译（编译源文件），编译成功，会在.java文件目录生成一个字节码文件HelloWorld.class，失败会提示编译时异常信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译.java源代码文件，会输出同名的.class字节码文件</span></span><br><span class="line">javac HelloWorld.java</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如果编译时报乱码异常，可以带-encoding UTF-8指定编码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">javac HelloWorld.java -encoding UTF-8</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">【一般情况下，编译后会在源文件所在的位置生成字节码文件，也可以使用-d 指定字节码文件生成目录】</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>运行</strong>，使用java命令进行运行（运行的是类）运行成功，输出期待的内容”你好，世界！“运行失败，会提示运行时异常信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行类，该类在编译后的.class字节码文件中，必须具有main方法</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行时，JVM会从CLASS_PATH中配置的路径查找指定的字节码文件</span></span><br><span class="line">java HelloWorld</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>查看结果</strong>，如果运行成功，将会输出如下信息</p>
+<p><img src="https://pic.imgdb.cn/item/6617d27e68eb935713c74ca0.png" alt></p>
+</li>
+</ol>
+<h3><span id="带包和参数的java程序">带包和参数的Java程序</span></h3>
+<ul>
+<li>
+<p>在后续的应用中，类都会规划在包中，其作用类似于目录（文件夹），并且有要求：</p>
+<ul>
+<li>
+<p><strong>包层次与目录层次相匹配</strong>，如定义的包为<strong>com.bjpowernode.demo</strong>，则.class字节码文件目录必须在目录<strong>com\bjpowernode\demo</strong>下</p>
+</li>
+<li>
+<p><strong>java命令执行要求</strong>，执行时必须在包对应目录外，并且类前要带包名；如上图，执行时，需要在d:\temp目录下运行类</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>示例代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorldForParam</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span>&#123;</span><br><span class="line">        <span class="comment">//标准输出，表示从运行程序的控制台输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">        <span class="comment">//可以传递参数给main方法</span></span><br><span class="line">		System.out.println(args[<span class="number">0</span>]);</span><br><span class="line">		System.out.println(args[<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译和运行命令，注意目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译，将.java源代码文件编译成.class字节码文件</span></span><br><span class="line">javac .\com\bjpowernode\demo\HelloWorldForParam.java</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行，运行.class字节码文件中类（带main入口方法的类）</span></span><br><span class="line">java com.bjpowernode.demo.HelloWorldForParam</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<p><img src="https://pic.imgdb.cn/item/6617d58768eb935713ca3aee.png" alt></p>
 <p><strong>当两个类被分别放在不同目录下，但两个类之间存在调用另一个类的方法，如何使两个类正常运行？</strong>【扩展】</p>
 <p>D:\com\dbc下创建Test1.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;11111111&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -528,226 +487,19 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dbc.test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> com.dbc.Test1.show;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test01</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        show();	<span class="comment">//直接通过方法名访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3><span id="开发第一个java程序">开发第一个Java程序</span></h3>
-<h4><span id="1-编写helloworldjava源代码">1、编写HelloWorld.java源代码</span></h4>
-<ul>
-<li>新建一个Java源文件HelloWorld.java，要注意：Java源代码文件的扩展名为.java，并且是一个文本文件（即与.txt文件一样）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span>&#123;</span><br><span class="line">        <span class="comment">//标准输出，表示从运行程序的控制台输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<ul>
-<li>public: 访问控制修饰符，public表示任意地方都可以访问</li>
-<li>class：声明类的关键字</li>
-<li>HelloWorld: 类名</li>
-<li>static: 静态特性修饰符，修改方法表示静态方法</li>
-<li>void: 表示无返回值</li>
-<li>main: java程序或应用的入口方法（函数），一般的非组件类型的项目，都会有一个main入口方法</li>
-<li>String [ ] args：参数数组</li>
-<li>System.out.println：打印到控制台的方法</li>
-<li>“Hello World”：打印字符串</li>
-</ul>
-<h4><span id="2-运行helloworld类">2、运行HelloWorld类</span></h4>
-<ul>
-<li>
-<p>Java源代码编写完成后，并不能直接运行，需要使用<strong>javac</strong>命令编译成.class文件后，才能使用<strong>java</strong>命令运行</p>
-</li>
-<li>
-<p>具体的过程如下图</p>
-<p><img src="https://pic.imgdb.cn/item/6617d26168eb935713c71cdb.png" alt></p>
-</li>
-</ul>
-<ol>
-<li>
-<p><strong>编译</strong>，使用javac命令进行编译（编译源文件），编译成功，会在.java文件目录生成一个字节码文件HelloWorld.class，失败会提示编译时异常信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译.java源代码文件，会输出同名的.class字节码文件</span></span><br><span class="line">javac HelloWorld.java</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如果编译时报乱码异常，可以带-encoding UTF-8指定编码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">javac HelloWorld.java -encoding UTF-8</span></span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>运行</strong>，使用java命令进行运行（运行的是类）运行成功，输出期待的内容”你好，世界！“运行失败，会提示运行时异常信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行类，该类在编译后的.class字节码文件中，必须具有main方法</span></span><br><span class="line">java HelloWorld</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>查看结果</strong>，如果运行成功，将会输出如下信息</p>
-<p><img src="https://pic.imgdb.cn/item/6617d27e68eb935713c74ca0.png" alt></p>
-</li>
-</ol>
-<h3><span id="带包和参数的java程序">带包和参数的Java程序</span></h3>
-<ul>
-<li>
-<p>在后续的应用中，类都会规划在包中，其作用类似于目录（文件夹），并且有要求：</p>
-<ul>
-<li>
-<p><strong>包层次与目录层次相匹配</strong>，如定义的包为<strong>com.bjpowernode.demo</strong>，则.class字节码文件目录必须在目录<strong>com\bjpowernode\demo</strong>下；如下图的.java源代码文件中指定了com.bjpowernode.demo包，则需要将.class字节码文件放置于绕圈所在目录下</p>
-<img src="images/第一个Java程序-带包和参数的Java程序-目录要求.jpg">
-</li>
-<li>
-<p><strong>java命令执行要求</strong>，执行时必须在包对应目录外，并且类前要带包名；如上图，执行时，需要在d:\temp目录下运行类</p>
-</li>
-</ul>
-</li>
-<li>
-<p>同时，运行程序的时候，还可以传递参数给到main方法</p>
-</li>
-</ul>
-<p>示例代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorldForParam</span>&#123;  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String [] args)</span>&#123;</span><br><span class="line">        <span class="comment">//标准输出，表示从运行程序的控制台输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">		System.out.println(args[<span class="number">0</span>]);</span><br><span class="line">		System.out.println(args[<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译和运行命令，注意目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译，将.java源代码文件编译成.class字节码文件</span></span><br><span class="line">javac .\com\bjpowernode\demo\HelloWorldForParam.java</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">运行，运行.class字节码文件中类（带main入口方法的类）</span></span><br><span class="line">java com.bjpowernode.demo.HelloWorldForParam</span><br></pre></td></tr></table></figure>
-<p>输出结果</p>
-<p><img src="https://pic.imgdb.cn/item/6617d58768eb935713ca3aee.png" alt></p>
-<h3><span id="java程序执行过程">Java程序执行过程</span></h3>
-<ul>
-<li>需要<strong>先安装JDK或JRE</strong></li>
-<li>分<strong>编译阶段</strong>和<strong>运行阶段</strong></li>
-<li>Java程序的<strong>源代码</strong>都写<strong>在以.java作为扩展名的源代码文件中</strong></li>
-<li>编写好的.java源代码文件，并不能直接运行；需要使用<strong>javac命令将.java源代码文件编译成.class字节码文件</strong></li>
-<li>然后，使用java命令运行.class字节<strong>码文件中的入口类</strong>（带main方法的类）</li>
-</ul>
-<p><img src="https://pic.imgdb.cn/item/6393113db1fccdcd36e17411.png" alt="执行过程"></p>
-<h3><span id="java基本语法规则">Java基本语法规则</span></h3>
-<ul>
-<li>
-<p>源代码文件扩展名为.java，字节码文件扩展名为.class</p>
-</li>
-<li>
-<p>一个源代码文件中，最少有一个类，建议<strong>类名与文件名相同</strong>，<strong>且为public</strong></p>
-</li>
-<li>
-<p>代码以行为单位执行**，每行代码以分号&quot;;&quot;结尾**</p>
-</li>
-<li>
-<p>一般的<strong>项目都有一个启动类</strong>，即该类有一个<strong>main方法</strong>；此main方法必须与下面的代码一模一样</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>运行程序时，直接使用java命令运行main方法所在的类即可</p>
-</li>
-</ul>
-<h3><span id="systemout">System.out</span></h3>
-<p>标准输出流，用于向控制台（命令行）输出内容</p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>println</td>
-<td>输出一行文本，并换行</td>
-</tr>
-<tr>
-<td>print</td>
-<td>输出文本，不换行</td>
-</tr>
-</tbody>
-</table>
 <h2><span id="第3章-intellij-idea">第3章-IntelliJ IDEA</span></h2>
-<h3><span id="ide简介">IDE简介</span></h3>
+<h3><span id="ideintegrated-development-environment">IDE（Integrated Development Environment）</span></h3>
 <ul>
-<li>IDE（Integrated Development Environment），集成开发环境， 是用于工程化的软件开发的工具</li>
-<li>在开发中大型的多人协同的项目时，一个项目可能有几十、上百个各类文件需要开发和管理，普通的文本编辑器，不足以胜任这类项目的开发，需要专业的IDE，常见的IDE有IntelliJ IDEA、Eclipse、VS Code等</li>
-<li>一般的IDE都提供或集成丰富的功能，以加速开发人员的效率，包括项目管理、源代码管理、自动备份、自动补全、语法检查等</li>
+<li>集成开发环境， 是用于工程化的软件开发的工具（项目管理、源代码管理、自动备份、自动补全、语法检查等功能）</li>
+<li>在开发中大型的多人协同的项目时，一个项目可能有几十、上百个各类文件需要开发和管理</li>
+<li>常见的IDE有IntelliJ IDEA、Eclipse、VS Code等</li>
 </ul>
 <h3><span id="intellij-idea简介">IntelliJ IDEA简介</span></h3>
 <ul>
 <li>为开发人员提供丰富的功能，包括各类项目模板、智能代码助手、代码自动提示、重构、Java EE支持、各类版本工具集成(git、svn等)、代码分析、 创新的GUI设计等方面</li>
-<li>为后续的各类项目学习提供模板支持，如Spring、Spring Boot等</li>
-</ul>
-<h3><span id="intellij-idea安装">IntelliJ IDEA安装</span></h3>
-<ul>
-<li>付费</li>
-<li>版本更新迭代快</li>
-<li>官网：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a></li>
-</ul>
-<h3><span id="intellij-idea创建一个新项目">IntelliJ IDEA创建一个新项目</span></h3>
-<ol>
-<li>
-<p>打开IntelliJ IDEA，第一次打开，会进入欢迎界面，同时提示是创建还是打开项目；后续打开，则会直接进入IDEA主界面；然后，点击”Create New Project&quot;按钮</p>
-</li>
-<li>
-<p>进入新项目界面，可以选择JDK版本、项目模板、额外的依赖包和框架，其中会将本地安装的JDK版本都列出来，此时，可配置如下选项；选择好后，点击“Next”按钮</p>
-<ol>
-<li>
-<p>选择JDK版本，在顶部Project SDK使用1.8版本即可</p>
-</li>
-<li>
-<p>选择左侧项目类型，基础阶段选择Java，也可以选择Empty Project</p>
-</li>
-<li>
-<p>根据选择的项目类型，还可以添加额外的依赖包和框架，不选择</p>
-</li>
-</ol>
-</li>
-<li>
-<p>进入选择模板界面，勾选“Create project from template”，并选中模板列表中的”Command Line App“；此模板会创建一个默认的Main类，类中会带一个入口的main方法；选择好后，点击”Next“</p>
-</li>
-<li>
-<p>进入项目信息输入界面，分别输入如下内容；输入好后，点击”Finish&quot;</p>
-<ol>
-<li>项目名称，输入一个符合需求的项目名称，如my-first-project</li>
-<li>项目路径，规划一个合理的项目文件存放位置，并使用项目名称做为项目的根目录，如在d:\project\java目录下创建项目，完成的项目代码放置于d:\project\java\my-first-project目录下</li>
-<li>包，规划一个合理的包，一般用域名的倒置，加上项目名称；后面会讲</li>
-</ol>
-<p><img src="https://pic.imgdb.cn/item/6617d98868eb935713d3910f.png" alt></p>
-</li>
-<li>
-<p>此时，一个工程化的命令行项目就已经创建完成；其中左侧就列出了项目的所有工程化的内容</p>
-<ol>
-<li>
-<p>src目录，主要的开发目录，一般规划有包，包下面规划有类，如自动生成的Main类</p>
-</li>
-<li>
-<p>.idea目录，IDEA项目辅助目录，不要修改</p>
-</li>
-<li>
-<p>my-first-project.iml文件，项目或模块信息，不要修改或删除</p>
-</li>
-<li>
-<p>External Libraries项，列出了当前项目的所有第三方依赖信息</p>
-<p><img src="https://pic.imgdb.cn/item/6617d9b768eb935713d3bf67.png" alt></p>
-</li>
-</ol>
-</li>
-</ol>
-<h3><span id="intellij-idea-编写代码">IntelliJ IDEA 编写代码</span></h3>
-<ul>
-<li>
-<p>在打开的Main.java文件中，已经生成了一个模板，包含main入口方法</p>
-</li>
-<li>
-<p>在main方法中，可编写Java代码，如写入如下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bjpowernode.demo;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="comment">// write your code here</span></span><br><span class="line">        System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3><span id="intellij-idea运行代码">IntelliJ IDEA运行代码</span></h3>
-<ul>
-<li>
-<p>IDEA中对于带有main方法的入口类，都会在类上标识一个可运行箭头，直接右键选择&quot;Run…&quot;，即可运行</p>
-</li>
-<li>
-<p>运行后，将会在底部的运行窗口，输出：“你好，世界！”</p>
-</li>
-<li>
-<p>如果提示”<span style="color:red;">Error:java: 无效的源发行版: 11</span>“错误，点击File-&gt;Project Structure…菜单，在弹窗中，修改指定项目的Project language level为8</p>
-<p><img src="https://pic.imgdb.cn/item/6617da7768eb935713d51f82.png" alt></p>
-</li>
-<li>
-<p>此过程相当于执行了javac、java两个命令</p>
-</li>
-<li>
-<p>注意：观察源代码目录中的如下内容：</p>
-<ul>
-<li>src目录，包与目录层次匹配特点</li>
-<li>out目录，运行时，会动态生成该目录，以及目录下的.class字节码文件</li>
-</ul>
-</li>
 </ul>
 <h3><span id="intellij-idea主要界面">IntelliJ IDEA主要界面</span></h3>
 <ul>
-<li>
-<p>作为开发过程经持续使用的工具，熟悉主要界面和常用功能，十分重要</p>
-</li>
 <li>
 <p>主要由菜单区、项目文件区、代码编写区和辅助功能区组成，提供一个高效的项目开发工具</p>
 <ul>
@@ -1065,32 +817,25 @@
 </tbody>
 </table>
 <h2><span id="第4章-java基础语法">第4章-Java基础语法</span></h2>
+<h3><span id="java-api文档">Java API文档</span></h3>
+<ul>
+<li>API （Application Programming Interface，应用程序编程接口）是 Java 提供的基本编程接口（即为JDK使用说明书、帮助文档）</li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/">在线看</a></li>
+</ul>
 <h3><span id="注释">注释</span></h3>
-<h4><span id="概述">概述</span></h4>
+<p>在源文件中用于解释、说明程序的文字</p>
 <ul>
-<li>注释是一个项目重要的组成部分，增加代码的可阅读性、可维护性</li>
-<li>在重要的类、方法、变量、代码块前面，优秀的开发人员都会添加注释</li>
 <li>注释并不是越多越好，先争取使用代码就能表达相应的需求，再辅助以注释</li>
-<li>只用于程序源代码，不会带入.class字节码，更不会影响程序逻辑</li>
+<li>只用于程序源代码，不会带入.class字节码，进而不会被JVM（java虚拟机）解释执行</li>
 </ul>
-<h4><span id="注释分类">注释分类</span></h4>
-<ul>
-<li>
-<p><strong>文档注释/类注释</strong>，用于描述整个文件或类；以/**开始，以*/结尾</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>	指定java程序的作者</span></span><br><span class="line"><span class="comment"><span class="doctag">@version</span> 指定源文件的版本</span></span><br><span class="line"><span class="comment"><span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档。</p>
-<p>操作方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>多行注释</strong>，用于解释一段代码的作用；以/*开始，以*/结尾（多行注释中不能有多行注释嵌套）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">          下面一段代码主要是做控制台输出</span></span><br><span class="line"><span class="comment">           比如会输出“你好，世界！”</span></span><br><span class="line"><span class="comment">           --多行注释</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>单行注释</strong>，用于解释一行代码的作用，可置于一行的前面或代码的后面；以//开始</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//输出“你好，世界！”--单行注释</span></span><br><span class="line">        System.out.println(<span class="string">&quot;你好，世界！&quot;</span>);       <span class="comment">//输出“你好，世界！”--单行注释</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p><strong>单行注释</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注释文字</span></span><br></pre></td></tr></table></figure>
+<p><strong>多行注释</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">注释文字1 </span></span><br><span class="line"><span class="comment">注释文字2</span></span><br><span class="line"><span class="comment">注释文字3</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>文档注释/类注释</strong>，用于描述整个文件或类；以/**开始，以*/结尾（不能有多行注释嵌套）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  <span class="doctag">@author</span>  指定java程序的作者</span></span><br><span class="line"><span class="comment">  <span class="doctag">@version</span>  指定源文件的版本</span></span><br><span class="line"><span class="comment">  <span class="doctag">@since</span> 自从哪个版本号开始就存在了</span></span><br><span class="line"><span class="comment">*/</span> </span><br></pre></td></tr></table></figure>
+<p>注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的程序的说明文档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc –d mydoc –author –version FileName.java</span><br></pre></td></tr></table></figure>
 <h3><span id="关键字">关键字</span></h3>
 <ul>
 <li>被Java语言赋予特殊含义的字符串（或单词）</li>
@@ -1311,17 +1056,6 @@
 <p><strong>整数类型</strong>：byte、short、int、long</p>
 <ul>
 <li>byte类型占用1个字节（B）即8位（bit），一共可以表示2的八次方个数即256个，其中首位为符号位，因此可以表示最大最小的数分别为：0111 1111(127)、1111 1111(-127)，从-127到127只有255个数，其中还有1000 0000（-0）表示成-128</li>
-<li>补充：
-<ul>
-<li>字节（Byte），计算机存储容量的最小单位，一个字节等于8bit</li>
-<li>位（bit），数据存储的最小单位，二进制数系统中，每个位可以表示1个 0 或 1</li>
-<li>8 bit = 1 Byte</li>
-<li>1024 Byte = 1KB</li>
-<li>1024 KB = 1MB</li>
-<li>1024 MB = 1GB</li>
-<li>1024 GB = 1 TB</li>
-</ul>
-</li>
 </ul>
 <p><strong>浮点类型</strong>：float、double</p>
 <ul>
@@ -6895,10 +6629,71 @@ has a 是如果A中有B，那么，B就是A的组成部分</p>
 <li>jmap：可以将服务器的java进程的堆空间生成dump进程内存镜像文件，并使用jvisualvm进行分析</li>
 </ul>
 <p><span style="color:red;font-weight:bold;">注意：不同Java版本，垃圾回收机制并不相同，后续版本还有并行、并发等回收机制，在性能上有提升，可扩展学习</span></p>
-<h3><span id="实战和作业"><span style="font-weight:bold;color:green;">实战和作业</span></span></h3>
 <ol>
-<li>熟悉JVM结构，并能大概描述其主要组成部分</li>
-<li>了解垃圾回收机制的过程</li>
+<li>
+<h2><span id="14-java核心机制jvm">14. Java核心机制：JVM</span></h2>
+<h3><span id="141-java语言的优缺点">14.1 Java语言的优缺点</span></h3>
+<h4><span id="1411-优点">14.1.1 优点</span></h4>
+<ul>
+<li>**跨平台性：**这是Java的核心优势。Java在最初设计时就很注重移植和跨平台性。比如：Java的int永远都是32位。不像C++可能是16，32，可能是根据编译器厂商规定的变化。</li>
+<li>通过Java语言编写的应用程序在不同的系统平台上都可以运行。“<code>Write once , Run Anywhere</code>”。</li>
+<li>原理：只要在需要运行 java 应用程序的操作系统上，先安装一个Java虚拟机 (<code>J</code>VM ，Java <code>V</code>irtual <code>M</code>achine) 即可。由JVM来负责Java程序在该系统中的运行。</li>
+</ul>
+<img src="/post/Java%E5%9F%BA%E7%A1%80/Users\Administrator\Downloads\JavaLearn-master\尚硅谷_第01章_Java语言概述\images\JVM的跨平台性-1666858570703.jpg" alt="JVM的跨平台性" style="zoom:70%;">
+<p><img src="/post/Java%E5%9F%BA%E7%A1%80/C:%5CUsers%5CAdministrator%5CDownloads%5CJavaLearn-master%5C%E5%B0%9A%E7%A1%85%E8%B0%B7_%E7%AC%AC01%E7%AB%A0_Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0%5Cimages%5Cimage-20211217111217831.png" alt="image-20211217111217831"></p>
+<ul>
+<li>
+<p><strong>面向对象性：</strong></p>
+<p>面向对象是一种程序设计技术，非常<code>适合大型软件的设计和开发</code>。面向对象编程支持封装、继承、多态等特性，让程序更好达到<code>高内聚</code>，<code>低耦合</code>的标准。</p>
+</li>
+<li>
+<p>**健壮性：**吸收了C/C++语言的优点，但去掉了其影响程序健壮性的部分（如指针、内存的申请与释放等），提供了一个相对安全的内存管理和访问机制。</p>
+</li>
+<li>
+<p><strong>安全性高：</strong></p>
+<p>Java适合于网络/分布式环境，需要提供一个安全机制以防恶意代码的攻击。如：<code>安全防范机制</code>（ClassLoader类加载器），可以分配不同的命名空间以防替代本地的同名类、字节代码检查。</p>
+</li>
+<li>
+<p><strong>简单性：</strong></p>
+<p>Java就是C++语法的<code>简化版</code>，我们也可以将Java称之为“<code>C++--</code>”。比如：头文件，指针运算，结构，联合，操作符重载，虚基类等。</p>
+</li>
+<li>
+<p><strong>高性能：</strong></p>
+<ul>
+<li>
+<p>Java最初发展阶段，总是被人诟病“<code>性能低</code>”；客观上，高级语言运行效率总是低于低级语言的，这个无法避免。Java语言本身发展中通过虚拟机的优化提升了<code>几十倍运行效率</code>。比如，通过JIT(JUST IN TIME)即时编译技术提高运行效率。</p>
+</li>
+<li>
+<p><code>Java低性能的短腿，已经被完全解决了</code>。业界发展上，我们也看到很多C<ins>应用转到Java开发，很多C</ins>程序员转型为Java程序员。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4><span id="1412-缺点">14.1.2 缺点</span></h4>
+<ul>
+<li><code>语法过于复杂、严谨</code>，对程序员的约束比较多，与python、php等相比入门较难。但是一旦学会了，就业岗位需求量大，而且<code>薪资待遇节节攀升</code>。</li>
+<li>一般适用于大型网站开发，<code>整个架构会比较重</code>，对于初创公司开发和维护人员的成本比较高（即薪资高），选择用Java语言开发网站或应用系统的需要一定的经济实力。</li>
+<li><code>并非适用于所有领域</code>。比如，Objective C、Swift在iOS设备上就有着无可取代的地位。浏览器中的处理几乎完全由JavaScript掌控。Windows程序通常都用C++或C#编写。Java在服务器端编程和跨平台客户端应用领域则很有优势。</li>
+</ul>
+<h3><span id="142-jvm功能说明">14.2 JVM功能说明</span></h3>
+<p><strong>JVM</strong>（<code>J</code>ava <code>V</code>irtual <code>M</code>achine ，Java虚拟机）：是一个虚拟的计算机，是Java程序的运行环境。JVM具有指令集并使用不同的存储区域，负责执行指令，管理数据、内存、寄存器。</p>
+<img src="/post/Java%E5%9F%BA%E7%A1%80/Users\Administrator\Downloads\JavaLearn-master\尚硅谷_第01章_Java语言概述\images\image-20220310165805739.png" alt="image-20220310165805739" style="zoom:67%;">
+<h4><span id="1421-功能1实现java程序的跨平台性">14.2.1 功能1：实现Java程序的跨平台性</span></h4>
+<p>我们编写的Java代码，都运行在<strong>JVM</strong> 之上。正是因为有了JVM，才使得Java程序具备了跨平台性。</p>
+<img src="/post/Java%E5%9F%BA%E7%A1%80/Users\Administrator\Downloads\JavaLearn-master\尚硅谷_第01章_Java语言概述\images\image-20220513191856727.png" alt="image-20220513191856727" style="zoom:50%;">
+<p>使用JVM前后对比：</p>
+<p><img src="/post/Java%E5%9F%BA%E7%A1%80/C:%5CUsers%5CAdministrator%5CDownloads%5CJavaLearn-master%5C%E5%B0%9A%E7%A1%85%E8%B0%B7_%E7%AC%AC01%E7%AB%A0_Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0%5Cimages%5Cimage-20220514151716805.png" alt="image-20220514151716805"></p>
+<h4><span id="1422-功能2自动内存管理内存分配-内存回收">14.2.2 功能2：自动内存管理(内存分配、内存回收)</span></h4>
+<ul>
+<li>Java程序在运行过程中，涉及到运算的<code>数据的分配</code>、<code>存储</code>等都由JVM来完成</li>
+<li>Java消除了程序员回收无用内存空间的职责。提供了一种系统级线程跟踪存储空间的分配情况，在内存空间达到相应阈值时，检查并释放可被释放的存储器空间。</li>
+<li>GC的自动回收，提高了内存空间的利用效率，也提高了编程人员的效率，很大程度上<code>减少了</code>因为没有释放空间而导致的<code>内存泄漏</code>。</li>
+</ul>
+<blockquote>
+<p>面试题：</p>
+<p>Java程序还会出现内存溢出和内存泄漏问题吗？  Yes!</p>
+</blockquote>
+</li>
 </ol>
 <h2><span id="第20章-补充">第20章-补充</span></h2>
 <h3><span id="传值和传引用">传值和传引用</span></h3>

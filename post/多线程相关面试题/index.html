@@ -1287,7 +1287,7 @@
 </ul>
 <img src="https://pic.imgdb.cn/item/668810b6d9c307b7e98637cf.png" style="zoom:50%;">
 <p>每一个Thread维护一个ThreadLocalMap，在ThreadLocalMap中的Entry对象继承了WeakReference。其中key为使用弱引用的ThreadLocal实例，value为线程变量的副本</p>
-<p><img src="/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9B%B8%E5%85%B3%E9%9D%A2%E8%AF%95%E9%A2%98/C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20240705232702659.png" alt="image-20240705232702659"></p>
+<p><img src="https://pic.imgdb.cn/item/66b0ff1cd9c307b7e9b5f591.png" alt></p>
 <p>在使用ThreadLocal的时候，强烈建议：<strong>务必手动remove</strong></p>
 <h2><span id="6-真实面试还原">6 真实面试还原</span></h2>
 <h3><span id="61-线程的基础知识">6.1 线程的基础知识</span></h3>
@@ -1313,7 +1313,6 @@
 <p>在java中一共有四种常见的创建方式，分别是：继承Thread类、实现runnable接口、实现Callable接口、线程池创建线程。通常情况下，我们项目中都会采用线程池的方式创建线程。</p>
 <p><strong>面试官</strong>：好的，刚才你说的runnable 和 callable 两个接口创建线程有什么不同呢？</p>
 <p><strong>候选人：</strong></p>
-<p>是这样的~</p>
 <p>最主要的两个线程一个是有返回值，一个是没有返回值的。</p>
 <p>Runnable 接口run方法无返回值；Callable接口call方法有返回值，是个泛型，和Future、FutureTask配合可以用来获取异步执行的结果</p>
 <p>还有一个就是，他们异常处理也不一样。Runnable接口run方法只能抛出运行时异常，也无法捕获处理；Callable接口call方法允许抛出异常，可以获取异常信息</p>
@@ -1558,24 +1557,21 @@
 <p>我当时做了一个文章搜索的功能，用户输入关键字要搜索文章，同时需要保存用户的搜索记录（搜索历史），这块我设计的时候，为了不影响用户的正常搜索，我们采用的异步的方式进行保存的，为了提升性能，我们加入了线程池，也就说在调用异步方法的时候，直接从线程池中获取线程使用</p>
 </blockquote>
 <h3><span id="65-其他">6.5 其他</span></h3>
-<blockquote>
-<p><strong>面试官</strong>：谈谈你对ThreadLocal的理解</p>
-<p><strong>候选人</strong>：</p>
-<p>嗯，是这样的~~</p>
-<p>ThreadLocal 主要功能有两个，第一个是可以实现资源对象的线程隔离，让每个线程各用各的资源对象，避免争用引发的线程安全问题，第二个是实现了线程内的资源共享</p>
-<p><strong>面试官</strong>：好的，那你知道ThreadLocal的底层原理实现吗？</p>
-<p><strong>候选人</strong>：</p>
-<p>嗯，知道一些~</p>
-<p>在ThreadLocal内部维护了一个一个 ThreadLocalMap 类型的成员变量，用来存储资源对象</p>
-<p>当我们调用 set 方法，就是以 ThreadLocal 自己作为 key，资源对象作为 value，放入当前线程的 ThreadLocalMap 集合中</p>
+<p><strong>谈谈你对ThreadLocal的理解</strong></p>
+<p>ThreadLocal 主要功能有两个：</p>
+<ol>
+<li>为每个线程提供了各自的线程副本，使得每个线程能够独立的访问和修改各自的资源对象，避免了多线程竞争资源引发的线程安全问题</li>
+<li>实现了线程内的资源共享</li>
+</ol>
+<p>第一个是可以实现资源对象的线程隔离，让每个线程各用各的资源对象，避免争用引发的线程安全问题</p>
+<p><strong>你知道ThreadLocal的底层原理实现吗？</strong></p>
+<p>在ThreadLocal内部维护了一个 ThreadLocalMap 类型的成员变量，用来存储资源对象</p>
+<p>当我们调用 set 方法，就是以 ThreadLocal 自己 作为 key，资源对象作为 value，放入当前线程的 ThreadLocalMap 集合中</p>
 <p>当调用 get 方法，就是以 ThreadLocal 自己作为 key，到当前线程中查找关联的资源值</p>
 <p>当调用 remove 方法，就是以 ThreadLocal 自己作为 key，移除当前线程关联的资源值</p>
-<p><strong>面试官</strong>：好的，那关于ThreadLocal会导致内存溢出这个事情，了解吗？</p>
-<p><strong>候选人</strong>：</p>
-<p>嗯，我之前看过源码，我想一下~~</p>
+<p>关于ThreadLocal会导致内存溢出这个事情，了解吗？</p>
 <p>是应为ThreadLocalMap 中的 key 被设计为弱引用，它是被动的被GC调用释放key，不过关键的是只有key可以得到内存释放，而value不会，因为value是一个强引用。</p>
 <p>在使用ThreadLocal 时都把它作为静态变量（即强引用），因此无法被动依靠 GC 回收，建议主动的remove 释放 key，这样就能避免内存溢出。</p>
-</blockquote>
 <p>一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行</p>
 <h2><span id="什么是多进程-多线程">什么是多进程、多线程？</span></h2>
 <ul>
